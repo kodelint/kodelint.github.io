@@ -1,0 +1,87 @@
+projects:
+  - title: Terraform Provider for AWS with Additional features
+    img: /assets/uploads/01-Terraform-AWS.png
+    about: This is a fork of terraform AWS provider, implementing some of the missing features
+    code: https://github.com/tfproviders/terraform-provider-aws
+    link: https://github.com/tfproviders/terraform-provider-aws/blob/main/README.md
+
+  - title: Terraform Provider for Azure with Additional features
+    img: /assets/uploads/01-terraform-azure.png
+    about: This is a fork of terraform Azure provider, implementing some of the missing features
+    code: https://github.com/tfproviders/terraform-provider-azurerm
+    link: https://github.com/tfproviders/terraform-provider-azurerm/blob/main/README.md
+
+  - title: Airflow EC2 Plugin Extended with create and terminate EC2 functionality
+    img: /assets/uploads/01-airflow.png
+    about: This plugin provides the functionality to creates and terminate an ec2 instance.
+    code: https://github.com/kodelint/airflow-ec2-plugin-extended
+
+  - title: Airflow Dags Collection
+    img: /assets/uploads/01-airflow.png
+    about: Airflow Dag examples for EMR, EC2 etc
+    code: https://github.com/kodelint/airflow-dags-examples
+
+  - title: Automatic Terraform Backend Generation
+    img: /assets/uploads/01-terraform.png
+    about: This is a minimal approach for generating terraform backend based on the tfvar filename
+    code: https://github.com/kodelint/autotf
+    link: https://towardsdev.com/terraform-solve-dynamic-backend-problem-with-golang-85d381bc48b5
+
+  - title: Dockerized ChefDK
+    img: /assets/uploads/01-chef.png
+    about: ChefDK in a docker image
+    code: https://github.com/kodelint/dockerized-chef-workstation
+    link: https://github.com/kodelint/dockerized-chef-workstation#readme
+
+  - title: CloudCli - CLI Tools in One Place
+    img: /assets/uploads/01-cloudcli.png
+    about: Cloud CLI Tools in one Docket Image
+    code: https://github.com/kodelint/cloudcli
+    link: https://github.com/kodelint/cloudcli#readme
+
+  - title: Docker Image for Maven with OpenJDK
+    img: /assets/uploads/01-maven-docker.png
+    about: Docker Image with Maven, OpenJDK and additional tools
+    code: https://github.com/kodelint/maven-openjdk
+    link: https://github.com/kodelint/maven-openjdk#readme
+
+  - title: SRE/DevOps - Sys Admin Stuff
+    img: /assets/uploads/01-interview.png
+    img_alt: SRE/DevOps
+    about: Collection of some important system admin tools for the rainy day
+    code: https://github.com/kodelint/digest
+    link: https://awstip.com/sre-devops-interview-questions-linux-troubleshooting-1b8ffe82c16
+
+  - title: Command line utility for KickAss Torrents
+    img: /assets/uploads/01-kickass-torrentz.png
+    about: kscli is a command line utility for kickasstorrents.
+    code: https://github.com/kodelint/kscli
+
+  - title: Chef Cookbook for Airflow
+    img: /assets/uploads/01-airflow.png
+    img_alt: Chef Cookbook
+    about: Chef Cookbook to deploy Airflow on EC2 node with Kitchen Tests
+    code: https://github.com/kodelint/airflow-cookbook
+
+  - title: Cheflab - Full stack chef environment on your laptop
+    img: /assets/uploads/01-chef.png
+    about: Local automated setup for Chef Testing
+    code: https://github.com/kodelint/cheflab
+
+  - title: Build Zookeeper RPM from Source
+    img: /assets/uploads/01-Makefile.png
+    img_alt: RPM Build
+    about: A Makefile setup to build RPM from Source code
+    code: https://github.com/kodelint/zookeeper-rpmbuild
+
+  - title: Build Storm RPM from Source
+    img: /assets/uploads/01-Makefile.png
+    img_alt: RPM Build
+    about: A Makefile setup to build RPM from Source code
+    code: https://github.com/kodelint/storm-rpmbuild
+
+  - title: CLI Tool for DataDog Monitor
+    img: /assets/uploads/01-cli.png
+    img_alt: DataDog Monitors
+    about: A CLI tool to talk to Datadog APIs
+    code: https://github.com/kodelint/ddmonitor

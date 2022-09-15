@@ -1,0 +1,24 @@
+name: Satyajit Roy
+image: https://raw.githubusercontent.com/kodelint/blog-images/main/common/my.jpg
+description: "
+  Automation and Technology enthusiast and a full time dad
+  "
+sub-description: "Opinionated Coder, Blogger, Foodie"
+address: California, USA
+website: https://kodelint.github.io
+email: talk2sroy@outlook.com
+social:
+  - title: linkedin
+    url: https://www.linkedin.com/in/satyajitroychoudhury/
+  - title: github
+    url: https://github.com/kodelint
+  - title: twitter
+    url: https://twitter.com/__initialized__
+  - title: medium
+    url: https://medium.com/@email2sroy
+  - title: dev
+    url: https://dev.to/deadlock
+  - title: hashnode
+    url: https://sroy.hashnode.dev
+  - title: email
+    url: mailto:src@sroy.tech

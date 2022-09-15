@@ -1,0 +1,21 @@
+<header>
+  <img class="profile" src="{{site.data.blogger.image}}" alt="" />
+  <div class=" bio">
+    <h1 class="owner-name">{{site.data.blogger.name}}</h1>
+    <p class="desc">{{site.data.blogger.description}}</p>
+    <p class="sub-desc">{{site.data.blogger.sub-description}}</p>
+    <div class="social">
+      {% for i in site.data.blogger.social %}
+      <a href="{{i.url}}" target="_blank">
+        <img src="{{site.url}}{{site.baseurl}}/assets/png/{{i.title}}.png" alt="" class="icon" />
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</header>
+
+<nav>
+  {% for i in site.data.nav.toc %}
+  <a id="{{i.title | downcase}}" href="{{site.url}}{{site.baseurl}}{{i.url}}">{{i.title}}</a>
+  {% endfor %}
+</nav>

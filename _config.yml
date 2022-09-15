@@ -1,0 +1,59 @@
+title: Satyajit Roy
+slogan: Automation and Technology enthusiast, Opinionated Coder, Blogger, Foodie and a full time dad
+logo: "https://raw.githubusercontent.com/kodelint/blog-images/main/common/my.jpg"
+
+url: "https://sroy.tech"
+
+github:
+  username: kodelint
+
+twitter:
+  username: __initialized__
+
+medium:
+  username: "@email2sroy"
+
+social:
+  name: Satyajit Roy
+  email: email2sroy@gmail.com
+  links:
+    - https://twitter.com/__initialized__
+    - https://github.com/kodelint
+
+whitelist:
+  - jekyll-target-blank
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jemoji
+  - kramdown
+
+defaults:
+  - scope:
+      path: _post
+    values:
+      layout: post
+      author: Satyajit Roy
+  - scope:
+      path: assets/favicons
+    values:
+      swcache: true
+
+post_search: true
+
+plugins:
+  - jekyll-target-blank
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jemoji
+  - kramdown
+
+liquid:
+  error_mode: warn
+  strict_filters: false
+  strict_variables: false
+
+markdown: kramdown

@@ -1,0 +1,761 @@
+/* @import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&family=Roboto:wght@300;400;700&display=swap"); */
+/* @import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&display=swap');
+
+:root {
+  --dmodetxt: #f1f1f1;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/* 
+font-family: 'Roboto', sans-serif;
+font-family: 'PT Sans Narrow', sans-serif;
+*/
+
+body {
+  padding: 35px 15px;
+  color: #333;
+  font-family: "Source Code Pro", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Source Code Pro", sans-serif;
+}
+
+hr {
+  margin: 1rem 0;
+}
+
+blockquote {
+  border-left: 5px solid #b8b8b8;
+  padding: 1rem;
+  font-size: 25px;
+  line-height: 140%;
+  background-color: #e0e0e0;
+  font-family: "Source Code Pro", sans-serif;
+  color: #777777;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.4rem 0;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+}
+
+th,
+td {
+  border: 1px solid #777;
+  padding: 5px;
+}
+
+.site-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  column-gap: 90px;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.left img {
+  width: 160px;
+}
+
+.left>img {
+  border-radius: 50%;
+}
+
+.left h3 {
+  margin: 2rem 0 1rem 0;
+}
+
+.left p {
+  line-height: 150%;
+}
+
+.left p img {
+  width: 1rem;
+}
+
+nav {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+nav a {
+  margin-right: 15px;
+  font-family: "Source Code Pro", sans-serif;
+}
+
+nav a {
+  color: #333;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #777777;
+}
+
+.posts,
+.projects,
+.page {
+  max-width: 600px;
+}
+
+.page .content {
+  margin-top: 2rem;
+  line-height: 150%;
+}
+
+.page small {
+  font-style: italic;
+  color: #777777;
+}
+
+.page a {
+  color: rgb(36, 95, 163);
+  border-bottom: 1px solid rgb(36, 95, 163);
+  font-weight: bold;
+  padding: 3px;
+  font-family: "Source Code Pro", sans-serif;
+}
+
+.page a:hover {
+  background-color: rgb(36, 95, 163);
+  color: white;
+}
+
+.page p {
+  margin: 1rem 0;
+}
+
+.page img {
+  max-width: 100%;
+}
+
+.page .content h1,
+.page .content h2,
+.page .content h3,
+.page .content h4 {
+  margin: 1rem 0;
+}
+
+.page .content ul,
+.page .content ol {
+  margin-left: 1.8rem;
+}
+
+.posts h2,
+.projects h2,
+.page h2 {
+  margin-top: 1.8rem;
+}
+
+.post a {
+  color: #333;
+  font-weight: bold;
+}
+
+.post a:hover {
+  text-decoration: underline;
+}
+
+.post h2 {
+  color: #333;
+}
+
+.post small {
+  color: #777777;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.post p {
+  margin: 1rem 0 0.2rem 0;
+  line-height: 150%;
+}
+
+/* projects */
+
+.projects .pgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 15px;
+  row-gap: 15px;
+}
+
+.project img {
+  width: 100%;
+  margin: 2rem 0 0 0;
+}
+
+.project h2 {
+  margin: 15px 0 5px 0;
+}
+
+.project p {
+  margin: 1rem 0 0.8rem 0;
+}
+
+.project a {
+  color: #333;
+  font-weight: bold;
+}
+
+.project a:hover {
+  color: #777777;
+}
+
+footer {
+  margin: 3rem 0 1rem 0;
+  text-align: center;
+  font-family: "Source Code Pro", sans-serif;
+}
+
+@media screen and (max-width: 750px) {
+  .site-wrapper {
+    column-gap: 45px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .site-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left img {
+    width: 100px;
+    margin-bottom: 0rem;
+  }
+
+  .left h3 {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+
+  .left p {
+    margin: 1rem 0;
+    font-size: 14px;
+  }
+
+  nav {
+    margin: 2rem 0;
+    text-align: right;
+  }
+}
+
+/* syntax  */
+
+pre {
+  background: #00110d !important;
+  padding: 12px 13px;
+  overflow-x: auto !important;
+  margin: 1rem 0rem;
+  font-size: 14px;
+  font-family: monospace;
+}
+
+code {
+  color: #a5d6ab;
+  border-radius: 2px;
+  white-space: pre;
+  background-color: #00110d;
+  font-family: monospace;
+  padding: 3px;
+}
+
+.highlight .hll {
+  background-color: #333333;
+}
+
+.highlight {
+  background: #111111;
+  color: #ffffff;
+}
+
+.highlight .c {
+  color: #008800;
+  font-style: italic;
+  background-color: #0f140f;
+}
+
+/* Comment */
+.highlight .err {
+  color: #ffffff;
+}
+
+/* Error */
+.highlight .g {
+  color: #ffffff;
+}
+
+/* Generic */
+.highlight .k {
+  color: #fb660a;
+  font-weight: bold;
+}
+
+/* Keyword */
+.highlight .l {
+  color: #ffffff;
+}
+
+/* Literal */
+.highlight .n {
+  color: #ffffff;
+}
+
+/* Name */
+.highlight .o {
+  color: #ffffff;
+}
+
+/* Operator */
+.highlight .x {
+  color: #ffffff;
+}
+
+/* Other */
+.highlight .p {
+  color: #ffffff;
+}
+
+/* Punctuation */
+.highlight .cm {
+  color: #008800;
+  font-style: italic;
+  background-color: #0f140f;
+}
+
+/* Comment.Multiline */
+.highlight .cp {
+  color: #ff0007;
+  font-weight: bold;
+  font-style: italic;
+  background-color: #0f140f;
+}
+
+/* Comment.Preproc */
+.highlight .c1 {
+  color: #008800;
+  font-style: italic;
+  background-color: #0f140f;
+}
+
+/* Comment.Single */
+.highlight .cs {
+  color: #008800;
+  font-style: italic;
+  background-color: #0f140f;
+}
+
+/* Comment.Special */
+.highlight .gd {
+  color: #ffffff;
+}
+
+/* Generic.Deleted */
+.highlight .ge {
+  color: #ffffff;
+}
+
+/* Generic.Emph */
+.highlight .gr {
+  color: #ffffff;
+}
+
+/* Generic.Error */
+.highlight .gh {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Generic.Heading */
+.highlight .gi {
+  color: #ffffff;
+}
+
+/* Generic.Inserted */
+.highlight .go {
+  color: #444444;
+  background-color: #222222;
+}
+
+/* Generic.Output */
+.highlight .gp {
+  color: #ffffff;
+}
+
+/* Generic.Prompt */
+.highlight .gs {
+  color: #ffffff;
+}
+
+/* Generic.Strong */
+.highlight .gu {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Generic.Subheading */
+.highlight .gt {
+  color: #ffffff;
+}
+
+/* Generic.Traceback */
+.highlight .kc {
+  color: #fb660a;
+  font-weight: bold;
+}
+
+/* Keyword.Constant */
+.highlight .kd {
+  color: #fb660a;
+  font-weight: bold;
+}
+
+/* Keyword.Declaration */
+.highlight .kn {
+  color: #fb660a;
+  font-weight: bold;
+}
+
+/* Keyword.Namespace */
+.highlight .kp {
+  color: #fb660a;
+}
+
+/* Keyword.Pseudo */
+.highlight .kr {
+  color: #fb660a;
+  font-weight: bold;
+}
+
+/* Keyword.Reserved */
+.highlight .kt {
+  color: #cdcaa9;
+  font-weight: bold;
+}
+
+/* Keyword.Type */
+.highlight .ld {
+  color: #ffffff;
+}
+
+/* Literal.Date */
+.highlight .m {
+  color: #0086f7;
+  font-weight: bold;
+}
+
+/* Literal.Number */
+.highlight .s {
+  color: #0086d2;
+}
+
+/* Literal.String */
+.highlight .na {
+  color: #ff0086;
+  font-weight: bold;
+}
+
+/* Name.Attribute */
+.highlight .nb {
+  color: #ffffff;
+}
+
+/* Name.Builtin */
+.highlight .nc {
+  color: #ffffff;
+}
+
+/* Name.Class */
+.highlight .no {
+  color: #0086d2;
+}
+
+/* Name.Constant */
+.highlight .nd {
+  color: #ffffff;
+}
+
+/* Name.Decorator */
+.highlight .ni {
+  color: #ffffff;
+}
+
+/* Name.Entity */
+.highlight .ne {
+  color: #ffffff;
+}
+
+/* Name.Exception */
+.highlight .nf {
+  color: #ff0086;
+  font-weight: bold;
+}
+
+/* Name.Function */
+.highlight .nl {
+  color: #ffffff;
+}
+
+/* Name.Label */
+.highlight .nn {
+  color: #ffffff;
+}
+
+/* Name.Namespace */
+.highlight .nx {
+  color: #ffffff;
+}
+
+/* Name.Other */
+.highlight .py {
+  color: #ffffff;
+}
+
+/* Name.Property */
+.highlight .nt {
+  color: #fb660a;
+  font-weight: bold;
+}
+
+/* Name.Tag */
+.highlight .nv {
+  color: #fb660a;
+}
+
+/* Name.Variable */
+.highlight .ow {
+  color: #ffffff;
+}
+
+/* Operator.Word */
+.highlight .w {
+  color: #888888;
+}
+
+/* Text.Whitespace */
+.highlight .mf {
+  color: #0086f7;
+  font-weight: bold;
+}
+
+/* Literal.Number.Float */
+.highlight .mh {
+  color: #0086f7;
+  font-weight: bold;
+}
+
+/* Literal.Number.Hex */
+.highlight .mi {
+  color: #0086f7;
+  font-weight: bold;
+}
+
+/* Literal.Number.Integer */
+.highlight .mo {
+  color: #0086f7;
+  font-weight: bold;
+}
+
+/* Literal.Number.Oct */
+.highlight .sb {
+  color: #0086d2;
+}
+
+/* Literal.String.Backtick */
+.highlight .sc {
+  color: #0086d2;
+}
+
+/* Literal.String.Char */
+.highlight .sd {
+  color: #0086d2;
+}
+
+/* Literal.String.Doc */
+.highlight .s2 {
+  color: #0086d2;
+}
+
+/* Literal.String.Double */
+.highlight .se {
+  color: #0086d2;
+}
+
+/* Literal.String.Escape */
+.highlight .sh {
+  color: #0086d2;
+}
+
+/* Literal.String.Heredoc */
+.highlight .si {
+  color: #0086d2;
+}
+
+/* Literal.String.Interpol */
+.highlight .sx {
+  color: #0086d2;
+}
+
+/* Literal.String.Other */
+.highlight .sr {
+  color: #0086d2;
+}
+
+/* Literal.String.Regex */
+.highlight .s1 {
+  color: #0086d2;
+}
+
+/* Literal.String.Single */
+.highlight .ss {
+  color: #0086d2;
+}
+
+/* Literal.String.Symbol */
+.highlight .bp {
+  color: #ffffff;
+}
+
+/* Name.Builtin.Pseudo */
+.highlight .vc {
+  color: #fb660a;
+}
+
+/* Name.Variable.Class */
+.highlight .vg {
+  color: #fb660a;
+}
+
+/* Name.Variable.Global */
+.highlight .vi {
+  color: #fb660a;
+}
+
+/* Name.Variable.Instance */
+.highlight .il {
+  color: #0086f7;
+  font-weight: bold;
+}
+
+/* Literal.Number.Integer.Long */
+
+/* dark mode */
+
+/* toggle */
+
+.dmode {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.dmode img {
+  cursor: pointer;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.darkmode img.dmode {
+  filter: invert() !important;
+}
+
+/* end */
+
+.darkmode {
+  background: #000;
+}
+
+.darkmode nav a:hover {
+  color: var(--dmodetxt);
+  border-bottom: 1px solid var(--dmodetxt) !important;
+}
+
+.darkmode .left *,
+.darkmode footer,
+.darkmode nav a {
+  color: var(--dmodetxt);
+}
+
+.darkmode .post * {
+  color: var(--dmodetxt) !important;
+}
+
+.darkmode .page small,
+.darkmode .page div,
+.darkmode .page p,
+.darkmode main {
+  color: var(--dmodetxt) !important;
+}
+
+.darkmode .projects a {
+  color: var(--dmodetxt) !important;
+}
+
+.darkmode .projects a:hover {
+  color: #aaa !important;
+}
+
+.darkmode div.left>div {
+  filter: invert();
+}
+
+.darkmode blockquote {
+  background: #222;
+}
+
+.darkmode input,
+.darkmode textarea {
+  background: #000 !important;
+  color: var(--dmodetxt) !important;
+}
+
+/* lightbox */
+
+.content img {
+  cursor: zoom-in;
+}
+
+#lightbox {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+#lightbox.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  padding: 4px;
+  background-color: black;
+  border: 2px solid white;
+}

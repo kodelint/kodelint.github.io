@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html%}
+
+<body>
+  {% include nav.html%}
+  <main class="project-list">
+    {% for project in site.data.projects_data.projects %}
+    <div class="project">
+      <div>
+        <h3>{{project.title}}</h3>
+        <small>{{project.about}}</small>
+      </div>
+      <div>
+        <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}{{project.img}})"></div>
+        <div class="links">
+          {% if project.code %}
+          <a target="_blank" href="{{project.code}}">Github</a>
+          {% else %}
+          <a href="#!" style="text-decoration: line-through; cursor: not-allowed;"> Github</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </main>
+  {% include footer.html %}
+</body>
+
+</html>
