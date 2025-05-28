@@ -6,12 +6,26 @@ layout: page
 <img src="/assets/uploads/developer.gif" alt="alt text" height="350" width="500"/>
 
 
-I am <span style="color: orange">**Satyajit Roy**</span>, I usually go by <span style="color: orange">**Roy**</span>. I am absolutely obsessed with <span style="color: white">technology</span> and passionate about solving complex problems. Been in the industry for long enough to realize that I might have some experience to share with the community. That is why this website exist. During my tenure I was able to learn from, contribute in many domains. Some of them are being <span style="color: white">Software Development</span>, <span style="color: white">Architecting Infrastructure</span>, <span style="color: white">Managing and Maintaining highly scalable environments</span> and spent whole lot of time in <span style="color: white">**DevOps/SRE Domain**</span>, <span style="color: white">**building highly efficient, tech savvy teams**</span>. I live by one motto if I need to do something more than once then it has to be Automated!! Pretty much leveraged all sorts of technology and tools in my day to day life. Love to write code and design complex systems. Started from `Solaris Zones` and `LXE` to `Docker` and `K8S`, pretty much seen all sorts of technological hypes and fades. 
+👋 Hello there, internet traveler!
 
-**Hopfully, we will cross path someday......see you out there and thanks for visiting the site.**
+I’m <span style="color:orange"><strong>Satyajit Roy</strong></span> — but most people just call me <span style="color:orange"><strong>Roy</strong></span>. I'm a technologist, problem-solver, and part-time automation evangelist (my motto: if I have to do it twice, it gets automated).
 
-<span style="color: white"> A Small glimpse of technological stacks I got my hands on</span>
+Over the past 20+ years, I’ve had the privilege (and sometimes the headache) of building high-performing Product Development, SRE, DevOps, and Platform Security teams across fast-moving startups and global enterprises. I’ve navigated everything from `Solaris Zones` and `LXE` to `Kubernetes` and **cloud-native** everything. Basically, I’ve seen enough tech hypes rise and fall to earn a few gray hairs and a solid sense of when something’s actually useful.
 
-<img src="https://raw.githubusercontent.com/kodelint/blog-images/main/common/stacks.jpeg" alt="alt text" height="400" width="1000"/>
+My work has taken me deep into:
+
+⚙️ Software Engineering & Infrastructure Architecture
+
+☁️ Cloud-Scale Platform Delivery
+
+🔐 Security-First Thinking
+
+🚀 Building tech-savvy, no-BS teams that get stuff done
+
+I’m passionate about sharing what I’ve learned (often the hard way), whether it's through stories, strategies, or sharp opinions on systems design and modern engineering culture.
+
+This site is where I collect those thoughts, ideas, rants, and (sometimes) helpful insights — think of it as part technical diary, part engineering therapy.
+
+Thanks for stopping by. Hope we cross paths someday — in a data center, Slack thread, or somewhere entirely unexpected.
 
 <span style="font-weight: bold">A Programmer is machine who turns coffee into code.</span> <span style="color: orange"> That's Me!! </span>
