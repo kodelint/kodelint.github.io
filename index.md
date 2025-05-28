@@ -42,8 +42,10 @@ layout: page
 
 ## 👋 Hello there, internet traveler!
 
+
 I’m <span class="highlight-orange">Satyajit Roy</span> — but most people just call me <span class="highlight-orange">Roy</span>.
 I'm a technologist, problem-solver, and part-time automation evangelist.
+
 _Motto: If I have to do it more than once — I automate it._
 
 Over the past **20+ years**, I’ve built high-performing Product Development, SRE, DevOps, and Platform Security teams
@@ -59,12 +61,13 @@ I've seen plenty of tech hype cycles, and I've built systems that actually last 
 - 🔐 Security-First Thinking
 - 🚀 Building no-nonsense, high-output teams
 
+
 This site is where I write about engineering lessons learned (sometimes painfully),
 share ideas, and reflect on modern infrastructure and team culture.
 Call it a digital lab notebook for the curious and caffeinated.
 
+
 Thanks for stopping by — maybe we’ll meet in a Slack thread, a postmortem, or somewhere unexpected.
 
 **💡 A programmer is a machine that turns coffee into code.** <span class="highlight-orange">That’s me!</span>
-
 </div>
