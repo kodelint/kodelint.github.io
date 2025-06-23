@@ -1,6 +1,6 @@
 projects:
   - title: Git Plugin commit spell check
-    img: /assets/uploads/01-Terraform-AWS.png
+    img: /assets/png/spellcheck.png
     about: git-spellcheck is a small tool, which checks for commit spelling mistakes before submitting
     code: https://github.com/kodelint/git-spellcheck
     link: https://github.com/kodelint/git-spellcheck
