@@ -1,4 +1,10 @@
 projects:
+  - title: Git Plugin for Rull Request
+    img: /assets/uploads/01-git-pr.png
+    about: git-pr is a small tool, which helps with pull-request for the origin. It support list, fetch, show-diff and submit-reviews
+    code: https://github.com/kodelint/git-pr
+    link: https://github.com/kodelint/git-pr
+
   - title: Git Plugin commit spell check
     img: /assets/png/spellcheck.png
     about: git-spellcheck is a small tool, which checks for commit spelling mistakes before submitting
