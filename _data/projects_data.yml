@@ -1,5 +1,5 @@
 projects:
-  - title: Git Plugin for Rull Request
+  - title: Native Git Plugin for Pull Request
     img: /assets/uploads/01-git-pr.png
     about: git-pr is a small tool, which helps with pull-request for the origin. It support list, fetch, show-diff and submit-reviews
     code: https://github.com/kodelint/git-pr
