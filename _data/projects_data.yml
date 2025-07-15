@@ -1,4 +1,10 @@
 projects:
+  - title: Accelerate Your Development Environment Setup with "Setup DevBox"
+    img: /assets/uploads/01-setup-devbox.png
+    about: setup-devbox is a powerful, opinionated, and highly configurable command-line tool designed to streamline the provisioning of your development environment.
+    code: https://github.com/kodelint/setup-devbox
+    link: https://github.com/kodelint/setup-devbox
+
   - title: Native Git Plugin for Pull Request
     img: /assets/uploads/01-git-pr.png
     about: git-pr is a small tool, which helps with pull-request for the origin. It support list, fetch, show-diff and submit-reviews
