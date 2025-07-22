@@ -16,6 +16,12 @@
 
 <nav>
   {% for i in site.data.nav.toc %}
-  <a id="{{i.title | downcase}}" href="{{site.url}}{{site.baseurl}}{{i.url}}">{{i.title}}</a>
+  <a
+    id="{{i.title | downcase}}"
+    href="{{site.url}}{{site.baseurl}}{{i.url}}"
+    {% if page.url == i.url or page.url == i.url | append: '/' %}class="active"{% endif %}
+  >
+    {{i.title}}
+  </a>
   {% endfor %}
 </nav>
