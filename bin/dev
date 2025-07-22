@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo "🔧 Running 'bundle install' inside Docker to ensure all gems are installed..."
+
+docker-compose run --rm jekyll bundle install
+
+echo "🚀 Starting Jekyll site with LiveReload at http://localhost:4000 ..."
+
+# Run the container in the foreground and auto-remove when done
+docker-compose run --rm \
+  -p 4000:4000 \
+  -p 35729:35729 \
+  jekyll \
+  bundle exec jekyll serve --host 0.0.0.0 --watch --drafts --livereload
