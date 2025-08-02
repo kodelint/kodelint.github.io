@@ -1,6 +1,6 @@
 projects:
-  - title: Wiper
-    img: /assets/uploads/01-osx-cleaner.png
+  - title: Wiper (Golang)
+    img: /assets/uploads/01-Wiper.png
     about: A powerful command-line utility for macOS to completely uninstall applications and clean up system junk.
     code: https://github.com/kodelint/wiper
     link: https://github.com/kodelint/wiper
