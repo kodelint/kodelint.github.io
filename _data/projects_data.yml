@@ -1,4 +1,10 @@
 projects:
+  - title: Wiper
+    img: /assets/uploads/01-osx-cleaner.png
+    about: A powerful command-line utility for macOS to completely uninstall applications and clean up system junk.
+    code: https://github.com/kodelint/wiper
+    link: https://github.com/kodelint/wiper
+
   - title: OSX Cleaner (CLI Edition)
     img: /assets/uploads/01-osx-cleaner.png
     about: A blazing-fast, terminal-based macOS cleanup and uninstaller utility written in Rust. Clean out caches, logs, trash, and deeply remove applications, all from your terminal.
