@@ -11,6 +11,13 @@
         <h3>{{project.title}}</h3>
         <small>{{project.about}}</small>
       </div>
+      {% if project.tags %}
+      <div class="tags">
+        {% for tag in project.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
       <div>
         <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}{{project.img}})"></div>
         <div class="links">

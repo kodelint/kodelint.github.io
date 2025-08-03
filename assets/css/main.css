@@ -212,6 +212,19 @@ main {
   object-fit: cover;
 }
 
+.tag {
+  display: inline-block;
+  background: darkolivegreen;
+  color: white;
+  padding: 2px 6px;
+  margin: 2px;
+  font-size: 12px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+
 .project .links {
   display: flex;
   grid-template-columns: 1fr 1fr;
