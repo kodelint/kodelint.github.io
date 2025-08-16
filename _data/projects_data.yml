@@ -1,5 +1,15 @@
 projects:
-  - title: Wiper (Golang)
+  - title: Git Selective Ignore
+    img: /assets/uploads/01-git-selecting-ignore.png
+    about: A Git plugin to selectively ignore lines and code blocks during commits.
+    code: https://github.com/kodelint/git-selective-ignore
+    link: https://github.com/kodelint/git-selective-ignore
+    tags:
+      - rust
+      - git
+      - macos
+
+  - title: Wiper
     img: /assets/uploads/01-Wiper.png
     about: A powerful command-line utility for macOS to completely uninstall applications and clean up system junk.
     code: https://github.com/kodelint/wiper
