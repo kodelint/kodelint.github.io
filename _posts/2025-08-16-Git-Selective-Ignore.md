@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  Git Selective Ignore: Because Sometimes You Need to Keep Secrets from Git (But Not From Yourself)
+title: Git Selective Ignore - Because Sometimes You Need to Keep Secrets from Git (But Not From Yourself)
 author: Satyajit Roy
 date: 2025-08-16
 image: "/assets/uploads/01-git-selecting-ignore.png"
-redirect_to: 'https://medium.com/@email2sroy/git-selective-ignore-because-sometimes-you-need-to-keep-secrets-from-git-but-not-from-yourself-e986725dc489'
+redirect_to: "https://medium.com/@email2sroy/git-selective-ignore-because-sometimes-you-need-to-keep-secrets-from-git-but-not-from-yourself-e986725dc489"
 toc: true
 ---
 
