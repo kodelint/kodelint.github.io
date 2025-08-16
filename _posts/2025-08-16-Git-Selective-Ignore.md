@@ -8,6 +8,9 @@ redirect_to: 'https://medium.com/@email2sroy/git-selective-ignore-because-someti
 toc: true
 ---
 
+
+
+
 # Git Selective Ignore: Because Sometimes You Need to Keep Secrets from Git (But Not From Yourself)
 
 _Or: How I Learned to Stop Worrying and Love Committing Without Fear_
