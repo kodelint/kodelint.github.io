@@ -1,4 +1,15 @@
 projects:
+  - title: Blogs Publisher
+    img: /assets/uploads/01-blogs-publisher.png
+    about: A powerful GitHub Action that automatically publishes your Markdown blog posts to Medium, Dev.to, and Hashnode
+    code: https://github.com/kodelint/blogs-publisher
+    link: https://github.com/kodelint/blogs-publisher
+    tags:
+      - Github Action
+      - git
+      - typescript
+      - blogs
+
   - title: Git Selective Ignore
     img: /assets/uploads/01-git-selecting-ignore.png
     about: A Git plugin to selectively ignore lines and code blocks during commits.
