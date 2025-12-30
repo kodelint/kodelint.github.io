@@ -9,6 +9,14 @@
 
 <!-- scripts -->
 <script defer>
+  // Reading Progress Logic
+  window.onscroll = function() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById("scroll-progress").style.width = scrolled + "%";
+  };
+
   // Simple entry animations
   gsap.from("nav", { y: -50, opacity: 0, duration: 1, ease: "power3.out" });
   gsap.from("header", { opacity: 0, duration: 1.2, delay: 0.2 });
