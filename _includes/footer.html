@@ -1,33 +1,28 @@
-<!-- <footer>&copy; 2018 - {{ 'now' | date: "%Y" }} {{site.title}}</footer> -->
+<footer>
+  <div class="container">
+    <p>&copy; {{ 'now' | date: "%Y" }} {{site.data.blogger.name}}. All rights reserved.</p>
+    <p style="font-size: 0.85em; margin-top: 0.5rem; opacity: 0.7;">Revamped with ❤️ & code.</p>
+  </div>
+</footer>
+
 <!-- scripts -->
 <script defer>
-  const length = window.location.href.split("/").length;
-  const location_arr = window.location.href.split("/");
-  if (location_arr[length - 1] === "") {
-    document.getElementById("home").classList.add("active");
-  } else {
-    document.getElementById(location_arr[length - 1]) &&
-      document.getElementById(location_arr[length - 1]).classList.add("active");
-  }
-</script>
-<script defer>
-  gsap.from(".profile", { opacity: 0, duration: 1 }, 0.3);
-  gsap.from(".owner-name", { opacity: 0, duration: 1 }, 0.4);
-  gsap.from(".desc", { opacity: 0, duration: 1 }, 0.5);
-  gsap.from(".sub-desc", { opacity: 0, duration: 1 }, 0.6);
-  gsap.from(".social", { opacity: 0, duration: 1 }, 0.7);
-  gsap.from("nav", { opacity: 0, duration: 1 }, 0.8);
-  gsap.from("main", { opacity: 0, duration: 1 }, 1);
+  // GSAP Animations
+  gsap.from(".profile", { opacity: 0, duration: 1, delay: 0.3 });
+  gsap.from(".owner-name", { opacity: 0, duration: 1, delay: 0.4 });
+  gsap.from(".desc", { opacity: 0, duration: 1, delay: 0.5 });
+  gsap.from(".sub-desc", { opacity: 0, duration: 1, delay: 0.6 });
+  gsap.from(".social", { opacity: 0, duration: 1, delay: 0.7 });
+  gsap.from("nav", { opacity: 0, duration: 1, delay: 0.8 });
+  gsap.from("main", { opacity: 0, duration: 1, delay: 1 });
 
   gsap.from(
     "main .post",
-    { opacity: 0, duration: 1, y: 200, stagger: 0.05 },
-    1
+    { opacity: 0, duration: 0.8, y: 50, stagger: 0.1, delay: 1 }
   );
   gsap.from(
     "main .project",
-    { opacity: 0, duration: 1, y: 200, stagger: 0.05 },
-    1
+    { opacity: 0, duration: 0.8, y: 50, stagger: 0.1, delay: 1 }
   );
 </script>
 <script defer src="{{site.baseurl}}/assets/js/lbox.js"></script>

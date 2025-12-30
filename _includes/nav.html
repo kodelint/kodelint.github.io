@@ -1,27 +1,33 @@
+<nav>
+  <div class="nav-container">
+    {% for i in site.data.nav.toc %}
+    <a
+      id="{{i.title | downcase}}"
+      href="{{site.url}}{{site.baseurl}}{{i.url}}"
+      {% if page.url == i.url or page.url == i.url | append: '/' %}class="active"{% endif %}
+    >
+      {{i.title}}
+    </a>
+    {% endfor %}
+  </div>
+</nav>
+
+{% if page.url == "/" or page.url == "/index.html" or page.url == "/blogs/" or page.url == "/blogs.html" %}
 <header>
-  <img class="profile" src="{{site.data.blogger.image}}" alt="" />
-  <div class=" bio">
-    <h1 class="owner-name">{{site.data.blogger.name}}</h1>
-    <p class="desc">{{site.data.blogger.description}}</p>
-    <p class="sub-desc">{{site.data.blogger.sub-description}}</p>
-    <div class="social">
-      {% for i in site.data.blogger.social %}
-      <a href="{{i.url}}" target="_blank">
-        <img src="{{site.url}}{{site.baseurl}}/assets/png/{{i.title}}.png" alt="" class="icon" />
-      </a>
-      {% endfor %}
+  <div class="hero">
+    <img class="profile" src="{{site.data.blogger.image}}" alt="{{site.data.blogger.name}}" />
+    <div class="bio">
+      <h1 class="owner-name">{{site.data.blogger.name}}</h1>
+      <p class="desc">{{site.data.blogger.description}}</p>
+      <p class="sub-desc">{{site.data.blogger.sub-description}}</p>
+      <div class="social">
+        {% for i in site.data.blogger.social %}
+        <a href="{{i.url}}" target="_blank" rel="noopener noreferrer">
+          <img src="{{site.url}}{{site.baseurl}}/assets/png/{{i.title}}.png" alt="{{i.title}}" class="icon" />
+        </a>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </header>
-
-<nav>
-  {% for i in site.data.nav.toc %}
-  <a
-    id="{{i.title | downcase}}"
-    href="{{site.url}}{{site.baseurl}}{{i.url}}"
-    {% if page.url == i.url or page.url == i.url | append: '/' %}class="active"{% endif %}
-  >
-    {{i.title}}
-  </a>
-  {% endfor %}
-</nav>
+{% endif %}

@@ -4,22 +4,29 @@
 
 <body>
   {% include nav.html %}
+  
   <main class="post-list">
     {% for post in site.posts %}
-    <a href="{{site.url}}{{site.baseurl}}{{post.url}}" class="post">
-      <p class="post-title">{{post.title}}</p>
-      <div class="post-bottom">
-        <small class="post-date">{{post.date | date_to_string}}</small>
+    <article class="post">
+      <a href="{{site.url}}{{site.baseurl}}{{post.url}}" style="display: flex; flex-direction: column; height: 100%; color: inherit;">
         {% if post.image %}
         <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}{{post.image}})"></div>
         {% else %}
-        <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}/assets/uploads/default.jpg)">
-        </div>
+        <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}/assets/uploads/default.jpg); background-color: #334155;"></div>
         {% endif %}
-      </div>
-    </a>
+        
+        <div class="post-content">
+          <h2 class="post-title">{{post.title}}</h2>
+          <div class="post-meta">
+            <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">{{post.date | date_to_string}}</time>
+            <span>Read &rarr;</span>
+          </div>
+        </div>
+      </a>
+    </article>
     {% endfor %}
   </main>
+  
   {% include footer.html %}
 </body>
 
