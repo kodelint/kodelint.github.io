@@ -3,34 +3,44 @@
 {% include head.html%}
 
 <body>
-  {% include nav.html%}
-  <main class="project-list">
-    {% for project in site.data.projects_data.projects %}
-    <div class="project">
-      <div>
-        <h3>{{project.title}}</h3>
-        <small>{{project.about}}</small>
-      </div>
-      {% if project.tags %}
-      <div class="tags">
-        {% for tag in project.tags %}
-          <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-      {% endif %}
-      <div>
+  {% include nav.html %}
+  
+  <main class="container">
+    <div class="page-header">
+      <h1 class="page-title">Projects</h1>
+      <p style="color: var(--text-secondary)">Open source contributions and experiments.</p>
+    </div>
+
+    <div class="project-list">
+      {% for project in site.data.projects_data.projects %}
+      <div class="project">
         <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}{{project.img}})"></div>
-        <div class="links">
-          {% if project.code %}
-          <a target="_blank" href="{{project.code}}">Github</a>
-          {% else %}
-          <a href="#!" style="text-decoration: line-through; cursor: not-allowed;"> Github</a>
+        
+        <div class="card-content">
+          <h2 class="card-title">{{project.title}}</h2>
+          <p class="card-excerpt">{{project.about}}</p>
+          
+          {% if project.tags %}
+          <div style="margin-bottom: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            {% for tag in project.tags %}
+              <span style="font-size: 0.75rem; background: rgba(56, 189, 248, 0.1); color: var(--accent-primary); padding: 2px 8px; border-radius: 4px;">{{ tag }}</span>
+            {% endfor %}
+          </div>
           {% endif %}
+
+          <div class="card-footer">
+            {% if project.code %}
+            <a href="{{project.code}}" target="_blank" class="read-more">View on GitHub</a>
+            {% else %}
+            <span style="color: var(--text-tertiary); font-size: 0.85rem;">Private Project</span>
+            {% endif %}
+          </div>
         </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </main>
+  
   {% include footer.html %}
 </body>
 

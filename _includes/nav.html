@@ -4,7 +4,6 @@
     {% assign current_url = page.url | replace: 'index.html', '' | replace: '.html', '' %}
     {% assign nav_url = i.url | replace: 'index.html', '' | replace: '.html', '' %}
     <a
-      id="{{i.title | downcase}}"
       href="{{site.url}}{{site.baseurl}}{{i.url}}"
       class="{% if current_url == nav_url %}active{% endif %}"
     >
@@ -14,20 +13,23 @@
   </div>
 </nav>
 
+{% if page.url == "/" or page.url == "/index.html" %}
 <header>
-  <div class="hero">
-    <img class="profile" src="{{site.data.blogger.image}}" alt="{{site.data.blogger.name}}" />
+  <div class="container">
+    <div class="profile-container">
+      <img class="profile" src="{{site.data.blogger.image}}" alt="{{site.data.blogger.name}}" />
+    </div>
     <div class="bio">
       <h1 class="owner-name">{{site.data.blogger.name}}</h1>
       <p class="desc">{{site.data.blogger.description}}</p>
-      <p class="sub-desc">{{site.data.blogger.sub-description}}</p>
       <div class="social">
         {% for i in site.data.blogger.social %}
-        <a href="{{i.url}}" target="_blank" rel="noopener noreferrer">
-          <img src="{{site.url}}{{site.baseurl}}/assets/png/{{i.title}}.png" alt="{{i.title}}" class="icon" />
+        <a href="{{i.url}}" target="_blank" rel="noopener noreferrer" aria-label="{{i.title}}">
+          <img src="{{site.url}}{{site.baseurl}}/assets/png/{{i.title}}.png" alt="" class="icon" />
         </a>
         {% endfor %}
       </div>
     </div>
   </div>
 </header>
+{% endif %}

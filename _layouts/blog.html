@@ -5,18 +5,31 @@
 <body>
   {% include nav.html %}
   
-  <main class="post-list">
-    {% for post in site.posts %}
-    <a href="{{site.url}}{{site.baseurl}}{{post.url}}" class="post">
-      <small class="post-date">{{post.date | date_to_string}}</small>
-      <p class="post-title">{{post.title}}</p>
-      {% if post.image %}
-      <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}{{post.image}})"></div>
-      {% else %}
-      <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}/assets/uploads/default.jpg)"></div>
-      {% endif %}
-    </a>
-    {% endfor %}
+  <main class="container">
+    <div class="page-header">
+      <h1 class="page-title">Blog Posts</h1>
+      <p style="color: var(--text-secondary)">Thoughts, tutorials, and rants about technology.</p>
+    </div>
+
+    <div class="post-list">
+      {% for post in site.posts %}
+      <a href="{{site.url}}{{site.baseurl}}{{post.url}}" class="post">
+        {% if post.image %}
+        <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}{{post.image}})"></div>
+        {% else %}
+        <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}/assets/uploads/default.jpg); background: linear-gradient(45deg, #1e293b, #0f172a);"></div>
+        {% endif %}
+        
+        <div class="card-content">
+          <div class="card-date">{{post.date | date_to_string}}</div>
+          <h2 class="card-title">{{post.title}}</h2>
+          <div class="card-footer">
+            <span class="read-more">Read Article</span>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
   </main>
   
   {% include footer.html %}
