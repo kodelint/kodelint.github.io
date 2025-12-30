@@ -5,21 +5,21 @@
   <b>"I turn coffee and Red Bull into code, and existential anxiety into distributed architecture."</b>
 </p>
 
-Welcome to my personal corner of the internet. This is more than just a blog; it's my **Engineering Therapy**. It’s where I document my battles with distributed systems, HPC magic, and the occasional struggle with the Rust borrow checker.
+Welcome to my personal corner of the internet. This is my **Engineering Therapy**—a place where I document my battles with distributed systems, HPC magic, and the occasional struggle with the Rust borrow checker.
 
 📍 **Live Site**: [sroy.tech](https://sroy.tech)
 
 ---
 
-## ✨ Features (The Revamp)
+## ✨ Design & Features
 
-This blog has been completely redesigned with a **Modern Glassmorphism Plus** aesthetic.
+This blog utilizes a **Modern Glassmorphism Plus** aesthetic, focusing on visual depth and technical precision.
 
-- 🌌 **Deep Space UI**: A premium dark theme with ambient background glows and rich depth.
-- 🧊 **Glassmorphism**: HUD-style navigation and frosted glass cards with real-time reflections.
-- 🧠 **Quirky Bio**: An integrated narrative of 20+ years in the industry, from Solaris Zones to AI Plumbing.
-- ⚡ **Performance-First**: Built with Jekyll for static-site speed and optimized for both desktop and mobile.
-- 🎢 **Micro-Interactions**: Reading progress bars, glowing scrollbars, and bounce-hover animations via GSAP.
+- 🌌 **Deep Space UI**: A premium dark theme featuring ambient background glows and multi-layered depth.
+- 🧊 **Glassmorphism Architecture**: HUD-style navigation and frosted glass cards with integrated reflections.
+- 🧠 **Technical Narrative**: An integrated professional journey spanning 20+ years, from Solaris Zones to AI Infrastructure.
+- ⚡ **Optimized Performance**: Built with Jekyll for high-speed static delivery, fully responsive for desktop and mobile.
+- 🎢 **Dynamic Interactions**: Features reading progress indicators, custom stylized scrollbars, and fluid GSAP animations.
 
 ---
 
@@ -35,7 +35,7 @@ This blog has been completely redesigned with a **Modern Glassmorphism Plus** ae
 
 ## 🚀 Local Development
 
-The entire development environment is containerized. No need to install Ruby or Jekyll on your host machine.
+The development environment is fully containerized for consistency and ease of use.
 
 ### 1. Clone and Build
 ```bash
@@ -48,29 +48,20 @@ docker-compose build
 ```bash
 docker-compose up
 ```
-Once the container is up, visit: **`http://localhost:4000`**
+Visit: **`http://localhost:4000`**
 
-- **LiveReload**: Enabled (Any changes to your markdown or CSS will refresh the browser automatically).
-- **Drafts**: Enabled (See your `_drafts` posts while developing).
+- **LiveReload**: Changes to markdown or CSS refresh the browser automatically.
+- **Drafts**: View `_drafts` content during development.
 
 ---
 
 ## 📂 Project Structure
 
-- `_posts/`: Where the technical deep dives live.
-- `_data/`: Configuration for navigation (`nav.yml`), projects, and blogger bio.
-- `_includes/`: Reusable HTML components (Navbar, Footer, etc.).
-- `_layouts/`: The skeletal structures for Blogs, Projects, and Pages.
-- `assets/`: The aesthetic engine (CSS, JavaScript, and localized GIFs).
-
----
-
-## ↩️ Reverting Changes
-
-If you ever need to go back to the "classic" terminal-style look, I've tagged the pre-revamp state:
-```bash
-git checkout pre-revamp-backup
-```
+- `_posts/`: Technical deep dives and articles.
+- `_data/`: Structured data for navigation, projects, and bio.
+- `_includes/`: Modular HTML components.
+- `_layouts/`: Page templates and architectural structures.
+- `assets/`: Styling (CSS), scripts (JS), and media assets.
 
 ---
 
