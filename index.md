@@ -14,23 +14,23 @@ layout: page
 
 I’m <span style="color:var(--accent-primary)"><strong>Satyajit Roy</strong></span>, but you can call me <span style="color:var(--accent-secondary)"><strong>Roy</strong></span>. (It saves syllables for more important things, like variable naming debates).
 
-I am a **Technologist**, **Problem-Solver**, and **Chief Automation Officer** of my own life. My philosophy is simple: <span style="color: var(--accent-tertiary)">*"If I have to do it twice, I’m writing a script. If I have to do it thrice, I’m building a platform."*</span>
+I am a **Technologist**, **Problem-Solver**, and **Chief Automation Officer** of my own life. My philosophy is simple: <span style="color: var(--accent-tertiary)">_"If I have to do it twice, I’m writing a script. If I have to do it thrice, I’m building a platform."_</span>
 
 ### 🦖 The Origin Story (20+ Years of "It Works on My Machine")
 
-I’ve been in the game long enough to remember when "The Cloud" was just something that ruined your picnic. I’ve journeyed from the dark ages of `Solaris Zones` and `LXC` through the shiny, chaotic world of `Kubernetes`, and now into the era of babysitting massive **NVIDIA GPU clusters**. 
+I’ve been in the game long enough to remember when "The Cloud" was just something that ruined your picnic. I’ve journeyed from the dark ages of `Solaris Zones` and `LXC` through the shiny, chaotic world of `Kubernetes`, and now into the era of babysitting massive **NVIDIA GPU clusters**.
 
-Basically, I’ve spent two decades watching tech hypes rise, fall, and get rebranded while building high-performing **SRE**, **DevOps**, and **Platform Security** teams. These days, when I'm not wrestling with YAML, I'm the **AI Plumber**—making the hardware sweat so the models don't have to. I specialize in squeezing every last drop of performance out of GPUs until the data center smells slightly like ozone and your inference costs stop orbiting Saturn. 
+Basically, I’ve spent two decades watching tech hypes rise, fall, and get rebranded while building high-performing **SRE**, **DevOps**, and **Platform Security** teams. These days, when I'm not wrestling with YAML, I'm the **AI Plumber**—making the hardware sweat so the models don't have to. I specialize in squeezing every last drop of performance out of GPUs until the data center smells slightly like ozone and your inference costs stop orbiting Saturn.
 
 My goal has always been the same: building systems that are smart enough to scale and stable enough to **not** wake everyone up at 3 AM on a Saturday.
 
 ### 🛠️ What I Actually Do:
 
-*   ⚙️ **Engineering & Architecture**: Drawing boxes and arrows that eventually become expensive, resilient infrastructure.
-*   ☁️ **Cloud & AI Scale**: Turning "It works in dev" into "It works for everyone" without the CFO having a heart attack.
-*   🏎️ **HPC & GPU Tuning**: Squeezing performance out of hardware using RDMA, InfiniBand, and sheer willpower.
-*   🔐 **Security-First Thinking**: Because "admin/admin" is still not a valid security strategy, even in the age of AI.
-*   🚀 **Team Building**: Hiring smart people and then trying hard not to get in their way.
+- ⚙️ **Engineering & Architecture**: Drawing boxes and arrows that eventually become expensive, resilient infrastructure.
+- ☁️ **Cloud & AI Scale**: Turning "It works in dev" into "It works for everyone" without the CFO having a heart attack.
+- 🏎️ **HPC & GPU Tuning**: Squeezing performance out of hardware using RDMA, InfiniBand, and sheer willpower.
+- 🔐 **Security-First Thinking**: Because "admin/admin" is still not a valid security strategy, even in the age of AI.
+- 🚀 **Team Building**: Hiring smart people and then trying hard not to get in their way.
 
 ### 🧠 Why This Blog Exists
 
@@ -48,5 +48,5 @@ Thanks for stopping by. If you see me in a data center, a Slack thread, or wrest
 </div>
 
 <blockquote style="margin-top: 2rem; border-left: 4px solid var(--accent-tertiary); padding-left: 2rem; color: var(--text-primary); font-size: 1.5rem; font-family: var(--font-heading); font-style: italic;">
-  "I turn coffee and **Red Bull** into code, and existential anxiety into distributed architecture." <span style="color: var(--accent-primary);"> — That's Me!! </span>
+  "I turn <span style="color: #6F4E37;">coffee</span> and <span style="color: #ed1c24;">**Red Bull**</span> into code, and existential anxiety into distributed architecture." <span style="color: var(--accent-primary);"> — That's Me!! </span>
 </blockquote>
