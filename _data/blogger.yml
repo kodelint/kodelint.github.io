@@ -10,12 +10,10 @@ email: src@sroy.tech
 social:
   - title: linkedin
     url: https://www.linkedin.com/in/satyajitroychoudhury/
-  - title: github
-    url: https://github.com/kodelint
-  - title: twitter
-    url: https://twitter.com/__initialized__
   - title: medium
     url: https://medium.com/@email2sroy
+  - title: github
+    url: https://github.com/kodelint
   - title: dev
     url: https://dev.to/deadlock
   - title: hashnode
