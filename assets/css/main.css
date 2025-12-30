@@ -134,9 +134,9 @@ header {
 
 header .profile-container {
   position: relative;
-  width: 160px;
-  height: 160px;
-  margin: 0 auto 2rem;
+  width: 200px; /* Increased from 160px */
+  height: 200px; /* Increased from 160px */
+  margin: 0 auto 2.5rem;
 }
 
 header img.profile {
@@ -153,38 +153,38 @@ header img.profile {
 header .profile-container::before {
   content: '';
   position: absolute;
-  inset: -5px;
+  inset: -6px;
   border-radius: 50%;
   background: var(--accent-gradient);
   z-index: 1;
   opacity: 0.7;
-  filter: blur(10px);
+  filter: blur(12px);
 }
 
 header h1.owner-name {
-  font-size: 3.5rem;
+  font-size: 4.5rem; /* Increased from 3.5rem */
   background: linear-gradient(to right, #f9fafb, #94a3b8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 header .desc {
-  font-size: 1.25rem;
+  font-size: 1.5rem; /* Increased from 1.25rem */
   color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto 2rem;
+  max-width: 800px; /* Increased width to accommodate larger text */
+  margin: 0 auto 2.5rem;
 }
 
 header .social {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem; /* Increased from 1.5rem */
 }
 
 header .social .icon {
-  width: 24px;
-  height: 24px;
+  width: 32px; /* Increased from 24px */
+  height: 32px; /* Increased from 24px */
   filter: invert(1);
   opacity: 0.6;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -341,8 +341,15 @@ header .social a:hover .icon {
 }
 
 .content-body {
+  font-family: var(--font-heading); /* Space Grotesk */
   font-size: 1.1rem;
   color: var(--text-secondary);
+}
+
+.tagline {
+  font-family: var(--font-heading);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
 }
 
 .content-body h2 {
