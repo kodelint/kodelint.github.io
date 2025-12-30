@@ -14,7 +14,7 @@ layout: page
 
 I’m <span style="color:var(--accent-primary)"><strong>Satyajit Roy</strong></span>, but you can call me <span style="color:var(--accent-secondary)"><strong>Roy</strong></span>. (It saves syllables for more important things, like variable naming debates).
 
-I am a **Technologist**, **Problem-Solver**, and **Chief Automation Officer** of my own life. My philosophy is simple: **"If I have to do it twice, I’m writing a script. If I have to do it thrice, I’m building a platform."**
+I am a **Technologist**, **Problem-Solver**, and **Chief Automation Officer** of my own life. My philosophy is simple: *"If I have to do it twice, I’m writing a script. If I have to do it thrice, I’m building a platform."*
 
 ### 🦖 The Origin Story (20+ Years of "It Works on My Machine")
 
