@@ -473,6 +473,11 @@ header .social a:hover {
   padding-left: 0.5rem;
 }
 
+.content-body strong, .content-body b {
+  color: var(--accent-primary);
+  font-weight: 700;
+}
+
 .content-body h2 {
   font-size: 1.8rem;
   color: var(--text-primary);
