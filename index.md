@@ -20,7 +20,7 @@ I am a **Technologist**, **Problem-Solver**, and **Chief Automation Officer** of
 
 I’ve been in the game long enough to remember when "The Cloud" was just something that ruined your picnic. I’ve journeyed from the dark ages of `Solaris Zones` and `LXC` through the shiny, chaotic world of `Kubernetes`, and now into the era of babysitting massive **NVIDIA GPU clusters**.
 
-Basically, I’ve spent two decades watching tech hypes rise, fall, and get rebranded while building high-performing **SRE**, **DevOps**, and **Platform Security** teams. These days, when I'm not wrestling with YAML, I'm the **AI Plumber**—making the hardware sweat so the models don't have to. I specialize in squeezing every last drop of performance out of GPUs until the data center smells slightly like ozone and your inference costs stop orbiting Saturn.
+Basically, I’ve spent two decades watching tech hypes rise, fall, and get rebranded while building high-performing **SRE**, **DevOps**, and **Platform Security** teams. These days, when I'm not wrestling with `YAML`, I'm the **AI Plumber**—making the hardware sweat so the models don't have to. I specialize in squeezing every last drop of performance out of GPUs until the data center smells slightly like ozone and your inference costs stop orbiting Saturn.
 
 My goal has always been the same: building systems that are smart enough to scale and stable enough to **not** wake everyone up at 3 AM on a Saturday.
 
