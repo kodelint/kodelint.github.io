@@ -24,16 +24,16 @@ I specialize in building high-performing **SRE**, **DevOps**, and **Platform Sec
 *   ⚙️ **Engineering & Architecture**: Drawing boxes and arrows that eventually become expensive, resilient infrastructure.
 *   ☁️ **Cloud Delivery**: Turning "It works in dev" into "It scales in prod" without burning down the budget.
 *   🔐 **Security-First Thinking**: Because "admin/admin" is not a valid security strategy.
-*   🚀 **Team Building**: Hiring smart people and then trying hard not to get in their way.
+*   🚀 **Team Building**: Hiring smart people and then trying hard not to get in my way.
 
 ### 🧠 Why This Blog Exists
 
 This site is my **Engineering Therapy**. It’s where I dump my thoughts, tutorials, rants, and the occasional "Aha!" moment. It serves two main purposes:
-1.  Helping you solve that obscure error message you found on Google.
-2.  Reminding future me how I fixed that obscure error message 6 months ago.
+  1. Helping you solve that obscure error message you found on Google.
+  2. Reminding future me how I fixed that obscure error message 6 months ago.
 
 Thanks for stopping by. If you see me in a data center, a Slack thread, or debugging YAML files, say hi!
 
-<blockquote style="margin-top: 2rem; border-left-color: var(--accent-tertiary);">
+<blockquote style="margin-top: 3rem; border-left: 4px solid var(--accent-tertiary); padding-left: 2rem; font-style: italic;">
   <span style="font-weight: bold; color: var(--text-primary);">"I turn coffee into code, and anxiety into architecture."</span> <span style="color: var(--accent-primary);"> — That's Me!! </span>
 </blockquote>
