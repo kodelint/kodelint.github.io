@@ -473,23 +473,44 @@ header .social a:hover {
   padding-left: 0.5rem;
 }
 
-/* Terminal Prompt Hook */
-.whoami-prompt {
+/* Terminal Header Section */
+.terminal-header {
   font-family: var(--font-mono);
-  background: rgba(255, 255, 255, 0.03);
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-md);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border-subtle);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 3rem;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
+  margin-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.whoami-prompt .cursor {
-  width: 8px;
+.terminal-header::before {
+  content: '● ● ●';
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  color: var(--text-tertiary);
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+}
+
+.terminal-header .command {
+  font-size: 2.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.terminal-header .prompt-symbol {
+  color: var(--accent-secondary);
+}
+
+.terminal-header .cursor {
+  width: 15px;
   height: 1.2em;
   background: var(--accent-primary);
   display: inline-block;

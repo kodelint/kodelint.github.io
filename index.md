@@ -3,9 +3,11 @@ title: Myself
 layout: page
 ---
 
-<div class="whoami-prompt">
-  <span style="color: var(--accent-secondary)">$</span> whoami
-  <span class="cursor"></span>
+<div class="terminal-header">
+  <div class="command">
+    <span class="prompt-symbol">λ</span> whoami
+    <span class="cursor"></span>
+  </div>
 </div>
 
 👋 **Oh, hi! You found my corner of the internet.**
