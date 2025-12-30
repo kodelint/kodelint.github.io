@@ -1,10 +1,12 @@
 <nav>
   <div class="nav-container">
     {% for i in site.data.nav.toc %}
+    {% assign current_url = page.url | replace: 'index.html', '' | replace: '.html', '' %}
+    {% assign nav_url = i.url | replace: 'index.html', '' | replace: '.html', '' %}
     <a
       id="{{i.title | downcase}}"
       href="{{site.url}}{{site.baseurl}}{{i.url}}"
-      {% if page.url == i.url or page.url == i.url | append: '/' %}class="active"{% endif %}
+      class="{% if current_url == nav_url %}active{% endif %}"
     >
       {{i.title}}
     </a>
