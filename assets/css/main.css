@@ -244,12 +244,23 @@ header .profile-container::before {
 }
 
 header h1.owner-name {
-  font-size: 3.5rem; /* Balanced size */
   line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+header h1.owner-name .greeting {
+  font-size: 4.5rem;
+  display: block;
   background: linear-gradient(to right, #f9fafb, #94a3b8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 1.5rem;
+}
+
+header h1.owner-name .name {
+  font-size: 3rem;
+  display: block;
+  color: var(--accent-primary);
+  margin-top: 0.5rem;
 }
 
 header .desc {
@@ -305,8 +316,11 @@ header .social a:hover .icon {
     margin: 0 auto;
   }
   
-  header h1.owner-name {
-    font-size: 2.5rem;
+  header h1.owner-name .greeting {
+    font-size: 3rem;
+  }
+  header h1.owner-name .name {
+    font-size: 2.2rem;
   }
 }
 
@@ -631,8 +645,11 @@ footer {
     padding-top: 8rem;
   }
   
-  header h1.owner-name {
-    font-size: 2.5rem;
+  header h1.owner-name .greeting {
+    font-size: 2.8rem;
+  }
+  header h1.owner-name .name {
+    font-size: 2rem;
   }
   
   nav {
