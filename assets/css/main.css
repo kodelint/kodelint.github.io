@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
 
 :root {
   /* Core Palette - Deep Space Theme */
@@ -30,7 +30,7 @@
   --container-width: 1200px;
   
   /* Typography */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
@@ -55,8 +55,8 @@ body {
 
 /* Typography Overrides */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 800;
-  letter-spacing: -0.025em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
   margin-bottom: 1rem;
 }
@@ -216,6 +216,8 @@ header .social a:hover .icon {
   flex-direction: column;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   position: relative;
+  padding: 1rem; /* Added frame padding */
+  gap: 1rem;     /* Space between image and content */
 }
 
 .post::before, .project::before {
@@ -229,6 +231,7 @@ header .social a:hover .icon {
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
+  border-radius: var(--radius-md); /* Match parent radius */
 }
 
 .post:hover, .project:hover {
@@ -244,21 +247,21 @@ header .social a:hover .icon {
 .thumbnail {
   width: 100%;
   aspect-ratio: 16/9;
-  background-size: cover;
+  background-size: contain; /* Fix: prevents cutting */
+  background-repeat: no-repeat;
   background-position: center;
   position: relative;
+  border-radius: var(--radius-sm);
+  background-color: #000; /* Letterbox fill */
 }
 
 .thumbnail::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, var(--bg-surface), transparent);
-  opacity: 0.6;
+  content: ''; /* Remove gradient overlay on contained images for clarity */
+  display: none;
 }
 
 .card-content {
-  padding: 1.5rem;
+  padding: 0; /* Remove internal padding as parent has it */
   display: flex;
   flex-direction: column;
   flex-grow: 1;

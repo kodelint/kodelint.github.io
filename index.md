@@ -3,8 +3,9 @@ title: Myself
 layout: page
 ---
 
-<img src="/assets/uploads/developer.gif" alt="alt text" height="350" width="500"/>
-
+<div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+  <img src="/assets/uploads/developer.gif" alt="Coding GIF" height="350" width="500" style="border-radius: 12px; box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);"/>
+</div>
 
 👋 Hello there, internet traveler!
 
