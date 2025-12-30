@@ -7,8 +7,6 @@ layout: page
   <img src="/assets/uploads/kermit-typing.gif" alt="Coding GIF" style="border-radius: 12px; box-shadow: 0 0 30px rgba(56, 189, 248, 0.15); max-width: 100%; height: auto; border: 1px solid rgba(255,255,255,0.1);"/>
 </div>
 
-<div style="max-width: 800px; margin: 0 auto;">
-
 👋 **Hello there, internet traveler!**
 
 I’m <span style="color:var(--accent-primary)"><strong>Satyajit Roy</strong></span> — but most people just call me <span style="color:var(--accent-secondary)"><strong>Roy</strong></span>. I'm a technologist, problem-solver, and part-time automation evangelist (my motto: if I have to do it twice, it gets automated).
@@ -31,5 +29,3 @@ Thanks for stopping by. Hope we cross paths someday — in a data center, Slack 
 <blockquote style="margin-top: 2rem; border-left-color: var(--accent-tertiary);">
   <span style="font-weight: bold; color: var(--text-primary);">A Programmer is machine who turns coffee into code.</span> <span style="color: var(--accent-primary);"> That's Me!! </span>
 </blockquote>
-
-</div>
