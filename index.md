@@ -4,7 +4,7 @@ layout: page
 ---
 
 <div class="about-hero-visual" style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; background: var(--bg-surface-glass); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
-  <img src="/assets/uploads/ron-swanson-dumpster.gif" alt="Engineering Therapy" style="border-radius: var(--radius-md); max-width: 100%; height: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);"/>
+  <img src="/assets/uploads/this-is-fine.gif" alt="Engineering Therapy" style="border-radius: var(--radius-md); max-width: 100%; height: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);"/>
 </div>
 
 👋 **Oh, hi! You found my corner of the internet.**
