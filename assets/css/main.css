@@ -163,6 +163,7 @@ header img.profile {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
+  object-position: top center; /* Fix for head cropping */
   border: 4px solid var(--bg-surface);
   box-shadow: var(--glow-shadow);
   position: relative;
