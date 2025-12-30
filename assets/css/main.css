@@ -256,11 +256,15 @@ header h1.owner-name .greeting {
   -webkit-text-fill-color: transparent;
 }
 
-header h1.owner-name .name {
+header h1.owner-name .name-line {
   font-size: 3rem;
   display: block;
-  color: var(--accent-primary);
+  color: var(--text-primary);
   margin-top: 0.5rem;
+}
+
+header h1.owner-name .name {
+  color: var(--accent-primary);
 }
 
 header .desc {
@@ -319,7 +323,7 @@ header .social a:hover .icon {
   header h1.owner-name .greeting {
     font-size: 3rem;
   }
-  header h1.owner-name .name {
+  header h1.owner-name .name-line {
     font-size: 2.2rem;
   }
 }
@@ -648,7 +652,7 @@ footer {
   header h1.owner-name .greeting {
     font-size: 2.8rem;
   }
-  header h1.owner-name .name {
+  header h1.owner-name .name-line {
     font-size: 2rem;
   }
   
