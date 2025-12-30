@@ -48,5 +48,5 @@ Thanks for stopping by. If you see me in a data center, a Slack thread, or wrest
 </div>
 
 <blockquote style="margin-top: 2rem; border-left: 4px solid var(--accent-tertiary); padding-left: 2rem; color: var(--text-primary); font-size: 1.5rem; font-family: var(--font-heading); font-style: italic;">
-  "I turn coffee into code, and anxiety into architecture." <span style="color: var(--accent-primary);"> — That's Me!! </span>
+  "I turn coffee and **Red Bull** into code, and existential anxiety into distributed architecture." <span style="color: var(--accent-primary);"> — That's Me!! </span>
 </blockquote>
