@@ -24,6 +24,11 @@
           <div class="card-date">{{post.date | date_to_string}}</div>
           <h2 class="card-title">{{post.title}}</h2>
           <div class="card-footer">
+            <div class="cross-post-links">
+              <i class="fab fa-medium cross-post-icon medium {% if post.redirect_to contains 'medium.com' or post.medium_url %}active{% endif %}" title="Available on Medium"></i>
+              <i class="fab fa-dev cross-post-icon devto {% if post.devto_url %}active{% endif %}" title="Available on Dev.to"></i>
+              <i class="fas fa-h cross-post-icon hashnode {% if post.hashnode_url %}active{% endif %}" title="Available on Hashnode"></i>
+            </div>
             <span class="read-more">Read Article</span>
           </div>
         </div>
