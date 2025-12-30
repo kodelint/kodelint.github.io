@@ -16,18 +16,22 @@
 {% if page.url == "/" or page.url == "/index.html" %}
 <header>
   <div class="container">
-    <div class="profile-container">
-      <img class="profile" src="{{site.data.blogger.image}}" alt="{{site.data.blogger.name}}" />
-    </div>
-    <div class="bio">
-      <h1 class="owner-name">{{site.data.blogger.name}}</h1>
-      <p class="desc">{{site.data.blogger.description}}</p>
-      <div class="social">
-        {% for i in site.data.blogger.social %}
-        <a href="{{i.url}}" target="_blank" rel="noopener noreferrer" aria-label="{{i.title}}">
-          <img src="{{site.url}}{{site.baseurl}}/assets/png/{{i.title}}.png" alt="" class="icon" />
-        </a>
-        {% endfor %}
+    <div class="about-grid">
+      <div class="about-text">
+        <h1 class="owner-name">Hello there, I'm {{site.data.blogger.name}}</h1>
+        <p class="desc">{{site.data.blogger.description}}</p>
+        <div class="social">
+          {% for i in site.data.blogger.social %}
+          <a href="{{i.url}}" target="_blank" rel="noopener noreferrer" aria-label="{{i.title}}">
+            <img src="{{site.url}}{{site.baseurl}}/assets/png/{{i.title}}.png" alt="" class="icon" />
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="profile-container">
+          <img class="profile" src="{{site.data.blogger.image}}" alt="{{site.data.blogger.name}}" />
+        </div>
       </div>
     </div>
   </div>

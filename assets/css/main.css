@@ -129,14 +129,33 @@ nav a.active {
 header {
   padding-top: 10rem;
   padding-bottom: 4rem;
-  text-align: center;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  text-align: left;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header .profile-container {
   position: relative;
-  width: 200px; /* Increased from 160px */
-  height: 200px; /* Increased from 160px */
-  margin: 0 auto 2.5rem;
+  width: 280px; /* Larger for side-by-side */
+  height: 280px;
+  margin: 0;
 }
 
 header img.profile {
@@ -158,42 +177,74 @@ header .profile-container::before {
   background: var(--accent-gradient);
   z-index: 1;
   opacity: 0.7;
-  filter: blur(12px);
+  filter: blur(16px);
 }
 
 header h1.owner-name {
-  font-size: 4.5rem; /* Increased from 3.5rem */
+  font-size: 3.5rem; /* Balanced size */
+  line-height: 1.1;
   background: linear-gradient(to right, #f9fafb, #94a3b8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
 header .desc {
-  font-size: 1.5rem; /* Increased from 1.25rem */
+  font-size: 1.25rem;
   color: var(--text-secondary);
-  max-width: 800px; /* Increased width to accommodate larger text */
-  margin: 0 auto 2.5rem;
+  margin-bottom: 2.5rem;
+  max-width: 100%;
 }
 
 header .social {
   display: flex;
-  justify-content: center;
-  gap: 2rem; /* Increased from 1.5rem */
+  justify-content: flex-start; /* Align left */
+  gap: 1.5rem;
 }
 
 header .social .icon {
-  width: 32px; /* Increased from 24px */
-  height: 32px; /* Increased from 24px */
+  width: 28px;
+  height: 28px;
   filter: invert(1);
-  opacity: 0.6;
+  opacity: 0.7;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 header .social a:hover .icon {
   opacity: 1;
   transform: translateY(-3px) scale(1.1);
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+/* Media Queries for About Grid */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+  
+  .about-text {
+    order: 2; /* Visual below text on mobile? No, let's keep visual top usually, or text top. Standard is Visual Top. */
+    order: 1;
+  }
+  
+  .about-visual {
+    order: 0;
+  }
+  
+  header .social {
+    justify-content: center;
+  }
+  
+  header .profile-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  
+  header h1.owner-name {
+    font-size: 2.5rem;
+  }
 }
 
 /* Card Grid System - Depth & Glass */
