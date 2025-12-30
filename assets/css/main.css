@@ -473,6 +473,33 @@ header .social a:hover {
   padding-left: 0.5rem;
 }
 
+/* Terminal Prompt Hook */
+.whoami-prompt {
+  font-family: var(--font-mono);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.whoami-prompt .cursor {
+  width: 8px;
+  height: 1.2em;
+  background: var(--accent-primary);
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
 .content-body strong, .content-body b {
   color: var(--accent-primary);
   font-weight: 700;

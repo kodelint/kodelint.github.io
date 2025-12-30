@@ -3,6 +3,11 @@ title: Myself
 layout: page
 ---
 
+<div class="whoami-prompt">
+  <span style="color: var(--accent-secondary)">$</span> whoami
+  <span class="cursor"></span>
+</div>
+
 👋 **Oh, hi! You found my corner of the internet.**
 
 I’m <span style="color:var(--accent-primary)"><strong>Satyajit Roy</strong></span>, but you can call me <span style="color:var(--accent-secondary)"><strong>Roy</strong></span>. (It saves syllables for more important things, like variable naming debates).
