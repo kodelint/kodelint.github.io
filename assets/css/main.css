@@ -153,8 +153,8 @@ header {
 
 header .profile-container {
   position: relative;
-  width: 280px; /* Larger for side-by-side */
-  height: 280px;
+  width: 320px; /* Increased from 280px */
+  height: 320px; /* Increased from 280px */
   margin: 0;
 }
 
@@ -238,8 +238,8 @@ header .social a:hover .icon {
   }
   
   header .profile-container {
-    width: 200px;
-    height: 200px;
+    width: 240px; /* Increased from 200px */
+    height: 240px; /* Increased from 200px */
     margin: 0 auto;
   }
   
