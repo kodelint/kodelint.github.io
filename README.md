@@ -1,9 +1,10 @@
 # 🌐 sroy.tech | My Personal Blog
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/kodelint/blog-images/main/common/pic1.png" alt="Satyajit Roy" width="200" style="border-radius: 50%; border: 4px solid #111827; box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);"><br>
+<div align="center">
+  <img src="https://raw.githubusercontent.com/kodelint/blog-images/main/common/pic1.png" alt="Satyajit Roy" width="200" style="border-radius: 50%; border: 4px solid #111827; box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);">
+  <br />
   <b>"I turn coffee and Red Bull into code, and existential anxiety into distributed architecture."</b>
-</p>
+</div>
 
 Welcome to my personal corner of the internet. This is my **Engineering Therapy**—a place where I document my battles with distributed systems, HPC magic, and the occasional struggle with the Rust borrow checker.
 
@@ -38,6 +39,7 @@ This blog utilizes a **Modern Glassmorphism Plus** aesthetic, focusing on visual
 The development environment is fully containerized for consistency and ease of use.
 
 ### 1. Clone and Build
+
 ```bash
 git clone https://github.com/kodelint/kodelint.github.io.git
 cd kodelint.github.io
@@ -45,9 +47,11 @@ docker-compose build
 ```
 
 ### 2. Launch the Engine
+
 ```bash
 docker-compose up
 ```
+
 Visit: **`http://localhost:4000`**
 
 - **LiveReload**: Changes to markdown or CSS refresh the browser automatically.
@@ -65,6 +69,6 @@ Visit: **`http://localhost:4000`**
 
 ---
 
-<p align="center">
+<div align="center">
   <i>Maintained with ❤️ and plenty of caffeine by Satyajit Roy.</i>
-</p>
+</div>
