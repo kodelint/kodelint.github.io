@@ -3,10 +3,6 @@ title: Myself
 layout: page
 ---
 
-<div class="about-hero-visual" style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; background: var(--bg-surface-glass); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
-  <img src="/assets/uploads/gilfoyle.gif" alt="It's not magic, it's talent." style="border-radius: var(--radius-md); max-width: 100%; height: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);"/>
-</div>
-
 👋 **Oh, hi! You found my corner of the internet.**
 
 I’m <span style="color:var(--accent-primary)"><strong>Satyajit Roy</strong></span>, but you can call me <span style="color:var(--accent-secondary)"><strong>Roy</strong></span>. (It saves syllables for more important things, like variable naming debates).
@@ -35,11 +31,15 @@ This site is my **Engineering Therapy**. It’s where I document my battles with
 
 1.  **Public Service**: Helping you solve that obscure, soul-crushing error message you found on Google at 2 AM. If I can save one person from a **Segfault** or a **Deadlock**, I’ve done my job.
 2.  **External Brain**: Reminding future me how I fixed that exact same "impossible" bug 6 months ago. Let's be honest, if the compiler didn't catch it and I didn't blog it, it never happened.
-3.  **Typed Sanity**: A safe space to celebrate the joy of **Golang** binaries and my ongoing struggle to satisfy the **Rust** borrow checker. You won't find any interpreted chaos here just pure, statically-linked systems-level sanity.
+3.  **Typed Sanity**: A safe space to celebrate the joy of **Golang** binaries and my ongoing struggle to satisfy the **Rust** borrow checker. You won't find any interpreted chaos here—just pure, statically-linked systems-level sanity.
 4.  **Distributed Venting**: Because sometimes you just need to rant about why your cluster state is currently a dumpster fire or why **RDMA** is acting like it's 1995.
 
 Thanks for stopping by. If you see me in a data center, a Slack thread, or wrestling with a borrow checker, say hi!
 
-<blockquote style="margin-top: 4rem; border-left: 4px solid var(--accent-tertiary); padding-left: 2rem; color: var(--text-primary); font-size: 1.5rem; font-family: var(--font-heading); font-style: italic;">
+<div class="about-hero-visual" style="display: flex; align-items: center; justify-content: center; margin-top: 4rem; margin-bottom: 2rem; background: var(--bg-surface-glass); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
+  <img src="/assets/uploads/developer.gif" alt="Coding GIF" style="border-radius: var(--radius-md); max-width: 100%; height: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);"/>
+</div>
+
+<blockquote style="margin-top: 2rem; border-left: 4px solid var(--accent-tertiary); padding-left: 2rem; color: var(--text-primary); font-size: 1.5rem; font-family: var(--font-heading); font-style: italic;">
   "I turn coffee into code, and anxiety into architecture." <span style="color: var(--accent-primary);"> — That's Me!! </span>
 </blockquote>
