@@ -44,7 +44,7 @@ This site is my **Engineering Therapy**. It’s where I document my battles with
 Thanks for stopping by. If you see me in a data center, a Slack thread, or wrestling with a borrow checker, say hi!
 
 <div class="about-hero-visual" style="display: flex; align-items: center; justify-content: center; margin-top: 4rem; margin-bottom: 2rem; background: var(--bg-surface-glass); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
-  <img src="/assets/uploads/developer.gif" alt="Coding GIF" style="border-radius: var(--radius-md); max-width: 100%; height: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);"/>
+  <img src="/assets/uploads/developer.gif" alt="Coding GIF" style="border-radius: var(--radius-md); max-width: 70%; height: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);"/>
 </div>
 
 <blockquote style="margin-top: 2rem; border-left: 4px solid var(--accent-tertiary); padding-left: 2rem; color: var(--text-primary); font-size: 1.5rem; font-family: var(--font-heading); font-style: italic;">
