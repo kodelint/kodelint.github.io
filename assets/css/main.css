@@ -521,12 +521,13 @@ header .social a:hover {
   font-family: var(--font-mono);
   background: linear-gradient(to right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
   backdrop-filter: blur(10px);
-  padding: 2rem;
+  padding: 2.5rem 2rem 2rem;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-subtle);
   margin-bottom: 4rem;
   position: relative;
-  overflow: hidden;
+  overflow-y: auto;
+  max-height: 400px;
 }
 
 #matrix-canvas {
@@ -544,10 +545,36 @@ header .social a:hover {
   font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-top: 1rem;
   position: relative;
   z-index: 1;
+}
+
+#terminal-input {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 700;
+  width: 100%;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+#terminal-results {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.terminal-line {
+  margin-bottom: 0.5rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .terminal-header .prompt-symbol {
