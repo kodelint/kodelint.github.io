@@ -1,0 +1,35 @@
+:root {
+  /* Core Palette - Deep Space Theme */
+  --bg-depth: #030712;      /* Deepest background */
+  --bg-surface: #111827;    /* Card background */
+  --bg-surface-glass: rgba(17, 24, 39, 0.7); /* Glass effect */
+  --bg-elevated: #1f2937;   /* Hover states */
+  
+  /* Text Colors */
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --text-tertiary: #6b7280;
+  
+  /* Accents - Neon/Cyber vibes */
+  --accent-primary: #38bdf8;   /* Cyan */
+  --accent-secondary: #818cf8; /* Indigo */
+  --accent-tertiary: #c084fc;  /* Purple */
+  --accent-gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  --accent-glow: rgba(56, 189, 248, 0.3);
+  
+  /* Borders & Glows */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(56, 189, 248, 0.5);
+  --glow-shadow: 0 0 30px rgba(56, 189, 248, 0.15); /* More intense glow */
+  
+  /* Spacing & Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --container-width: 1200px;
+  
+  /* Typography */
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
