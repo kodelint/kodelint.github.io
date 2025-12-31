@@ -513,6 +513,7 @@ header .social a:hover {
   font-family: var(--font-heading); /* Space Grotesk */
   font-size: 1.1rem;
   color: var(--text-secondary);
+  text-align: left; /* Restore left alignment */
 }
 
 .tagline {
@@ -705,10 +706,9 @@ button[type="submit"]:hover {
   gap: 2rem;
   margin-bottom: 2rem;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--text-tertiary);
   background: rgba(255, 255, 255, 0.02);
   padding: 0.75rem 2rem;
   border-radius: 100px;
