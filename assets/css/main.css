@@ -655,6 +655,48 @@ button[type="submit"]:hover {
 .cross-post-icon.devto.active { color: #3b82f6; }
 .cross-post-icon.hashnode.active { color: #2962ff; }
 
+/* System Status Bar */
+.system-status {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.75rem 2rem;
+  border-radius: 100px;
+  border: 1px solid var(--border-subtle);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-value {
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+.status-value.highlight {
+  color: #ff4757; /* Critical red */
+  animation: pulseRed 2s infinite;
+}
+
+@keyframes pulseRed {
+  0% { text-shadow: 0 0 0px rgba(255, 71, 87, 0); }
+  50% { text-shadow: 0 0 10px rgba(255, 71, 87, 0.5); }
+  100% { text-shadow: 0 0 0px rgba(255, 71, 87, 0); }
+}
+
 /* Footer */
 footer {
   margin-top: 6rem;
