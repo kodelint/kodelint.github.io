@@ -1299,35 +1299,6 @@ button[type="submit"]:hover {
   white-space: nowrap;
 }
 
-/* 2. Complexity Gauge (Blogs) */
-.complexity-container {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
-  font-size: 0.7rem;
-  font-family: var(--font-mono);
-  color: var(--text-tertiary);
-  text-transform: uppercase;
-}
-
-.complexity-bar {
-  display: flex;
-  gap: 3px;
-}
-
-.complexity-segment {
-  width: 14px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 1px;
-}
-
-.complexity-segment.active {
-  background: var(--accent-secondary);
-  box-shadow: 0 0 8px var(--accent-secondary);
-}
-
 /* 3. Tag Terminal Filter (Blogs) */
 .tag-terminal {
   background: rgba(255, 255, 255, 0.02);

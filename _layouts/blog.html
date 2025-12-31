@@ -49,16 +49,13 @@
           </div>
           <h2 class="card-title">{{post.title}}</h2>
 
-          <!-- 2. Complexity Gauge -->
-          {% assign complexity = post.caffeine | default: 2 | plus: post.stress | default: 1 | divided_by: 2 %}
-          <div class="complexity-container" title="Complexity Level: {{ complexity }}/10">
-            <span>Complexity:</span>
-            <div class="complexity-bar">
-              {% for i in (1..10) %}
-                <div class="complexity-segment {% if i <= complexity %}active{% endif %}"></div>
-              {% endfor %}
-            </div>
+          {% if post.tags %}
+          <div style="margin-bottom: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            {% for tag in post.tags %}
+              <span style="font-size: 0.75rem; background: rgba(56, 189, 248, 0.1); color: var(--accent-primary); padding: 2px 8px; border-radius: 4px;">{{ tag }}</span>
+            {% endfor %}
           </div>
+          {% endif %}
 
           <div class="card-footer">
             <div class="cross-post-links">
