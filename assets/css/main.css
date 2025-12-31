@@ -984,6 +984,18 @@ button[type="submit"]:hover {
   line-height: 1.3;
 }
 
+.commit-message .type {
+  font-weight: 800;
+  text-transform: lowercase;
+}
+
+.commit-message .type.deploy { color: #38bdf8; }   /* Cyan */
+.commit-message .type.hotfix { color: #ff4757; }   /* Red */
+.commit-message .type.feat { color: #00ff9d; }     /* Green */
+.commit-message .type.merge { color: #a855f7; }    /* Purple */
+.commit-message .type.refactor { color: #facc15; } /* Yellow */
+.commit-message .type.init { color: #818cf8; }     /* Indigo */
+
 .commit-details {
   font-size: 0.95rem;
   color: var(--text-secondary);
