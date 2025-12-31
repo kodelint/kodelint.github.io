@@ -41,7 +41,7 @@ My goal has always been the same: building systems that are smart enough to scal
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">af5c170</span>
-      <span class="graph-msg"><span class="type deploy">deploy:</span> mastering **Rust** and scaling distributed brains</span>
+      <span class="graph-msg"><span class="type deploy">deploy:</span> mastering <strong>Rust</strong> and scaling distributed brains</span>
     </div>
   </div>
 
@@ -52,7 +52,7 @@ My goal has always been the same: building systems that are smart enough to scal
     </div>
     <div class="graph-content">
       <span class="graph-hash">c19feaa</span>
-      <span class="graph-msg"><span class="type hotfix">hotfix:</span> squeezing **p99 performance** for high-load clusters</span>
+      <span class="graph-msg"><span class="type hotfix">hotfix:</span> squeezing <strong>p99 performance</strong> for high-load clusters</span>
     </div>
   </div>
 
@@ -60,7 +60,7 @@ My goal has always been the same: building systems that are smart enough to scal
     <div class="graph-lane"><div class="graph-dot l1"></div></div>
     <div class="graph-content">
       <span class="graph-hash">e18ce41</span>
-      <span class="graph-msg"><span class="type feat">feat:</span> **NVIDIA GPU** scheduling and **RDMA** optimization</span>
+      <span class="graph-msg"><span class="type feat">feature:</span> <strong>NVIDIA GPU</strong> scheduling and <strong>RDMA</strong> optimization</span>
     </div>
   </div>
 
@@ -68,7 +68,7 @@ My goal has always been the same: building systems that are smart enough to scal
     <div class="graph-lane"><div class="graph-dot l1"></div></div>
     <div class="graph-content">
       <span class="graph-hash">bd36139</span>
-      <span class="graph-msg"><span class="type feat">feat:</span> architecting **MLOps** foundations (Kubeflow/MLflow)</span>
+      <span class="graph-msg"><span class="type feat">feature:</span> architecting <strong>MLOps</strong> foundations (Kubeflow/MLflow)</span>
     </div>
   </div>
 
@@ -79,7 +79,7 @@ My goal has always been the same: building systems that are smart enough to scal
     </div>
     <div class="graph-content">
       <span class="graph-hash">0731214</span>
-      <span class="graph-msg"><span class="type merge">merge:</span> security-first platform with **eBPF** and **Zero-Trust**</span>
+      <span class="graph-msg"><span class="type merge">merge:</span> <strong>eBPF</strong> service mesh and <strong>Zero-Trust</strong> security</span>
     </div>
   </div>
 
@@ -87,7 +87,7 @@ My goal has always been the same: building systems that are smart enough to scal
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">f765b47</span>
-      <span class="graph-msg"><span class="type feat">feat:</span> automating the world via **Terraform** and **GitOps**</span>
+      <span class="graph-msg"><span class="type feat">feature:</span> automating <strong>Kubernetes</strong> via <strong>Terraform</strong> and <strong>GitOps</strong></span>
     </div>
   </div>
 
@@ -95,7 +95,7 @@ My goal has always been the same: building systems that are smart enough to scal
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">8381d27</span>
-      <span class="graph-msg"><span class="type feat">feat:</span> multi-cloud **Kubernetes** orchestration at scale</span>
+      <span class="graph-msg"><span class="type feat">feature:</span> massive <strong>Cloud-Native</strong> orchestration at scale</span>
     </div>
   </div>
 
@@ -103,7 +103,7 @@ My goal has always been the same: building systems that are smart enough to scal
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">c044a82</span>
-      <span class="graph-msg"><span class="type refactor">refactor:</span> from **Solaris Zones** to modern containers</span>
+      <span class="graph-msg"><span class="type refactor">refactor:</span> from <strong>Solaris Zones</strong> to <strong>Golang</strong> and modern <strong>Containers</strong></span>
     </div>
   </div>
 
@@ -111,7 +111,7 @@ My goal has always been the same: building systems that are smart enough to scal
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">init_02</span>
-      <span class="graph-msg"><span class="type init">init:</span> the first compiled **Hello World**</span>
+      <span class="graph-msg"><span class="type init">init:</span> the first compiled <strong>Hello World</strong></span>
     </div>
   </div>
 
