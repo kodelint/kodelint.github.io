@@ -38,66 +38,103 @@ My goal has always been the same: building systems that are smart enough to scal
 <div class="git-timeline">
   
   <div class="git-commit deploy">
-    <div class="commit-meta">
-      <span class="commit-hash">af5c170</span>
-      <span class="commit-date">Aug 2024 - Present</span>
+    <div class="git-graph-lane">
+      <div class="branch-in"></div>
+      <div class="git-dot lane-0"></div>
     </div>
-    <div class="commit-message"><span class="type deploy">deploy:</span> Scaling Engineering & SRE @ Arkose Labs</div>
-    <div class="commit-details">Owning platform strategy for high-growth fraud detection SaaS. Sustaining <span>99.9% SLA</span> while supporting 7x transaction growth.</div>
+    <div class="commit-content">
+      <div class="commit-meta">
+        <span class="commit-hash">af5c170</span>
+        <span class="commit-date">Aug 2024 - Present</span>
+      </div>
+      <div class="commit-message"><span class="type deploy">deploy:</span> Scaling Engineering & SRE @ Arkose Labs</div>
+      <div class="commit-details">Owning platform strategy for high-growth fraud detection SaaS. Sustaining <span>99.9% SLA</span> while supporting 7x transaction growth.</div>
+    </div>
   </div>
 
-  <div class="git-commit feature">
-    <div class="commit-meta">
-      <span class="commit-hash">c19feaa</span>
-      <span class="commit-date">2022 - 2024</span>
+  <div class="git-commit feature on-branch">
+    <div class="git-graph-lane">
+      <div class="git-dot lane-1"></div>
     </div>
-    <div class="commit-message"><span class="type feature">feature:</span> Leading Global SRE & Product Engineering @ F5</div>
-    <div class="commit-details">Architected 25+ global PoP platforms and led a 55+ engineer organization. Achieved <span>400% growth</span> in attack traffic absorption.</div>
+    <div class="commit-content">
+      <div class="commit-meta">
+        <span class="commit-hash">c19feaa</span>
+        <span class="commit-date">2022 - 2024</span>
+      </div>
+      <div class="commit-message"><span class="type feature">feature:</span> Leading Global SRE & Product Engineering @ F5</div>
+      <div class="commit-details">Architected 25+ global PoP platforms and led a 55+ engineer organization. Achieved <span>400% growth</span> in attack traffic absorption.</div>
+    </div>
   </div>
 
-  <div class="git-commit feature">
-    <div class="commit-meta">
-      <span class="commit-hash">e18ce41</span>
-      <span class="commit-date">2018 - 2022</span>
+  <div class="git-commit feature on-branch">
+    <div class="git-graph-lane">
+      <div class="git-dot lane-1"></div>
     </div>
-    <div class="commit-message"><span class="type feature">feature:</span> Architecting Hyperscale ML/AI @ Adobe </div>
-    <div class="commit-details">Built hybrid GPU/CPU clusters serving <span>~30B daily requests</span>. Optimized NVIDIA clusters with RDMA and InfiniBand.</div>
+    <div class="commit-content">
+      <div class="commit-meta">
+        <span class="commit-hash">e18ce41</span>
+        <span class="commit-date">2018 - 2022</span>
+      </div>
+      <div class="commit-message"><span class="type feature">feature:</span> Architecting Hyperscale ML/AI @ Adobe </div>
+      <div class="commit-details">Built hybrid GPU/CPU clusters serving <span>~30B daily requests</span>. Optimized NVIDIA clusters with RDMA and InfiniBand.</div>
+    </div>
   </div>
 
   <div class="git-commit merge">
-    <div class="commit-meta">
-      <span class="commit-hash">bd36139</span>
-      <span class="commit-date">2016 - 2018</span>
+    <div class="git-graph-lane">
+      <div class="branch-out"></div>
+      <div class="git-dot lane-0"></div>
     </div>
-    <div class="commit-message"><span class="type merge">merge:</span> Modernizing Macy's E-commerce Platform @ Macy's</div>
-    <div class="commit-details">Led enterprise-wide CI/CD and platform modernization. Transitioned to <span>GitOps</span> workflows using Flux CD.</div>
+    <div class="commit-content">
+      <div class="commit-meta">
+        <span class="commit-hash">bd36139</span>
+        <span class="commit-date">2016 - 2018</span>
+      </div>
+      <div class="commit-message"><span class="type merge">merge:</span> Modernizing Macy's E-commerce Platform @ Macy's</div>
+      <div class="commit-details">Led enterprise-wide CI/CD and platform modernization. Transitioned to <span>GitOps</span> workflows using Flux CD.</div>
+    </div>
   </div>
 
   <div class="git-commit refactor">
-    <div class="commit-meta">
-      <span class="commit-hash">0731214</span>
-      <span class="commit-date">2009 - 2016</span>
+    <div class="git-graph-lane">
+      <div class="git-dot lane-0"></div>
     </div>
-    <div class="commit-message"><span class="type refactor">refactor:</span> Scaling Product Engineering @ Workday, Chegg, Adobe</div>
-    <div class="commit-details">Held senior engineering roles across major tech firms, focusing on <span>distributed systems</span> and scale.</div>
+    <div class="commit-content">
+      <div class="commit-meta">
+        <span class="commit-hash">0731214</span>
+        <span class="commit-date">2009 - 2016</span>
+      </div>
+      <div class="commit-message"><span class="type refactor">refactor:</span> Scaling Product Engineering @ Workday, Chegg, Adobe</div>
+      <div class="commit-details">Held senior engineering roles across major tech firms, focusing on <span>distributed systems</span> and scale.</div>
+    </div>
   </div>
 
   <div class="git-commit hotfix">
-    <div class="commit-meta">
-      <span class="commit-hash">0731214</span>
-      <span class="commit-date">2004 - 2009</span>
+    <div class="git-graph-lane">
+      <div class="git-dot lane-0"></div>
     </div>
-    <div class="commit-message"><span class="type hotfix">hotfix:</span> Managed Platforms @ Autonomy, SDG Group, HCL Tech</div>
-    <div class="commit-details">Held engineering roles across major tech firms internationally.</div>
+    <div class="commit-content">
+      <div class="commit-meta">
+        <span class="commit-hash">0731214</span>
+        <span class="commit-date">2004 - 2009</span>
+      </div>
+      <div class="commit-message"><span class="type hotfix">hotfix:</span> Managed Platforms @ Autonomy, SDG Group, HCL Tech</div>
+      <div class="commit-details">Held engineering roles across major tech firms internationally.</div>
+    </div>
   </div>
 
   <div class="git-commit init">
-    <div class="commit-meta">
-      <span class="commit-hash">init_02</span>
-      <span class="commit-date">2002</span>
+    <div class="git-graph-lane">
+      <div class="git-dot lane-0"></div>
     </div>
-    <div class="commit-message"><span class="type init">Initial Commit:</span> BS in Computer Science</div>
-    <div class="commit-details">Where it all began. The first <span>Hello World</span> that actually compiled.</div>
+    <div class="commit-content">
+      <div class="commit-meta">
+        <span class="commit-hash">init_02</span>
+        <span class="commit-date">2002</span>
+      </div>
+      <div class="commit-message"><span class="type init">Initial Commit:</span> BS in Computer Science</div>
+      <div class="commit-details">Where it all began. The first <span>Hello World</span> that actually compiled.</div>
+    </div>
   </div>
 </div>
 
