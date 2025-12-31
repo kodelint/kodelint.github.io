@@ -11,9 +11,27 @@
       <p class="tagline">Thoughts, tutorials, and rants about technology.</p>
     </div>
 
-    <div class="post-list">
+    <!-- 3. Tag Terminal Filter -->
+    <div class="tag-terminal">
+      <div class="prompt"><span class="symbol">$</span> cat categories.conf</div>
+      <div class="var">BLOG_TOPICS=(</div>
+      <div class="tags-list">
+        <span class="tag-item active" onclick="filterPosts('all', this)">all</span>
+        <span class="tag-item" onclick="filterPosts('golang', this)">golang</span>
+        <span class="tag-item" onclick="filterPosts('rust', this)">rust</span>
+        <span class="tag-item" onclick="filterPosts('kubernetes', this)">kubernetes</span>
+        <span class="tag-item" onclick="filterPosts('sre', this)">sre</span>
+        <span class="tag-item" onclick="filterPosts('terraform', this)">terraform</span>
+        <span class="tag-item" onclick="filterPosts('ai_ml', this)">ai_ml</span>
+      </div>
+      <div class="var">)</div>
+    </div>
+
+    <div class="post-list" id="post-grid">
       {% for post in site.posts %}
-      <div class="post" onclick="window.open('{{site.url}}{{site.baseurl}}{{post.url}}', '_blank');">
+      <div class="post" 
+           data-tags="{{ post.title | downcase }} {{ post.tags | join: ' ' | downcase }}"
+           onclick="window.open('{{site.url}}{{site.baseurl}}{{post.url}}', '_blank');">
         {% if post.image %}
         <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}{{post.image}})"></div>
         {% else %}
@@ -30,6 +48,18 @@
             </div>
           </div>
           <h2 class="card-title">{{post.title}}</h2>
+
+          <!-- 2. Complexity Gauge -->
+          {% assign complexity = post.caffeine | default: 2 | plus: post.stress | default: 1 | divided_by: 2 %}
+          <div class="complexity-container" title="Complexity Level: {{ complexity }}/10">
+            <span>Complexity:</span>
+            <div class="complexity-bar">
+              {% for i in (1..10) %}
+                <div class="complexity-segment {% if i <= complexity %}active{% endif %}"></div>
+              {% endfor %}
+            </div>
+          </div>
+
           <div class="card-footer">
             <div class="cross-post-links">
               {% if post.redirect_to contains 'medium.com' or post.medium_url %}

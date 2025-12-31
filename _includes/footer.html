@@ -166,16 +166,39 @@
   setInterval(addLog, 4000);
   setTimeout(addLog, 1000);
 
+  // 1. Live Tail Log Logic
+  const logPool = [
+    "> Checking dependencies... OK",
+    "> Linting source files... 0 errors",
+    "> Squeezing GPU buffers...",
+    "> Resolving RDMA pipelines...",
+    "> Satisfying borrow checker...",
+    "> Optimizing kernel state...",
+    "> Provisioning cloud resources...",
+    "> Syncing distributed nodes..."
+  ];
+
   // Project Build Timer Logic
   let buildInterval;
   window.startBuild = function(el) {
     if (el.classList.contains('built')) return;
     const timerEl = el.querySelector('.build-timer');
+    const logsEl = el.querySelector('.build-logs');
     let startTime = 0;
     
     buildInterval = setInterval(() => {
       startTime += 0.1;
       timerEl.textContent = startTime.toFixed(1) + 's';
+
+      // Add a log line every 0.3s
+      if (Math.floor(startTime * 10) % 3 === 0) {
+        const logLine = document.createElement('div');
+        logLine.className = 'log-line';
+        logLine.textContent = logPool[Math.floor(Math.random() * logPool.length)];
+        logsEl.appendChild(logLine);
+        if (logsEl.children.length > 3) logsEl.removeChild(logsEl.firstChild);
+      }
+
       if (startTime >= 1.0) {
         clearInterval(buildInterval);
         el.classList.add('built');
@@ -187,7 +210,27 @@
     clearInterval(buildInterval);
     if (!el.classList.contains('built')) {
       el.querySelector('.build-timer').textContent = '0.0s';
+      el.querySelector('.build-logs').innerHTML = '';
     }
+  }
+
+  // 3. Tag Terminal Filter Logic
+  window.filterPosts = function(tag, btn) {
+    const posts = document.querySelectorAll('.post');
+    const buttons = document.querySelectorAll('.tag-item');
+    
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    posts.forEach(post => {
+      const postTags = post.getAttribute('data-tags');
+      if (tag === 'all' || postTags.includes(tag.replace('_', ''))) {
+        post.style.display = 'flex';
+        gsap.fromTo(post, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.4 });
+      } else {
+        post.style.display = 'none';
+      }
+    });
   }
 
   // Reading Progress Logic
