@@ -922,6 +922,25 @@ footer {
     bottom: 1.5rem; /* Bottom nav for mobile */
     max-width: 90%;
   }
+
+  .terminal-header .command {
+    font-size: 1.8rem; /* Smaller terminal text on mobile */
+  }
+
+  .ozone-gauge-container {
+    bottom: 6rem; /* Move up to avoid bottom nav */
+    left: 1rem;
+    transform: scale(0.8); /* Slightly smaller on mobile */
+  }
+
+  .system-logs {
+    bottom: 6rem; /* Move up to avoid bottom nav */
+    right: 1rem;
+  }
+
+  .profile-hud {
+    font-size: 0.6rem; /* Smaller HUD text */
+  }
   
   .post-list, .project-list {
     grid-template-columns: 1fr;
