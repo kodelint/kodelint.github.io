@@ -3,12 +3,10 @@ title: Myself
 layout: page
 ---
 
-<div class="terminal-header" onclick="document.getElementById('terminal-input').focus();">
+<div class="terminal-header">
   <canvas id="matrix-canvas"></canvas>
-  <div id="terminal-results"></div>
   <div class="command">
-    <span class="prompt-symbol">λ</span>
-    <input type="text" id="terminal-input" autofocus autocomplete="off" spellcheck="false" placeholder="whoami">
+    <span class="prompt-symbol">λ</span> whoami
     <span class="cursor"></span>
   </div>
 </div>
