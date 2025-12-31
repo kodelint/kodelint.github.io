@@ -1,9 +1,15 @@
 <footer>
   <div class="container">
     <div class="system-status">
-      <span class="status-item uptime"><i class="fas fa-clock"></i> Uptime: <span class="status-value">7300+ days</span></span>
-      <span class="status-item happiness"><i class="fas fa-heart"></i> Happiness: <span class="status-value">99.9%</span></span>
-      <span class="status-item redbull"><i class="fas fa-battery-three-quarters"></i> Redbull: <span class="status-value highlight">Critical</span></span>
+      <span class="status-item caffeine"><i class="fas fa-coffee"></i> Caffeine: <span class="status-value" id="caffeine-val">90%</span></span>
+      <span class="status-item redbull"><i class="fas fa-bolt"></i> Redbull: <span class="status-value" id="redbull-val">95%</span></span>
+    </div>
+
+    <div class="system-status">
+      <span class="status-item stress"><i class="fas fa-fire"></i> Stress: <span class="status-value" id="stress-val">10%</span></span>
+      <span class="status-item mental"><i class="fas fa-brain"></i> Mental: <span class="status-value" id="mental-val">85%</span></span>
+      <span class="status-item patience"><i class="fas fa-hourglass-half"></i> Patience: <span class="status-value" id="patience-val">99%</span></span>
+      <span class="status-item happiness"><i class="fas fa-smile"></i> Happiness: <span class="status-value" id="happiness-val">100%</span></span>
     </div>
     
     <div class="git-footer">
@@ -37,6 +43,35 @@
 
 <!-- scripts -->
 <script defer>
+  // Dynamic Stats Logic
+  function updateStats() {
+    const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+    
+    const update = (id, val, colorScale) => {
+      const el = document.getElementById(id);
+      if(el) {
+        el.innerText = val + "%";
+        if(colorScale === 'high-good') {
+          el.style.color = val > 80 ? '#00ff9d' : (val > 40 ? '#facc15' : '#ff4757');
+        } else if (colorScale === 'low-good') {
+           el.style.color = val < 20 ? '#00ff9d' : (val < 50 ? '#facc15' : '#ff4757');
+        } else if (colorScale === 'energy') {
+           el.style.color = val > 80 ? '#ff4757' : (val > 40 ? '#facc15' : '#38bdf8');
+        }
+      }
+    };
+
+    update('caffeine-val', random(60, 100), 'energy');
+    update('redbull-val', random(80, 150), 'energy');
+    update('stress-val', random(0, 40), 'low-good');
+    update('mental-val', random(70, 100), 'high-good');
+    update('patience-val', random(50, 90), 'high-good');
+    update('happiness-val', random(90, 100), 'high-good');
+  }
+
+  setInterval(updateStats, 3000);
+  setTimeout(updateStats, 100);
+
   // Matrix Rain Logic
   const canvas = document.getElementById('matrix-canvas');
   if (canvas) {

@@ -752,6 +752,10 @@ button[type="submit"]:hover {
 .status-item.uptime { color: #00ff9d !important; text-shadow: 0 0 10px rgba(0, 255, 157, 0.3); }
 .status-item.happiness { color: #ff007a !important; text-shadow: 0 0 10px rgba(255, 0, 122, 0.3); }
 .status-item.redbull { color: #ff4757 !important; text-shadow: 0 0 10px rgba(255, 71, 87, 0.3); }
+.status-item.caffeine { color: #facc15 !important; text-shadow: 0 0 10px rgba(250, 204, 21, 0.3); }
+.status-item.stress { color: #ef4444 !important; text-shadow: 0 0 10px rgba(239, 68, 68, 0.3); }
+.status-item.mental { color: #818cf8 !important; text-shadow: 0 0 10px rgba(129, 140, 248, 0.3); }
+.status-item.patience { color: #38bdf8 !important; text-shadow: 0 0 10px rgba(56, 189, 248, 0.3); }
 
 .status-value {
   color: inherit;
