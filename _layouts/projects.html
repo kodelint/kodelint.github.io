@@ -2,18 +2,23 @@
 <html lang="en">
 {% include head.html%}
 
-<body>
+<body class="projects-page">
   {% include nav.html %}
   
   <main class="container">
     <div class="page-header">
-      <h1 class="page-title">Projects</h1>
-      <p class="tagline">Open source contributions and experiments.</p>
+      <h1 class="page-title">The Lab</h1>
+      <p class="tagline">Experiments, open source, and weekend projects.</p>
     </div>
 
     <div class="project-list">
       {% for project in site.data.projects_data.projects %}
       <div class="project">
+        <div class="build-overlay">
+          <span class="build-status">Executing build</span>
+          <div class="progress-bar"><div class="progress-fill"></div></div>
+          <span style="font-size: 0.6rem; opacity: 0.7;">[SUCCESS] artifacts deployed</span>
+        </div>
         <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}{{project.img}})"></div>
         
         <div class="card-content">
