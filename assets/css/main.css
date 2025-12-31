@@ -467,78 +467,6 @@ header .social a:hover {
 }
 
 .card-footer {
-/* Advanced CSS Git Graph Timeline */
-.git-timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 4rem 0;
-  padding-left: 0; /* Reset for better calculation */
-}
-
-/* Continuous Main Lane Line */
-.git-timeline::before {
-  content: '';
-  position: absolute;
-  top: 1.5rem;
-  bottom: 1.5rem;
-  left: 20px; /* Perfectly align with dots in lane-0 */
-  width: 2px;
-  background: rgba(56, 189, 248, 0.4); /* Boosted visibility */
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
-  z-index: 1;
-}
-
-.git-commit {
-  display: flex;
-  gap: 1.5rem;
-  min-height: 80px;
-  position: relative;
-  z-index: 2;
-}
-
-/* Graph Lanes */
-.git-graph-lane {
-  width: 60px;
-  flex-shrink: 0;
-  position: relative;
-}
-
-.git-graph-lane::before {
-  display: none;
-}
-
-.git-commit.on-branch .git-graph-lane::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 45px; /* Lane 1 */
-  width: 2px;
-  background: rgba(129, 140, 248, 0.3); /* Stronger indigo visibility */
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .git-timeline::before {
-    left: 15px;
-  }
-  .git-commit {
-    gap: 1rem;
-  }
-  .git-graph-lane {
-    width: 40px;
-  }
-  .git-commit.on-branch .git-graph-lane::after {
-    left: 30px;
-  }
-  .git-dot.lane-0 { left: 15px; }
-  .git-dot.lane-1 { left: 30px; }
-  .branch-out, .branch-in {
-    left: 15px;
-    width: 15px;
-  }
-  .commit-message { font-size: 1.1rem; }
-}
   margin-top: auto;
   display: flex;
   align-items: center;
@@ -1000,3 +928,93 @@ button[type="submit"]:hover {
 @keyframes logSlideIn {
   from { opacity: 0; transform: translateX(100px) scale(0.8); }
   to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+/* Footer */
+footer {
+  margin-top: 6rem;
+  padding: 4rem 0;
+  background: transparent; /* Removed background */
+  border-top: none; /* Removed border */
+  text-align: center;
+  color: var(--text-tertiary);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  header {
+    padding-top: 8rem;
+  }
+  
+  header h1.owner-name .greeting {
+    font-size: 2.8rem;
+  }
+  header h1.owner-name .name-line {
+    font-size: 2rem;
+  }
+  
+  nav {
+    top: auto;
+    bottom: 1.5rem; /* Bottom nav for mobile */
+    width: 95%; /* Use width instead of max-width for better control */
+    max-width: 500px;
+    padding: 0.4rem 0.5rem; /* Further reduced padding */
+  }
+
+  nav .nav-container {
+    gap: 0.25rem; /* Minimal gap */
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  nav a {
+    font-size: 0.75rem; /* Smaller font for small screens */
+    padding: 0.4rem 0.5rem; /* Minimal item padding */
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .terminal-header .command {
+    font-size: 1.8rem; /* Smaller terminal text on mobile */
+  }
+
+  .ozone-gauge-container {
+    bottom: 6rem; /* Move up to avoid bottom nav */
+    left: 1rem;
+    transform: scale(0.8); /* Slightly smaller on mobile */
+  }
+
+  .system-logs {
+    bottom: 6rem; /* Above bottom nav */
+    right: 1rem;
+    left: 1rem;
+    max-width: none;
+  }
+
+  .log-entry {
+    padding: 0.5rem 1rem;
+  }
+
+  .profile-hud {
+    font-size: 0.6rem; /* Smaller HUD text */
+  }
+  
+  .post-list, .project-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .page {
+    padding-top: 4rem;
+  }
+}
+
+/* Syntax Highlighting Colors (Custom Dark) */
+.highlight .hll { background-color: #333333 }
+.highlight { color: #c9d1d9; background-color: #0d1117; }
+.highlight .c { color: #8b949e; font-style: italic; } /* Comment */
+.highlight .k { color: #ff7b72; } /* Keyword */
+.highlight .s { color: #a5d6ff; } /* String */
+.highlight .na { color: #79c0ff; } /* Name Attribute */
+.highlight .nt { color: #7ee787; } /* Name Tag */
+/* ... Add more specific highlights if needed */
