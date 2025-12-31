@@ -1,3 +1,13 @@
+<div class="kernel-panic-overlay" id="panic-overlay">
+  <h1 style="font-size: 4rem; margin-bottom: 2rem;">KERNEL PANIC</h1>
+  <p style="font-size: 1.5rem; margin-bottom: 1rem;">FATAL_ERROR: RED_BULL_RESERVOIR_EMPTY</p>
+  <p style="color: rgba(255,255,255,0.6);">A problem has been detected and systems have been shut down to prevent damage to your sanity.</p>
+  <br>
+  <p>*** STOP: 0x000000GO (0x000000RU, 0x000000ST, 0x000000SRE, 0x000000AI)</p>
+  <br>
+  <p>Rebooting in <span id="panic-countdown">5</span> seconds...</p>
+</div>
+
 <div id="scroll-progress"></div>
 <nav>
   <div class="nav-container">
@@ -22,8 +32,21 @@
         <h1 class="owner-name">
           <span class="greeting">Hello there,</span>
           <span class="name-line">I'm <span class="name">{{site.data.blogger.name}}</span></span>
+          <br />
         </h1>
-        <p class="desc">{{site.data.blogger.description}}</p>
+        <div class="about-visual">
+          <div class="profile-container">
+            <div class="profile-hud">
+              <div class="hud-stat">CPU: <span>Satyajit v20.25</span></div>
+              <div class="hud-stat">ARCH: <span>Distributed</span></div>
+              <div class="hud-stat">LOAD: <span>99.9%</span></div>
+              <div class="hud-stat">RUNTIME: <span>GO / RUST</span></div>
+              <div class="hud-stat" style="margin-top: 5px; font-size: 0.5rem; opacity: 0.5;">STATUS: OPTIMIZED</div>
+            </div>
+            <img class="profile" src="{{site.data.blogger.image}}" alt="{{site.data.blogger.name}}" />
+          </div>
+        </div>
+        <p class="desc" style="margin-top: 2rem;">{{site.data.blogger.description}}</p>
         <div class="social">
           {% for i in site.data.blogger.social %}
           <a href="{{i.url}}" target="_blank" rel="noopener noreferrer" aria-label="{{i.title}}">
@@ -32,12 +55,6 @@
           {% endfor %}
         </div>
       </div>
-      <div class="about-visual">
-        <div class="profile-container">
-          <img class="profile" src="{{site.data.blogger.image}}" alt="{{site.data.blogger.name}}" />
-        </div>
-      </div>
-    </div>
   </div>
 </header>
 {% endif %}

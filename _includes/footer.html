@@ -1,9 +1,9 @@
 <footer>
   <div class="container">
     <div class="system-status">
-      <span class="status-item"><i class="fas fa-clock"></i> Uptime: <span class="status-value">7300+ days</span></span>
-      <span class="status-item"><i class="fas fa-heart"></i> Happiness: <span class="status-value">99.9%</span></span>
-      <span class="status-item"><i class="fas fa-bolt"></i> Red Bull Level: <span class="status-value highlight">Critical</span></span>
+      <span class="status-item uptime"><i class="fas fa-clock"></i> Uptime: <span class="status-value">7300+ days</span></span>
+      <span class="status-item happiness"><i class="fas fa-heart"></i> Happiness: <span class="status-value">99.9%</span></span>
+      <span class="status-item redbull"><i class="fas fa-battery-three-quarters"></i> Redbull: <span class="status-value highlight">Critical</span></span>
     </div>
     <p>&copy; {{ 'now' | date: "%Y" }} {{site.data.blogger.name}}.</p>
     <p style="font-size: 0.9em; margin-top: 0.5rem; opacity: 0.6;">
@@ -11,6 +11,13 @@
     </p>
   </div>
 </footer>
+
+<div class="ozone-gauge-container">
+  <div class="gauge">
+    <div id="gauge-needle" class="gauge-needle"></div>
+  </div>
+  <span class="gauge-label">Ozone Levels</span>
+</div>
 
 <div id="system-logs" class="system-logs"></div>
 
@@ -56,43 +63,108 @@
     });
   }
 
+  // Kernel Panic Easter Egg
+  const terminalHeader = document.querySelector('.terminal-header');
+  const panicOverlay = document.getElementById('panic-overlay');
+  const panicCountdown = document.getElementById('panic-countdown');
+  let clickCount = 0;
+
+  if (terminalHeader) {
+    terminalHeader.addEventListener('click', () => {
+      clickCount++;
+      if (clickCount === 3) {
+        triggerPanic();
+        clickCount = 0;
+      }
+      setTimeout(() => { clickCount = 0; }, 1000);
+    });
+  }
+
+  function triggerPanic() {
+    panicOverlay.classList.add('active');
+    let count = 5;
+    const interval = setInterval(() => {
+      count--;
+      panicCountdown.textContent = count;
+      if (count === 0) {
+        clearInterval(interval);
+        panicOverlay.classList.remove('active');
+      }
+    }, 1000);
+  }
+
+  // Ozone Gauge Logic
+  const needle = document.getElementById('gauge-needle');
+  let lastScrollTop = 0;
+  let ozoneLevel = 0;
+
+  window.addEventListener('scroll', () => {
+    const st = window.pageYOffset || document.documentElement.scrollTop;
+    const delta = Math.abs(st - lastScrollTop);
+    
+    // Increase ozone based on scroll speed
+    ozoneLevel = Math.min(180, ozoneLevel + delta * 0.5);
+    lastScrollTop = st <= 0 ? 0 : st;
+  }, false);
+
+  // Decays ozone over time
+  setInterval(() => {
+    ozoneLevel = Math.max(0, ozoneLevel - 2);
+    // Map 0-180 to -90 to 90 degrees
+    if (needle) {
+      needle.style.transform = `translateX(-50%) rotate(${ozoneLevel - 90}deg)`;
+    }
+  }, 50);
+
   // Floating System Logs Logic
   const logsContainer = document.getElementById('system-logs');
   const quirkyMessages = [
-    "[INFO] Squeezing GPU performance...",
-    "[WARN] Red Bull level: LOW",
-    "[DEBUG] Wrestling with Rust lifetimes...",
-    "[INFO] Automating the automation...",
-    "[DEBUG] Benchmarking distributed state...",
-    "[WARN] Ozone levels rising ⚡",
-    "[INFO] Deploying 30B request pipeline...",
-    "[DEBUG] Refactoring box & arrow diagrams...",
-    "[INFO] Statically linking sanity...",
-    "[WARN] Borrow checker is unhappy 🦀"
+    { level: 'info', icon: 'fa-microchip', text: "Squeezing GPU performance..." },
+    { level: 'warn', icon: 'fa-battery-empty', text: "Red Bull level: CRITICAL" },
+    { level: 'debug', icon: 'fa-bug', text: "Wrestling with Rust lifetimes... again." },
+    { level: 'info', icon: 'fa-robot', text: "Automating the automation..." },
+    { level: 'debug', icon: 'fa-database', text: "Benchmarking distributed state..." },
+    { level: 'warn', icon: 'fa-bolt', text: "Ozone levels rising ⚡" },
+    { level: 'error', icon: 'fa-fire', text: "Data center fire detected (This is fine)." },
+    { level: 'info', icon: 'fa-network-wired', text: "Optimizing RDMA pipelines..." },
+    { level: 'debug', icon: 'fa-code-branch', text: "Satisfying the borrow checker..." },
+    { level: 'warn', icon: 'fa-mug-hot', text: "Coffee cold. Re-heating required." },
+    { level: 'info', icon: 'fa-box', text: "Statically linking sanity..." },
+    { level: 'error', icon: 'fa-skull-crossbones', text: "Kernel Panic: Just kidding, lol." },
+    { level: 'debug', icon: 'fa-file-code', text: "Converting anxiety into YAML..." }
   ];
 
   function addLog() {
     if (!logsContainer) return;
-    const msg = quirkyMessages[Math.floor(Math.random() * quirkyMessages.length)];
+    const log = quirkyMessages[Math.floor(Math.random() * quirkyMessages.length)];
     const logEntry = document.createElement('div');
-    logEntry.className = 'log-entry';
-    logEntry.textContent = msg;
+    logEntry.className = `log-entry ${log.level}`;
+    logEntry.innerHTML = `
+      <i class="fas ${log.icon}"></i>
+      <div class="log-content">
+        <span style="font-weight: 800; opacity: 0.7;">[${log.level.toUpperCase()}]</span> ${log.text}
+      </div>
+    `;
     logsContainer.appendChild(logEntry);
 
-    if (logsContainer.children.length > 5) {
-      logsContainer.removeChild(logsContainer.firstChild);
+    if (logsContainer.children.length > 4) {
+      const firstChild = logsContainer.firstChild;
+      firstChild.classList.add('fade-out');
+      setTimeout(() => { if (firstChild.parentNode) logsContainer.removeChild(firstChild); }, 800);
     }
 
     setTimeout(() => {
-      logEntry.classList.add('fade-out');
-      setTimeout(() => {
-        if (logEntry.parentNode) logEntry.parentNode.removeChild(logEntry);
-      }, 2000);
-    }, 4000);
+      if (!logEntry.classList.contains('fade-out')) {
+        logEntry.classList.add('fade-out');
+        setTimeout(() => {
+          if (logEntry.parentNode) logEntry.parentNode.removeChild(logEntry);
+        }, 800);
+      }
+    }, 6000);
   }
 
-  setInterval(addLog, 5000);
-  addLog();
+  setInterval(addLog, 4000);
+  setTimeout(addLog, 1000);
 
   // Reading Progress Logic
   window.onscroll = function() {
