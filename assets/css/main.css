@@ -930,36 +930,108 @@ button[type="submit"]:hover {
   to { opacity: 1; transform: translateX(0) scale(1); }
 }
 
-/* Git Career Timeline */
+/* Git Career Timeline - Advanced Graph */
 .git-timeline {
   position: relative;
-  max-width: 800px;
+  max-width: 900px;
   margin: 4rem 0;
-  padding-left: 3rem;
-  border-left: 2px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
 }
 
 .git-commit {
+  display: grid;
+  grid-template-columns: 60px 1fr; /* Space for the graph lane */
+  gap: 1.5rem;
   position: relative;
-  margin-bottom: 3rem;
+  min-height: 80px;
 }
 
-.git-commit::before {
+.git-graph-lane {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* Vertical line through all commits */
+.git-graph-lane::before {
   content: '';
   position: absolute;
-  left: -3.45rem;
-  top: 0.25rem;
-  width: 12px;
-  height: 12px;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--border-subtle);
+  transform: translateX(-50%);
+}
+
+.git-commit:first-child .git-graph-lane::before {
+  top: 1.5rem;
+}
+
+.git-commit:last-child .git-graph-lane::before {
+  bottom: calc(100% - 1.5rem);
+}
+
+/* The Commit Dot */
+.git-dot {
+  width: 14px;
+  height: 14px;
   background: var(--bg-depth);
   border: 3px solid var(--accent-primary);
   border-radius: 50%;
-  z-index: 2;
-  box-shadow: 0 0 10px var(--accent-glow);
+  position: relative;
+  margin-top: 1.25rem;
+  z-index: 3;
+  box-shadow: 0 0 15px var(--accent-glow);
 }
 
-.git-commit:last-child {
-  margin-bottom: 0;
+/* Branch Logic */
+.git-commit.on-branch .git-graph-lane::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(50% + 15px);
+  width: 2px;
+  height: 100%;
+  background: var(--accent-secondary);
+  opacity: 0.5;
+}
+
+.git-commit.branch-start .git-graph-lane .branch-connector {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-left: 2px solid var(--accent-secondary);
+  border-bottom: 2px solid var(--accent-secondary);
+  border-bottom-left-radius: 10px;
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  opacity: 0.6;
+}
+
+.git-commit.branch-end .git-graph-lane .branch-connector {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid var(--accent-secondary);
+  border-top: 2px solid var(--accent-secondary);
+  border-top-right-radius: 10px;
+  transform: rotate(-45deg);
+  transform-origin: bottom right;
+  opacity: 0.6;
+}
+
+/* Specific dot colors based on type */
+.git-commit .type.hotfix ~ .git-dot { border-color: #ff4757; }
+.git-commit .type.feature ~ .git-dot { border-color: #00ff9d; }
+
+.commit-content {
+  padding-bottom: 3rem;
 }
 
 .commit-meta {
