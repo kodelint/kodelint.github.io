@@ -31,7 +31,7 @@ My goal has always been the same: building systems that are smart enough to scal
 - ☁️ **Cloud & AI Scale**: Turning "It works in dev" into "It works for everyone" without the CFO having a heart attack.
 - 🏎️ **HPC & GPU Tuning**: Squeezing performance out of hardware using RDMA, InfiniBand, and sheer willpower.
 - 🔐 **Security-First Thinking**: Because "admin/admin" is still not a valid security strategy, even in the age of AI.
-*   🚀 **Team Building**: Hiring smart people and then trying hard not to get in their way.
+- 🚀 **Team Building**: Hiring smart people and then trying hard not to get in their way.
 
 ### 🌲 Career Log with Tech 
 <div class="terminal-prompt">
@@ -45,6 +45,14 @@ My goal has always been the same: building systems that are smart enough to scal
     <div class="graph-content">
       <span class="graph-hash">af5c170</span>
       <span class="graph-msg"><span class="type deploy">deploy:</span> <span class="ref">(HEAD -> master)</span> mastering <strong>Rust</strong> and scaling distributed brains</span>
+    </div>
+  </div>
+
+  <div class="graph-commit feat">
+    <div class="graph-lane"><div class="graph-dot l0"></div></div>
+    <div class="graph-content">
+      <span class="graph-hash">7ece5b8</span>
+      <span class="graph-msg"><span class="type feat">feature:</span> reducing edge latency via <strong>Lambda@Edge</strong> and <strong>CloudFront</strong></span>
     </div>
   </div>
 
@@ -75,6 +83,14 @@ My goal has always been the same: building systems that are smart enough to scal
     </div>
   </div>
 
+  <div class="graph-commit feat on-branch">
+    <div class="graph-lane"><div class="graph-dot l1"></div></div>
+    <div class="graph-content">
+      <span class="graph-hash">9c8c9ca</span>
+      <span class="graph-msg"><span class="type feat">feature:</span> <span class="ref">(branch/security)</span> implementing <strong>FedRAMP High</strong> as <strong>Policy-as-Code</strong></span>
+    </div>
+  </div>
+
   <div class="graph-commit merge">
     <div class="graph-lane">
       <div class="branch-fork"></div>
@@ -86,11 +102,27 @@ My goal has always been the same: building systems that are smart enough to scal
     </div>
   </div>
 
+  <div class="graph-commit fix">
+    <div class="graph-lane"><div class="graph-dot l0"></div></div>
+    <div class="graph-content">
+      <span class="graph-hash">f4dff42</span>
+      <span class="graph-msg"><span class="type hotfix">fix:</span> eliminating <strong>90% of cluster sprawl</strong> via unified multi-cloud <strong>Kubernetes</strong></span>
+    </div>
+  </div>
+
   <div class="graph-commit feat">
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">f765b47</span>
       <span class="graph-msg"><span class="type feat">feature:</span> automating <strong>Kubernetes</strong> via <strong>Terraform</strong> and <strong>GitOps</strong></span>
+    </div>
+  </div>
+
+  <div class="graph-commit perf">
+    <div class="graph-lane"><div class="graph-dot l0"></div></div>
+    <div class="graph-content">
+      <span class="graph-hash">ea21f3c</span>
+      <span class="graph-msg"><span class="type feature">perf:</span> scaling <strong>Elasticsearch</strong> to <strong>10B+ documents</strong> with sub-5ms latency</span>
     </div>
   </div>
 
@@ -102,11 +134,27 @@ My goal has always been the same: building systems that are smart enough to scal
     </div>
   </div>
 
+  <div class="graph-commit merge">
+    <div class="graph-lane"><div class="graph-dot l0"></div></div>
+    <div class="graph-content">
+      <span class="graph-hash">bd36139</span>
+      <span class="graph-msg"><span class="type merge">merge:</span> blue-green & canary deployments for <strong>zero-downtime</strong> releases</span>
+    </div>
+  </div>
+
   <div class="graph-commit refactor">
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">c044a82</span>
       <span class="graph-msg"><span class="type refactor">refactor:</span> from <strong>Solaris Zones</strong> to <strong>Golang</strong> and modern <strong>Containers</strong></span>
+    </div>
+  </div>
+
+  <div class="graph-commit refactor">
+    <div class="graph-lane"><div class="graph-dot l0"></div></div>
+    <div class="graph-content">
+      <span class="graph-hash">0731214</span>
+      <span class="graph-msg"><span class="type refactor">refactor:</span> transitioning from <strong>monoliths</strong> to <strong>microservices</strong> architecture</span>
     </div>
   </div>
 
@@ -119,7 +167,7 @@ My goal has always been the same: building systems that are smart enough to scal
   </div>
 
   <div class="graph-stats">
-    9 commits, 2 decades, 1 executive ego.
+    15 commits, 2 decades, 1 executive ego.
   </div>
 
 </div>
