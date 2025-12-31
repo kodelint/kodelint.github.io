@@ -20,10 +20,19 @@
       </div>
     </div>
     
-    <div class="git-footer">
-      <span class="git-part"><span class="git-label">Author:</span> <span class="git-value author">{{site.data.blogger.name}}</span></span>
-      <span class="git-part"><span class="git-label">Commit:</span> <span class="git-value commit-id">f960742</span></span>
-      <span class="git-part"><span class="git-label">Message:</span> <span class="git-value commit-msg">Stabilized distributed bio and optimized ozone production.</span></span>
+    <div class="git-footer fun-mode">
+      <div class="git-part user-identity">
+        <i class="fas fa-user-astronaut"></i>
+        <span class="git-value author glitch-text" data-text="{{site.data.blogger.name}}">{{site.data.blogger.name}}</span>
+        <span class="git-divider">//</span>
+        <span class="git-value role" id="dynamic-role">YAML Wrangler</span>
+      </div>
+      <div class="git-part last-commit">
+        <i class="fas fa-code-branch"></i>
+        <span class="git-value commit-id">git-ish</span>
+        <span class="git-arrow">➜</span>
+        <span class="git-value commit-msg" id="dynamic-commit-msg">Reverting the revert of the revert...</span>
+      </div>
     </div>
   </div>
 </footer>
@@ -79,6 +88,45 @@
 
   setInterval(updateStats, 3000);
   setTimeout(updateStats, 100);
+
+  // Dynamic Author Identity & Commit Logic
+  const funRoles = [
+    "YAML Wrangler", "Console Cowboy", "Div Center-er", 
+    "StackOverflow Copy-Paster", "SRE (Sleep Rarely Engineer)",
+    "Cloud Plumber", "Merge Conflict Mediator", "Legacy Code Archaeologist",
+    "Production Tester", "Chaos Monkey Trainer"
+  ];
+
+  const funCommits = [
+    "oops", "wip", "fixed the fix", "removed console.log",
+    "it works on my machine", "temporary fix (permanent)",
+    "refactoring (breaking everything)", "pushing to main, yolo",
+    "updated readme to explain why it's broken", "deleted all the tests",
+    "minor text fixes", "resolving merge conflict by force"
+  ];
+
+  function updateIdentity() {
+    const roleEl = document.getElementById('dynamic-role');
+    const commitEl = document.getElementById('dynamic-commit-msg');
+    
+    if (roleEl && Math.random() > 0.7) {
+      roleEl.style.opacity = 0;
+      setTimeout(() => {
+        roleEl.innerText = funRoles[Math.floor(Math.random() * funRoles.length)];
+        roleEl.style.opacity = 1;
+      }, 500);
+    }
+
+    if (commitEl && Math.random() > 0.6) {
+       commitEl.style.opacity = 0;
+       setTimeout(() => {
+         commitEl.innerText = funCommits[Math.floor(Math.random() * funCommits.length)];
+         commitEl.style.opacity = 1;
+       }, 500);
+    }
+  }
+
+  setInterval(updateIdentity, 5000);
 
   // Matrix Rain Logic
   const canvas = document.getElementById('matrix-canvas');
