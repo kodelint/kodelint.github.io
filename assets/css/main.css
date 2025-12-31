@@ -1048,6 +1048,9 @@ button[type="submit"]:hover {
 .graph-commit.hotfix .graph-dot { border-color: #ff4757; }
 .graph-commit.feat .graph-dot { border-color: #00ff9d; }
 .graph-commit.merge .graph-dot { border-color: #a855f7; }
+.graph-commit.perf .graph-dot { border-color: #fbbf24; }  /* Amber */
+.graph-commit.fix .graph-dot { border-color: #f43f5e; }   /* Rose */
+.graph-commit.chore .graph-dot { border-color: #94a3b8; } /* Slate */
 
 .graph-content {
   padding-bottom: 2rem;
@@ -1069,6 +1072,9 @@ button[type="submit"]:hover {
 .graph-msg .type.merge { color: #a855f7; }
 .graph-msg .type.refactor { color: #facc15; }
 .graph-msg .type.init { color: #818cf8; }
+.graph-msg .type.perf { color: #fbbf24; }
+.graph-msg .type.fix { color: #f43f5e; }
+.graph-msg .type.chore { color: #94a3b8; }
 
 .graph-hash {
   color: var(--text-tertiary);
