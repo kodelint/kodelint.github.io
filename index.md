@@ -37,6 +37,7 @@ My goal has always been the same: building systems that are smart enough to scal
 
 <div class="git-timeline">
   
+  <!-- Arkose Labs -->
   <div class="git-commit deploy">
     <div class="git-graph-lane">
       <div class="branch-in"></div>
@@ -52,6 +53,7 @@ My goal has always been the same: building systems that are smart enough to scal
     </div>
   </div>
 
+  <!-- F5 -->
   <div class="git-commit feature on-branch">
     <div class="git-graph-lane">
       <div class="git-dot lane-1"></div>
@@ -66,6 +68,7 @@ My goal has always been the same: building systems that are smart enough to scal
     </div>
   </div>
 
+  <!-- Adobe -->
   <div class="git-commit feature on-branch">
     <div class="git-graph-lane">
       <div class="git-dot lane-1"></div>
@@ -80,6 +83,7 @@ My goal has always been the same: building systems that are smart enough to scal
     </div>
   </div>
 
+  <!-- Macy's -->
   <div class="git-commit merge">
     <div class="git-graph-lane">
       <div class="branch-out"></div>
@@ -95,6 +99,7 @@ My goal has always been the same: building systems that are smart enough to scal
     </div>
   </div>
 
+  <!-- Workday/Chegg -->
   <div class="git-commit refactor">
     <div class="git-graph-lane">
       <div class="git-dot lane-0"></div>
@@ -109,6 +114,7 @@ My goal has always been the same: building systems that are smart enough to scal
     </div>
   </div>
 
+  <!-- International -->
   <div class="git-commit hotfix">
     <div class="git-graph-lane">
       <div class="git-dot lane-0"></div>
@@ -123,6 +129,7 @@ My goal has always been the same: building systems that are smart enough to scal
     </div>
   </div>
 
+  <!-- Initial Commit -->
   <div class="git-commit init">
     <div class="git-graph-lane">
       <div class="git-dot lane-0"></div>
