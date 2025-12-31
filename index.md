@@ -3,9 +3,11 @@ title: Myself
 layout: page
 ---
 
-<div class="terminal-header">
+<div class="terminal-header" onclick="document.getElementById('terminal-input').focus();">
+  <div id="terminal-results"></div>
   <div class="command">
-    <span class="prompt-symbol">λ</span> whoami
+    <span class="prompt-symbol">λ</span>
+    <input type="text" id="terminal-input" autofocus autocomplete="off" spellcheck="false" placeholder="whoami">
     <span class="cursor"></span>
   </div>
 </div>

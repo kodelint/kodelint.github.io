@@ -14,6 +14,66 @@
 
 <!-- scripts -->
 <script defer>
+  // Interactive Terminal Logic
+  const terminalInput = document.getElementById('terminal-input');
+  const terminalResults = document.getElementById('terminal-results');
+
+  if (terminalInput) {
+    terminalInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        const command = this.value.trim().toLowerCase();
+        executeCommand(command);
+        this.value = '';
+      }
+    });
+
+    function executeCommand(cmd) {
+      if (!cmd) return;
+      
+      const line = document.createElement('div');
+      line.className = 'terminal-line';
+      line.innerHTML = `<span style="color: var(--accent-secondary)">λ</span> <span>${cmd}</span>`;
+      terminalResults.appendChild(line);
+
+      let result = '';
+      switch(cmd) {
+        case 'help':
+          result = 'Available commands: whoami, ls, uptime, coffee, redbull, clear';
+          break;
+        case 'whoami':
+          result = 'Satyajit Roy - Chief Automation Officer & AI Plumber.';
+          break;
+        case 'ls':
+          result = '👋 Who? <br> 🧠 Brain Dump <br> 🧪 The Lab';
+          break;
+        case 'uptime':
+          result = '7300+ days (and counting...)';
+          break;
+        case 'coffee':
+          result = '<pre style="padding:0; margin:0; background:transparent !important; color: var(--accent-primary);">    (  )   <br>     ) (    <br>   [____]   <br>    \\__/    </pre>';
+          break;
+        case 'redbull':
+          result = '<span style="color: #ed1c24;">CRITICAL: Red Bull level dangerously low. Please restock.</span>';
+          break;
+        case 'clear':
+          terminalResults.innerHTML = '';
+          return;
+        default:
+          result = `command not found: ${cmd}`;
+      }
+
+      const response = document.createElement('div');
+      response.style.color = 'var(--text-tertiary)';
+      response.style.marginBottom = '1rem';
+      response.innerHTML = result;
+      terminalResults.appendChild(response);
+      
+      // Auto-scroll
+      const header = document.querySelector('.terminal-header');
+      header.scrollTop = header.scrollHeight;
+    }
+  }
+
   // Reading Progress Logic
   window.onscroll = function() {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
