@@ -12,6 +12,8 @@
   </div>
 </footer>
 
+<div id="system-logs" class="system-logs"></div>
+
 <!-- scripts -->
 <script defer>
   // Matrix Rain Logic
@@ -53,6 +55,44 @@
       height = canvas.height = canvas.parentElement.offsetHeight;
     });
   }
+
+  // Floating System Logs Logic
+  const logsContainer = document.getElementById('system-logs');
+  const quirkyMessages = [
+    "[INFO] Squeezing GPU performance...",
+    "[WARN] Red Bull level: LOW",
+    "[DEBUG] Wrestling with Rust lifetimes...",
+    "[INFO] Automating the automation...",
+    "[DEBUG] Benchmarking distributed state...",
+    "[WARN] Ozone levels rising ⚡",
+    "[INFO] Deploying 30B request pipeline...",
+    "[DEBUG] Refactoring box & arrow diagrams...",
+    "[INFO] Statically linking sanity...",
+    "[WARN] Borrow checker is unhappy 🦀"
+  ];
+
+  function addLog() {
+    if (!logsContainer) return;
+    const msg = quirkyMessages[Math.floor(Math.random() * quirkyMessages.length)];
+    const logEntry = document.createElement('div');
+    logEntry.className = 'log-entry';
+    logEntry.textContent = msg;
+    logsContainer.appendChild(logEntry);
+
+    if (logsContainer.children.length > 5) {
+      logsContainer.removeChild(logsContainer.firstChild);
+    }
+
+    setTimeout(() => {
+      logEntry.classList.add('fade-out');
+      setTimeout(() => {
+        if (logEntry.parentNode) logEntry.parentNode.removeChild(logEntry);
+      }, 2000);
+    }, 4000);
+  }
+
+  setInterval(addLog, 5000);
+  addLog();
 
   // Reading Progress Logic
   window.onscroll = function() {
