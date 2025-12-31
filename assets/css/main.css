@@ -407,6 +407,10 @@ header .social a:hover {
   margin-bottom: 0.5rem;
 }
 
+.card-meta .card-title {
+  margin-bottom: 0;
+}
+
 .post-metrics {
   display: flex;
   gap: 1rem;
