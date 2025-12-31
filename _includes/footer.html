@@ -166,6 +166,30 @@
   setInterval(addLog, 4000);
   setTimeout(addLog, 1000);
 
+  // Project Build Timer Logic
+  let buildInterval;
+  window.startBuild = function(el) {
+    if (el.classList.contains('built')) return;
+    const timerEl = el.querySelector('.build-timer');
+    let startTime = 0;
+    
+    buildInterval = setInterval(() => {
+      startTime += 0.1;
+      timerEl.textContent = startTime.toFixed(1) + 's';
+      if (startTime >= 2.0) {
+        clearInterval(buildInterval);
+        el.classList.add('built');
+      }
+    }, 100);
+  }
+
+  window.resetBuild = function(el) {
+    clearInterval(buildInterval);
+    if (!el.classList.contains('built')) {
+      el.querySelector('.build-timer').textContent = '0.0s';
+    }
+  }
+
   // Reading Progress Logic
   window.onscroll = function() {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;

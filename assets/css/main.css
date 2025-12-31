@@ -1109,7 +1109,7 @@ button[type="submit"]:hover {
 .project .build-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(3, 7, 18, 0.9);
+  background: rgba(3, 7, 18, 0.95);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1121,17 +1121,33 @@ button[type="submit"]:hover {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--accent-primary);
+  padding: 2rem;
+  text-align: center;
 }
 
 .project:hover .build-overlay {
   opacity: 1;
 }
 
+.build-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 180px;
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+.build-timer {
+  color: var(--accent-secondary);
+  font-weight: 800;
+}
+
 .build-overlay .progress-bar {
-  width: 150px;
+  width: 180px;
   height: 4px;
   background: rgba(255, 255, 255, 0.1);
-  margin: 1rem 0;
+  margin-bottom: 1rem;
   position: relative;
   overflow: hidden;
 }
@@ -1145,32 +1161,60 @@ button[type="submit"]:hover {
   background: var(--accent-gradient);
 }
 
-.project:hover .progress-fill {
-  animation: buildProgress 1.5s forwards;
+.build-success-msg {
+  font-size: 0.65rem;
+  color: #00ff9d;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
 }
 
-@keyframes buildProgress {
-  0% { width: 0%; }
-  30% { width: 45%; }
-  70% { width: 85%; }
-  100% { width: 100%; }
+.github-btn-active {
+  background: var(--accent-primary);
+  color: #000 !important;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+  font-size: 0.75rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: auto; /* Allow clicking even if overlay is none */
+  text-decoration: none;
+}
+
+/* State when build is complete (triggered by JS) */
+.project.built .build-overlay {
+  pointer-events: auto; /* Enable interaction once built */
+}
+
+.project.built .progress-fill {
+  width: 100% !important;
+}
+
+.project.built .build-success-msg,
+.project.built .github-btn-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project.built .build-status {
+  color: var(--text-tertiary);
 }
 
 .build-status {
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
-.project:hover .build-status::after {
-  content: '...';
-  animation: dots 1.5s infinite;
+.project:not(.built):hover .progress-fill {
+  animation: buildProgress 2s linear forwards;
 }
 
-@keyframes dots {
-  0%, 20% { content: '.'; }
-  40% { content: '..'; }
-  60% { content: '...'; }
-  80%, 100% { content: ''; }
+@keyframes buildProgress {
+  0% { width: 0%; }
+  100% { width: 100%; }
 }
 
 /* Animated Stress Heartbeat */
