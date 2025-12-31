@@ -24,7 +24,8 @@
   </div>
 </nav>
 
-{% if page.url == "/" or page.url == "/index.html" %}
+{% assign current_path = page.url | replace: 'index.html', '' %}
+{% if current_path == "/" or current_path == "" %}
 <header>
   <div class="container">
     <div class="about-grid">
@@ -55,6 +56,7 @@
           {% endfor %}
         </div>
       </div>
+    </div>
   </div>
 </header>
 {% endif %}
