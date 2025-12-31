@@ -18,7 +18,7 @@ projects:
     about: A Git plugin to selectively ignore lines and code blocks during commits.
     code: https://github.com/kodelint/git-selective-ignore
     link: https://github.com/kodelint/git-selective-ignore
-    caffeine: 8
+    caffeine: 9
     stress: 5
     ozone: 4
     tags:
@@ -27,9 +27,9 @@ projects:
       - macos
 
   - title: Wiper
-    caffeine: 3
-    stress: 2
-    ozone: 1
+    caffeine: 5
+    stress: 4
+    ozone: 2
     img: /assets/uploads/01-Wiper.png
     about: A powerful command-line utility for macOS to completely uninstall applications and clean up system junk.
     code: https://github.com/kodelint/wiper
@@ -40,10 +40,17 @@ projects:
       - macos
 
   - title: OSX Cleaner (CLI Edition)
-    caffeine: 7
-    stress: 6
+    caffeine: 8
+    stress: 9
     ozone: 3
     img: /assets/uploads/01-osx-cleaner.png
+    about: A powerful command-line utility for macOS to completely uninstall applications and clean up system junk.
+    code: https://github.com/kodelint/osx-cleaner
+    link: https://github.com/kodelint/osx-cleaner
+    tags:
+      - rust
+      - cli
+      - macos
 
   - title: Accelerate Your Development Setup with "Setup DevBox"
     caffeine: 9
