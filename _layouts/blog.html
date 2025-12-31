@@ -13,7 +13,7 @@
 
     <div class="post-list">
       {% for post in site.posts %}
-      <a href="{{site.url}}{{site.baseurl}}{{post.url}}" class="post">
+      <div class="post" onclick="window.open('{{site.url}}{{site.baseurl}}{{post.url}}', '_blank');">
         {% if post.image %}
         <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}{{post.image}})"></div>
         {% else %}
@@ -24,10 +24,35 @@
           <div class="card-date">{{post.date | date_to_string}}</div>
           <h2 class="card-title">{{post.title}}</h2>
           <div class="card-footer">
+            <div class="cross-post-links">
+              {% if post.redirect_to contains 'medium.com' or post.medium_url %}
+              <a href="{{ post.redirect_to | default: post.medium_url }}" target="_blank" title="Read on Medium" onclick="event.stopPropagation();">
+                <i class="fab fa-medium cross-post-icon medium active"></i>
+              </a>
+              {% else %}
+              <i class="fab fa-medium cross-post-icon medium" title="Not on Medium"></i>
+              {% endif %}
+
+              {% if post.devto_url %}
+              <a href="{{ post.devto_url }}" target="_blank" title="Read on Dev.to" onclick="event.stopPropagation();">
+                <i class="fab fa-dev cross-post-icon devto active"></i>
+              </a>
+              {% else %}
+              <i class="fab fa-dev cross-post-icon devto" title="Not on Dev.to"></i>
+              {% endif %}
+
+              {% if post.hashnode_url %}
+              <a href="{{ post.hashnode_url }}" target="_blank" title="Read on Hashnode" onclick="event.stopPropagation();">
+                <i class="fas fa-h cross-post-icon hashnode active"></i>
+              </a>
+              {% else %}
+              <i class="fas fa-h cross-post-icon hashnode" title="Not on Hashnode"></i>
+              {% endif %}
+            </div>
             <span class="read-more">Read Article</span>
           </div>
         </div>
-      </a>
+      </div>
       {% endfor %}
     </div>
   </main>

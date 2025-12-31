@@ -362,7 +362,7 @@ header .social a:hover {
   position: relative;
   padding: 1rem;
   gap: 1rem;
-  cursor: pointer;
+  cursor: pointer; /* Ensure pointer for div cards */
 }
 
 .post:hover {
@@ -632,6 +632,28 @@ button[type="submit"]:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px -5px rgba(56, 189, 248, 0.4);
 }
+
+/* Cross-post Icons on Blog Cards */
+.cross-post-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.cross-post-icon {
+  font-size: 1rem;
+  color: var(--text-tertiary);
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.cross-post-icon.active {
+  opacity: 1;
+  color: var(--text-primary);
+}
+
+.cross-post-icon.medium.active { color: #fff; }
+.cross-post-icon.devto.active { color: #3b82f6; }
+.cross-post-icon.hashnode.active { color: #2962ff; }
 
 /* Footer */
 footer {

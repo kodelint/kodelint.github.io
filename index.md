@@ -43,7 +43,7 @@ This site is my **Engineering Therapy**. It’s where I document my battles with
 
 Thanks for stopping by. If you see me in a data center, a Slack thread, or wrestling with a borrow checker, say hi!
 
-<div class="about-hero-visual" style="display: flex; align-items: center; justify-content: center; margin-top: 4rem; margin-bottom: 2rem; ">
+<div class="about-hero-visual" style="display: flex; align-items: center; justify-content: center; margin-top: 4rem; margin-bottom: 2rem;">
   <img src="/assets/uploads/developer.gif" alt="Coding GIF" style="max-width: 70%; height: auto; "/>
 </div>
 
