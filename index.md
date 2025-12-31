@@ -31,7 +31,65 @@ My goal has always been the same: building systems that are smart enough to scal
 - ☁️ **Cloud & AI Scale**: Turning "It works in dev" into "It works for everyone" without the CFO having a heart attack.
 - 🏎️ **HPC & GPU Tuning**: Squeezing performance out of hardware using RDMA, InfiniBand, and sheer willpower.
 - 🔐 **Security-First Thinking**: Because "admin/admin" is still not a valid security strategy, even in the age of AI.
-- 🚀 **Team Building**: Hiring smart people and then trying hard not to get in their way.
+*   🚀 **Team Building**: Hiring smart people and then trying hard not to get in their way.
+
+### 🌲 Career log --oneline --graph
+
+<div class="git-timeline">
+  <div class="git-commit">
+    <div class="commit-meta">
+      <span class="commit-hash">af5c170</span>
+      <span class="commit-date">Aug 2024 - Present</span>
+    </div>
+    <div class="commit-message"><span class="type hotfix">hotfix:</span> Scaling Engineering & SRE at Arkose Labs</div>
+    <div class="commit-details">Owning platform strategy for high-growth fraud detection SaaS. Sustaining <span>99.9% SLA</span> while supporting 7x transaction growth.</div>
+  </div>
+
+  <div class="git-commit">
+    <div class="commit-meta">
+      <span class="commit-hash">c19feaa</span>
+      <span class="commit-date">2022 - 2024</span>
+    </div>
+    <div class="commit-message"><span class="type feature">feature:</span> Leading Global SRE & Product Engineering at F5</div>
+    <div class="commit-details">Architected 25+ global PoP platforms and led a 55+ engineer organization. Achieved <span>400% growth</span> in attack traffic absorption.</div>
+  </div>
+
+  <div class="git-commit">
+    <div class="commit-meta">
+      <span class="commit-hash">e18ce41</span>
+      <span class="commit-date">2018 - 2022</span>
+    </div>
+    <div class="commit-message"><span class="type feature">feature:</span> Architecting Hyperscale ML/AI at Adobe (Sensei)</div>
+    <div class="commit-details">Built hybrid GPU/CPU clusters serving <span>~30B daily requests</span>. Optimized NVIDIA clusters with RDMA and InfiniBand.</div>
+  </div>
+
+  <div class="git-commit">
+    <div class="commit-meta">
+      <span class="commit-hash">bd36139</span>
+      <span class="commit-date">2016 - 2018</span>
+    </div>
+    <div class="commit-message"><span class="type merge">merge:</span> Modernizing Macy's E-commerce Platform</div>
+    <div class="commit-details">Led enterprise-wide CI/CD and platform modernization. Transitioned to <span>GitOps</span> workflows using Flux CD.</div>
+  </div>
+
+  <div class="git-commit">
+    <div class="commit-meta">
+      <span class="commit-hash">0731214</span>
+      <span class="commit-date">2009 - 2016</span>
+    </div>
+    <div class="commit-message"><span class="type refactor">refactor:</span> Scaling Product Engineering across Workday, Chegg, Adobe</div>
+    <div class="commit-details">Held senior engineering roles across major tech firms, focusing on <span>distributed systems</span> and scale.</div>
+  </div>
+
+  <div class="git-commit">
+    <div class="commit-meta">
+      <span class="commit-hash">init_02</span>
+      <span class="commit-date">2002</span>
+    </div>
+    <div class="commit-message"><span class="type init">Initial Commit:</span> BS in Computer Science</div>
+    <div class="commit-details">Where it all began. The first <span>Hello World</span> that actually compiled.</div>
+  </div>
+</div>
 
 ### 🧠 Why This Blog Exists
 
