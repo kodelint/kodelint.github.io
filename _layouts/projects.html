@@ -42,7 +42,9 @@
           <div class="progress-bar"><div class="progress-fill"></div></div>
           <div class="build-success-msg">[SUCCESS] artifacts deployed</div>
           {% if project.code %}
-          <a href="{{project.code}}" target="_blank" class="github-btn-active">View on GitHub →</a>
+          <button class="github-btn-active deploy-btn" data-url="{{project.code}}">
+            <i class="fas fa-terminal" style="margin-right: 5px;"></i> git clone
+          </button>
           {% endif %}
         </div>
         <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}{{project.img}})"></div>
