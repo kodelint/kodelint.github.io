@@ -14,11 +14,28 @@
     <div class="project-list">
       {% for project in site.data.projects_data.projects %}
       <div class="project" onmouseenter="startBuild(this)" onmouseleave="resetBuild(this)">
+        <!-- 4. Dependency Cloud -->
+        <div class="dependency-cloud">
+          {% for tag in project.tags %}
+            {% assign tag_lower = tag | downcase %}
+            {% if tag_lower contains 'go' %}<i class="fab fa-golang dep-icon" style="top: 10%; left: 10%;"></i>{% endif %}
+            {% if tag_lower contains 'rust' %}<i class="fab fa-rust dep-icon" style="top: 20%; right: 10%;"></i>{% endif %}
+            {% if tag_lower contains 'docker' %}<i class="fab fa-docker dep-icon" style="bottom: 20%; left: 15%;"></i>{% endif %}
+            {% if tag_lower contains 'terraform' %}<i class="fas fa-cloud dep-icon" style="bottom: 10%; right: 15%;"></i>{% endif %}
+            {% if tag_lower contains 'kubernetes' %}<i class="fas fa-dharmachakra dep-icon" style="top: 50%; left: 5%;"></i>{% endif %}
+            {% if tag_lower contains 'aws' %}<i class="fab fa-aws dep-icon" style="bottom: 40%; right: 5%;"></i>{% endif %}
+          {% endfor %}
+        </div>
+
         <div class="build-overlay">
           <div class="build-header">
             <span class="build-status">Executing build</span>
             <span class="build-timer">0.0s</span>
           </div>
+          
+          <!-- 1. Live Tail Log Container -->
+          <div class="build-logs" id="build-logs-{{ forloop.index }}"></div>
+
           <div class="progress-bar"><div class="progress-fill"></div></div>
           <div class="build-success-msg">[SUCCESS] artifacts deployed</div>
           {% if project.code %}
