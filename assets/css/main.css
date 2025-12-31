@@ -721,11 +721,20 @@ button[type="submit"]:hover {
 .cross-post-icon.hashnode.active { color: #2962ff; }
 
 /* System Status Bar */
+.status-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
 .system-status {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
   font-family: var(--font-mono);
   font-size: 0.7rem;
   text-transform: uppercase;
@@ -735,8 +744,10 @@ button[type="submit"]:hover {
   border: 1px solid var(--border-subtle); /* Original border */
   border-radius: 100px; /* Original pill shape */
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.status-group .system-status {
+  margin: 0;
 }
 
 .status-item {
