@@ -31,7 +31,91 @@ My goal has always been the same: building systems that are smart enough to scal
 - ☁️ **Cloud & AI Scale**: Turning "It works in dev" into "It works for everyone" without the CFO having a heart attack.
 - 🏎️ **HPC & GPU Tuning**: Squeezing performance out of hardware using RDMA, InfiniBand, and sheer willpower.
 - 🔐 **Security-First Thinking**: Because "admin/admin" is still not a valid security strategy, even in the age of AI.
-- 🚀 **Team Building**: Hiring smart people and then trying hard not to get in their way.
+*   🚀 **Team Building**: Hiring smart people and then trying hard not to get in their way.
+
+### 🌲 `git log --oneline --graph`
+
+<div class="tech-graph">
+  
+  <div class="graph-commit deploy">
+    <div class="graph-lane"><div class="graph-dot l0"></div></div>
+    <div class="graph-content">
+      <span class="graph-hash">af5c170</span>
+      <span class="graph-msg"><span class="type deploy">deploy:</span> mastering **Rust** and scaling distributed brains</span>
+    </div>
+  </div>
+
+  <div class="graph-commit hotfix">
+    <div class="graph-lane">
+      <div class="branch-merge"></div>
+      <div class="graph-dot l0"></div>
+    </div>
+    <div class="graph-content">
+      <span class="graph-hash">c19feaa</span>
+      <span class="graph-msg"><span class="type hotfix">hotfix:</span> squeezing **p99 performance** for high-load clusters</span>
+    </div>
+  </div>
+
+  <div class="graph-commit feat on-branch">
+    <div class="graph-lane"><div class="graph-dot l1"></div></div>
+    <div class="graph-content">
+      <span class="graph-hash">e18ce41</span>
+      <span class="graph-msg"><span class="type feat">feat:</span> **NVIDIA GPU** scheduling and **RDMA** optimization</span>
+    </div>
+  </div>
+
+  <div class="graph-commit feat on-branch">
+    <div class="graph-lane"><div class="graph-dot l1"></div></div>
+    <div class="graph-content">
+      <span class="graph-hash">bd36139</span>
+      <span class="graph-msg"><span class="type feat">feat:</span> architecting **MLOps** foundations (Kubeflow/MLflow)</span>
+    </div>
+  </div>
+
+  <div class="graph-commit merge">
+    <div class="graph-lane">
+      <div class="branch-fork"></div>
+      <div class="graph-dot l0"></div>
+    </div>
+    <div class="graph-content">
+      <span class="graph-hash">0731214</span>
+      <span class="graph-msg"><span class="type merge">merge:</span> security-first platform with **eBPF** and **Zero-Trust**</span>
+    </div>
+  </div>
+
+  <div class="graph-commit feat">
+    <div class="graph-lane"><div class="graph-dot l0"></div></div>
+    <div class="graph-content">
+      <span class="graph-hash">f765b47</span>
+      <span class="graph-msg"><span class="type feat">feat:</span> automating the world via **Terraform** and **GitOps**</span>
+    </div>
+  </div>
+
+  <div class="graph-commit feat">
+    <div class="graph-lane"><div class="graph-dot l0"></div></div>
+    <div class="graph-content">
+      <span class="graph-hash">8381d27</span>
+      <span class="graph-msg"><span class="type feat">feat:</span> multi-cloud **Kubernetes** orchestration at scale</span>
+    </div>
+  </div>
+
+  <div class="graph-commit refactor">
+    <div class="graph-lane"><div class="graph-dot l0"></div></div>
+    <div class="graph-content">
+      <span class="graph-hash">c044a82</span>
+      <span class="graph-msg"><span class="type refactor">refactor:</span> from **Solaris Zones** to modern containers</span>
+    </div>
+  </div>
+
+  <div class="graph-commit init">
+    <div class="graph-lane"><div class="graph-dot l0"></div></div>
+    <div class="graph-content">
+      <span class="graph-hash">init_02</span>
+      <span class="graph-msg"><span class="type init">init:</span> the first compiled **Hello World**</span>
+    </div>
+  </div>
+
+</div>
 
 ### 🧠 Why This Blog Exists
 

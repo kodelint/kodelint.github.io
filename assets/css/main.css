@@ -930,6 +930,124 @@ button[type="submit"]:hover {
   to { opacity: 1; transform: translateX(0) scale(1); }
 }
 
+/* Technical Learning Git Graph */
+.tech-graph {
+  position: relative;
+  max-width: 850px;
+  margin: 4rem 0;
+  font-family: var(--font-mono);
+}
+
+.graph-commit {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 1rem;
+  min-height: 60px;
+  position: relative;
+}
+
+.graph-lane {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* Vertical Main Line */
+.graph-lane::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Side Branch Line */
+.graph-commit.on-branch .graph-lane::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50px;
+  width: 2px;
+  background: var(--accent-secondary);
+  opacity: 0.2;
+}
+
+/* Branch Connectors (CSS Slants) */
+.branch-fork, .branch-merge {
+  position: absolute;
+  width: 25px;
+  height: 30px;
+  border-left: 2px solid rgba(129, 140, 248, 0.3);
+  pointer-events: none;
+}
+
+.branch-fork {
+  top: 1rem;
+  left: 25px;
+  border-bottom: 2px solid rgba(129, 140, 248, 0.3);
+  border-bottom-left-radius: 10px;
+  transform: skewX(-45deg);
+}
+
+.branch-merge {
+  bottom: 1rem;
+  left: 25px;
+  border-top: 2px solid rgba(129, 140, 248, 0.3);
+  border-top-left-radius: 10px;
+  transform: skewX(45deg);
+}
+
+.graph-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--bg-depth);
+  border: 3px solid var(--accent-primary);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 5;
+  top: 1rem;
+  box-shadow: 0 0 10px var(--accent-glow);
+  transform: translateX(-50%);
+}
+
+.graph-dot.l0 { left: 25px; }
+.graph-dot.l1 { left: 50px; border-color: var(--accent-secondary); }
+
+/* Color Mapping for Tech Log */
+.graph-commit.deploy .graph-dot { border-color: #38bdf8; }
+.graph-commit.hotfix .graph-dot { border-color: #ff4757; }
+.graph-commit.feat .graph-dot { border-color: #00ff9d; }
+.graph-commit.merge .graph-dot { border-color: #a855f7; }
+
+.graph-content {
+  padding-bottom: 2rem;
+}
+
+.graph-msg {
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.graph-msg .type {
+  font-weight: 800;
+  margin-right: 0.5rem;
+}
+
+.graph-msg .type.deploy { color: #38bdf8; }
+.graph-msg .type.hotfix { color: #ff4757; }
+.graph-msg .type.feat { color: #00ff9d; }
+.graph-msg .type.merge { color: #a855f7; }
+.graph-msg .type.refactor { color: #facc15; }
+.graph-msg .type.init { color: #818cf8; }
+
+.graph-hash {
+  color: var(--text-tertiary);
+  margin-right: 1rem;
+}
+
 /* Footer */
 footer {
   margin-top: 6rem;
@@ -1006,6 +1124,19 @@ footer {
   
   .page {
     padding-top: 4rem;
+  }
+
+  .tech-graph {
+    margin: 3rem 0;
+  }
+
+  .graph-commit {
+    grid-template-columns: 50px 1fr;
+    gap: 0.5rem;
+  }
+
+  .graph-msg {
+    font-size: 0.9rem;
   }
 }
 
