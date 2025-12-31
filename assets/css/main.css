@@ -709,11 +709,11 @@ button[type="submit"]:hover {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  background: rgba(255, 255, 255, 0.02);
-  padding: 0.75rem 2rem;
+  background: transparent; /* Removed background */
+  padding: 0; /* Removed padding */
   border-radius: 100px;
-  border: 1px solid var(--border-subtle);
-  width: fit-content;
+  border: none; /* Removed border */
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -759,9 +759,9 @@ button[type="submit"]:hover {
   gap: 0.5rem;
 }
 
-.status-item.uptime { color: #00ff9d !important; } /* Hyper Green */
-.status-item.happiness { color: #ff007a !important; } /* Hyper Pink */
-.status-item.redbull { color: #ff4757 !important; } /* Hyper Red */
+.status-item.uptime { color: #00ff9d !important; }
+.status-item.happiness { color: #ff007a !important; }
+.status-item.redbull { color: #ff4757 !important; }
 
 .status-value {
   color: inherit;
@@ -769,6 +769,7 @@ button[type="submit"]:hover {
 }
 
 .status-value.highlight {
+  color: #ff4757 !important; /* Explicitly RED */
   background: transparent !important;
   animation: pulseRed 2s infinite;
 }
