@@ -9,6 +9,10 @@ layout: page
     <span class="prompt-symbol">λ</span> whoami
     <span class="cursor"></span>
   </div>
+  <div class="status-widget">
+    <div class="pulse-dot"></div>
+    <span>[STATUS] Currently satisfying the Rust borrow checker...</span>
+  </div>
 </div>
 
 👋 **Oh, hi! You found my corner of the internet.**
@@ -19,9 +23,9 @@ I am a **Technologist**, **Problem-Solver**, and **Chief Automation Officer** of
 
 ### 🦖 The Origin Story (20+ Years of "It Works on My Machine")
 
-I’ve been in the game long enough to remember when "The Cloud" was just something that ruined your picnic. I’ve journeyed from the dark ages of `Solaris Zones` and `LXC` through the shiny, chaotic world of `Kubernetes`, and now into the era of babysitting massive **NVIDIA GPU clusters**.
+I’ve been in the game long enough to remember when "The Cloud" was just something that ruined your picnic. I’ve journeyed from the dark ages of <span class="tooltip-container">`Solaris Zones`<span class="tooltip-box"><b>Solaris Zones [man]</b>The OG of containerization. Hard partitions before Docker was even a thing.</span></span> and <span class="tooltip-container">`LXC`<span class="tooltip-box"><b>LXC [man]</b>Linux Containers. The high-performance bridge between virtualization and modern Docker.</span></span> through the shiny, chaotic world of <span class="tooltip-container">`Kubernetes`<span class="tooltip-box"><b>Kubernetes [man]</b>The orchestrator of everything. YAML monsters and Pod herding included.</span></span>, and now into the era of babysitting massive **NVIDIA GPU clusters**.
 
-Basically, I’ve spent two decades watching tech hypes rise, fall, and get rebranded while building high-performing **SRE**, **DevOps**, and **Platform Security** teams. These days, when I'm not wrestling with `YAML`, I'm the **AI Plumber**—making the hardware sweat so the models don't have to. I specialize in squeezing every last drop of performance out of GPUs until the data center smells slightly like ozone and your inference costs stop orbiting Saturn.
+Basically, I’ve spent two decades watching tech hypes rise, fall, and get rebranded while building high-performing **SRE**, **DevOps**, and **Platform Security** teams. These days, when I'm not wrestling with <span class="tooltip-container">`YAML`<span class="tooltip-box"><b>YAML [man]</b>Yet Another Markup Language. Or as I call it: Indentation-induced Engineering Therapy.</span></span>, I'm the **AI Plumber**—making the hardware sweat so the models don't have to. I specialize in squeezing every last drop of performance out of GPUs until the data center smells slightly like ozone and your inference costs stop orbiting Saturn.
 
 My goal has always been the same: building systems that are smart enough to scale and stable enough to **not** wake everyone up at 3 AM on a Saturday.
 
@@ -29,7 +33,7 @@ My goal has always been the same: building systems that are smart enough to scal
 
 - ⚙️ **Engineering & Architecture**: Drawing boxes and arrows that eventually become expensive, resilient infrastructure.
 - ☁️ **Cloud & AI Scale**: Turning "It works in dev" into "It works for everyone" without the CFO having a heart attack.
-- 🏎️ **HPC & GPU Tuning**: Squeezing performance out of hardware using RDMA, InfiniBand, and sheer willpower.
+- 🏎️ **HPC & GPU Tuning**: Squeezing performance out of hardware using <span class="tooltip-container">**RDMA**<span class="tooltip-box"><b>RDMA [man]</b>Remote Direct Memory Access. Bypassing the CPU for blazing fast data transfer between nodes.</span></span>, <span class="tooltip-container">**InfiniBand**<span class="tooltip-box"><b>InfiniBand [man]</b>High-throughput, low-latency networking designed for the most demanding technical workloads.</span></span>, and sheer willpower.
 - 🔐 **Security-First Thinking**: Because "admin/admin" is still not a valid security strategy, even in the age of AI.
 - 🚀 **Team Building**: Hiring smart people and then trying hard not to get in their way.
 
@@ -98,7 +102,7 @@ My goal has always been the same: building systems that are smart enough to scal
     </div>
     <div class="graph-content">
       <span class="graph-hash">0731214</span>
-      <span class="graph-msg"><span class="type merge">merge:</span> <strong>eBPF</strong> service mesh and <strong>Zero-Trust</strong> security</span>
+      <span class="graph-msg"><span class="type merge">merge:</span> <span class="tooltip-container"><strong>eBPF</strong><span class="tooltip-box"><b>eBPF [man]</b>Magic sand that lets you run sandboxed code in the Linux kernel without crashing the system (usually).</span></span> service mesh and <strong>Zero-Trust</strong> security</span>
     </div>
   </div>
 
@@ -188,5 +192,5 @@ Thanks for stopping by. If you see me in a data center, a Slack thread, or wrest
 </div>
 
 <blockquote style="margin-top: 2rem; border-left: 4px solid var(--accent-tertiary); padding-left: 2rem; color: var(--text-primary); font-size: 1.5rem; font-family: var(--font-heading); font-style: italic;">
-  "I turn <span style="color: #6F4E37;">Coffee</span> and <span style="color: #ed1c24;">Red Bull</span> into code, and existential <span style="color: #ffa726;">anxiety</span> into distributed architecture." <span style="color: var(--accent-primary);"> — That's Me!! </span>
+  "I turn <span style="color: #6F4E37;">Coffee</span> and <span style="color: #ed1c24;">Red Bull</span> into code, and existential <span style="color: #ffa726;">anxiety</span> into <span class="tooltip-container">distributed architecture<span class="tooltip-box"><b>Architecture [man]</b>Drawing boxes and arrows until someone pays for them.</span></span>." <span style="color: var(--accent-primary);"> — That's Me!! </span>
 </blockquote>
