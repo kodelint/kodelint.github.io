@@ -709,48 +709,13 @@ button[type="submit"]:hover {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  background: transparent; /* Removed background */
-  padding: 0; /* Removed padding */
-  border-radius: 100px;
-  border: none; /* Removed border */
-  width: 100%;
+  background: rgba(255, 255, 255, 0.02); /* Original background */
+  padding: 0.75rem 2rem; /* Original padding */
+  border: 1px solid var(--border-subtle); /* Original border */
+  border-radius: 100px; /* Original pill shape */
+  width: fit-content;
   margin-left: auto;
   margin-right: auto;
-}
-
-.system-logs {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  pointer-events: none;
-}
-
-.log-entry {
-  background: rgba(17, 24, 39, 0.8);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border-subtle);
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-sm);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--accent-primary);
-  animation: slideIn 0.3s ease-out;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.log-entry.fade-out {
-  opacity: 0;
-  transform: translateX(20px);
-  transition: all 2s ease;
-}
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
 }
 
 .status-item {
@@ -909,8 +874,8 @@ button[type="submit"]:hover {
 footer {
   margin-top: 6rem;
   padding: 4rem 0;
-  background: var(--bg-surface);
-  border-top: 1px solid var(--border-subtle);
+  background: transparent; /* Removed background */
+  border-top: none; /* Removed border */
   text-align: center;
   color: var(--text-tertiary);
 }
