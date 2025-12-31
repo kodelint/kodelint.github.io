@@ -33,27 +33,19 @@
           <span class="greeting">Hello there,</span>
           <span class="name-line">I'm <span class="name">{{site.data.blogger.name}}</span></span>
         </h1>
-        <p class="desc">{{site.data.blogger.description}}</p>
-        <div class="social">
-          {% for i in site.data.blogger.social %}
-          <a href="{{i.url}}" target="_blank" rel="noopener noreferrer" aria-label="{{i.title}}">
-            <img src="{{site.url}}{{site.baseurl}}/assets/png/{{i.title}}.png" alt="" class="icon" />
-          </a>
-          {% endfor %}
-        </div>
-      </div>
-      <div class="about-visual">
-        <div class="profile-container">
-          <div class="profile-hud">
-            <div class="hud-stat">CPU: <span>Satyajit v20.25</span></div>
-            <div class="hud-stat">ARCH: <span>Distributed</span></div>
-            <div class="hud-stat">LOAD: <span>99.9%</span></div>
-            <div class="hud-stat">RUNTIME: <span>GO / RUST</span></div>
-            <div class="hud-stat" style="margin-top: 5px; font-size: 0.5rem; opacity: 0.5;">STATUS: OPTIMIZED</div>
+        <div class="about-visual">
+          <div class="profile-container">
+            <div class="profile-hud">
+              <div class="hud-stat">CPU: <span>Satyajit v20.25</span></div>
+              <div class="hud-stat">ARCH: <span>Distributed</span></div>
+              <div class="hud-stat">LOAD: <span>99.9%</span></div>
+              <div class="hud-stat">RUNTIME: <span>GO / RUST</span></div>
+              <div class="hud-stat" style="margin-top: 5px; font-size: 0.5rem; opacity: 0.5;">STATUS: OPTIMIZED</div>
+            </div>
+            <img class="profile" src="{{site.data.blogger.image}}" alt="{{site.data.blogger.name}}" />
           </div>
-          <img class="profile" src="{{site.data.blogger.image}}" alt="{{site.data.blogger.name}}" />
         </div>
-      </div>
+        <p class="desc">{{site.data.blogger.description}}</p>
     </div>
   </div>
 </header>
