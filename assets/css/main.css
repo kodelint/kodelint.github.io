@@ -920,7 +920,18 @@ footer {
   nav {
     top: auto;
     bottom: 1.5rem; /* Bottom nav for mobile */
-    max-width: 90%;
+    max-width: 95%; /* Increased from 90% to fit more */
+    padding: 0.5rem 1rem; /* Reduced padding */
+  }
+
+  nav .nav-container {
+    gap: 0.5rem; /* Reduced gap between links */
+    justify-content: space-around;
+  }
+
+  nav a {
+    font-size: 0.85rem; /* Slightly smaller font */
+    padding: 0.4rem 0.75rem; /* Reduced padding */
   }
 
   .terminal-header .command {
