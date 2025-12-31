@@ -724,26 +724,56 @@ button[type="submit"]:hover {
 .status-group {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  align-items: flex-start; /* Align to top so headers match */
+  gap: 2rem;
   flex-wrap: wrap;
   margin-bottom: 2rem;
+}
+
+.status-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-header {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-secondary);
+  text-shadow: 0 0 10px rgba(129, 140, 248, 0.4);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.9;
 }
 
 .system-status {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin: 0 auto 2rem;
+  gap: 1.5rem;
+  margin: 0;
   font-family: var(--font-mono);
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  background: rgba(255, 255, 255, 0.02); /* Original background */
-  padding: 0.75rem 2rem; /* Original padding */
-  border: 1px solid var(--border-subtle); /* Original border */
-  border-radius: 100px; /* Original pill shape */
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
   width: fit-content;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.system-status:hover {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+  transform: translateY(-2px);
 }
 
 .status-group .system-status {
