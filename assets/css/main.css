@@ -483,22 +483,25 @@ header .social a:hover {
   align-items: center;
   gap: 0.5rem;
   position: relative;
-  overflow: hidden;
+  /* Removed overflow: hidden to prevent arrow cropping */
+  padding-right: 10px; /* Space for arrow animation */
 }
 
 .read-more::before {
   content: '';
   position: absolute;
   bottom: 0;
-  left: -100%;
+  left: 0;
   width: 100%;
   height: 2px;
   background: var(--accent-primary);
-  transition: left 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 .post:hover .read-more::before, .project:hover .read-more::before {
-  left: 0;
+  transform: scaleX(1);
 }
 
 .read-more::after {
@@ -1367,11 +1370,40 @@ button[type="submit"]:hover {
   filter: blur(0px);
 }
 
-/* Infrastructure Tooltips */
+/* Infrastructure Tooltips - Energy Flow */
 .tooltip-container {
   position: relative;
-  display: inline-block;
+  display: inline-block; /* Changed back to inline-block to respect padding/transform */
   cursor: help;
+  font-weight: 700;
+  padding-right: 0.2em; /* Prevent clipping of italic/swash characters */
+  
+  /* Gradient Text Effect */
+  background: linear-gradient(
+    90deg, 
+    var(--accent-primary) 0%, 
+    var(--accent-secondary) 50%, 
+    var(--accent-primary) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--accent-primary); /* Fallback */
+  
+  animation: textShimmer 3s linear infinite;
+}
+
+@keyframes textShimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.tooltip-container:hover {
+  text-shadow: 0 0 15px var(--accent-glow); /* Glow on hover */
+  /* Note: text-shadow usually conflicts with background-clip:text in some browsers, 
+     but we'll keep it for the glow effect if supported or use filter */
+  filter: drop-shadow(0 0 5px var(--accent-primary));
 }
 
 .tooltip-container .tooltip-box {
@@ -1381,6 +1413,14 @@ button[type="submit"]:hover {
   backdrop-filter: blur(12px);
   border: 1px solid var(--accent-primary);
   color: var(--text-secondary);
+  
+  /* Reset parent's text effects so the box content is visible */
+  -webkit-text-fill-color: var(--text-secondary);
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  text-shadow: none;
+  font-weight: normal; /* Reset bold from parent */
+
   text-align: left;
   padding: 1rem;
   border-radius: var(--radius-md);

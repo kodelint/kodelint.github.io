@@ -3,7 +3,7 @@ caffeine: 5
 stress: 2
 ozone: 1
 layout: post
-title: I Got Tired of Typoing in My Git Commits, So I Wrote a Spellchecker
+title: I got tired of typoing in my git commits. So, I wrote a spellchecker
 author: Satyajit Roy
 date: 2025-06-23
 image: "/assets/uploads/01-git-spellchecker.png"
