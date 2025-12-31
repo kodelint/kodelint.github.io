@@ -185,20 +185,24 @@ nav a.active {
 header {
   padding-top: 10rem;
   padding-bottom: 4rem;
+  text-align: center; /* Center text by default */
 }
 
 .about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 4rem;
-  text-align: left;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .about-text {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .about-visual {
@@ -209,9 +213,9 @@ header {
 
 header .profile-container {
   position: relative;
-  width: 320px; /* Increased from 280px */
-  height: 320px; /* Increased from 280px */
-  margin: 0;
+  width: 320px;
+  height: 320px;
+  margin: 0 auto;
 }
 
 header img.profile {
@@ -219,7 +223,7 @@ header img.profile {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  object-position: top center; /* Fix for head cropping */
+  object-position: top center;
   border: 4px solid var(--bg-surface);
   box-shadow: var(--glow-shadow);
   position: relative;
@@ -246,6 +250,7 @@ header .profile-container::before {
 header h1.owner-name {
   line-height: 1.1;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 header h1.owner-name .greeting {
@@ -271,13 +276,14 @@ header .desc {
   font-size: 1.25rem;
   color: var(--text-secondary);
   margin-bottom: 2.5rem;
-  max-width: 100%;
+  max-width: 700px;
 }
 
 header .social {
   display: flex;
-  justify-content: flex-start; /* Align left */
+  justify-content: center; /* Center social icons */
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 header .social .icon {
