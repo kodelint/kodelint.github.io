@@ -23,8 +23,6 @@ I’ve been in the game long enough to remember when "The Cloud" was just someth
 
 Basically, I’ve spent two decades watching tech hypes rise, fall, and get rebranded while building high-performing **SRE**, **DevOps**, and **Platform Security** teams. These days, when I'm not wrestling with `YAML`, I'm the **AI Plumber**—making the hardware sweat so the models don't have to. I specialize in squeezing every last drop of performance out of GPUs until the data center smells slightly like ozone and your inference costs stop orbiting Saturn.
 
-My goal has always been the same: building systems that are smart enough to scale and stable enough to **not** wake everyone up at 3 AM on a Saturday.
-
 ### 🛠️ What I Actually Do:
 
 - ⚙️ **Engineering & Architecture**: Drawing boxes and arrows that eventually become expensive, resilient infrastructure.
@@ -36,102 +34,126 @@ My goal has always been the same: building systems that are smart enough to scal
 ### 🌲 `Career log --oneline --graph`
 
 <div class="git-timeline">
+  
   <!-- Arkose Labs -->
-  <div class="git-commit branch-end">
+  <div class="git-commit deploy">
     <div class="git-graph-lane">
-      <div class="branch-connector"></div>
-      <div class="git-dot" style="border-color: #ff4757;"></div>
+      <svg viewBox="0 0 80 100" preserveAspectRatio="none">
+        <path d="M 30 24 L 30 100" stroke="var(--accent-primary)"/>
+        <path d="M 60 100 L 30 24" stroke="var(--accent-secondary)" stroke-dasharray="4 2"/> <!-- Merge visual -->
+      </svg>
+      <div class="git-dot lane-0"></div>
     </div>
     <div class="commit-content">
       <div class="commit-meta">
         <span class="commit-hash">af5c170</span>
         <span class="commit-date">Aug 2024 - Present</span>
       </div>
-      <div class="commit-message"><span class="type hotfix">Deploy:</span> Scaling Engineering & SRE @ Arkose Labs</div>
+      <div class="commit-message"><span class="type hotfix">deploy:</span> Scaling Engineering & SRE @ Arkose Labs</div>
       <div class="commit-details">Owning platform strategy for high-growth fraud detection SaaS. Sustaining <span>99.9% SLA</span> while supporting 7x transaction growth.</div>
     </div>
   </div>
 
   <!-- F5 -->
-  <div class="git-commit on-branch">
+  <div class="git-commit feature">
     <div class="git-graph-lane">
-      <div class="git-dot" style="border-color: #00ff9d;"></div>
+      <svg viewBox="0 0 80 100" preserveAspectRatio="none">
+        <path d="M 30 0 L 30 100" stroke="var(--accent-primary)" stroke-opacity="0.3"/>
+        <path d="M 60 0 L 60 100" stroke="var(--accent-secondary)"/>
+      </svg>
+      <div class="git-dot lane-1"></div>
     </div>
     <div class="commit-content">
       <div class="commit-meta">
         <span class="commit-hash">c19feaa</span>
         <span class="commit-date">2022 - 2024</span>
       </div>
-      <div class="commit-message"><span class="type feature">Feature:</span> Leading Global SRE & Product Engineering @ F5</div>
+      <div class="commit-message"><span class="type feature">feature:</span> Leading Global SRE & Product Engineering @ F5</div>
       <div class="commit-details">Architected 25+ global PoP platforms and led a 55+ engineer organization. Achieved <span>400% growth</span> in attack traffic absorption.</div>
     </div>
   </div>
 
   <!-- Adobe -->
-  <div class="git-commit on-branch">
+  <div class="git-commit feature">
     <div class="git-graph-lane">
-      <div class="git-dot" style="border-color: #00ff9d;"></div>
+      <svg viewBox="0 0 80 100" preserveAspectRatio="none">
+        <path d="M 30 0 L 30 100" stroke="var(--accent-primary)" stroke-opacity="0.3"/>
+        <path d="M 60 0 L 60 24" stroke="var(--accent-secondary)"/>
+        <path d="M 30 80 L 60 24" stroke="var(--accent-secondary)"/> <!-- Branch start -->
+      </svg>
+      <div class="git-dot lane-1"></div>
     </div>
     <div class="commit-content">
       <div class="commit-meta">
         <span class="commit-hash">e18ce41</span>
         <span class="commit-date">2018 - 2022</span>
       </div>
-      <div class="commit-message"><span class="type feature">Feature:</span> Architecting Hyperscale ML/AI @ Adobe </div>
+      <div class="commit-message"><span class="type feature">feature:</span> Architecting Hyperscale ML/AI @ Adobe </div>
       <div class="commit-details">Built hybrid GPU/CPU clusters serving <span>~30B daily requests</span>. Optimized NVIDIA clusters with RDMA and InfiniBand.</div>
     </div>
   </div>
 
-  <!-- Macy's (Branch Start) -->
-  <div class="git-commit branch-start">
+  <!-- Macy's -->
+  <div class="git-commit merge">
     <div class="git-graph-lane">
-      <div class="branch-connector"></div>
-      <div class="git-dot" style="border-color: #a855f7;"></div>
+      <svg viewBox="0 0 80 100" preserveAspectRatio="none">
+        <path d="M 30 0 L 30 100" stroke="var(--accent-primary)"/>
+      </svg>
+      <div class="git-dot lane-0"></div>
     </div>
     <div class="commit-content">
       <div class="commit-meta">
         <span class="commit-hash">bd36139</span>
         <span class="commit-date">2016 - 2018</span>
       </div>
-      <div class="commit-message"><span class="type merge">Merge:</span> Modernizing E-commerce Platform @ Macy's</div>
+      <div class="commit-message"><span class="type merge">merge:</span> Modernizing Macy's E-commerce Platform @ Macy's</div>
       <div class="commit-details">Led enterprise-wide CI/CD and platform modernization. Transitioned to <span>GitOps</span> workflows using Flux CD.</div>
     </div>
   </div>
 
-  <!-- Early Roles -->
-  <div class="git-commit">
+  <!-- Workday/Chegg -->
+  <div class="git-commit refactor">
     <div class="git-graph-lane">
-      <div class="git-dot" style="border-color: #facc15;"></div>
+      <svg viewBox="0 0 80 100" preserveAspectRatio="none">
+        <path d="M 30 0 L 30 100" stroke="var(--accent-primary)"/>
+      </svg>
+      <div class="git-dot lane-0"></div>
     </div>
     <div class="commit-content">
       <div class="commit-meta">
         <span class="commit-hash">0731214</span>
         <span class="commit-date">2009 - 2016</span>
       </div>
-      <div class="commit-message"><span class="type refactor">Refactor:</span> Scaling Product Engineering across Workday, Chegg, Adobe</div>
+      <div class="commit-message"><span class="type refactor">refactor:</span> Scaling Product Engineering across Workday, Chegg, Adobe</div>
       <div class="commit-details">Held senior engineering roles across major tech firms, focusing on <span>distributed systems</span> and scale.</div>
     </div>
   </div>
 
-  <!-- International Roles -->
-  <div class="git-commit">
+  <!-- International -->
+  <div class="git-commit hotfix">
     <div class="git-graph-lane">
-      <div class="git-dot" style="border-color: #ff4757;"></div>
+      <svg viewBox="0 0 80 100" preserveAspectRatio="none">
+        <path d="M 30 0 L 30 100" stroke="var(--accent-primary)"/>
+      </svg>
+      <div class="git-dot lane-0"></div>
     </div>
     <div class="commit-content">
       <div class="commit-meta">
         <span class="commit-hash">0731214</span>
         <span class="commit-date">2004 - 2009</span>
       </div>
-      <div class="commit-message"><span class="type hotfix">Hotfix:</span> Managed Platforms across Autonomy, SDG Group, HCL Tech</div>
+      <div class="commit-message"><span class="type hotfix">hotfix:</span> Managed Platforms across Autonomy, SDG Group, HCL Tech</div>
       <div class="commit-details">Held engineering roles across major tech firms internationally.</div>
     </div>
   </div>
 
   <!-- Initial Commit -->
-  <div class="git-commit">
+  <div class="git-commit init">
     <div class="git-graph-lane">
-      <div class="git-dot" style="border-color: #818cf8;"></div>
+      <svg viewBox="0 0 80 100" preserveAspectRatio="none">
+        <path d="M 30 0 L 30 24" stroke="var(--accent-primary)"/>
+      </svg>
+      <div class="git-dot lane-0"></div>
     </div>
     <div class="commit-content">
       <div class="commit-meta">
