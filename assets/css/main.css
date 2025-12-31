@@ -1522,111 +1522,167 @@ button[type="submit"]:hover {
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 157, 0); }
 }
 
-/* Git Commit Footer */
+/* Git Commit Footer - Media Player Variation */
 .git-footer {
   font-family: var(--font-mono);
   display: flex;
-  flex-direction: column; /* Default to column for small screens */
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(3, 7, 18, 0.8);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 1rem 1.5rem;
+  gap: 1.5rem;
+  background: rgba(17, 24, 39, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px; /* More rounded like a player */
+  padding: 1rem 2rem;
   margin: 0 auto;
   max-width: 90%;
   font-size: 0.75rem;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-}
-
-/* Fun Mode Specifics */
-.git-footer.fun-mode {
-  border-color: var(--accent-secondary);
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
 }
 
 .git-footer::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent-secondary), transparent);
-  animation: scanline 4s linear infinite;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(45deg, var(--accent-primary), var(--accent-tertiary), var(--accent-secondary));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
-@keyframes scanline {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+.media-cover {
+  width: 50px;
+  height: 50px;
+  background: #000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  position: relative;
 }
 
-.git-part {
+.media-cover::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: var(--accent-gradient);
+  border-radius: 50%;
+}
+
+.spin-record {
+  font-size: 50px;
+  color: rgba(255, 255, 255, 0.1);
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.media-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.25rem;
+  min-width: 200px;
+}
+
+.media-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+.media-artist {
+  color: var(--accent-secondary);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.media-track {
+  margin-top: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.4rem 0.8rem;
+  border-radius: 100px;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.git-part.user-identity {
-  color: var(--text-primary);
-  font-weight: 700;
-}
-
-.git-part.last-commit {
-  color: var(--text-tertiary);
-}
-
-.git-value.author {
+.track-status {
   color: var(--accent-primary);
-  text-shadow: 0 0 5px var(--accent-glow);
+  font-weight: 700;
+  font-size: 0.65rem;
 }
 
-.git-divider, .git-arrow {
+.track-name {
   color: var(--text-tertiary);
-  opacity: 0.5;
-}
-
-.git-value.role {
-  color: #facc15;
-  transition: opacity 0.5s ease;
-}
-
-.git-value.commit-msg {
-  color: var(--text-secondary);
   font-style: italic;
-  transition: opacity 0.5s ease;
   max-width: 200px;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.media-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.control-icon {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.control-icon:hover {
+  color: var(--text-primary);
+  transform: scale(1.1);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.control-icon.active {
+  color: var(--accent-primary);
+  text-shadow: 0 0 15px var(--accent-primary);
 }
 
 @media (min-width: 768px) {
   .git-footer {
     flex-direction: row;
+    padding: 1rem 2.5rem;
     gap: 2rem;
     width: fit-content;
-    border-radius: 100px;
   }
   
-  .git-value.commit-msg {
-    max-width: 300px;
+  .media-info {
+    align-items: flex-start;
+    text-align: left;
   }
 }
 
-.git-footer:hover {
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
-  transform: translateY(-2px);
-}
-
-/* Deprecated/Old styles handled by flex-direction above */
-.git-label {
-  display: none; /* Hide old labels if any remain */
+/* Cleanup old styles */
+.git-part, .git-label, .git-value, .git-divider, .git-arrow {
+  /* No display none, in case old html exists, but we are replacing it */
 }
 
 /* Footer */

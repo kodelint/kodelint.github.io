@@ -20,18 +20,22 @@
       </div>
     </div>
     
-    <div class="git-footer fun-mode">
-      <div class="git-part user-identity">
-        <i class="fas fa-user-astronaut"></i>
-        <span class="git-value author glitch-text" data-text="{{site.data.blogger.name}}">{{site.data.blogger.name}}</span>
-        <span class="git-divider">//</span>
-        <span class="git-value role" id="dynamic-role">YAML Wrangler</span>
+    <div class="git-footer media-player-mode">
+      <div class="media-cover">
+        <i class="fas fa-compact-disc spin-record"></i>
       </div>
-      <div class="git-part last-commit">
-        <i class="fas fa-code-branch"></i>
-        <span class="git-value commit-id">git-ish</span>
-        <span class="git-arrow">➜</span>
-        <span class="git-value commit-msg" id="dynamic-commit-msg">Reverting the revert of the revert...</span>
+      <div class="media-info">
+        <div class="media-title glitch-text" data-text="{{site.data.blogger.name}}">{{site.data.blogger.name}}</div>
+        <div class="media-artist" id="dynamic-role">Compiling Beats...</div>
+        <div class="media-track">
+          <span class="track-status">▶ Now Playing:</span>
+          <span class="track-name" id="dynamic-commit-msg">Loading track...</span>
+        </div>
+      </div>
+      <div class="media-controls">
+        <i class="fas fa-step-backward control-icon" onclick="updateIdentity()"></i>
+        <i class="fas fa-pause control-icon active" id="play-btn"></i>
+        <i class="fas fa-step-forward control-icon" onclick="updateIdentity()"></i>
       </div>
     </div>
   </div>
