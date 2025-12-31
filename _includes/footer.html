@@ -12,8 +12,88 @@
   </div>
 </footer>
 
+<div id="system-logs" class="system-logs"></div>
+
 <!-- scripts -->
 <script defer>
+  // Matrix Rain Logic
+  const canvas = document.getElementById('matrix-canvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = canvas.parentElement.offsetWidth;
+    let height = canvas.height = canvas.parentElement.offsetHeight;
+    
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$λ<>{}[]';
+    const fontSize = 14;
+    const columns = width / fontSize;
+    const drops = [];
+
+    for (let i = 0; i < columns; i++) {
+      drops[i] = 1;
+    }
+
+    function draw() {
+      ctx.fillStyle = 'rgba(3, 7, 18, 0.05)';
+      ctx.fillRect(0, 0, width, height);
+      ctx.fillStyle = '#38bdf8'; // accent-primary
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = characters.charAt(Math.floor(Math.random() * characters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    let matrixInterval = setInterval(draw, 33);
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = canvas.parentElement.offsetWidth;
+      height = canvas.height = canvas.parentElement.offsetHeight;
+    });
+  }
+
+  // Floating System Logs Logic
+  const logsContainer = document.getElementById('system-logs');
+  const quirkyMessages = [
+    "[INFO] Squeezing GPU performance...",
+    "[WARN] Red Bull level: LOW",
+    "[DEBUG] Wrestling with Rust lifetimes...",
+    "[INFO] Automating the automation...",
+    "[DEBUG] Benchmarking distributed state...",
+    "[WARN] Ozone levels rising ⚡",
+    "[INFO] Deploying 30B request pipeline...",
+    "[DEBUG] Refactoring box & arrow diagrams...",
+    "[INFO] Statically linking sanity...",
+    "[WARN] Borrow checker is unhappy 🦀"
+  ];
+
+  function addLog() {
+    if (!logsContainer) return;
+    const msg = quirkyMessages[Math.floor(Math.random() * quirkyMessages.length)];
+    const logEntry = document.createElement('div');
+    logEntry.className = 'log-entry';
+    logEntry.textContent = msg;
+    logsContainer.appendChild(logEntry);
+
+    if (logsContainer.children.length > 5) {
+      logsContainer.removeChild(logsContainer.firstChild);
+    }
+
+    setTimeout(() => {
+      logEntry.classList.add('fade-out');
+      setTimeout(() => {
+        if (logEntry.parentNode) logEntry.parentNode.removeChild(logEntry);
+      }, 2000);
+    }, 4000);
+  }
+
+  setInterval(addLog, 5000);
+  addLog();
+
   // Reading Progress Logic
   window.onscroll = function() {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;

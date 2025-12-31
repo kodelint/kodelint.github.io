@@ -4,6 +4,7 @@ layout: page
 ---
 
 <div class="terminal-header">
+  <canvas id="matrix-canvas"></canvas>
   <div class="command">
     <span class="prompt-symbol">λ</span> whoami
     <span class="cursor"></span>

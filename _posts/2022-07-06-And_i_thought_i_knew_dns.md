@@ -1,4 +1,7 @@
 ---
+caffeine: 5
+stress: 2
+ozone: 1
 layout: post
 title:  And I thought I knew about DNS
 author: Satyajit Roy

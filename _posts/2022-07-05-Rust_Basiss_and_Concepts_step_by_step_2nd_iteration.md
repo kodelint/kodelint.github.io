@@ -1,4 +1,7 @@
 ---
+caffeine: 5
+stress: 2
+ozone: 1
 layout: post
 title:  Rust - Basics and Concepts, Step by Step — 2nd Iteration
 author: Satyajit Roy

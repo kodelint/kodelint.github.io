@@ -1,4 +1,7 @@
 ---
+caffeine: 5
+stress: 2
+ozone: 1
 layout: post
 title:  Golang - What is init() in Golang
 author: Satyajit Roy

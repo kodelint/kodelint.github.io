@@ -1,4 +1,7 @@
 ---
+caffeine: 5
+stress: 2
+ozone: 1
 layout: post
 title:  Terraform - Elasticache Redis doesn’t match if auth token has changed
 author: Satyajit Roy

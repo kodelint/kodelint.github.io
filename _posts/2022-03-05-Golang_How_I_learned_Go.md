@@ -1,4 +1,7 @@
 ---
+caffeine: 15
+stress: 4
+ozone: 2
 layout: post
 title:  Golang - How I learned Go!!
 author: Satyajit Roy
