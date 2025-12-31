@@ -45,8 +45,15 @@
             <img class="profile" src="{{site.data.blogger.image}}" alt="{{site.data.blogger.name}}" />
           </div>
         </div>
-        <p class="desc">{{site.data.blogger.description}}</p>
-    </div>
+        <p class="desc" style="margin-top: 2rem;">{{site.data.blogger.description}}</p>
+        <div class="social">
+          {% for i in site.data.blogger.social %}
+          <a href="{{i.url}}" target="_blank" rel="noopener noreferrer" aria-label="{{i.title}}">
+            <img src="{{site.url}}{{site.baseurl}}/assets/png/{{i.title}}.png" alt="" class="icon" />
+          </a>
+          {% endfor %}
+        </div>
+      </div>
   </div>
 </header>
 {% endif %}
