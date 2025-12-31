@@ -934,8 +934,35 @@ button[type="submit"]:hover {
 .tech-graph {
   position: relative;
   max-width: 850px;
-  margin: 4rem 0;
+  margin: 2rem 0 4rem;
   font-family: var(--font-mono);
+}
+
+.terminal-prompt {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.terminal-prompt .symbol {
+  color: var(--accent-secondary);
+  font-weight: 800;
+}
+
+.graph-msg .ref {
+  color: #facc15; /* Yellow/Gold for branch refs */
+  font-weight: 700;
+  margin: 0 0.5rem;
+}
+
+.graph-stats {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-subtle);
+  font-style: italic;
 }
 
 .graph-commit {

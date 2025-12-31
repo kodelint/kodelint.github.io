@@ -33,7 +33,10 @@ My goal has always been the same: building systems that are smart enough to scal
 - 🔐 **Security-First Thinking**: Because "admin/admin" is still not a valid security strategy, even in the age of AI.
 *   🚀 **Team Building**: Hiring smart people and then trying hard not to get in their way.
 
-### 🌲 `git log --oneline --graph`
+### 🌲 Career Log with Tech 
+<div class="terminal-prompt">
+  <span class="symbol">$</span> tech log --oneline --graph --decorate
+</div>
 
 <div class="tech-graph">
   
@@ -41,7 +44,7 @@ My goal has always been the same: building systems that are smart enough to scal
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">af5c170</span>
-      <span class="graph-msg"><span class="type deploy">deploy:</span> mastering <strong>Rust</strong> and scaling distributed brains</span>
+      <span class="graph-msg"><span class="type deploy">deploy:</span> <span class="ref">(HEAD -> master)</span> mastering <strong>Rust</strong> and scaling distributed brains</span>
     </div>
   </div>
 
@@ -60,7 +63,7 @@ My goal has always been the same: building systems that are smart enough to scal
     <div class="graph-lane"><div class="graph-dot l1"></div></div>
     <div class="graph-content">
       <span class="graph-hash">e18ce41</span>
-      <span class="graph-msg"><span class="type feat">feature:</span> <strong>NVIDIA GPU</strong> scheduling and <strong>RDMA</strong> optimization</span>
+      <span class="graph-msg"><span class="type feat">feature:</span> <span class="ref">(branch/ai-infra)</span> <strong>NVIDIA GPU</strong> scheduling and <strong>RDMA</strong> optimization</span>
     </div>
   </div>
 
@@ -113,6 +116,10 @@ My goal has always been the same: building systems that are smart enough to scal
       <span class="graph-hash">init_02</span>
       <span class="graph-msg"><span class="type init">init:</span> the first compiled <strong>Hello World</strong></span>
     </div>
+  </div>
+
+  <div class="graph-stats">
+    9 commits, 2 decades, 1 executive ego.
   </div>
 
 </div>
