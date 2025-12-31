@@ -12,7 +12,7 @@ image: '/assets/uploads/01-rust.png'
 redirect_to: 'https://blog.devgenius.io/rust-basics-and-Concepts-step-by-step-1st-iteration-f71dc14d5ae6'
 toc: true
 categories: [Rust, Programming]
-tags: [Rustt, Basics, Concepts]
+tags: [Rust, Basics, Concepts]
 ---
 
 For sometime I have been thinking to start coding in Rust however due to never ending things, I couldn’t start. Usually I start learning a language by start writing some utility code in it and learn along the way. However this time, time seems to be not on my side.

@@ -12,7 +12,7 @@ image: '/assets/uploads/01-rust-ownership.png'
 redirect_to: 'https://blog.devgenius.io/rust-basics-and-Concepts-step-by-step-2nd-iteration-5ba45c44f986'
 toc: true
 categories: [Rust, Programming]
-tags: [Rustt, Basics, Concepts]
+tags: [Rust, Basics, Concepts]
 ---
 
 This blog I will try to concentrate on some of the basic but very important Concepts of Rust . This would be my 2nd blog about Rust , you can find the 1st one [here](https://blog.devgenius.io/rust-basics-and-Concepts-step-by-step-2nd-iteration-5ba45c44f986). I will try to discuss about Ownership, Ownership transfers, Borrowing, Heap, Stack in this blog

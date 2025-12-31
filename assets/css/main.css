@@ -957,7 +957,7 @@ button[type="submit"]:hover {
 
 .terminal-prompt {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   margin-bottom: 1.5rem;
 }
@@ -974,7 +974,7 @@ button[type="submit"]:hover {
 }
 
 .graph-stats {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-tertiary);
   margin-top: 2rem;
   padding-top: 1rem;
@@ -986,7 +986,7 @@ button[type="submit"]:hover {
   display: grid;
   grid-template-columns: 70px 1fr;
   gap: 1rem;
-  min-height: 60px;
+  min-height: 50px;
   position: relative;
 }
 
@@ -1052,7 +1052,7 @@ button[type="submit"]:hover {
   border-radius: 50%;
   position: absolute;
   z-index: 5;
-  top: 1rem;
+  top: 0.8rem;
   box-shadow: 0 0 10px var(--accent-glow);
   transform: translateX(-50%);
 }
@@ -1070,11 +1070,11 @@ button[type="submit"]:hover {
 .graph-commit.chore .graph-dot { border-color: #94a3b8; } /* Slate */
 
 .graph-content {
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
 }
 
 .graph-msg {
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: var(--text-primary);
 }
 
@@ -1094,6 +1094,7 @@ button[type="submit"]:hover {
 .graph-msg .type.chore { color: #94a3b8; }
 
 .graph-hash {
+  font-size: 0.75rem;
   color: var(--text-tertiary);
   margin-right: 1rem;
 }
@@ -1454,7 +1455,7 @@ footer {
   }
 
   .graph-msg {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
   }
 }
 

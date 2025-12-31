@@ -12,5 +12,5 @@ image: '/assets/uploads/01-rust-struct-generics.jpeg'
 redirect_to: 'https://medium.com/@email2sroy/rust-struct-and-generics-5c211b19392f'
 toc: true
 categories: [Rust, Programming]
-tags: [Rustt, Basics, Concepts]
+tags: [Rust, Basics, Concepts]
 ---
