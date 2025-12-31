@@ -362,7 +362,7 @@ header .social a:hover {
   position: relative;
   padding: 1rem;
   gap: 1rem;
-  cursor: pointer;
+  cursor: pointer; /* Ensure pointer for div cards */
 }
 
 .post:hover {
