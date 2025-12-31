@@ -9,48 +9,6 @@
 
 <!-- scripts -->
 <script defer>
-  // GitHub Activity Fetcher
-  async function fetchGitHubActivity() {
-    const container = document.getElementById('github-activity');
-    if (!container) return;
-
-    try {
-      const response = await fetch('https://api.github.com/users/kodelint/events/public');
-      const events = await response.json();
-      
-      const pushEvents = events
-        .filter(event => event.type === 'PushEvent')
-        .slice(0, 3);
-
-      if (pushEvents.length === 0) {
-        container.innerHTML = '<div class="text-tertiary">No recent public commits found.</div>';
-        return;
-      }
-
-      container.innerHTML = pushEvents.map(event => {
-        const repoName = event.repo.name.split('/')[1];
-        const commitMsg = event.payload.commits[0].message.split('\n')[0];
-        const date = new Date(event.created_at).toLocaleDateString();
-        
-        return `
-          <div class="commit-item">
-            <div class="commit-icon"><i class="fas fa-code-commit"></i></div>
-            <div class="commit-details">
-              <span class="commit-msg">${commitMsg}</span>
-              <div class="commit-meta">
-                committed to <span class="commit-repo">${repoName}</span> on ${date}
-              </div>
-            </div>
-          </div>
-        `;
-      }).join('');
-    } catch (error) {
-      container.innerHTML = '<div class="text-tertiary">Failed to load GitHub activity.</div>';
-    }
-  }
-
-  fetchGitHubActivity();
-
   // Reading Progress Logic
   window.onscroll = function() {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
