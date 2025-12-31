@@ -13,7 +13,10 @@
 
     <div class="project-list">
       {% for project in site.data.projects_data.projects %}
-      <div class="project" onmouseenter="startBuild(this)" onmouseleave="resetBuild(this)">
+      <div class="project" 
+           data-tags="{{ project.tags | join: ' ' | downcase }}"
+           onmouseenter="startBuild(this)" 
+           onmouseleave="resetBuild(this)">
         <!-- 4. Dependency Cloud -->
         <div class="dependency-cloud">
           {% for tag in project.tags %}

@@ -131,7 +131,10 @@
     { level: 'warn', icon: 'fa-mug-hot', text: "Coffee cold. Re-heating required." },
     { level: 'info', icon: 'fa-box', text: "Statically linking sanity..." },
     { level: 'error', icon: 'fa-skull-crossbones', text: "Kernel Panic: Just kidding, lol." },
-    { level: 'debug', icon: 'fa-file-code', text: "Converting anxiety into YAML..." }
+    { level: 'debug', icon: 'fa-file-code', text: "Converting anxiety into YAML..." },
+    { level: 'info', icon: 'fa-vial', text: "Testing in production... YOLO." },
+    { level: 'warn', icon: 'fa-biohazard', text: "Legacy code detected. Proceed with caution." },
+    { level: 'debug', icon: 'fa-brain', text: "Neural networks pondering existence..." }
   ];
 
   function addLog() {
@@ -166,17 +169,68 @@
   setInterval(addLog, 4000);
   setTimeout(addLog, 1000);
 
-  // 1. Live Tail Log Logic
-  const logPool = [
-    "> Checking dependencies... OK",
-    "> Linting source files... 0 errors",
-    "> Squeezing binary buffers...",
-    "> Resolving traffic pipelines...",
-    "> Satisfying borrow checker...",
-    "> Optimizing kernel state...",
-    "> Provisioning cloud resources...",
-    "> Syncing distributed nodes..."
-  ];
+  // 1. Live Tail Log Logic - Context Aware & Funny
+  const logPools = {
+    rust: [
+      "> Satisfying the borrow checker...",
+      "> Fighting lifetimes... and winning.",
+      "> Zero-cost abstractions intensifying...",
+      "> Safe memory achieved (mostly).",
+      "> Compiling... see you in 10 minutes."
+    ],
+    golang: [
+      "> Invoking the Gopher...",
+      "> Compiling statically-linked sanity...",
+      "> Handling errors like a pro...",
+      "> Preventing goroutine leaks...",
+      "> interface{} all the things."
+    ],
+    kubernetes: [
+      "> Wrangling YAML monsters...",
+      "> Herding pods into the cloud...",
+      "> Scaling to the moon...",
+      "> Descheduling the unschedulable.",
+      "> Ingressing the egress..."
+    ],
+    k8s: [
+      "> Wrangling YAML monsters...",
+      "> Herding pods into the cloud...",
+      "> Scaling to the moon...",
+      "> Descheduling the unschedulable.",
+      "> Ingressing the egress..."
+    ],
+    terraform: [
+      "> Planning infrastructure chaos...",
+      "> Locking state... don't touch anything!",
+      "> Destroying 0 resources (hopefully).",
+      "> Cloud providers agreeing... for once.",
+      "> HCL sorcery in progress..."
+    ],
+    git: [
+      "> Rewriting history (don't tell anyone)...",
+      "> Resolving merge conflicts with prayer...",
+      "> Stashing the mess under the rug...",
+      "> Pushing with force... YOLO.",
+      "> Git voodoo magic enabled."
+    ],
+    macos: [
+      "> Cleaning up system junk...",
+      "> Brewing dependencies...",
+      "> Freeing up RAM for Chrome...",
+      "> Optimizing plist files...",
+      "> Polishing the apple..."
+    ],
+    general: [
+      "> Checking dependencies... OKish.",
+      "> Linting source files... 0 errors found (miracle).",
+      "> Squeezing binary buffers...",
+      "> Optimizing kernel state...",
+      "> Provisioning cloud resources...",
+      "> Syncing distributed nodes...",
+      "> Automating the automation...",
+      "> Converting coffee into code..."
+    ]
+  };
 
   // Project Build Timer Logic
   let buildInterval;
@@ -184,7 +238,14 @@
     if (el.classList.contains('built')) return;
     const timerEl = el.querySelector('.build-timer');
     const logsEl = el.querySelector('.build-logs');
+    const tags = el.getAttribute('data-tags') || '';
     let startTime = 0;
+
+    // Build context-specific pool
+    let activePool = [...logPools.general];
+    Object.keys(logPools).forEach(key => {
+      if (tags.includes(key)) activePool = [...activePool, ...logPools[key]];
+    });
     
     buildInterval = setInterval(() => {
       startTime += 0.1;
@@ -194,7 +255,7 @@
       if (Math.floor(startTime * 10) % 3 === 0) {
         const logLine = document.createElement('div');
         logLine.className = 'log-line';
-        logLine.textContent = logPool[Math.floor(Math.random() * logPool.length)];
+        logLine.textContent = activePool[Math.floor(Math.random() * activePool.length)];
         logsEl.appendChild(logLine);
         if (logsEl.children.length > 3) logsEl.removeChild(logsEl.firstChild);
       }
