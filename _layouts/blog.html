@@ -21,7 +21,14 @@
         {% endif %}
         
         <div class="card-content">
-          <div class="card-date">{{post.date | date_to_string}}</div>
+          <div class="card-meta">
+            <div class="card-date">{{post.date | date_to_string}}</div>
+            <div class="post-metrics">
+              <span title="Caffeine Required"><i class="fas fa-coffee"></i> {{ post.caffeine | default: 2 }}</span>
+              <span title="Anxiety Level"><i class="fas fa-wave-square"></i> {{ post.stress | default: 1 }}</span>
+              <span title="Ozone Produced"><i class="fas fa-bolt"></i> {{ post.ozone | default: 1 }}</span>
+            </div>
+          </div>
           <h2 class="card-title">{{post.title}}</h2>
           <div class="card-footer">
             <div class="cross-post-links">

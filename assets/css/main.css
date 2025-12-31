@@ -400,6 +400,31 @@ header .social a:hover {
   z-index: 2;
 }
 
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.post-metrics {
+  display: flex;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+}
+
+.post-metrics span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.post-metrics i {
+  color: var(--accent-secondary);
+}
+
 .card-date {
   font-family: var(--font-mono);
   font-size: 0.75rem;
