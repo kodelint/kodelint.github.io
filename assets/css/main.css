@@ -930,7 +930,7 @@ button[type="submit"]:hover {
   to { opacity: 1; transform: translateX(0) scale(1); }
 }
 
-/* Git Career Timeline - Advanced Graph */
+/* Ultimate Git Career Graph */
 .git-timeline {
   position: relative;
   max-width: 900px;
@@ -941,97 +941,52 @@ button[type="submit"]:hover {
 
 .git-commit {
   display: grid;
-  grid-template-columns: 60px 1fr; /* Space for the graph lane */
+  grid-template-columns: 80px 1fr; /* Wider lane for branching */
   gap: 1.5rem;
-  position: relative;
-  min-height: 80px;
+  min-height: 100px;
 }
 
 .git-graph-lane {
   position: relative;
-  display: flex;
-  justify-content: center;
+  width: 100%;
 }
 
-/* Vertical line through all commits */
-.git-graph-lane::before {
-  content: '';
+/* Base vertical lines */
+.git-graph-lane svg {
   position: absolute;
   top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  background: var(--border-subtle);
-  transform: translateX(-50%);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  stroke: var(--border-subtle);
+  stroke-width: 2;
+  fill: none;
 }
 
-.git-commit:first-child .git-graph-lane::before {
-  top: 1.5rem;
-}
-
-.git-commit:last-child .git-graph-lane::before {
-  bottom: calc(100% - 1.5rem);
-}
-
-/* The Commit Dot */
 .git-dot {
   width: 14px;
   height: 14px;
   background: var(--bg-depth);
   border: 3px solid var(--accent-primary);
   border-radius: 50%;
-  position: relative;
-  margin-top: 1.25rem;
-  z-index: 3;
+  position: absolute;
+  z-index: 5;
   box-shadow: 0 0 15px var(--accent-glow);
+  transform: translate(-50%, -50%);
 }
 
-/* Branch Logic */
-.git-commit.on-branch .git-graph-lane::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: calc(50% + 15px);
-  width: 2px;
-  height: 100%;
-  background: var(--accent-secondary);
-  opacity: 0.5;
-}
+/* Positioning dots in lanes */
+.git-dot.lane-0 { left: 30px; top: 1.5rem; }
+.git-dot.lane-1 { left: 60px; top: 1.5rem; }
 
-.git-commit.branch-start .git-graph-lane .branch-connector {
-  position: absolute;
-  top: 1.5rem;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  border-left: 2px solid var(--accent-secondary);
-  border-bottom: 2px solid var(--accent-secondary);
-  border-bottom-left-radius: 10px;
-  transform: rotate(-45deg);
-  transform-origin: top left;
-  opacity: 0.6;
-}
-
-.git-commit.branch-end .git-graph-lane .branch-connector {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  border-right: 2px solid var(--accent-secondary);
-  border-top: 2px solid var(--accent-secondary);
-  border-top-right-radius: 10px;
-  transform: rotate(-45deg);
-  transform-origin: bottom right;
-  opacity: 0.6;
-}
-
-/* Specific dot colors based on type */
-.git-commit .type.hotfix ~ .git-dot { border-color: #ff4757; }
-.git-commit .type.feature ~ .git-dot { border-color: #00ff9d; }
+/* Colors based on type */
+.git-commit.hotfix .git-dot { border-color: #ff4757; box-shadow: 0 0 15px rgba(255, 71, 87, 0.3); }
+.git-commit.feature .git-dot { border-color: #00ff9d; box-shadow: 0 0 15px rgba(0, 255, 157, 0.3); }
+.git-commit.merge .git-dot { border-color: #a855f7; box-shadow: 0 0 15px rgba(168, 85, 247, 0.3); }
+.git-commit.deploy .git-dot { border-color: #38bdf8; box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
 
 .commit-content {
-  padding-bottom: 3rem;
+  padding-bottom: 4rem;
 }
 
 .commit-meta {
@@ -1061,12 +1016,12 @@ button[type="submit"]:hover {
   text-transform: lowercase;
 }
 
-.commit-message .type.deploy { color: #38bdf8; }   /* Cyan */
-.commit-message .type.hotfix { color: #ff4757; }   /* Red */
-.commit-message .type.feature { color: #00ff9d; }  /* Green */
-.commit-message .type.merge { color: #a855f7; }    /* Purple */
-.commit-message .type.refactor { color: #facc15; } /* Yellow */
-.commit-message .type.init { color: #818cf8; }     /* Indigo */
+.commit-message .type.deploy { color: #38bdf8; }
+.commit-message .type.hotfix { color: #ff4757; }
+.commit-message .type.feature { color: #00ff9d; }
+.commit-message .type.merge { color: #a855f7; }
+.commit-message .type.refactor { color: #facc15; }
+.commit-message .type.init { color: #818cf8; }
 
 .commit-details {
   font-size: 0.95rem;
@@ -1077,6 +1032,17 @@ button[type="submit"]:hover {
 .commit-details span {
   color: var(--accent-primary);
   font-weight: 600;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .git-commit {
+    grid-template-columns: 50px 1fr;
+    gap: 1rem;
+  }
+  .git-dot.lane-0 { left: 20px; }
+  .git-dot.lane-1 { left: 40px; }
+  .commit-message { font-size: 1.1rem; }
 }
 
 /* Footer */
