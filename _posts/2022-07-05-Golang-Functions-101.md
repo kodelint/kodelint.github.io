@@ -11,6 +11,8 @@ tags: [Golang, Programming, Functions]
 image: '/assets/uploads/01-golang-function.png'
 redirect_to: 'https://towardsdev.com/golang-functions-101-2efeea94d57b'
 toc: true
+categories: [Golang, Programming]
+tags: [Golang, Basics, Concepts]
 ---
 
 **Functions** are the building blocks of `procedural programming`. They help in creating modular code where a big job can be segmented into small pieces of code and might have been written by different people separated by both time and space. In fact, function is one kind of **first-class citizen** types in `Go`. In other words, we can use _functions as values_. Although `Go` is a static language, `Go` functions are very flexible. The feeling of using Go functions is much like using many dynamic languages. _A function is a mapping of zero or more input parameters to zero or more output parameters._
@@ -21,15 +23,15 @@ toc: true
 
 **The advantages of using functions are:**
 
-* Reducing duplication of code
+- Reducing duplication of code
 
-* Decomposing complex problems into simpler pieces
+- Decomposing complex problems into simpler pieces
 
-* Improving clarity of the code
+- Improving clarity of the code
 
-* Reuse of code
+- Reuse of code
 
-* Information hiding
+- Information hiding
 
 ---
 
@@ -91,7 +93,7 @@ With the `type` keyword, we create a function type which accepts one `string` pa
 
 ### Function as closure aka anonymous function
 
-It is possible to create functions inside of functions. Go supports **[anonymous functions](https://en.wikipedia.org/wiki/Anonymous_function)**, which can form **[closures](https://en.wikipedia.org/wiki/Closure_(computer_science))**. **Anonymous** functions are useful when you want to define a function inline without having to name it. **Closure** is a nested function that helps us access the outer function’s variables even after the outer function is closed
+It is possible to create functions inside of functions. Go supports **[anonymous functions](https://en.wikipedia.org/wiki/Anonymous_function)**, which can form **[closures](<https://en.wikipedia.org/wiki/Closure_(computer_science)>)**. **Anonymous** functions are useful when you want to define a function inline without having to name it. **Closure** is a nested function that helps us access the outer function’s variables even after the outer function is closed
 
 ![closure aka anonymous function](https://cdn-images-1.medium.com/max/2764/1*S7e3Txftfc5eO5dNYz1FAA.png)
 

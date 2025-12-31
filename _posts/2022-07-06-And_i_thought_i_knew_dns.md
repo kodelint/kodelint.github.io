@@ -9,7 +9,7 @@ date: 2022-05-06
 categories: [DevOps, DNS]
 tags: [DevOps, Basics, Concepts]
 image: '/assets/uploads/01-dns.png'
-redirect_to: 'https://medium.com/@email2sroy/concepts-and-i-thought-i-knew-dns-c19b9e0cde39'
+redirect_to: 'https://medium.com/@email2sroy/Concepts-and-i-thought-i-knew-dns-c19b9e0cde39'
 toc: true
 ---
 

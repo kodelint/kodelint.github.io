@@ -10,6 +10,8 @@ hashnode_url: "https://sroy.hashnode.dev/golang-garbage-collection-in-general"
 caffeine: 10
 stress: 7
 ozone: 5
+categories: [Rust, Git]
+tags: [Rust, Git, Security]
 toc: true
 ---
 
