@@ -991,7 +991,7 @@ button[type="submit"]:hover {
 
 .commit-message .type.deploy { color: #38bdf8; }   /* Cyan */
 .commit-message .type.hotfix { color: #ff4757; }   /* Red */
-.commit-message .type.feat { color: #00ff9d; }     /* Green */
+.commit-message .type.feature { color: #00ff9d; }  /* Green */
 .commit-message .type.merge { color: #a855f7; }    /* Purple */
 .commit-message .type.refactor { color: #facc15; } /* Yellow */
 .commit-message .type.init { color: #818cf8; }     /* Indigo */

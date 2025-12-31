@@ -41,7 +41,7 @@ My goal has always been the same: building systems that are smart enough to scal
       <span class="commit-hash">af5c170</span>
       <span class="commit-date">Aug 2024 - Present</span>
     </div>
-    <div class="commit-message"><span class="type deploy">deploy:</span> Scaling Engineering & SRE at Arkose Labs</div>
+    <div class="commit-message"><span class="type hotfix">hotfix:</span> Scaling Engineering & SRE at Arkose Labs</div>
     <div class="commit-details">Owning platform strategy for high-growth fraud detection SaaS. Sustaining <span>99.9% SLA</span> while supporting 7x transaction growth.</div>
   </div>
 
@@ -50,7 +50,7 @@ My goal has always been the same: building systems that are smart enough to scal
       <span class="commit-hash">c19feaa</span>
       <span class="commit-date">2022 - 2024</span>
     </div>
-    <div class="commit-message"><span class="type hotfix">hotfix:</span> Leading Global SRE & Product Engineering at F5</div>
+    <div class="commit-message"><span class="type feature">feature:</span> Leading Global SRE & Product Engineering at F5</div>
     <div class="commit-details">Architected 25+ global PoP platforms and led a 55+ engineer organization. Achieved <span>400% growth</span> in attack traffic absorption.</div>
   </div>
 
@@ -59,7 +59,7 @@ My goal has always been the same: building systems that are smart enough to scal
       <span class="commit-hash">e18ce41</span>
       <span class="commit-date">2018 - 2022</span>
     </div>
-    <div class="commit-message"><span class="type feat">feat:</span> Architecting Hyperscale ML/AI at Adobe (Sensei)</div>
+    <div class="commit-message"><span class="type feature">feature:</span> Architecting Hyperscale ML/AI at Adobe (Sensei)</div>
     <div class="commit-details">Built hybrid GPU/CPU clusters serving <span>~30B daily requests</span>. Optimized NVIDIA clusters with RDMA and InfiniBand.</div>
   </div>
 
