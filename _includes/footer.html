@@ -95,36 +95,52 @@
 
   // Dynamic Author Identity & Commit Logic
   const funRoles = [
-    "YAML Wrangler", "Console Cowboy", "Div Center-er", 
-    "StackOverflow Copy-Paster", "SRE (Sleep Rarely Engineer)",
-    "Cloud Plumber", "Merge Conflict Mediator", "Legacy Code Archaeologist",
-    "Production Tester", "Chaos Monkey Trainer"
+    "Lead YAML Wrangler & Kubernetes Whisperer", 
+    "Senior Console Cowboy & Vim Magician", 
+    "Master of Div Centering & CSS Sorcery", 
+    "Professional StackOverflow Copy-Paste Architect", 
+    "SRE (Sleep Rarely Engineer) & PagerDuty Survivor",
+    "Cloud Plumber & Infrastructure-as-Code Poet", 
+    "Chief Merge Conflict Mediator & Git Voodoo Priest", 
+    "Legacy Code Archaeologist & Bug Hunter",
+    "Production Environment Tester & YOLO Deployer", 
+    "Chaos Monkey Trainer & Distributed Systems Herder"
   ];
 
   const funCommits = [
-    "oops", "wip", "fixed the fix", "removed console.log",
-    "it works on my machine", "temporary fix (permanent)",
-    "refactoring (breaking everything)", "pushing to main, yolo",
-    "updated readme to explain why it's broken", "deleted all the tests",
-    "minor text fixes", "resolving merge conflict by force"
+    "Fixing the fix that fixed the previous fix (hopefully)", 
+    "Work in progress: adding more bugs to fix later", 
+    "Finally removed that one console.log from 2022", 
+    "It works on my machine, so it must be a global truth", 
+    "Applying a temporary fix that will stay for 5 years", 
+    "Major refactoring: currently breaking everything in sight", 
+    "Pushing directly to main because I like to live dangerously", 
+    "Updated README to explain why the code is sentient now", 
+    "Deleted all tests to improve build performance significantly", 
+    "Resolving merge conflicts with extreme prejudice and prayer"
   ];
+
+  const vibrantColors = ["#00ff9d", "#ff007a", "#38bdf8", "#facc15", "#a855f7", "#ff4757", "#00d4ff"];
 
   function updateIdentity() {
     const roleEl = document.getElementById('dynamic-role');
     const commitEl = document.getElementById('dynamic-commit-msg');
+    const randomColor = () => vibrantColors[Math.floor(Math.random() * vibrantColors.length)];
     
-    if (roleEl && Math.random() > 0.7) {
+    if (roleEl) {
       roleEl.style.opacity = 0;
       setTimeout(() => {
         roleEl.innerText = funRoles[Math.floor(Math.random() * funRoles.length)];
+        roleEl.style.color = randomColor();
         roleEl.style.opacity = 1;
       }, 500);
     }
 
-    if (commitEl && Math.random() > 0.6) {
+    if (commitEl) {
        commitEl.style.opacity = 0;
        setTimeout(() => {
          commitEl.innerText = funCommits[Math.floor(Math.random() * funCommits.length)];
+         commitEl.style.color = randomColor();
          commitEl.style.opacity = 1;
        }, 500);
     }

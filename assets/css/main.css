@@ -1608,6 +1608,7 @@ button[type="submit"]:hover {
   color: var(--text-primary);
   font-family: var(--font-heading);
   letter-spacing: -0.02em;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .media-artist {
@@ -1634,15 +1635,18 @@ button[type="submit"]:hover {
   color: var(--accent-primary);
   font-weight: 700;
   font-size: 0.65rem;
+  text-shadow: 0 0 8px var(--accent-glow);
+  letter-spacing: 0.05em;
 }
 
 .track-name {
   color: var(--text-tertiary);
   font-style: italic;
-  max-width: 300px;
+  max-width: 450px; /* Increased to handle longer messages */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.5s ease;
 }
 
 .media-controls {
