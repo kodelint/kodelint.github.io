@@ -1,11 +1,45 @@
 ---
-title: "404"
+title: "404 - System Failure"
 layout: page
 ---
 
-<div style="height: 25vh;">
-  <p>
-    Oops ! No Page found
-  </p>
-  <a href="/{{site.baseurl}}">&leftarrow; Back to home</a>
+<div class="terminal-header" style="max-height: none; margin-top: 2rem;">
+  <div class="command">
+    <span class="prompt-symbol">$</span>
+    <span class="typing-effect">locate page.html</span>
+  </div>
+  <div class="output" style="margin-top: 1rem; color: #ff4757; font-family: 'JetBrains Mono', monospace;">
+    <p>[ERROR] 404 Not Found</p>
+    <p>The requested resource has been garbage collected or moved to /dev/null.</p>
+    <br>
+    <p>Debug Trace:</p>
+    <ul style="list-style: none; padding-left: 1rem; color: var(--text-tertiary); font-size: 0.9rem;">
+      <li>> STATUS: CRITICAL_FAILURE</li>
+      <li>> MODULE: navigation_subsystem</li>
+      <li>> CAUSE: pebkac_error (likely)</li>
+      <li>> SUGGESTION: re-orient_user()</li>
+    </ul>
+  </div>
+  <div class="command" style="margin-top: 2rem;">
+    <span class="prompt-symbol">$</span>
+    <a href="{{site.baseurl}}/" style="color: var(--accent-primary); border-bottom: 1px dashed var(--accent-primary);">cd /home</a><span class="cursor"></span>
+  </div>
 </div>
+
+<script>
+  // Simple typing effect for the 404 page
+  const text = "locate page.html";
+  const typingElement = document.querySelector('.typing-effect');
+  if (typingElement) {
+    typingElement.textContent = "";
+    let i = 0;
+    function typeWriter() {
+      if (i < text.length) {
+        typingElement.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+    setTimeout(typeWriter, 500);
+  }
+</script>

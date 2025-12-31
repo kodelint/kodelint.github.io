@@ -22,6 +22,18 @@
   <span class="gauge-label">Ozone Levels</span>
 </div>
 
+<div id="panic-overlay" class="kernel-panic-overlay">
+  <div class="panic-content">
+    <h1 style="font-size: 3rem; margin-bottom: 1rem;">KERNEL PANIC</h1>
+    <p>Critical system failure. All Gophers have escaped.</p>
+    <p>Rebooting universe in <span id="panic-countdown">5</span>...</p>
+    <div style="margin-top: 2rem; font-family: monospace; opacity: 0.7;">
+      Error: PEBKAC_EXCEPTION<br>
+      Address: 0xDEADBEEF
+    </div>
+  </div>
+</div>
+
 <div id="system-logs" class="system-logs"></div>
 
 <!-- scripts -->
@@ -137,7 +149,13 @@
     { level: 'debug', icon: 'fa-file-code', text: "Converting anxiety into YAML..." },
     { level: 'info', icon: 'fa-vial', text: "Testing in production... YOLO." },
     { level: 'warn', icon: 'fa-biohazard', text: "Legacy code detected. Proceed with caution." },
-    { level: 'debug', icon: 'fa-brain', text: "Neural networks pondering existence..." }
+    { level: 'debug', icon: 'fa-brain', text: "Neural networks pondering existence..." },
+    { level: 'error', icon: 'fa-trash', text: "rm -rf / ... just kidding!" },
+    { level: 'info', icon: 'fa-download', text: "Downloading more RAM..." },
+    { level: 'warn', icon: 'fa-keyboard', text: "Keyboard not found. Press F1 to continue." },
+    { level: 'debug', icon: 'fa-search', text: "Googling the error message..." },
+    { level: 'info', icon: 'fa-layer-group', text: "Stacking overflows..." },
+    { level: 'warn', icon: 'fa-magic', text: "It works on my machine." }
   ];
 
   function addLog() {
@@ -179,49 +197,63 @@
       "> Fighting lifetimes... and winning.",
       "> Zero-cost abstractions intensifying...",
       "> Safe memory achieved (mostly).",
-      "> Compiling... see you in 10 minutes."
+      "> Compiling... see you in 10 minutes.",
+      "> Oxidation in progress...",
+      "> Panicking safely..."
     ],
     golang: [
       "> Invoking the Gopher...",
       "> Compiling statically-linked sanity...",
       "> Handling errors like a pro...",
       "> Preventing goroutine leaks...",
-      "> interface{} all the things."
+      "> interface{} all the things.",
+      "> if err != nil { panic(cpu) }",
+      "> Garbage collecting your bad code..."
     ],
     kubernetes: [
       "> Wrangling YAML monsters...",
       "> Herding pods into the cloud...",
       "> Scaling to the moon...",
       "> Descheduling the unschedulable.",
-      "> Ingressing the egress..."
+      "> Ingressing the egress...",
+      "> CrashLoopBackOff is my favorite state.",
+      "> Waiting for sidecar to be ready..."
     ],
     k8s: [
       "> Wrangling YAML monsters...",
       "> Herding pods into the cloud...",
       "> Scaling to the moon...",
       "> Descheduling the unschedulable.",
-      "> Ingressing the egress..."
+      "> Ingressing the egress...",
+      "> CrashLoopBackOff is my favorite state.",
+      "> Waiting for sidecar to be ready..."
     ],
     terraform: [
       "> Planning infrastructure chaos...",
       "> Locking state... don't touch anything!",
       "> Destroying 0 resources (hopefully).",
       "> Cloud providers agreeing... for once.",
-      "> HCL sorcery in progress..."
+      "> HCL sorcery in progress...",
+      "> Refreshing state (and coffee)...",
+      "> Apply complete! Resources: 0 added, 1 destroyed."
     ],
     git: [
       "> Rewriting history (don't tell anyone)...",
       "> Resolving merge conflicts with prayer...",
       "> Stashing the mess under the rug...",
       "> Pushing with force... YOLO.",
-      "> Git voodoo magic enabled."
+      "> Git voodoo magic enabled.",
+      "> git commit -m 'fixes stuff'...",
+      "> Detached HEAD state (send help)."
     ],
     macos: [
       "> Cleaning up system junk...",
       "> Brewing dependencies...",
       "> Freeing up RAM for Chrome...",
       "> Optimizing plist files...",
-      "> Polishing the apple..."
+      "> Polishing the apple...",
+      "> Indexing Spotlight forever...",
+      "> Spinning beach ball of death..."
     ],
     general: [
       "> Checking dependencies... OKish.",
@@ -231,7 +263,10 @@
       "> Provisioning cloud resources...",
       "> Syncing distributed nodes...",
       "> Automating the automation...",
-      "> Converting coffee into code..."
+      "> Converting coffee into code...",
+      "> Deleting cache (it was the problem)...",
+      "> Re-aligning div elements...",
+      "> Installing dependencies from the internet (unsafe)..."
     ]
   };
 
@@ -316,5 +351,46 @@
     ease: "power2.out",
     delay: 0.5
   });
+
+  // Konami Code Easter Egg
+  const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+  let konamiIndex = 0;
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === konamiCode[konamiIndex]) {
+      konamiIndex++;
+      if (konamiIndex === konamiCode.length) {
+        activatePartyMode();
+        konamiIndex = 0;
+      }
+    } else {
+      konamiIndex = 0;
+    }
+  });
+
+  function activatePartyMode() {
+    alert("KONAMI CODE ACTIVATED! SYSTEM OVERLOAD IMMINENT!");
+    
+    // Add crazy CSS
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes party-spin {
+        0% { transform: rotate(0deg); filter: hue-rotate(0deg); }
+        50% { transform: rotate(2deg) scale(1.02); filter: hue-rotate(180deg); }
+        100% { transform: rotate(0deg); filter: hue-rotate(360deg); }
+      }
+      body {
+        animation: party-spin 2s infinite linear !important;
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // Trigger panic overlay too
+    const panicOverlay = document.getElementById('panic-overlay');
+    if (panicOverlay) {
+        panicOverlay.classList.add('active');
+        setTimeout(() => panicOverlay.classList.remove('active'), 5000);
+    }
+  }
 </script>
 <script defer src="{{site.baseurl}}/assets/js/lbox.js"></script>
