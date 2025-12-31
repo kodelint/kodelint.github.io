@@ -20,22 +20,39 @@
       </div>
     </div>
     
-    <div class="git-footer media-player-mode">
-      <div class="media-cover">
-        <i class="fas fa-compact-disc spin-record"></i>
-      </div>
-      <div class="media-info">
-        <div class="media-title glitch-text" data-text="{{site.data.blogger.name}}">{{site.data.blogger.name}}</div>
-        <div class="media-artist" id="dynamic-role">Compiling Beats...</div>
-        <div class="media-track">
-          <span class="track-status">▶ Now Playing:</span>
-          <span class="track-name" id="dynamic-commit-msg">Loading track...</span>
+    <div class="git-footer holographic-mode">
+      <div class="holo-emitter">
+        <div class="holo-avatar">
+          <i class="fas fa-user-astronaut"></i>
+          <div class="holo-ring r1"></div>
+          <div class="holo-ring r2"></div>
         </div>
       </div>
-      <div class="media-controls">
-        <i class="fas fa-step-backward control-icon" onclick="updateIdentity()"></i>
-        <i class="fas fa-pause control-icon active" id="play-btn"></i>
-        <i class="fas fa-step-forward control-icon" onclick="updateIdentity()"></i>
+      
+      <div class="holo-data-stream">
+        <div class="holo-row header-row">
+          <span class="holo-label">IDENTITY:</span>
+          <span class="holo-value glitch-text" data-text="{{site.data.blogger.name}}">{{site.data.blogger.name}}</span>
+          <span class="holo-separator">|</span>
+          <span class="holo-role" id="dynamic-role">INITIALIZING...</span>
+        </div>
+        <div class="holo-row content-row">
+          <span class="holo-label">LATEST TRANSMISSION:</span>
+          <div class="transmission-container">
+            <span class="transmission-text" id="dynamic-commit-msg">Establishing uplink...</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="holo-controls">
+        <button class="holo-btn" onclick="updateIdentity()">
+          <i class="fas fa-sync-alt"></i> REFRESH
+        </button>
+        <div class="signal-bars">
+          <div class="bar b1"></div>
+          <div class="bar b2"></div>
+          <div class="bar b3"></div>
+        </div>
       </div>
     </div>
   </div>
