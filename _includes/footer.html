@@ -5,10 +5,13 @@
       <span class="status-item happiness"><i class="fas fa-heart"></i> Happiness: <span class="status-value">99.9%</span></span>
       <span class="status-item redbull"><i class="fas fa-battery-three-quarters"></i> Redbull: <span class="status-value highlight">Critical</span></span>
     </div>
-    <p>&copy; {{ 'now' | date: "%Y" }} {{site.data.blogger.name}}.</p>
-    <p style="font-size: 0.9em; margin-top: 0.5rem; opacity: 0.6;">
-      Built with <span style="color: var(--accent-secondary)">Jekyll</span> & <span style="color: var(--accent-primary)">CSS</span>
-    </p>
+    
+    <div class="git-footer">
+      <div>commit <span class="commit-id">f960742</span></div>
+      <div>Author: <span class="commit-author">{{site.data.blogger.name}}</span> &lt;{{site.data.blogger.email}}&gt;</div>
+      <div>Date: <span class="commit-date">{{ 'now' | date: "%a %b %d %Y" }}</span></div>
+      <div class="commit-msg">Stabilized distributed bio and optimized ozone production.</div>
+    </div>
   </div>
 </footer>
 

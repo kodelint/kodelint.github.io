@@ -1367,6 +1367,92 @@ button[type="submit"]:hover {
   filter: blur(0px);
 }
 
+/* Infrastructure Tooltips */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+}
+
+.tooltip-container .tooltip-box {
+  visibility: hidden;
+  width: 240px;
+  background: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--accent-primary);
+  color: var(--text-secondary);
+  text-align: left;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  position: absolute;
+  z-index: 100;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.tooltip-container .tooltip-box b {
+  color: var(--accent-primary);
+  display: block;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.tooltip-container:hover .tooltip-box {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Status Widget */
+.status-widget {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  margin-top: 1.5rem;
+}
+
+.status-widget .pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #00ff9d;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ff9d;
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 157, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 157, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 157, 0); }
+}
+
+/* Git Commit Footer */
+.git-footer {
+  font-family: var(--font-mono);
+  text-align: left;
+  max-width: fit-content;
+  margin: 0 auto;
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  line-height: 1.4;
+  padding: 2rem;
+  border-left: 2px solid var(--border-subtle);
+}
+
+.git-footer .commit-id { color: #facc15; }
+.git-footer .commit-author { color: var(--accent-secondary); }
+.git-footer .commit-date { color: var(--text-tertiary); }
+.git-footer .commit-msg { color: var(--text-primary); margin-top: 0.5rem; display: block;}
+
 /* Footer */
 footer {
   margin-top: 6rem;
