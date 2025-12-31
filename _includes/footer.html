@@ -119,40 +119,52 @@
   // Floating System Logs Logic
   const logsContainer = document.getElementById('system-logs');
   const quirkyMessages = [
-    "[INFO] Squeezing GPU performance...",
-    "[WARN] Red Bull level: LOW",
-    "[DEBUG] Wrestling with Rust lifetimes...",
-    "[INFO] Automating the automation...",
-    "[DEBUG] Benchmarking distributed state...",
-    "[WARN] Ozone levels rising ⚡",
-    "[INFO] Deploying 30B request pipeline...",
-    "[DEBUG] Refactoring box & arrow diagrams...",
-    "[INFO] Statically linking sanity...",
-    "[WARN] Borrow checker is unhappy 🦀"
+    { level: 'info', icon: 'fa-microchip', text: "Squeezing GPU performance..." },
+    { level: 'warn', icon: 'fa-battery-empty', text: "Red Bull level: CRITICAL" },
+    { level: 'debug', icon: 'fa-bug', text: "Wrestling with Rust lifetimes... again." },
+    { level: 'info', icon: 'fa-robot', text: "Automating the automation..." },
+    { level: 'debug', icon: 'fa-database', text: "Benchmarking distributed state..." },
+    { level: 'warn', icon: 'fa-bolt', text: "Ozone levels rising ⚡" },
+    { level: 'error', icon: 'fa-fire', text: "Data center fire detected (This is fine)." },
+    { level: 'info', icon: 'fa-network-wired', text: "Optimizing RDMA pipelines..." },
+    { level: 'debug', icon: 'fa-code-branch', text: "Satisfying the borrow checker..." },
+    { level: 'warn', icon: 'fa-mug-hot', text: "Coffee cold. Re-heating required." },
+    { level: 'info', icon: 'fa-box', text: "Statically linking sanity..." },
+    { level: 'error', icon: 'fa-skull-crossbones', text: "Kernel Panic: Just kidding, lol." },
+    { level: 'debug', icon: 'fa-file-code', text: "Converting anxiety into YAML..." }
   ];
 
   function addLog() {
     if (!logsContainer) return;
-    const msg = quirkyMessages[Math.floor(Math.random() * quirkyMessages.length)];
+    const log = quirkyMessages[Math.floor(Math.random() * quirkyMessages.length)];
     const logEntry = document.createElement('div');
-    logEntry.className = 'log-entry';
-    logEntry.textContent = msg;
+    logEntry.className = `log-entry ${log.level}`;
+    logEntry.innerHTML = `
+      <i class="fas ${log.icon}"></i>
+      <div class="log-content">
+        <span style="font-weight: 800; opacity: 0.7;">[${log.level.toUpperCase()}]</span> ${log.text}
+      </div>
+    `;
     logsContainer.appendChild(logEntry);
 
-    if (logsContainer.children.length > 5) {
-      logsContainer.removeChild(logsContainer.firstChild);
+    if (logsContainer.children.length > 4) {
+      const firstChild = logsContainer.firstChild;
+      firstChild.classList.add('fade-out');
+      setTimeout(() => { if (firstChild.parentNode) logsContainer.removeChild(firstChild); }, 800);
     }
 
     setTimeout(() => {
-      logEntry.classList.add('fade-out');
-      setTimeout(() => {
-        if (logEntry.parentNode) logEntry.parentNode.removeChild(logEntry);
-      }, 2000);
-    }, 4000);
+      if (!logEntry.classList.contains('fade-out')) {
+        logEntry.classList.add('fade-out');
+        setTimeout(() => {
+          if (logEntry.parentNode) logEntry.parentNode.removeChild(logEntry);
+        }, 800);
+      }
+    }, 6000);
   }
 
-  setInterval(addLog, 5000);
-  addLog();
+  setInterval(addLog, 4000);
+  setTimeout(addLog, 1000);
 
   // Reading Progress Logic
   window.onscroll = function() {
