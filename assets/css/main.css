@@ -769,6 +769,131 @@ button[type="submit"]:hover {
   100% { text-shadow: 0 0 0px rgba(255, 71, 87, 0); }
 }
 
+/* System Specs HUD Overlay */
+.profile-hud {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.85);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 3;
+  pointer-events: none;
+  border: 2px solid var(--accent-primary);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.profile-container:hover .profile-hud {
+  opacity: 1;
+}
+
+.hud-stat {
+  margin: 2px 0;
+  white-space: nowrap;
+}
+
+.hud-stat span {
+  color: #fff;
+}
+
+/* Kernel Panic Glitch Effect */
+.kernel-panic-overlay {
+  position: fixed;
+  inset: 0;
+  background: #0000aa; /* Classic BSOD blue */
+  color: #fff;
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-mono);
+  padding: 4rem;
+  text-align: center;
+}
+
+.kernel-panic-overlay.active {
+  display: flex;
+  animation: glitch 0.2s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-5px, 5px); }
+  40% { transform: translate(-5px, -5px); }
+  60% { transform: translate(5px, 5px); }
+  80% { transform: translate(5px, -5px); }
+  100% { transform: translate(0); }
+}
+
+/* Ozone Gauge */
+.ozone-gauge-container {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 1000;
+  background: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.gauge {
+  width: 60px;
+  height: 30px;
+  background: #1f2937;
+  border-radius: 60px 60px 0 0;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.gauge-fill {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-gradient);
+  transform-origin: center top;
+  transform: rotate(0deg);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gauge-needle {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  height: 25px;
+  background: #fff;
+  transform-origin: bottom center;
+  transform: translateX(-50%) rotate(-90deg);
+  transition: transform 0.3s ease-out;
+  z-index: 2;
+}
+
+.gauge-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+
 /* Footer */
 footer {
   margin-top: 6rem;

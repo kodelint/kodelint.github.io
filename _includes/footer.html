@@ -12,49 +12,69 @@
   </div>
 </footer>
 
+<div class="ozone-gauge-container">
+  <div class="gauge">
+    <div id="gauge-needle" class="gauge-needle"></div>
+  </div>
+  <span class="gauge-label">Ozone Levels</span>
+</div>
+
 <div id="system-logs" class="system-logs"></div>
 
 <!-- scripts -->
 <script defer>
-  // Matrix Rain Logic
-  const canvas = document.getElementById('matrix-canvas');
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let width = canvas.width = canvas.parentElement.offsetWidth;
-    let height = canvas.height = canvas.parentElement.offsetHeight;
-    
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$λ<>{}[]';
-    const fontSize = 14;
-    const columns = width / fontSize;
-    const drops = [];
+  // Kernel Panic Easter Egg
+  const terminalHeader = document.querySelector('.terminal-header');
+  const panicOverlay = document.getElementById('panic-overlay');
+  const panicCountdown = document.getElementById('panic-countdown');
+  let clickCount = 0;
 
-    for (let i = 0; i < columns; i++) {
-      drops[i] = 1;
-    }
-
-    function draw() {
-      ctx.fillStyle = 'rgba(3, 7, 18, 0.05)';
-      ctx.fillRect(0, 0, width, height);
-      ctx.fillStyle = '#38bdf8'; // accent-primary
-      ctx.font = fontSize + 'px monospace';
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = characters.charAt(Math.floor(Math.random() * characters.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
+  if (terminalHeader) {
+    terminalHeader.addEventListener('click', () => {
+      clickCount++;
+      if (clickCount === 3) {
+        triggerPanic();
+        clickCount = 0;
       }
-    }
-
-    let matrixInterval = setInterval(draw, 33);
-
-    window.addEventListener('resize', () => {
-      width = canvas.width = canvas.parentElement.offsetWidth;
-      height = canvas.height = canvas.parentElement.offsetHeight;
+      setTimeout(() => { clickCount = 0; }, 1000);
     });
   }
+
+  function triggerPanic() {
+    panicOverlay.classList.add('active');
+    let count = 5;
+    const interval = setInterval(() => {
+      count--;
+      panicCountdown.textContent = count;
+      if (count === 0) {
+        clearInterval(interval);
+        panicOverlay.classList.remove('active');
+      }
+    }, 1000);
+  }
+
+  // Ozone Gauge Logic
+  const needle = document.getElementById('gauge-needle');
+  let lastScrollTop = 0;
+  let ozoneLevel = 0;
+
+  window.addEventListener('scroll', () => {
+    const st = window.pageYOffset || document.documentElement.scrollTop;
+    const delta = Math.abs(st - lastScrollTop);
+    
+    // Increase ozone based on scroll speed
+    ozoneLevel = Math.min(180, ozoneLevel + delta * 0.5);
+    lastScrollTop = st <= 0 ? 0 : st;
+  }, false);
+
+  // Decays ozone over time
+  setInterval(() => {
+    ozoneLevel = Math.max(0, ozoneLevel - 2);
+    // Map 0-180 to -90 to 90 degrees
+    if (needle) {
+      needle.style.transform = `translateX(-50%) rotate(${ozoneLevel - 90}deg)`;
+    }
+  }, 50);
 
   // Floating System Logs Logic
   const logsContainer = document.getElementById('system-logs');
