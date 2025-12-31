@@ -176,7 +176,7 @@
     buildInterval = setInterval(() => {
       startTime += 0.1;
       timerEl.textContent = startTime.toFixed(1) + 's';
-      if (startTime >= 2.0) {
+      if (startTime >= 1.0) {
         clearInterval(buildInterval);
         el.classList.add('built');
       }

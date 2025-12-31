@@ -1209,7 +1209,7 @@ button[type="submit"]:hover {
 }
 
 .project:not(.built):hover .progress-fill {
-  animation: buildProgress 2s linear forwards;
+  animation: buildProgress 1s linear forwards;
 }
 
 @keyframes buildProgress {
