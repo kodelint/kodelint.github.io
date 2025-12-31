@@ -1,4 +1,4 @@
-# 🌐 sroy.tech | My Personal Blog
+# 🌐 [My Personal Blog](https://sroy.tech)
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/kodelint/blog-images/main/common/pic1.png" alt="Satyajit Roy" width="200" style="border-radius: 50%; border: 4px solid #111827; box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);">
