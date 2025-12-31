@@ -1,4 +1,7 @@
 ---
+caffeine: 5
+stress: 2
+ozone: 1
 layout: post
 title:  Golang - Write better code with Golang linters — Golangci-lint
 author: Satyajit Roy

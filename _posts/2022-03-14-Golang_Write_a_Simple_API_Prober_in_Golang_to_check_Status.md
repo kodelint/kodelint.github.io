@@ -1,4 +1,7 @@
 ---
+caffeine: 5
+stress: 2
+ozone: 1
 layout: post
 title:  Golang - Write a Simple API Prober in Golang to check Status
 author: Satyajit Roy

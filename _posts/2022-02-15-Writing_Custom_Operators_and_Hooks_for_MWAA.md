@@ -1,4 +1,7 @@
 ---
+caffeine: 5
+stress: 2
+ozone: 1
 layout: post
 title:  Writing Custom Operators and Hooks for MWAA
 author: Satyajit Roy

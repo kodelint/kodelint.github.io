@@ -1,4 +1,7 @@
 ---
+caffeine: 5
+stress: 2
+ozone: 1
 layout: post
 title:  Golang - Writing CLI App in Golang with Cobra
 author: Satyajit Roy

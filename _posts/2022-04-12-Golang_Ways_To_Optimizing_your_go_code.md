@@ -1,4 +1,7 @@
 ---
+caffeine: 5
+stress: 2
+ozone: 1
 layout: post
 title:  Golang Ways to optimizing your Go Code — Profiling
 author: Satyajit Roy

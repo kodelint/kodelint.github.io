@@ -1,4 +1,7 @@
 ---
+caffeine: 5
+stress: 2
+ozone: 1
 layout: post
 title:  Terraform Tips and Tricks — Part 1
 author: Satyajit Roy

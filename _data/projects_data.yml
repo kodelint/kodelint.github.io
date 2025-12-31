@@ -27,6 +27,9 @@ projects:
       - macos
 
   - title: Wiper
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-Wiper.png
     about: A powerful command-line utility for macOS to completely uninstall applications and clean up system junk.
     code: https://github.com/kodelint/wiper
@@ -37,6 +40,9 @@ projects:
       - macos
 
   - title: OSX Cleaner (CLI Edition)
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-osx-cleaner.png
     about: A blazing-fast, terminal-based macOS cleanup and uninstaller utility written in Rust. Clean out caches, logs, trash, and deeply remove applications, all from your terminal.
     code: https://github.com/kodelint/osx-cleaner
@@ -47,6 +53,9 @@ projects:
       - macos
 
   - title: Accelerate Your Development Environment Setup with "Setup DevBox"
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-setup-devbox.png
     about: setup-devbox is a powerful, opinionated, and highly configurable command-line tool designed to streamline the provisioning of your development environment.
     code: https://github.com/kodelint/setup-devbox
@@ -57,6 +66,9 @@ projects:
       - productivity
 
   - title: Native Git Plugin for Pull Request
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-git-pr.png
     about: git-pr is a small tool, which helps with pull-request for the origin. It support list, fetch, show-diff and submit-reviews
     code: https://github.com/kodelint/git-pr
@@ -67,6 +79,9 @@ projects:
       - git
 
   - title: Git Plugin commit spell check
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/png/spellcheck.png
     about: git-spellcheck is a small tool, which checks for commit spelling mistakes before submitting
     code: https://github.com/kodelint/git-spellcheck
@@ -77,6 +92,9 @@ projects:
       - git
 
   - title: Terraform Provider for AWS with Additional features
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-Terraform-AWS.png
     about: This is a fork of terraform AWS provider, implementing some of the missing features
     code: https://github.com/tfproviders/terraform-provider-aws
@@ -88,6 +106,9 @@ projects:
       - aws
 
   - title: Terraform Provider for Azure with Additional features
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-terraform-azure.png
     about: This is a fork of terraform Azure provider, implementing some of the missing features
     code: https://github.com/tfproviders/terraform-provider-azurerm
@@ -99,6 +120,9 @@ projects:
       - azure
 
   - title: Airflow EC2 Plugin Extended with create and terminate EC2 functionality
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-airflow.png
     about: This plugin provides the functionality to creates and terminate an ec2 instance.
     code: https://github.com/kodelint/airflow-ec2-plugin-extended
@@ -108,6 +132,9 @@ projects:
       - aws
 
   - title: Airflow Dags Collection
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-airflow.png
     about: Airflow Dag examples for EMR, EC2 etc
     code: https://github.com/kodelint/airflow-dags-examples
@@ -117,6 +144,9 @@ projects:
       - dags
 
   - title: Automatic Terraform Backend Generation
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-terraform.png
     about: This is a minimal approach for generating terraform backend based on the tfvar filename
     code: https://github.com/kodelint/autotf
@@ -127,6 +157,9 @@ projects:
       - state-management
 
   - title: Dockerized ChefDK
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-chef.png
     about: ChefDK in a docker image
     code: https://github.com/kodelint/dockerized-chef-workstation
@@ -137,6 +170,9 @@ projects:
       - automation
 
   - title: CloudCli - CLI Tools in One Place
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-cloudcli.png
     about: Cloud CLI Tools in one Docket Image
     code: https://github.com/kodelint/cloudcli
@@ -146,6 +182,9 @@ projects:
       - automation
 
   - title: Docker Image for Maven with OpenJDK
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-maven-docker.png
     about: Docker Image with Maven, OpenJDK and additional tools
     code: https://github.com/kodelint/maven-openjdk
@@ -155,6 +194,9 @@ projects:
       - automation
 
   - title: SRE/DevOps - Sys Admin Stuff
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-interview.png
     img_alt: SRE/DevOps
     about: Collection of some important system admin tools for the rainy day
@@ -165,6 +207,9 @@ projects:
       - SRE
 
   - title: Command line utility for KickAss Torrents
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-kickass-torrentz.png
     about: kscli is a command line utility for kickasstorrents.
     code: https://github.com/kodelint/kscli
@@ -172,6 +217,9 @@ projects:
       - python
 
   - title: Chef Cookbook for Airflow
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-airflow.png
     img_alt: Chef Cookbook
     about: Chef Cookbook to deploy Airflow on EC2 node with Kitchen Tests
@@ -181,6 +229,9 @@ projects:
       - chef
 
   - title: Cheflab - Full stack chef environment on your laptop
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-chef.png
     about: Local automated setup for Chef Testing
     code: https://github.com/kodelint/cheflab
@@ -190,6 +241,9 @@ projects:
       - dev
 
   - title: Build Zookeeper RPM from Source
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-Makefile.png
     img_alt: RPM Build
     about: A Makefile setup to build RPM from Source code
@@ -199,6 +253,9 @@ projects:
       - automation
 
   - title: Build Storm RPM from Source
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-Makefile.png
     img_alt: RPM Build
     about: A Makefile setup to build RPM from Source code
@@ -208,6 +265,9 @@ projects:
       - automation
 
   - title: CLI Tool for DataDog Monitor
+    caffeine: 3
+    stress: 2
+    ozone: 1
     img: /assets/uploads/01-cli.png
     img_alt: DataDog Monitors
     about: A CLI tool to talk to Datadog APIs

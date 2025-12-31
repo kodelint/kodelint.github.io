@@ -1,4 +1,7 @@
 ---
+caffeine: 5
+stress: 2
+ozone: 1
 layout: post
 title:  SRE/DevOps Interview Questions — Linux Troubleshooting — Extended
 title: SRE DEVOPS Interview Questions Linux Extended

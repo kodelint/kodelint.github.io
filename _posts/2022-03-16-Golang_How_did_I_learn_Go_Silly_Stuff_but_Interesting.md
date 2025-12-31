@@ -1,4 +1,7 @@
 ---
+caffeine: 5
+stress: 2
+ozone: 1
 layout: post
 title:  Golang - How did I learn Go!! Silly Stuff but Interesting
 author: Satyajit Roy
