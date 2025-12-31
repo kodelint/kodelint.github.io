@@ -920,18 +920,23 @@ footer {
   nav {
     top: auto;
     bottom: 1.5rem; /* Bottom nav for mobile */
-    max-width: 95%; /* Increased from 90% to fit more */
-    padding: 0.5rem 1rem; /* Reduced padding */
+    width: 95%; /* Use width instead of max-width for better control */
+    max-width: 500px;
+    padding: 0.4rem 0.5rem; /* Further reduced padding */
   }
 
   nav .nav-container {
-    gap: 0.5rem; /* Reduced gap between links */
-    justify-content: space-around;
+    gap: 0.25rem; /* Minimal gap */
+    justify-content: space-evenly;
+    width: 100%;
   }
 
   nav a {
-    font-size: 0.85rem; /* Slightly smaller font */
-    padding: 0.4rem 0.75rem; /* Reduced padding */
+    font-size: 0.75rem; /* Smaller font for small screens */
+    padding: 0.4rem 0.5rem; /* Minimal item padding */
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
   }
 
   .terminal-header .command {
