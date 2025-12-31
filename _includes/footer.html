@@ -23,6 +23,46 @@
 
 <!-- scripts -->
 <script defer>
+  // Matrix Rain Logic
+  const canvas = document.getElementById('matrix-canvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = canvas.parentElement.offsetWidth;
+    let height = canvas.height = canvas.parentElement.offsetHeight;
+    
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$λ<>{}[]';
+    const fontSize = 14;
+    const columns = width / fontSize;
+    const drops = [];
+
+    for (let i = 0; i < columns; i++) {
+      drops[i] = 1;
+    }
+
+    function draw() {
+      ctx.fillStyle = 'rgba(3, 7, 18, 0.05)';
+      ctx.fillRect(0, 0, width, height);
+      ctx.fillStyle = '#38bdf8'; // accent-primary
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = characters.charAt(Math.floor(Math.random() * characters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    let matrixInterval = setInterval(draw, 33);
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = canvas.parentElement.offsetWidth;
+      height = canvas.height = canvas.parentElement.offsetHeight;
+    });
+  }
+
   // Kernel Panic Easter Egg
   const terminalHeader = document.querySelector('.terminal-header');
   const panicOverlay = document.getElementById('panic-overlay');
