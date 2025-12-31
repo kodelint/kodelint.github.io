@@ -425,6 +425,11 @@ header .social a:hover {
   gap: 0.25rem;
 }
 
+.post-metrics span.danger {
+  color: #ff4757; /* Dynamic Red */
+  font-weight: 800;
+}
+
 .post-metrics i {
   color: var(--accent-secondary);
 }

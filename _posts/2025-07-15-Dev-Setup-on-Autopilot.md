@@ -1,7 +1,7 @@
 ---
-caffeine: 5
-stress: 2
-ozone: 1
+caffeine: 12
+stress: 9
+ozone: 6
 layout: post
 title: Dev Setup on Autopilot
 author: Satyajit Roy

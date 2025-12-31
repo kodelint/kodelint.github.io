@@ -40,22 +40,15 @@ projects:
       - macos
 
   - title: OSX Cleaner (CLI Edition)
-    caffeine: 3
-    stress: 2
-    ozone: 1
+    caffeine: 7
+    stress: 6
+    ozone: 3
     img: /assets/uploads/01-osx-cleaner.png
-    about: A blazing-fast, terminal-based macOS cleanup and uninstaller utility written in Rust. Clean out caches, logs, trash, and deeply remove applications, all from your terminal.
-    code: https://github.com/kodelint/osx-cleaner
-    link: https://github.com/kodelint/osx-cleaner
-    tags:
-      - rust
-      - cli
-      - macos
 
-  - title: Accelerate Your Development Environment Setup with "Setup DevBox"
-    caffeine: 3
-    stress: 2
-    ozone: 1
+  - title: Accelerate Your Development Setup with "Setup DevBox"
+    caffeine: 9
+    stress: 8
+    ozone: 6
     img: /assets/uploads/01-setup-devbox.png
     about: setup-devbox is a powerful, opinionated, and highly configurable command-line tool designed to streamline the provisioning of your development environment.
     code: https://github.com/kodelint/setup-devbox

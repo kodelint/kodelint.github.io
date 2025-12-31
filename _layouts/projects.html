@@ -20,9 +20,9 @@
           <div class="card-meta">
             <h2 class="card-title">{{project.title}}</h2>
             <div class="post-metrics">
-              <span title="Caffeine Required"><i class="fas fa-coffee"></i> {{ project.caffeine | default: 3 }}</span>
-              <span title="Anxiety Level"><i class="fas fa-wave-square"></i> {{ project.stress | default: 2 }}</span>
-              <span title="Ozone Produced"><i class="fas fa-bolt"></i> {{ project.ozone | default: 1 }}</span>
+              <span title="Caffeine Required" class="{% if project.caffeine > 5 %}danger{% endif %}"><i class="fas fa-coffee"></i> {{ project.caffeine | default: 3 }}</span>
+              <span title="Anxiety Level" class="{% if project.stress > 5 %}danger{% endif %}"><i class="fas fa-wave-square"></i> {{ project.stress | default: 2 }}</span>
+              <span title="Ozone Produced" class="{% if project.ozone > 5 %}danger{% endif %}"><i class="fas fa-bolt"></i> {{ project.ozone | default: 1 }}</span>
             </div>
           </div>
           <p class="card-excerpt">{{project.about}}</p>
