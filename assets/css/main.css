@@ -759,6 +759,10 @@ button[type="submit"]:hover {
   gap: 0.5rem;
 }
 
+.status-item.uptime i { color: #10b981; } /* Emerald */
+.status-item.happiness i { color: #f43f5e; } /* Rose */
+.status-item.redbull i { color: #ff4757; } /* Red */
+
 .status-value {
   color: var(--text-secondary);
   font-weight: 700;
