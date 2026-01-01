@@ -68,9 +68,68 @@
 
           <div class="card-footer">
             {% if project.code == nil or project.code == "" %}
-            <span style="color: var(--text-tertiary); font-size: 0.85rem;">Private Project</span>
+            <div class="sys-core sys-encrypted">
+              <i class="fas fa-user-secret"></i>
+              <div class="spectrum-bars static-hatch">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <span class="core-label">ENCRYPTED SIGNAL</span>
+            </div>
             {% else %}
-            <span style="font-size: 0.75rem; color: var(--text-tertiary);">[ STATUS: STABLE ]</span>
+              
+              {% assign core_type = "default" %}
+              {% assign core_color = "#a3e635" %} <!-- Lime -->
+              {% assign core_icon = "fa-power-off" %}
+              {% assign core_label = "SYSTEM ONLINE" %}
+
+              {% for tag in project.tags %}
+                {% assign t = tag | downcase %}
+                {% if core_type == "default" %}
+                  {% if t contains 'rust' %}
+                    {% assign core_type = "rust" %}
+                    {% assign core_color = "#f97316" %} <!-- Orange -->
+                    {% assign core_icon = "fab fa-rust" %}
+                    {% assign core_label = "RUST CORE" %}
+                  {% elsif t contains 'go' %}
+                    {% assign core_type = "go" %}
+                    {% assign core_color = "#06b6d4" %} <!-- Cyan -->
+                    {% assign core_icon = "fab fa-golang" %}
+                    {% assign core_label = "GO REACTOR" %}
+                  {% elsif t contains 'python' %}
+                    {% assign core_type = "python" %}
+                    {% assign core_color = "#fbbf24" %} <!-- Amber -->
+                    {% assign core_icon = "fab fa-python" %}
+                    {% assign core_label = "NEURAL NET" %}
+                  {% elsif t contains 'docker' %}
+                    {% assign core_type = "docker" %}
+                    {% assign core_color = "#3b82f6" %} <!-- Blue -->
+                    {% assign core_icon = "fab fa-docker" %}
+                    {% assign core_label = "CONTAINER FIELD" %}
+                  {% elsif t contains 'terraform' %}
+                    {% assign core_type = "terraform" %}
+                    {% assign core_color = "#a855f7" %} <!-- Purple -->
+                    {% assign core_icon = "fas fa-cubes" %}
+                    {% assign core_label = "INFRASTRUCTURE" %}
+                  {% elsif t contains 'chef' %}
+                    {% assign core_type = "chef" %}
+                    {% assign core_color = "#ef4444" %} <!-- Red -->
+                    {% assign core_icon = "fas fa-fire-burner" %}
+                    {% assign core_label = "KITCHEN SYNC" %}
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+
+            <div class="sys-core" style="--core-color: {{ core_color }}">
+              <i class="{{ core_icon }} core-icon"></i>
+              <div class="spectrum-bars">
+                <span style="animation-delay: 0.1s"></span>
+                <span style="animation-delay: 0.3s"></span>
+                <span style="animation-delay: 0.5s"></span>
+                <span style="animation-delay: 0.2s"></span>
+                <span style="animation-delay: 0.4s"></span>
+              </div>
+              <span class="core-label">{{ core_label }}</span>
+            </div>
             {% endif %}
           </div>
         </div>
@@ -78,6 +137,83 @@
       {% endfor %}
     </div>
   </main>
+  
+  <style>
+    .sys-core {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      background: rgba(0, 0, 0, 0.2);
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      width: fit-content;
+      transition: all 0.3s ease;
+    }
+
+    .sys-core:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--core-color, #fff);
+      box-shadow: 0 0 10px var(--core-color, rgba(255,255,255,0.1));
+    }
+    
+    .sys-core i.core-icon {
+      color: var(--core-color);
+      font-size: 0.9rem;
+      filter: drop-shadow(0 0 2px var(--core-color));
+    }
+
+    .core-label {
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    /* Spectrum Bars Animation */
+    .spectrum-bars {
+      display: flex;
+      gap: 2px;
+      align-items: flex-end;
+      height: 12px;
+    }
+
+    .spectrum-bars span {
+      width: 3px;
+      background-color: var(--core-color);
+      border-radius: 1px;
+      animation: spectrum 1s infinite ease-in-out alternate;
+      height: 20%;
+      opacity: 0.8;
+    }
+    
+    @keyframes spectrum {
+      0% { height: 20%; opacity: 0.5; }
+      100% { height: 100%; opacity: 1; box-shadow: 0 0 4px var(--core-color); }
+    }
+
+    /* Encrypted / Private Variant */
+    .sys-encrypted {
+      --core-color: #ec4899; /* Pink */
+      border-style: dashed;
+    }
+    
+    .static-hatch span {
+      animation: none;
+      height: 100%;
+      background: repeating-linear-gradient(
+        45deg,
+        var(--core-color),
+        var(--core-color) 2px,
+        transparent 2px,
+        transparent 4px
+      );
+      width: 4px;
+      opacity: 0.3;
+    }
+  </style>
   
   {% include footer.html %}
 </body>
