@@ -15,19 +15,42 @@ layout: page
   </div>
 </div>
 
-👋 **Oh, hi! You found my corner of the internet.**
+<div class="hero-section">
+  <div class="intro-card">
+    <div class="intro-header">
+       <span class="wave">👋</span> <span class="gradient-text">Oh, hi! You found my corner of the internet.</span>
+    </div>
+    <p>
+      I’m <span class="highlight-cyan">Satyajit Roy</span>, but you can call me <span class="highlight-indigo">Roy</span>. (It saves syllables for more important things, like variable naming debates).
+    </p>
+    <div class="philosophy-box">
+      <span class="quote-mark">“</span>
+      If I have to do it twice, I’m writing a script. If I have to do it thrice, I’m building a platform.
+      <span class="quote-mark">”</span>
+    </div>
+    <p class="role-badges">
+      <span class="badge">Technologist</span>
+      <span class="badge">Problem-Solver</span>
+      <span class="badge">Chief Automation Officer</span>
+    </p>
+  </div>
 
-I’m <span style="color:var(--accent-primary)"><strong>Satyajit Roy</strong></span>, but you can call me <span style="color:var(--accent-secondary)"><strong>Roy</strong></span>. (It saves syllables for more important things, like variable naming debates).
+  <div class="story-card">
+    <h3>🦖 The Origin Story <span class="sub-title">(20+ Years of "It Works on My Machine")</span></h3>
+    
+    <p>
+      I’ve been in the game long enough to remember when "The Cloud" was just something that ruined your picnic. I’ve journeyed from the dark ages of <span class="tooltip-container">`Solaris Zones`<span class="tooltip-box"><b>Ancient Magic [ancient]</b>Hard partitions from a time when servers were the size of refrigerators and 'uptime' was measured in years, not pod restarts.</span></span> and <span class="tooltip-container">`LXC`<span class="tooltip-box"><b>Docker's Granddad [history]</b>The bridge between 'it's a VM' and 'it's a container'. Mostly used today by people who actually understand how Linux namespaces work.</span></span> through the shiny, chaotic world of <span class="tooltip-container">`Kubernetes`<span class="tooltip-box"><b>Kubernetes [man]</b>The orchestrator of everything. YAML monsters and Pod herding included.</span></span>, and now into the era of babysitting massive <span class="tooltip-container">**NVIDIA GPU clusters**<span class="tooltip-box"><b>Money Pit [noun]</b>A hole in the ground where you throw venture capital in exchange for heat and slightly faster matrix multiplication.</span></span>.
+    </p>
 
-I am a **Technologist**, **Problem-Solver**, and **Chief Automation Officer** of my own life. My philosophy is simple: <span style="color: var(--accent-tertiary)">_"If I have to do it twice, I’m writing a script. If I have to do it thrice, I’m building a platform."_</span>
+    <div class="story-highlight">
+      Basically, I’ve spent two decades watching tech hypes rise, fall, and get rebranded while building high-performing <span class="tooltip-container">**SRE**, **DevOps**, and **Platform Security**<span class="tooltip-box"><b>The Holy Trinity [myth]</b>Three distinct roles that managers think can be filled by one person with "passion" and "grit".</span></span> teams. These days, when I'm not wrestling with <span class="tooltip-container">`YAML`<span class="tooltip-box"><b>YAML [man]</b>Yet Another Markup Language. Or as I call it: Indentation-induced Engineering Therapy.</span></span>, I'm the <span class="tooltip-container">**AI Plumber**<span class="tooltip-box"><b>Mario for Models [job]</b>I don't rescue princesses; I unclog data pipes and make sure the tensors flow in the right direction.</span></span>—making the hardware sweat so the models don't have to. I specialize in squeezing every last drop of performance out of GPUs until the data center smells slightly like ozone and your inference costs stop orbiting Saturn.
+    </div>
 
-### 🦖 The Origin Story (20+ Years of "It Works on My Machine")
-
-I’ve been in the game long enough to remember when "The Cloud" was just something that ruined your picnic. I’ve journeyed from the dark ages of <span class="tooltip-container">`Solaris Zones`<span class="tooltip-box"><b>Ancient Magic [ancient]</b>Hard partitions from a time when servers were the size of refrigerators and 'uptime' was measured in years, not pod restarts.</span></span> and <span class="tooltip-container">`LXC`<span class="tooltip-box"><b>Docker's Granddad [history]</b>The bridge between 'it's a VM' and 'it's a container'. Mostly used today by people who actually understand how Linux namespaces work.</span></span> through the shiny, chaotic world of <span class="tooltip-container">`Kubernetes`<span class="tooltip-box"><b>Kubernetes [man]</b>The orchestrator of everything. YAML monsters and Pod herding included.</span></span>, and now into the era of babysitting massive <span class="tooltip-container">**NVIDIA GPU clusters**<span class="tooltip-box"><b>Money Pit [noun]</b>A hole in the ground where you throw venture capital in exchange for heat and slightly faster matrix multiplication.</span></span>.
-
-Basically, I’ve spent two decades watching tech hypes rise, fall, and get rebranded while building high-performing <span class="tooltip-container">**SRE**, **DevOps**, and **Platform Security**<span class="tooltip-box"><b>The Holy Trinity [myth]</b>Three distinct roles that managers think can be filled by one person with "passion" and "grit".</span></span> teams. These days, when I'm not wrestling with <span class="tooltip-container">`YAML`<span class="tooltip-box"><b>YAML [man]</b>Yet Another Markup Language. Or as I call it: Indentation-induced Engineering Therapy.</span></span>, I'm the <span class="tooltip-container">**AI Plumber**<span class="tooltip-box"><b>Mario for Models [job]</b>I don't rescue princesses; I unclog data pipes and make sure the tensors flow in the right direction.</span></span>—making the hardware sweat so the models don't have to. I specialize in squeezing every last drop of performance out of GPUs until the data center smells slightly like ozone and your inference costs stop orbiting Saturn.
-
-My goal has always been the same: building systems that are smart enough to scale and stable enough to <span class="tooltip-container">**not**<span class="tooltip-box"><b>The Dream [concept]</b>A theoretical state of existence where my pager doesn't sound like a dubstep concert at 3 AM.</span></span> wake everyone up at 3 AM on a Saturday.
+    <p class="goal-text">
+       My goal has always been the same: building systems that are smart enough to scale and stable enough to <span class="tooltip-container">**not**<span class="tooltip-box"><b>The Dream [concept]</b>A theoretical state of existence where my pager doesn't sound like a dubstep concert at 3 AM.</span></span> wake everyone up at 3 AM on a Saturday.
+    </p>
+  </div>
+</div>
 
 ### 🛠️ What I Actually Do:
 
