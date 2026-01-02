@@ -745,116 +745,94 @@
 
 .graph-commit {
   display: grid;
-  grid-template-columns: 70px 1fr;
-  gap: 1rem;
-  min-height: 32px;
+  grid-template-columns: 60px 1fr;
+  gap: 0.5rem;
+  min-height: 24px;
   position: relative;
+  align-items: center;
 }
 
 .graph-lane {
   position: relative;
   display: flex;
   justify-content: center;
+  height: 100%;
 }
 
 .graph-lane::before {
-  content: "";
+  content: '';
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 25px;
+  top: 0; bottom: 0; left: 25px;
   width: 2px;
   background: rgba(255, 255, 255, 0.1);
 }
 
 .graph-commit.on-branch .graph-lane::after {
-  content: "";
+  content: '';
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50px;
+  top: 0; bottom: 0; left: 45px;
   width: 2px;
   background: var(--accent-secondary);
   opacity: 0.2;
 }
 
-.branch-fork,
-.branch-merge {
+.branch-fork, .branch-merge {
   position: absolute;
-  width: 25px;
-  height: 30px;
+  width: 20px;
+  height: 24px;
   border-left: 2px solid rgba(129, 140, 248, 0.3);
   pointer-events: none;
 }
 
 .branch-fork {
-  top: 1rem;
-  left: 25px;
+  top: 0; left: 25px;
   border-bottom: 2px solid rgba(129, 140, 248, 0.3);
   border-bottom-left-radius: 10px;
   transform: skewX(-45deg);
 }
 
 .branch-merge {
-  bottom: 1rem;
-  left: 25px;
+  bottom: 0; left: 25px;
   border-top: 2px solid rgba(129, 140, 248, 0.3);
   border-top-left-radius: 10px;
   transform: skewX(45deg);
 }
 
 .graph-dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background: var(--bg-depth);
   border: 2px solid var(--accent-primary);
   border-radius: 50%;
   position: absolute;
   z-index: 5;
-  top: 0.4rem;
-  box-shadow: 0 0 10px var(--accent-glow);
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px var(--accent-glow);
 }
 
-.graph-dot.l0 {
-  left: 25px;
-}
-.graph-dot.l1 {
-  left: 50px;
-  border-color: var(--accent-secondary);
-}
+.graph-dot.l0 { left: 25px; }
+.graph-dot.l1 { left: 45px; border-color: var(--accent-secondary); }
 
-.graph-commit.deploy .graph-dot {
-  border-color: #38bdf8;
-}
-.graph-commit.hotfix .graph-dot {
-  border-color: #ff4757;
-}
-.graph-commit.feat .graph-dot {
-  border-color: #00ff9d;
-}
-.graph-commit.merge .graph-dot {
-  border-color: #a855f7;
-}
-.graph-commit.perf .graph-dot {
-  border-color: #fbbf24;
-}
-.graph-commit.fix .graph-dot {
-  border-color: #f43f5e;
-}
-.graph-commit.chore .graph-dot {
-  border-color: #94a3b8;
-}
+.graph-commit.deploy .graph-dot { border-color: #38bdf8; }
+.graph-commit.hotfix .graph-dot { border-color: #ff4757; }
+.graph-commit.feat .graph-dot { border-color: #00ff9d; }
+.graph-commit.merge .graph-dot { border-color: #a855f7; }
+.graph-commit.perf .graph-dot { border-color: #fbbf24; }
+.graph-commit.fix .graph-dot { border-color: #f43f5e; }
+.graph-commit.chore .graph-dot { border-color: #94a3b8; }
 
 .graph-content {
-  padding-bottom: 0.5rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
 .graph-msg {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: var(--text-primary);
   letter-spacing: -0.01em;
-  white-space: nowrap;
 }
 
 .graph-msg .type {
