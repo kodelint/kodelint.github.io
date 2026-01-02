@@ -765,7 +765,7 @@
 .signature-visual img {
   width: 100%;
   height: auto;
-  max-width: 400px;
+  max-width: 300px;
   border-radius: var(--radius-md);
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
 }
@@ -789,14 +789,15 @@
     gap: 2rem;
     text-align: center;
   }
-  
+
   .signature-visual {
-    max-width: 90%;
+    max-width: 50%;
   }
-  
+
   .signature-quote {
     border-left: none;
     padding-left: 0;
+    max-width: 50%;
     border-top: 4px solid var(--accent-tertiary);
     padding-top: 1.5rem;
   }
