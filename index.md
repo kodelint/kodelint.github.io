@@ -319,7 +319,7 @@ layout: page
 
 <div class="signature-section">
   <div class="signature-visual">
-    <img src="/assets/uploads/developer.gif" alt="Coding GIF"/>
+    <img src="/assets/uploads/developer.png" alt="Coding GIF"/>
   </div>
   <blockquote class="signature-quote">
     "I turn <span class="tooltip-container"><span style="color: #6F4E37;">Coffee</span><span class="tooltip-box"><b>Black Gold [liquid]</b>The only reason this code compiles.</span></span> into <span class="tooltip-container">Legacy Code<span class="tooltip-box"><b>Job Security [concept]</b>Code so complex even I won't understand it in 6 months.</span></span>, and <span class="tooltip-container"><span style="color: #ed1c24;">Panic</span><span class="tooltip-box"><b>Adrenaline [hormone]</b>My primary state of being during deployments.</span></span> into <span class="tooltip-container">Features<span class="tooltip-box"><b>Bugs [software]</b>Undocumented features waiting to be discovered by users.</span></span>. My architecture diagrams are mostly just boxes I hope no one asks questions about." <span style="color: var(--accent-primary);"> — That's Me!! </span>
