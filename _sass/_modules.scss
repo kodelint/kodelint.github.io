@@ -1012,7 +1012,8 @@
   margin-bottom: 3rem;
 }
 
-.intro-card, .story-card {
+/* Generic Content Card */
+.content-card {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
@@ -1022,11 +1023,18 @@
   overflow: visible;
 }
 
-.intro-card::before {
+/* Introduction Container - Floating (No Card) */
+.intro-container {
+  padding: 1rem 0;
+  position: relative;
+}
+
+.intro-container::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; width: 4px; height: 100%;
+  top: 0; left: -1rem; width: 4px; height: 100%;
   background: var(--accent-gradient);
+  display: none; /* Removed sidebar accent for floating intro */
 }
 
 .intro-header {
@@ -1128,6 +1136,16 @@
 /* Story Card Enhancements */
 .story-card {
   border: 1px dashed var(--border-subtle);
+}
+
+/* Additional Info Cards */
+.info-card {
+  margin-top: 2rem;
+  border-left: 4px solid var(--accent-primary);
+}
+
+.info-card h3 {
+  margin-top: 0;
 }
 
 .story-card h3 {

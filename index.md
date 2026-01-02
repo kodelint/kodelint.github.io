@@ -16,7 +16,7 @@ layout: page
 </div>
 
 <div class="hero-section">
-  <div class="intro-card">
+  <div class="intro-container">
     <div class="intro-header">
        <span class="wave">👋</span> <span class="gradient-text">Oh, hi! You found my corner of the internet.</span>
     </div>
@@ -35,7 +35,7 @@ layout: page
     </p>
   </div>
 
-  <div class="story-card">
+  <div class="content-card story-card">
     <h3>🦖 The Origin Story <span class="sub-title">(20+ Years of "It Works on My Machine")</span></h3>
     
     <p>
@@ -50,19 +50,24 @@ layout: page
        My goal has always been the same: building systems that are smart enough to scale and stable enough to <span class="tooltip-container">not<span class="tooltip-box"><b>The Dream [concept]</b>A theoretical state of existence where my pager doesn't sound like a dubstep concert at 3 AM.</span></span> wake everyone up at 3 AM on a Saturday.
     </p>
   </div>
+
+  <div class="content-card info-card">
+    <h3>🛠️ What I Actually Do:</h3>
+    <ul>
+      <li>⚙️ <strong>Engineering & Architecture</strong>: Drawing boxes and arrows that eventually become expensive, resilient infrastructure.</li>
+      <li>☁️ <strong>Cloud & AI Scale</strong>: Turning <span class="tooltip-container">"It works in dev"<span class="tooltip-box"><b>The Great Lie [phrase]</b>A contractual disclaimer meaning "It ran on my MacBook once, so good luck with your Linux kernel version."</span></span> into <span class="tooltip-container">"It works for everyone"<span class="tooltip-box"><b>Utopia [fiction]</b>A mythical land where dependencies match, versions align, and users read documentation.</span></span> without the CFO having a heart attack.</li>
+      <li>🏎️ <strong>HPC & GPU Tuning</strong>: Squeezing performance out of hardware using <span class="tooltip-container"><strong>RDMA</strong><span class="tooltip-box"><b>Speed Demon [tech]</b>Skipping the CPU like it's a slow middle manager. Direct memory access for the impatient.</span></span>, <span class="tooltip-container"><strong>InfiniBand</strong><span class="tooltip-box"><b>The Fast Lane [tech]</b>Networking so fast it makes Ethernet look like a carrier pigeon with a broken wing. Expensive, temperamental, and absolutely glorious.</span></span>, and sheer willpower.</li>
+      <li>🔐 <strong>Security-First Thinking</strong>: Because <span class="tooltip-container">"admin/admin"<span class="tooltip-box"><b>Security Through Laziness [strategy]</b>If the password is easy to guess, maybe the hackers will think it's a trap and leave.</span></span> is still not a valid security strategy, even in the age of AI.</li>
+      <li>🚀 <strong>Team Building</strong>: Hiring smart people and then trying hard not to get in their way.</li>
+    </ul>
+  </div>
 </div>
 
-### 🛠️ What I Actually Do:
-
-- ⚙️ **Engineering & Architecture**: Drawing boxes and arrows that eventually become expensive, resilient infrastructure.
-- ☁️ **Cloud & AI Scale**: Turning <span class="tooltip-container">"It works in dev"<span class="tooltip-box"><b>The Great Lie [phrase]</b>A contractual disclaimer meaning "It ran on my MacBook once, so good luck with your Linux kernel version."</span></span> into <span class="tooltip-container">"It works for everyone"<span class="tooltip-box"><b>Utopia [fiction]</b>A mythical land where dependencies match, versions align, and users read documentation.</span></span> without the CFO having a heart attack.
-- 🏎️ **HPC & GPU Tuning**: Squeezing performance out of hardware using <span class="tooltip-container">**RDMA**<span class="tooltip-box"><b>Speed Demon [tech]</b>Skipping the CPU like it's a slow middle manager. Direct memory access for the impatient.</span></span>, <span class="tooltip-container">**InfiniBand**<span class="tooltip-box"><b>The Fast Lane [tech]</b>Networking so fast it makes Ethernet look like a carrier pigeon with a broken wing. Expensive, temperamental, and absolutely glorious.</span></span>, and sheer willpower.
-- 🔐 **Security-First Thinking**: Because <span class="tooltip-container">"admin/admin"<span class="tooltip-box"><b>Security Through Laziness [strategy]</b>If the password is easy to guess, maybe the hackers will think it's a trap and leave.</span></span> is still not a valid security strategy, even in the age of AI.
-- 🚀 **Team Building**: Hiring smart people and then trying hard not to get in their way.
-
-### 🌲 Career Log with Tech 
-<div class="terminal-prompt">
-  <span class="symbol">$</span> tech log --oneline --graph --decorate
+<div class="hero-section">
+  <h3>🌲 Career Log with Tech</h3>
+  <div class="terminal-prompt">
+    <span class="symbol">$</span> tech log --oneline --graph --decorate
+  </div>
 </div>
 
 <div class="tech-graph">
@@ -199,16 +204,24 @@ layout: page
 
 </div>
 
-### 🧠 Why This Blog Exists
+<div class="hero-section">
+  <div class="content-card info-card">
+    <h3>🧠 Why This Blog Exists</h3>
+    
+    <p>
+      This site is my <span class="tooltip-container">**Engineering Therapy**<span class="tooltip-box"><b>Screaming into the Void [activity]</b>Cheaper than a therapist, but with more YAML syntax errors.</span></span>. It’s where I document my battles with distributed systems and "HPC magic" before they get lost in the sea of browser tabs I never close. It serves a few noble purposes:
+    </p>
 
-This site is my <span class="tooltip-container">**Engineering Therapy**<span class="tooltip-box"><b>Screaming into the Void [activity]</b>Cheaper than a therapist, but with more YAML syntax errors.</span></span>. It’s where I document my battles with distributed systems and "HPC magic" before they get lost in the sea of browser tabs I never close. It serves a few noble purposes:
+    <ol>
+      <li><strong>Public Service</strong>: Helping you solve that obscure, soul-crushing error message you found on Google at 2 AM. If I can save one person from a <span class="tooltip-container">**Segfault**<span class="tooltip-box"><b>Memory Amnesia [error]</b>The program tried to touch a memory it didn't own. It's like walking into a stranger's house and getting kicked out immediately.</span></span> or a <span class="tooltip-container">**Deadlock**<span class="tooltip-box"><b>Mexican Standoff [state]</b>Thread A wants Resource B. Thread B wants Resource A. They both die waiting. Tragic.</span></span>, I’ve done my job.</li>
+      <li><strong>External Brain</strong>: Reminding future me how I fixed that exact same "impossible" bug 6 months ago. Let's be honest, if the compiler didn't catch it and I didn't blog it, it never happened.</li>
+      <li><strong>Typed Sanity</strong>: A safe space to celebrate the joy of <span class="tooltip-container">**Golang**<span class="tooltip-box"><b>Gopher Power [lang]</b>Google's way of saying "I trust you with concurrency, but not with generics (initially)."</span></span> binaries and my ongoing struggle to satisfy the <span class="tooltip-container">**Rust**<span class="tooltip-box"><b>The Borrower [lang]</b>It treats you like a toddler with scissors. "No! You can't have mutable access!"</span></span> borrow checker. You won't find any interpreted chaos here—just pure, statically-linked systems-level sanity.</li>
+      <li><strong>Distributed Venting</strong>: Because sometimes you just need to rant about why your cluster state is currently a dumpster fire or why <span class="tooltip-container">**RDMA**<span class="tooltip-box"><b>Speed Demon [tech]</b>Skipping the CPU like it's a slow middle manager. Direct memory access for the impatient.</span></span> is acting like it's 1995.</li>
+    </ol>
+  </div>
+</div>
 
-1.  **Public Service**: Helping you solve that obscure, soul-crushing error message you found on Google at 2 AM. If I can save one person from a <span class="tooltip-container">**Segfault**<span class="tooltip-box"><b>Memory Amnesia [error]</b>The program tried to touch a memory it didn't own. It's like walking into a stranger's house and getting kicked out immediately.</span></span> or a <span class="tooltip-container">**Deadlock**<span class="tooltip-box"><b>Mexican Standoff [state]</b>Thread A wants Resource B. Thread B wants Resource A. They both die waiting. Tragic.</span></span>, I’ve done my job.
-2.  **External Brain**: Reminding future me how I fixed that exact same "impossible" bug 6 months ago. Let's be honest, if the compiler didn't catch it and I didn't blog it, it never happened.
-3.  **Typed Sanity**: A safe space to celebrate the joy of <span class="tooltip-container">**Golang**<span class="tooltip-box"><b>Gopher Power [lang]</b>Google's way of saying "I trust you with concurrency, but not with generics (initially)."</span></span> binaries and my ongoing struggle to satisfy the <span class="tooltip-container">**Rust**<span class="tooltip-box"><b>The Borrower [lang]</b>It treats you like a toddler with scissors. "No! You can't have mutable access!"</span></span> borrow checker. You won't find any interpreted chaos here—just pure, statically-linked systems-level sanity.
-4.  **Distributed Venting**: Because sometimes you just need to rant about why your cluster state is currently a dumpster fire or why <span class="tooltip-container">**RDMA**<span class="tooltip-box"><b>Speed Demon [tech]</b>Skipping the CPU like it's a slow middle manager. Direct memory access for the impatient.</span></span> is acting like it's 1995.
-
-Thanks for stopping by. If you see me in a data center, a Slack thread, or wrestling with a borrow checker, say hi!
+<p>Thanks for stopping by. If you see me in a data center, a Slack thread, or wrestling with a borrow checker, say hi!</p>
 
 <div class="about-hero-visual" style="display: flex; align-items: center; justify-content: center; margin-top: 4rem; margin-bottom: 2rem;">
   <img src="/assets/uploads/developer.gif" alt="Coding GIF" style="max-width: 70%; height: auto; "/>
