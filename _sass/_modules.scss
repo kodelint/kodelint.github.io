@@ -1019,7 +1019,7 @@
   padding: 2rem;
   backdrop-filter: blur(8px);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .intro-card::before {
