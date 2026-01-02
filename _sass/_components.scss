@@ -5,20 +5,20 @@ nav {
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 3rem);
-  max-width: 500px;
+  max-width: 400px;
   z-index: 1000;
   background: rgba(17, 24, 39, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-subtle);
   border-radius: 100px;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 0.5rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 nav .nav-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -26,7 +26,7 @@ nav a {
   color: var(--text-secondary);
   font-weight: 600;
   font-size: 0.95rem;
-  padding: 0.4rem 0.8rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 100px;
   position: relative;
 }
@@ -47,8 +47,8 @@ nav a.active {
     top: auto;
     bottom: 1.5rem;
     width: 95%;
-    max-width: 500px;
-    padding: 0.4rem 0.5rem;
+    max-width: 400px;
+    padding: 0.3rem 0.5rem;
   }
 
   nav .nav-container {
@@ -59,7 +59,7 @@ nav a.active {
 
   nav a {
     font-size: 0.75rem;
-    padding: 0.4rem 0.5rem;
+    padding: 0.3rem 0.4rem;
     flex: 1;
     text-align: center;
     white-space: nowrap;
@@ -78,6 +78,7 @@ nav a.active {
 
 .profile-header .owner-name {
   text-align: left;
+  margin: 0;
 }
 
 @media (max-width: 900px) {
@@ -94,8 +95,8 @@ nav a.active {
 
 header .profile-container {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: 240px;
+  height: 240px;
   margin: 0 auto;
   flex-shrink: 0;
 }
@@ -130,7 +131,7 @@ header .profile-container::before {
 }
 
 header h1.owner-name .greeting {
-  font-size: 4.5rem;
+  font-size: 5rem;
   display: block;
   background: linear-gradient(to right, #f9fafb, #94a3b8);
   -webkit-background-clip: text;
@@ -138,7 +139,7 @@ header h1.owner-name .greeting {
 }
 
 header h1.owner-name .name-line {
-  font-size: 3rem;
+  font-size: 3.5rem;
   display: block;
   color: var(--text-primary);
   margin-top: 0.5rem;
