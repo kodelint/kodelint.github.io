@@ -67,153 +67,87 @@ layout: page
 </div>
 
 <div class="tech-graph">
-
   <div class="graph-commit deploy">
-
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
-
     <div class="graph-content">
-
       <span class="graph-hash">af5c170</span>
-
       <span class="graph-msg"><span class="type deploy">deploy</span> <span class="ref">(HEAD -> master)</span> finding joy in <strong>Rust</strong>'s type safety and the pursuit of perfect systems</span>
-
     </div>
-
   </div>
 
   <div class="graph-commit feat">
-
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
-
     <div class="graph-content">
-
       <span class="graph-hash">7ece5b8</span>
-
       <span class="graph-msg"><span class="type feat">feat</span> understanding that the <strong>Edge</strong> is just someone else's computer closer to you</span>
-
     </div>
-
   </div>
-
   <div class="graph-commit hotfix">
-
     <div class="graph-lane">
-
       <div class="branch-merge"></div>
-
       <div class="graph-dot l0"></div>
-
     </div>
-
     <div class="graph-content">
-
       <span class="graph-hash">c19feaa</span>
-
       <span class="graph-msg"><span class="type hotfix">fix</span> learned that the <strong>p99 percentile</strong> is where the distributed ghosts live</span>
-
     </div>
-
   </div>
 
   <div class="graph-commit feat on-branch">
-
     <div class="graph-lane"><div class="graph-dot l1"></div></div>
-
     <div class="graph-content">
-
       <span class="graph-hash">e18ce41</span>
-
       <span class="graph-msg"><span class="type feat">feat</span> <span class="ref">(branch/ai-infra)</span> realized <strong>GPUs</strong> are expensive heaters if not optimized</span>
-
     </div>
-
   </div>
 
   <div class="graph-commit feat on-branch">
-
     <div class="graph-lane"><div class="graph-dot l1"></div></div>
-
     <div class="graph-content">
-
       <span class="graph-hash">bd36139</span>
-
       <span class="graph-msg"><span class="type feat">feat</span> discovered that <strong>MLOps</strong> is 10% ML and 90% Ops</span>
-
     </div>
-
   </div>
 
   <div class="graph-commit feat on-branch">
-
     <div class="graph-lane"><div class="graph-dot l1"></div></div>
-
     <div class="graph-content">
-
       <span class="graph-hash">9c8c9ca</span>
-
       <span class="graph-msg"><span class="type feat">feat</span> <span class="ref">(branch/security)</span> learned that <strong>Compliance</strong> is just testing with more paperwork</span>
-
     </div>
-
   </div>
 
   <div class="graph-commit merge">
-
     <div class="graph-lane">
-
       <div class="branch-fork"></div>
-
       <div class="graph-dot l0"></div>
-
     </div>
-
     <div class="graph-content">
-
       <span class="graph-hash">0731214</span>
-
       <span class="graph-msg"><span class="type merge">merge</span> accepted that <strong>Security</strong> is everyone's problem, especially mine</span>
-
     </div>
-
   </div>
 
   <div class="graph-commit fix">
-
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
-
     <div class="graph-content">
-
       <span class="graph-hash">f4dff42</span>
-
       <span class="graph-msg"><span class="type fix">fix</span> found out that 'multi-cloud' usually just means 'multi-problem'</span>
-
     </div>
-
   </div>
 
   <div class="graph-commit feat">
-
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
-
     <div class="graph-content">
-
       <span class="graph-hash">f765b47</span>
-
       <span class="graph-msg"><span class="type feat">feat</span> embraced <strong>GitOps</strong> to stop treating servers like pets</span>
-
     </div>
-
   </div>
 
   <div class="graph-commit perf">
-
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
-
     <div class="graph-content">
-
       <span class="graph-hash">ea21f3c</span>
-
       <span class="graph-msg"><span class="type perf">perf</span> discovered that <strong>Optimization</strong> without measurement is just premature guessing</span>
 
     </div>
@@ -221,90 +155,56 @@ layout: page
   </div>
 
   <div class="graph-commit feat">
-
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
-
     <div class="graph-content">
-
       <span class="graph-hash">8381d27</span>
-
       <span class="graph-msg"><span class="type feat">feat</span> mastered the art of deleting code > adding code</span>
-
     </div>
-
   </div>
 
   <div class="graph-commit merge">
-
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
-
     <div class="graph-content">
-
       <span class="graph-hash">bd36139</span>
-
       <span class="graph-msg"><span class="type merge">merge</span> realized that <strong>Deployment</strong> without downtime is a form of art</span>
-
     </div>
-
   </div>
 
   <div class="graph-commit refactor">
-
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
-
     <div class="graph-content">
-
       <span class="graph-hash">c044a82</span>
-
       <span class="graph-msg"><span class="type refactor">refactor</span> transitioned from "making it work" to "making it maintainable"</span>
-
     </div>
-
   </div>
 
   <div class="graph-commit refactor">
-
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
-
     <div class="graph-content">
-
       <span class="graph-hash">0731214</span>
-
       <span class="graph-msg"><span class="type refactor">refactor</span> learned that 'simple' code is infinitely harder than 'clever' code</span>
-
     </div>
-
   </div>
 
   <div class="graph-commit init">
-
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
-
     <div class="graph-content">
-
       <span class="graph-hash">init_02</span>
-
       <span class="graph-msg"><span class="type init">init</span> started coding to solve problems, stayed for the dopamine hits</span>
-
     </div>
-
   </div>
 
   <div class="graph-stats">
-
     15 commits, 2 decades, 1 executive ego.
-
   </div>
 
 </div>
 <div class="hero-section">
   <div class="content-card info-card">
     <h3>🧠 Why This Blog Exists</h3>
-    
     <p>
       This site is my <span class="tooltip-container">Engineering Therapy<span class="tooltip-box"><b>Screaming into the Void [activity]</b>Cheaper than a therapist, but with more YAML syntax errors.</span></span>. It’s where I document my battles with distributed systems and "HPC magic" before they get lost in the sea of browser tabs I never close. It serves a few noble purposes:
     </p>
-
     <ol>
       <li><strong>Public Service</strong>: Helping you solve that obscure, soul-crushing error message you found on Google at 2 AM. If I can save one person from a <span class="tooltip-container">Segfault<span class="tooltip-box"><b>Memory Amnesia [error]</b>The program tried to touch a memory it didn't own. It's like walking into a stranger's house and getting kicked out immediately.</span></span> or a <span class="tooltip-container">Deadlock<span class="tooltip-box"><b>Mexican Standoff [state]</b>Thread A wants Resource B. Thread B wants Resource A. They both die waiting. Tragic.</span></span>, I’ve done my job.</li>
       <li><strong>External Brain</strong>: Reminding future me how I fixed that exact same "impossible" bug 6 months ago. Let's be honest, if the compiler didn't catch it and I didn't blog it, it never happened.</li>
