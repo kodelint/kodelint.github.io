@@ -72,7 +72,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">af5c170</span>
-      <span class="graph-msg"><span class="type deploy">deploy:</span> <span class="ref">(HEAD -> master)</span> mastering <strong>Rust</strong> and scaling distributed brains</span>
+      <span class="graph-msg"><span class="type deploy">deploy</span> <span class="ref">(HEAD -> master)</span> mastering <strong>Rust</strong> and scaling distributed brains</span>
     </div>
   </div>
 
@@ -80,7 +80,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">7ece5b8</span>
-      <span class="graph-msg"><span class="type feat">feature:</span> reducing edge latency via <strong>Lambda@Edge</strong> and <strong>CloudFront</strong></span>
+      <span class="graph-msg"><span class="type feat">feat</span> reducing edge latency via <strong>Lambda@Edge</strong> and <strong>CloudFront</strong></span>
     </div>
   </div>
 
@@ -91,7 +91,7 @@ layout: page
     </div>
     <div class="graph-content">
       <span class="graph-hash">c19feaa</span>
-      <span class="graph-msg"><span class="type hotfix">hotfix:</span> squeezing <strong>p99 performance</strong> for high-load clusters</span>
+      <span class="graph-msg"><span class="type hotfix">fix</span> squeezing <strong>p99 performance</strong> for high-load clusters</span>
     </div>
   </div>
 
@@ -99,7 +99,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l1"></div></div>
     <div class="graph-content">
       <span class="graph-hash">e18ce41</span>
-      <span class="graph-msg"><span class="type feat">feature:</span> <span class="ref">(branch/ai-infra)</span> <strong>NVIDIA GPU</strong> scheduling and <strong>RDMA</strong> optimization</span>
+      <span class="graph-msg"><span class="type feat">feat</span> <span class="ref">(branch/ai-infra)</span> <strong>NVIDIA GPU</strong> scheduling and <strong>RDMA</strong> optimization</span>
     </div>
   </div>
 
@@ -107,7 +107,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l1"></div></div>
     <div class="graph-content">
       <span class="graph-hash">bd36139</span>
-      <span class="graph-msg"><span class="type feat">feature:</span> architecting <strong>MLOps</strong> foundations (Kubeflow/MLflow)</span>
+      <span class="graph-msg"><span class="type feat">feat</span> architecting <strong>MLOps</strong> foundations (Kubeflow/MLflow)</span>
     </div>
   </div>
 
@@ -115,7 +115,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l1"></div></div>
     <div class="graph-content">
       <span class="graph-hash">9c8c9ca</span>
-      <span class="graph-msg"><span class="type feat">feature:</span> <span class="ref">(branch/security)</span> implementing <strong>FedRAMP High</strong> as <strong>Policy-as-Code</strong></span>
+      <span class="graph-msg"><span class="type feat">feat</span> <span class="ref">(branch/security)</span> implementing <strong>FedRAMP High</strong> as <strong>Policy-as-Code</strong></span>
     </div>
   </div>
 
@@ -126,7 +126,7 @@ layout: page
     </div>
     <div class="graph-content">
       <span class="graph-hash">0731214</span>
-      <span class="graph-msg"><span class="type merge">merge:</span> <span class="tooltip-container"><strong>eBPF</strong><span class="tooltip-box"><b>eBPF [man]</b>Magic sand that lets you run sandboxed code in the Linux kernel without crashing the system (usually).</span></span> service mesh and <strong>Zero-Trust</strong> security</span>
+      <span class="graph-msg"><span class="type merge">merge</span> <span class="tooltip-container">eBPF<span class="tooltip-box"><b>eBPF [man]</b>Magic sand that lets you run sandboxed code in the Linux kernel without crashing the system (usually).</span></span> service mesh and <strong>Zero-Trust</strong> security</span>
     </div>
   </div>
 
@@ -134,7 +134,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">f4dff42</span>
-      <span class="graph-msg"><span class="type hotfix">fix:</span> eliminating <strong>90% of cluster sprawl</strong> via unified multi-cloud <strong>Kubernetes</strong></span>
+      <span class="graph-msg"><span class="type fix">fix</span> eliminating <strong>90% of cluster sprawl</strong> via unified multi-cloud <strong>Kubernetes</strong></span>
     </div>
   </div>
 
@@ -142,7 +142,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">f765b47</span>
-      <span class="graph-msg"><span class="type feat">feature:</span> automating <strong>Kubernetes</strong> via <strong>Terraform</strong> and <strong>GitOps</strong></span>
+      <span class="graph-msg"><span class="type feat">feat</span> automating <strong>Kubernetes</strong> via <strong>Terraform</strong> and <strong>GitOps</strong></span>
     </div>
   </div>
 
@@ -150,7 +150,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">ea21f3c</span>
-      <span class="graph-msg"><span class="type feature">perf:</span> scaling <strong>Elasticsearch</strong> to <strong>10B+ documents</strong> with sub-5ms latency</span>
+      <span class="graph-msg"><span class="type perf">perf</span> scaling <strong>Elasticsearch</strong> to <strong>10B+ documents</strong> with sub-5ms latency</span>
     </div>
   </div>
 
@@ -158,7 +158,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">8381d27</span>
-      <span class="graph-msg"><span class="type feat">feature:</span> massive <strong>Cloud-Native</strong> orchestration at scale</span>
+      <span class="graph-msg"><span class="type feat">feat</span> massive <strong>Cloud-Native</strong> orchestration at scale</span>
     </div>
   </div>
 
@@ -166,7 +166,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">bd36139</span>
-      <span class="graph-msg"><span class="type merge">merge:</span> blue-green & canary deployments for <strong>zero-downtime</strong> releases</span>
+      <span class="graph-msg"><span class="type merge">merge</span> blue-green & canary deployments for <strong>zero-downtime</strong> releases</span>
     </div>
   </div>
 
@@ -174,7 +174,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">c044a82</span>
-      <span class="graph-msg"><span class="type refactor">refactor:</span> from <strong>Solaris Zones</strong> to <strong>Golang</strong> and modern <strong>Containers</strong></span>
+      <span class="graph-msg"><span class="type refactor">refactor</span> from <strong>Solaris Zones</strong> to <strong>Golang</strong> and modern <strong>Containers</strong></span>
     </div>
   </div>
 
@@ -182,7 +182,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">0731214</span>
-      <span class="graph-msg"><span class="type refactor">refactor:</span> transitioning from <strong>monoliths</strong> to <strong>microservices</strong> architecture</span>
+      <span class="graph-msg"><span class="type refactor">refactor</span> transitioning from <strong>monoliths</strong> to <strong>microservices</strong> architecture</span>
     </div>
   </div>
 
@@ -190,7 +190,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">init_02</span>
-      <span class="graph-msg"><span class="type init">init:</span> the first compiled <strong>Hello World</strong></span>
+      <span class="graph-msg"><span class="type init">init</span> the first compiled <strong>Hello World</strong></span>
     </div>
   </div>
 
