@@ -7,8 +7,8 @@
 
 /* Header / Hero Section Structure */
 header {
-  padding-top: 10rem;
-  padding-bottom: 2rem;
+  padding-top: 8rem;
+  padding-bottom: 0;
   text-align: center;
 }
 
@@ -39,10 +39,11 @@ header {
 .page {
   max-width: 800px;
   margin: 0 auto;
-  padding-top: 8rem;
+  padding-top: 2rem;
 }
 
 .page-header {
+  padding-top: 6rem;
   margin-bottom: 4rem;
   text-align: center;
 }
