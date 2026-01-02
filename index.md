@@ -68,8 +68,6 @@ layout: page
 
 <div class="tech-graph">
 
-  
-
   <div class="graph-commit deploy">
 
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
@@ -84,8 +82,6 @@ layout: page
 
   </div>
 
-
-
   <div class="graph-commit feat">
 
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
@@ -99,8 +95,6 @@ layout: page
     </div>
 
   </div>
-
-
 
   <div class="graph-commit hotfix">
 
@@ -122,8 +116,6 @@ layout: page
 
   </div>
 
-
-
   <div class="graph-commit feat on-branch">
 
     <div class="graph-lane"><div class="graph-dot l1"></div></div>
@@ -137,8 +129,6 @@ layout: page
     </div>
 
   </div>
-
-
 
   <div class="graph-commit feat on-branch">
 
@@ -154,8 +144,6 @@ layout: page
 
   </div>
 
-
-
   <div class="graph-commit feat on-branch">
 
     <div class="graph-lane"><div class="graph-dot l1"></div></div>
@@ -169,8 +157,6 @@ layout: page
     </div>
 
   </div>
-
-
 
   <div class="graph-commit merge">
 
@@ -192,8 +178,6 @@ layout: page
 
   </div>
 
-
-
   <div class="graph-commit fix">
 
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
@@ -207,8 +191,6 @@ layout: page
     </div>
 
   </div>
-
-
 
   <div class="graph-commit feat">
 
@@ -224,8 +206,6 @@ layout: page
 
   </div>
 
-
-
   <div class="graph-commit perf">
 
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
@@ -239,8 +219,6 @@ layout: page
     </div>
 
   </div>
-
-
 
   <div class="graph-commit feat">
 
@@ -256,8 +234,6 @@ layout: page
 
   </div>
 
-
-
   <div class="graph-commit merge">
 
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
@@ -271,8 +247,6 @@ layout: page
     </div>
 
   </div>
-
-
 
   <div class="graph-commit refactor">
 
@@ -288,8 +262,6 @@ layout: page
 
   </div>
 
-
-
   <div class="graph-commit refactor">
 
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
@@ -303,8 +275,6 @@ layout: page
     </div>
 
   </div>
-
-
 
   <div class="graph-commit init">
 
@@ -320,15 +290,11 @@ layout: page
 
   </div>
 
-
-
   <div class="graph-stats">
 
     15 commits, 2 decades, 1 executive ego.
 
   </div>
-
-
 
 </div>
 <div class="hero-section">
