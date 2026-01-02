@@ -20,14 +20,8 @@ layout: page
     <div class="intro-header">
        <span class="wave">👋</span> <span class="gradient-text">Oh, hi! You found my corner of the internet.</span>
     </div>
-    <p style="margin-bottom: 0.5rem;">
-      I’m <span class="highlight-cyan">Satyajit Roy</span>, but you can call me <span class="highlight-indigo">Roy</span>.
-    </p>
-    <p class="motto" style="font-style: italic; color: var(--accent-tertiary); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.4;">
-      “If I have to do it twice, I’m writing a script. If I have to do it thrice, I’m building a platform.”
-    </p>
     <p>
-      (It saves syllables for more important things, like variable naming debates).
+      I’m <span class="highlight-cyan">Satyajit Roy</span>, but you can call me <span class="highlight-indigo">Roy</span>. (It saves syllables for more important things, like variable naming debates).
     </p>
     <p class="role-badges">
       <span class="badge">Technologist</span>
