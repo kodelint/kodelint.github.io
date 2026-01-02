@@ -762,64 +762,46 @@
 
 .signature-visual {
   flex: 1;
-
-  max-width: 40%;
-
+  max-width: 50%;
   display: flex;
-
   justify-content: center;
 }
 
 .signature-visual img {
   width: 100%;
-
   height: auto;
-
-  max-width: 300px;
-
+  max-width: 450px;
   border-radius: var(--radius-md);
-
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
 }
 
 .signature-quote {
   flex: 1.5;
-
   border-left: 4px solid var(--accent-tertiary);
-
   padding-left: 2rem;
-
   color: var(--text-primary);
-
-  font-size: 1.25rem;
-
+  font-size: 1.1rem;
   font-family: var(--font-heading);
-
   font-style: italic;
-
   line-height: 1.6;
+  white-space: normal;
 }
 
 @media (max-width: 768px) {
   .signature-section {
     flex-direction: column;
-
     gap: 2rem;
-
     text-align: center;
   }
-
+  
   .signature-visual {
-    max-width: 80%;
+    max-width: 90%;
   }
-
+  
   .signature-quote {
     border-left: none;
-
     padding-left: 0;
-
     border-top: 4px solid var(--accent-tertiary);
-
     padding-top: 1.5rem;
   }
 }
@@ -885,7 +867,7 @@
 
 .graph-commit {
   display: grid;
-  grid-template-columns: 60px 1fr;
+  grid-template-columns: 80px 1fr;
   gap: 0.8rem;
   min-height: 24px;
   position: relative;
@@ -996,7 +978,7 @@
 }
 
 .graph-msg {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--text-primary);
   letter-spacing: -0.01em;
 }
@@ -1034,7 +1016,7 @@
 }
 
 .graph-hash {
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: var(--text-tertiary);
   margin-right: 1rem;
 }
