@@ -165,6 +165,24 @@
 
   setInterval(updateIdentity, 5000);
 
+  // Holographic Parallax Logic
+  const gitFooter = document.querySelector('.git-footer');
+  if (gitFooter) {
+    gitFooter.addEventListener('mousemove', (e) => {
+      const rect = gitFooter.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      
+      gitFooter.style.setProperty('--mx', x);
+      gitFooter.style.setProperty('--my', y);
+    });
+
+    gitFooter.addEventListener('mouseleave', () => {
+      gitFooter.style.setProperty('--mx', 0.5);
+      gitFooter.style.setProperty('--my', 0.5);
+    });
+  }
+
   // Matrix Rain Logic
   const canvas = document.getElementById('matrix-canvas');
   if (canvas) {

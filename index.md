@@ -72,7 +72,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">af5c170</span>
-      <span class="graph-msg"><span class="type deploy">deploy</span> <span class="ref">(HEAD -> master)</span> mastering <strong>Rust</strong> and scaling distributed brains</span>
+      <span class="graph-msg"><span class="type deploy">deploy</span> <span class="ref">(HEAD -> master)</span> learning <strong>Rust</strong> and scaling distributed brains</span>
     </div>
   </div>
 
