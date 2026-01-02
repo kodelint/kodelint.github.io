@@ -568,15 +568,17 @@
 .tech-graph {
   position: relative;
   max-width: 850px;
-  margin: 2rem 0 4rem;
+  margin: 1rem 0 3rem;
   font-family: var(--font-mono);
+  line-height: 1.2;
 }
 
 .terminal-prompt {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.8;
 }
 
 .terminal-prompt .symbol {
@@ -591,10 +593,10 @@
 }
 
 .graph-stats {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--text-tertiary);
-  margin-top: 2rem;
-  padding-top: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 0.75rem;
   border-top: 1px dashed var(--border-subtle);
   font-style: italic;
 }
@@ -603,7 +605,7 @@
   display: grid;
   grid-template-columns: 70px 1fr;
   gap: 1rem;
-  min-height: 50px;
+  min-height: 32px;
   position: relative;
 }
 
@@ -653,14 +655,14 @@
 }
 
 .graph-dot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background: var(--bg-depth);
-  border: 3px solid var(--accent-primary);
+  border: 2px solid var(--accent-primary);
   border-radius: 50%;
   position: absolute;
   z-index: 5;
-  top: 0.8rem;
+  top: 0.4rem;
   box-shadow: 0 0 10px var(--accent-glow);
   transform: translateX(-50%);
 }
@@ -676,11 +678,12 @@
 .graph-commit.fix .graph-dot { border-color: #f43f5e; }
 .graph-commit.chore .graph-dot { border-color: #94a3b8; }
 
-.graph-content { padding-bottom: 1.5rem; }
+.graph-content { padding-bottom: 0.5rem; }
 
 .graph-msg {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .graph-msg .type {
@@ -705,12 +708,13 @@
 }
 
 @media (max-width: 768px) {
-  .tech-graph { margin: 3rem 0; }
+  .tech-graph { margin: 1.5rem 0; }
   .graph-commit {
     grid-template-columns: 50px 1fr;
     gap: 0.5rem;
+    min-height: 28px;
   }
-  .graph-msg { font-size: 0.75rem; }
+  .graph-msg { font-size: 0.7rem; }
 }
 
 /* Tooltip & Other Widgets */
