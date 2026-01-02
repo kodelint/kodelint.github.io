@@ -20,14 +20,15 @@ layout: page
     <div class="intro-header">
        <span class="wave">👋</span> <span class="gradient-text">Oh, hi! You found my corner of the internet.</span>
     </div>
-    <p>
-      I’m <span class="highlight-cyan">Satyajit Roy</span>, but you can call me <span class="highlight-indigo">Roy</span>. (It saves syllables for more important things, like variable naming debates).
+    <p style="margin-bottom: 0.5rem;">
+      I’m <span class="highlight-cyan">Satyajit Roy</span>, but you can call me <span class="highlight-indigo">Roy</span>.
     </p>
-    <div class="philosophy-box">
-      <span class="quote-mark">“</span>
-      If I have to do it twice, I’m writing a script. If I have to do it thrice, I’m building a platform.
-      <span class="quote-mark">”</span>
-    </div>
+    <p class="motto" style="font-style: italic; color: var(--accent-tertiary); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.4;">
+      “If I have to do it twice, I’m writing a script. If I have to do it thrice, I’m building a platform.”
+    </p>
+    <p>
+      (It saves syllables for more important things, like variable naming debates).
+    </p>
     <p class="role-badges">
       <span class="badge">Technologist</span>
       <span class="badge">Problem-Solver</span>
@@ -49,6 +50,7 @@ layout: page
     <p class="goal-text">
        My goal has always been the same: building systems that are smart enough to scale and stable enough to <span class="tooltip-container">not<span class="tooltip-box"><b>The Dream [concept]</b>A theoretical state of existence where my pager doesn't sound like a dubstep concert at 3 AM.</span></span> wake everyone up at 3 AM on a Saturday.
     </p>
+
   </div>
 
   <div class="content-card info-card">
@@ -209,15 +211,16 @@ layout: page
     <h3>🧠 Why This Blog Exists</h3>
     
     <p>
-      This site is my <span class="tooltip-container">**Engineering Therapy**<span class="tooltip-box"><b>Screaming into the Void [activity]</b>Cheaper than a therapist, but with more YAML syntax errors.</span></span>. It’s where I document my battles with distributed systems and "HPC magic" before they get lost in the sea of browser tabs I never close. It serves a few noble purposes:
+      This site is my <span class="tooltip-container">Engineering Therapy<span class="tooltip-box"><b>Screaming into the Void [activity]</b>Cheaper than a therapist, but with more YAML syntax errors.</span></span>. It’s where I document my battles with distributed systems and "HPC magic" before they get lost in the sea of browser tabs I never close. It serves a few noble purposes:
     </p>
 
     <ol>
-      <li><strong>Public Service</strong>: Helping you solve that obscure, soul-crushing error message you found on Google at 2 AM. If I can save one person from a <span class="tooltip-container">**Segfault**<span class="tooltip-box"><b>Memory Amnesia [error]</b>The program tried to touch a memory it didn't own. It's like walking into a stranger's house and getting kicked out immediately.</span></span> or a <span class="tooltip-container">**Deadlock**<span class="tooltip-box"><b>Mexican Standoff [state]</b>Thread A wants Resource B. Thread B wants Resource A. They both die waiting. Tragic.</span></span>, I’ve done my job.</li>
+      <li><strong>Public Service</strong>: Helping you solve that obscure, soul-crushing error message you found on Google at 2 AM. If I can save one person from a <span class="tooltip-container">Segfault<span class="tooltip-box"><b>Memory Amnesia [error]</b>The program tried to touch a memory it didn't own. It's like walking into a stranger's house and getting kicked out immediately.</span></span> or a <span class="tooltip-container">Deadlock<span class="tooltip-box"><b>Mexican Standoff [state]</b>Thread A wants Resource B. Thread B wants Resource A. They both die waiting. Tragic.</span></span>, I’ve done my job.</li>
       <li><strong>External Brain</strong>: Reminding future me how I fixed that exact same "impossible" bug 6 months ago. Let's be honest, if the compiler didn't catch it and I didn't blog it, it never happened.</li>
-      <li><strong>Typed Sanity</strong>: A safe space to celebrate the joy of <span class="tooltip-container">**Golang**<span class="tooltip-box"><b>Gopher Power [lang]</b>Google's way of saying "I trust you with concurrency, but not with generics (initially)."</span></span> binaries and my ongoing struggle to satisfy the <span class="tooltip-container">**Rust**<span class="tooltip-box"><b>The Borrower [lang]</b>It treats you like a toddler with scissors. "No! You can't have mutable access!"</span></span> borrow checker. You won't find any interpreted chaos here—just pure, statically-linked systems-level sanity.</li>
-      <li><strong>Distributed Venting</strong>: Because sometimes you just need to rant about why your cluster state is currently a dumpster fire or why <span class="tooltip-container">**RDMA**<span class="tooltip-box"><b>Speed Demon [tech]</b>Skipping the CPU like it's a slow middle manager. Direct memory access for the impatient.</span></span> is acting like it's 1995.</li>
+      <li><strong>Typed Sanity</strong>: A safe space to celebrate the joy of <span class="tooltip-container">Golang<span class="tooltip-box"><b>Gopher Power [lang]</b>Google's way of saying "I trust you with concurrency, but not with generics (initially)."</span></span> binaries and my ongoing struggle to satisfy the <span class="tooltip-container">Rust<span class="tooltip-box"><b>The Borrower [lang]</b>It treats you like a toddler with scissors. "No! You can't have mutable access!"</span></span> borrow checker. You won't find any interpreted chaos here—just pure, statically-linked systems-level sanity.</li>
+      <li><strong>Distributed Venting</strong>: Because sometimes you just need to rant about why your cluster state is currently a dumpster fire or why <span class="tooltip-container">RDMA<span class="tooltip-box"><b>Speed Demon [tech]</b>Skipping the CPU like it's a slow middle manager. Direct memory access for the impatient.</span></span> is acting like it's 1995.</li>
     </ol>
+
   </div>
 </div>
 
