@@ -200,9 +200,12 @@
 }
 
 .git-footer::after {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: repeating-linear-gradient(
     0deg,
     transparent,
@@ -210,20 +213,45 @@
     rgba(56, 189, 248, 0.05) 3px
   );
   pointer-events: none;
-  animation: holo-scan 8s linear infinite, holo-glitch 4s step-end infinite;
+  animation:
+    holo-scan 8s linear infinite,
+    holo-glitch 4s step-end infinite;
 }
 
 @keyframes holo-scan {
-  from { background-position: 0 0; }
-  to { background-position: 0 100%; }
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 100%;
+  }
 }
 
 @keyframes holo-glitch {
-  0%, 95%, 100% { opacity: 1; transform: translateX(0); }
-  96% { opacity: 0.8; transform: translateX(-2px); filter: hue-rotate(90deg); }
-  97% { opacity: 1; transform: translateX(2px); }
-  98% { opacity: 0.9; transform: translateX(-1px); filter: grayscale(1); }
-  99% { opacity: 1; transform: translateX(0); }
+  0%,
+  95%,
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  96% {
+    opacity: 0.8;
+    transform: translateX(-2px);
+    filter: hue-rotate(90deg);
+  }
+  97% {
+    opacity: 1;
+    transform: translateX(2px);
+  }
+  98% {
+    opacity: 0.9;
+    transform: translateX(-1px);
+    filter: grayscale(1);
+  }
+  99% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .holo-emitter {
@@ -258,17 +286,19 @@
   opacity: 0.7;
 }
 
-.r1 { 
-  width: 120%; height: 120%; 
-  border-bottom-color: transparent; 
-  animation: spin 4s linear infinite; 
+.r1 {
+  width: 120%;
+  height: 120%;
+  border-bottom-color: transparent;
+  animation: spin 4s linear infinite;
   filter: drop-shadow(0 0 5px var(--accent-primary));
 }
-.r2 { 
-  width: 85%; height: 85%; 
-  border-top-color: transparent; 
-  border-left-color: transparent; 
-  animation: spin 3s reverse linear infinite; 
+.r2 {
+  width: 85%;
+  height: 85%;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  animation: spin 3s reverse linear infinite;
   border-width: 2px;
 }
 
@@ -302,7 +332,10 @@
   text-transform: uppercase;
 }
 
-.holo-separator { color: var(--border-subtle); margin: 0 0.25rem; }
+.holo-separator {
+  color: var(--border-subtle);
+  margin: 0 0.25rem;
+}
 
 .holo-role {
   color: var(--accent-tertiary);
@@ -319,7 +352,7 @@
 
 .transmission-text {
   color: #00ff9d;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   white-space: nowrap;
   display: block;
   text-shadow: 0 0 5px rgba(0, 255, 157, 0.4);
@@ -327,9 +360,15 @@
 }
 
 @keyframes crt-flicker {
-  0% { opacity: 0.98; }
-  50% { opacity: 1; }
-  100% { opacity: 0.99; }
+  0% {
+    opacity: 0.98;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.99;
+  }
 }
 
 .holo-controls {
@@ -358,10 +397,13 @@
 }
 
 .holo-btn::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0; left: -100%; width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: 0.5s;
 }
 
@@ -388,13 +430,30 @@
   animation: signalPulse 1.5s infinite ease-in-out;
 }
 
-.b1 { height: 40%; animation-delay: 0s; }
-.b2 { height: 70%; animation-delay: 0.2s; }
-.b3 { height: 100%; animation-delay: 0.4s; }
+.b1 {
+  height: 40%;
+  animation-delay: 0s;
+}
+.b2 {
+  height: 70%;
+  animation-delay: 0.2s;
+}
+.b3 {
+  height: 100%;
+  animation-delay: 0.4s;
+}
 
 @keyframes signalPulse {
-  0%, 100% { opacity: 0.3; transform: scaleY(1); }
-  50% { opacity: 1; box-shadow: 0 0 5px var(--accent-secondary); transform: scaleY(1.2); }
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 5px var(--accent-secondary);
+    transform: scaleY(1.2);
+  }
 }
 
 @media (min-width: 768px) {
@@ -669,7 +728,9 @@
 
 .log-entry.fade-out {
   opacity: 0;
+
   transform: translateX(50px) scale(0.9);
+
   transition: all 0.8s ease-in;
 }
 
@@ -678,9 +739,88 @@
     opacity: 0;
     transform: translateX(100px) scale(0.8);
   }
+
   to {
     opacity: 1;
     transform: translateX(0) scale(1);
+  }
+}
+
+.signature-section {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 3rem;
+
+  margin-top: 4rem;
+
+  margin-bottom: 2rem;
+}
+
+.signature-visual {
+  flex: 1;
+
+  max-width: 40%;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+.signature-visual img {
+  width: 100%;
+
+  height: auto;
+
+  max-width: 300px;
+
+  border-radius: var(--radius-md);
+
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+}
+
+.signature-quote {
+  flex: 1.5;
+
+  border-left: 4px solid var(--accent-tertiary);
+
+  padding-left: 2rem;
+
+  color: var(--text-primary);
+
+  font-size: 1.25rem;
+
+  font-family: var(--font-heading);
+
+  font-style: italic;
+
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .signature-section {
+    flex-direction: column;
+
+    gap: 2rem;
+
+    text-align: center;
+  }
+
+  .signature-visual {
+    max-width: 80%;
+  }
+
+  .signature-quote {
+    border-left: none;
+
+    padding-left: 0;
+
+    border-top: 4px solid var(--accent-tertiary);
+
+    padding-top: 1.5rem;
   }
 }
 
@@ -706,7 +846,7 @@
 /* Tech Graph */
 .tech-graph {
   position: relative;
-  max-width: 850px;
+  max-width: 100%;
   margin: 1rem 0 3rem;
   font-family: var(--font-mono);
   line-height: 1.2;
@@ -716,7 +856,7 @@
 
 .terminal-prompt {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   margin-bottom: 0.75rem;
   opacity: 0.8;
@@ -730,7 +870,7 @@
 
 .graph-msg .ref {
   color: #facc15;
-  font-weight: 700;
+  font-weight: 500;
   margin: 0 0.5rem;
 }
 
@@ -746,7 +886,7 @@
 .graph-commit {
   display: grid;
   grid-template-columns: 60px 1fr;
-  gap: 0.5rem;
+  gap: 0.8rem;
   min-height: 24px;
   position: relative;
   align-items: center;
@@ -760,23 +900,28 @@
 }
 
 .graph-lane::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0; bottom: 0; left: 25px;
+  top: 0;
+  bottom: 0;
+  left: 25px;
   width: 2px;
   background: rgba(255, 255, 255, 0.1);
 }
 
 .graph-commit.on-branch .graph-lane::after {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0; bottom: 0; left: 45px;
+  top: 0;
+  bottom: 0;
+  left: 45px;
   width: 2px;
   background: var(--accent-secondary);
   opacity: 0.2;
 }
 
-.branch-fork, .branch-merge {
+.branch-fork,
+.branch-merge {
   position: absolute;
   width: 20px;
   height: 24px;
@@ -785,14 +930,16 @@
 }
 
 .branch-fork {
-  top: 0; left: 25px;
+  top: 0;
+  left: 25px;
   border-bottom: 2px solid rgba(129, 140, 248, 0.3);
   border-bottom-left-radius: 10px;
   transform: skewX(-45deg);
 }
 
 .branch-merge {
-  bottom: 0; left: 25px;
+  bottom: 0;
+  left: 25px;
   border-top: 2px solid rgba(129, 140, 248, 0.3);
   border-top-left-radius: 10px;
   transform: skewX(45deg);
@@ -811,16 +958,35 @@
   box-shadow: 0 0 8px var(--accent-glow);
 }
 
-.graph-dot.l0 { left: 25px; }
-.graph-dot.l1 { left: 45px; border-color: var(--accent-secondary); }
+.graph-dot.l0 {
+  left: 25px;
+}
+.graph-dot.l1 {
+  left: 45px;
+  border-color: var(--accent-secondary);
+}
 
-.graph-commit.deploy .graph-dot { border-color: #38bdf8; }
-.graph-commit.hotfix .graph-dot { border-color: #ff4757; }
-.graph-commit.feat .graph-dot { border-color: #00ff9d; }
-.graph-commit.merge .graph-dot { border-color: #a855f7; }
-.graph-commit.perf .graph-dot { border-color: #fbbf24; }
-.graph-commit.fix .graph-dot { border-color: #f43f5e; }
-.graph-commit.chore .graph-dot { border-color: #94a3b8; }
+.graph-commit.deploy .graph-dot {
+  border-color: #38bdf8;
+}
+.graph-commit.hotfix .graph-dot {
+  border-color: #ff4757;
+}
+.graph-commit.feat .graph-dot {
+  border-color: #00ff9d;
+}
+.graph-commit.merge .graph-dot {
+  border-color: #a855f7;
+}
+.graph-commit.perf .graph-dot {
+  border-color: #fbbf24;
+}
+.graph-commit.fix .graph-dot {
+  border-color: #f43f5e;
+}
+.graph-commit.chore .graph-dot {
+  border-color: #94a3b8;
+}
 
 .graph-content {
   white-space: nowrap;
@@ -830,11 +996,10 @@
 }
 
 .graph-msg {
-  font-size: 0.85rem;
+  font-size: 1.1rem;
   color: var(--text-primary);
   letter-spacing: -0.01em;
 }
-
 .graph-msg .type {
   font-weight: 800;
   margin-right: 0.5rem;

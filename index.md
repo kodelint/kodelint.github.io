@@ -317,10 +317,11 @@ layout: page
 
 <p>Thanks for stopping by. If you see me in a data center, a Slack thread, or wrestling with a borrow checker, say hi!</p>
 
-<div class="about-hero-visual" style="display: flex; align-items: center; justify-content: center; margin-top: 4rem; margin-bottom: 2rem;">
-  <img src="/assets/uploads/developer.gif" alt="Coding GIF" style="max-width: 70%; height: auto; "/>
+<div class="signature-section">
+  <div class="signature-visual">
+    <img src="/assets/uploads/developer.gif" alt="Coding GIF"/>
+  </div>
+  <blockquote class="signature-quote">
+    "I turn <span class="tooltip-container"><span style="color: #6F4E37;">Coffee</span><span class="tooltip-box"><b>Black Gold [liquid]</b>The only reason this code compiles.</span></span> into <span class="tooltip-container">Legacy Code<span class="tooltip-box"><b>Job Security [concept]</b>Code so complex even I won't understand it in 6 months.</span></span>, and <span class="tooltip-container"><span style="color: #ed1c24;">Panic</span><span class="tooltip-box"><b>Adrenaline [hormone]</b>My primary state of being during deployments.</span></span> into <span class="tooltip-container">Features<span class="tooltip-box"><b>Bugs [software]</b>Undocumented features waiting to be discovered by users.</span></span>. My architecture diagrams are mostly just boxes I hope no one asks questions about." <span style="color: var(--accent-primary);"> — That's Me!! </span>
+  </blockquote>
 </div>
-
-<blockquote style="margin-top: 2rem; border-left: 4px solid var(--accent-tertiary); padding-left: 2rem; color: var(--text-primary); font-size: 1.5rem; font-family: var(--font-heading); font-style: italic;">
-  "I turn <span class="tooltip-container"><span style="color: #6F4E37;">Coffee</span><span class="tooltip-box"><b>Black Gold [liquid]</b>Turning sleep deprivation into somewhat functional code since my first 'Hello World'.</span></span> and <span class="tooltip-container"><span style="color: #ed1c24;">Red Bull</span><span class="tooltip-box"><b>Liquid Overclock [chemical]</b>Because sometimes the hardware isn't the only thing that needs to run at 5GHz to meet a deadline.</span></span> into code, and existential <span class="tooltip-container"><span style="color: #ffa726;">anxiety</span><span class="tooltip-box"><b>The Engine [emotion]</b>The primary fuel source for 2 AM refactors and checking 'git status' for the 50th time.</span></span> into <span class="tooltip-container">distributed architecture<span class="tooltip-box"><b>Architecture [man]</b>Drawing boxes and arrows until someone pays for them.</span></span>." <span style="color: var(--accent-primary);"> — That's Me!! </span>
-</blockquote>
