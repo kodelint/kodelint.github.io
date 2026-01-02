@@ -71,7 +71,7 @@ nav a.active {
 .profile-header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 3rem;
   width: 100%;
   text-align: left;
@@ -119,6 +119,8 @@ header .profile-container {
   height: 320px;
   margin: 0 auto;
   flex-shrink: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
 }
 
 header img.profile {
@@ -131,6 +133,7 @@ header img.profile {
   box-shadow: var(--glow-shadow);
   position: relative;
   z-index: 2;
+  transform: scale(1.2);
 }
 
 header .profile-container::before {
