@@ -134,7 +134,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">f4dff42</span>
-      <span class="graph-msg"><span class="type fix">fix</span> eliminating <strong>90% of cluster sprawl</strong> via unified multi-cloud <strong>Kubernetes</strong></span>
+      <span class="graph-msg"><span class="type fix">fix</span> eliminating <strong>90% of cluster sprawl</strong> via unified multi-cloud <strong>K8S</strong></span>
     </div>
   </div>
 
@@ -197,9 +197,7 @@ layout: page
   <div class="graph-stats">
     15 commits, 2 decades, 1 executive ego.
   </div>
-
 </div>
-
 <div class="hero-section">
   <div class="content-card info-card">
     <h3>🧠 Why This Blog Exists</h3>

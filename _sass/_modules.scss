@@ -572,7 +572,7 @@
   font-family: var(--font-mono);
   line-height: 1.2;
   overflow-x: auto;
-  padding-bottom: 1rem; /* Space for scrollbar if needed */
+  padding-bottom: 0.5rem;
 }
 
 .terminal-prompt {
@@ -600,7 +600,6 @@
   color: var(--text-tertiary);
   margin-top: 1.5rem;
   padding-top: 0.75rem;
-  border-top: 1px dashed var(--border-subtle);
   font-style: italic;
   white-space: nowrap;
 }
