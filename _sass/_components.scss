@@ -25,7 +25,7 @@ nav .nav-container {
 nav a {
   color: var(--text-secondary);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   padding: 0.4rem 0.8rem;
   border-radius: 100px;
   position: relative;
@@ -67,6 +67,31 @@ nav a.active {
 }
 
 /* Header Visuals */
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  width: 100%;
+  text-align: left;
+}
+
+.profile-header .owner-name {
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .profile-header {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .profile-header .owner-name {
+    text-align: center;
+  }
+}
+
 header .profile-container {
   position: relative;
   width: 320px;

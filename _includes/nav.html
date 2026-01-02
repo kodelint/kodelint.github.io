@@ -30,21 +30,23 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-text">
-        <h1 class="owner-name">
-          <span class="greeting">Hello there,</span>
-          <span class="name-line">I'm <span class="name">{{site.data.blogger.name}}</span></span>
-          <br />
-        </h1>
-        <div class="about-visual">
-          <div class="profile-container">
-            <div class="profile-hud">
-              <div class="hud-stat">CPU: <span>Satyajit v20.25</span></div>
-              <div class="hud-stat">ARCH: <span>Distributed</span></div>
-              <div class="hud-stat">LOAD: <span>99.9%</span></div>
-              <div class="hud-stat">RUNTIME: <span>GO / RUST</span></div>
-              <div class="hud-stat" style="margin-top: 5px; font-size: 0.5rem; opacity: 0.5;">STATUS: OPTIMIZED</div>
+        <div class="profile-header">
+          <h1 class="owner-name">
+            <span class="greeting">Hello there,</span>
+            <span class="name-line">I'm <span class="name">{{site.data.blogger.name}}</span></span>
+            <br />
+          </h1>
+          <div class="about-visual">
+            <div class="profile-container">
+              <div class="profile-hud">
+                <div class="hud-stat">CPU: <span>Satyajit v20.25</span></div>
+                <div class="hud-stat">ARCH: <span>Distributed</span></div>
+                <div class="hud-stat">LOAD: <span>99.9%</span></div>
+                <div class="hud-stat">RUNTIME: <span>GO / RUST</span></div>
+                <div class="hud-stat" style="margin-top: 5px; font-size: 0.5rem; opacity: 0.5;">STATUS: OPTIMIZED</div>
+              </div>
+              <img class="profile" src="{{site.data.blogger.image}}" alt="{{site.data.blogger.name}}" />
             </div>
-            <img class="profile" src="{{site.data.blogger.image}}" alt="{{site.data.blogger.name}}" />
           </div>
         </div>
         <p class="desc" style="margin-top: 2rem;">{{site.data.blogger.description}}</p>
