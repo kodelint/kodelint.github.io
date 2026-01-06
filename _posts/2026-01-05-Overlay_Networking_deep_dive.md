@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Matryoshka Dolls of Modern Networking: A Technical Evolution
+title: "The Matryoshka Dolls of Modern Networking: A Technical Evolution"
 author: Satyajit Roy
 date: 2026-01-05
 image: "/assets/uploads/overall_overlay.png"
