@@ -9,7 +9,7 @@ date: 2022-05-05
 categories: [Rust, Programming]
 tags: [Rustt, Programming, Basics, Concepts]
 image: '/assets/uploads/01-rust-ownership.png'
-redirect_to: 'https://blog.devgenius.io/rust-basics-and-Concepts-step-by-step-2nd-iteration-5ba45c44f986'
+cross_post_url: 'https://blog.devgenius.io/rust-basics-and-Concepts-step-by-step-2nd-iteration-5ba45c44f986'
 toc: true
 categories: [Rust, Programming]
 tags: [Rust, Basics, Concepts]

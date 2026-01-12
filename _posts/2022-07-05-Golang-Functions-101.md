@@ -9,7 +9,7 @@ date: 2022-05-05
 categories: [Golang, Programming]
 tags: [Golang, Programming, Functions]
 image: '/assets/uploads/01-golang-function.png'
-redirect_to: 'https://towardsdev.com/golang-functions-101-2efeea94d57b'
+cross_post_url: 'https://towardsdev.com/golang-functions-101-2efeea94d57b'
 toc: true
 categories: [Golang, Programming]
 tags: [Golang, Basics, Concepts]
