@@ -1,9 +1,14 @@
 /* Syntax Highlighting Colors (Custom Dark) */
 .highlight .hll { background-color: #333333 }
-.highlight { color: #c9d1d9; background-color: #0d1117; }
-.highlight .c { color: #8b949e; font-style: italic; } /* Comment */
-.highlight .k { color: #ff7b72; } /* Keyword */
+.highlight { color: #e5e7eb; background-color: transparent; }
+.highlight .c { color: #6b7280; font-style: italic; } /* Comment */
+.highlight .k { color: #ff7b72; font-weight: bold; } /* Keyword */
 .highlight .s { color: #a5d6ff; } /* String */
 .highlight .na { color: #79c0ff; } /* Name Attribute */
 .highlight .nt { color: #7ee787; } /* Name Tag */
-/* ... Add more specific highlights if needed */
+.highlight .nb { color: #c084fc; } /* Name Builtin (Purple) */
+.highlight .nf { color: #38bdf8; } /* Name Function (Cyan) */
+.highlight .no { color: #facc15; } /* Name Constant (Yellow) */
+.highlight .nn { color: #9ca3af; } /* Name Namespace */
+.highlight .mi { color: #f472b6; } /* Literal Number */
+
