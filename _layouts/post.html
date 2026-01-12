@@ -12,6 +12,16 @@
     </div>
     
     <div class="content-body">
+      {% if page.cross_post_url %}
+      <div class="cross-post-notice" style="background: rgba(56, 189, 248, 0.05); border: 1px solid var(--accent-primary); padding: 2rem; border-radius: var(--radius-md); margin-bottom: 2rem; text-align: center;">
+        <p style="margin-bottom: 1.5rem;">This article was originally published on 
+          <strong>
+            {% if page.cross_post_url contains 'medium.com' %}Medium{% elsif page.cross_post_url contains 'dev.to' %}Dev.to{% elsif page.cross_post_url contains 'hashnode.com' %}Hashnode{% else %}an external platform{% endif %}
+          </strong>.
+        </p>
+        <a href="{{ page.cross_post_url }}" class="button" style="display: inline-block; background: var(--accent-gradient); color: white; padding: 0.75rem 1.5rem; border-radius: var(--radius-sm); font-weight: 600; text-decoration: none; border: none;">Read Full Article <i class="fas fa-external-link-alt" style="margin-left: 0.5rem; font-size: 0.8rem;"></i></a>
+      </div>
+      {% endif %}
       {{content}}
     </div>
   </main>
