@@ -7,7 +7,8 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
 
 <section class="p-hero">
   <div class="p-container">
-    <h1 class="p-headline">{{ site.data.portfolio.home.headline }}</h1>
+    <h1 class="p-name">{{ site.data.portfolio.home.name }}</h1>
+    <p class="p-role">{{ site.data.portfolio.home.role }}</p>
     <h2 class="p-subhead">{{ site.data.portfolio.home.subhead }}</h2>
     
     <div class="p-cta-group">
@@ -23,6 +24,7 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
       </div>
       {% endfor %}
     </div>
+
   </div>
 </section>
 
@@ -51,6 +53,30 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
     
     <div style="text-align: center; margin-top: 3rem;">
       <a href="/portfolio/case-studies/" class="p-btn p-btn-primary">View Full Case Studies</a>
+    </div>
+  </div>
+</section>
+
+<section class="p-section">
+  <div class="p-container">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem;">
+      <h3>Open Source Projects</h3>
+      <a href="/portfolio/oss/" style="font-size: 0.9rem; font-weight: 500;">View All &rarr;</a>
+    </div>
+    
+    <div class="p-grid-2">
+      {% for project in site.data.portfolio.oss limit:4 %}
+      <div class="p-card">
+        <h4 class="p-card-title">{{ project.title }}</h4>
+        <p style="margin-bottom: 1rem; color: var(--color-text); font-size: 0.95rem;">{{ project.problem }}</p>
+        <p style="font-weight: 600; color: var(--color-accent); margin-bottom: 1.5rem;">Impact: {{ project.impact }}</p>
+        <a href="{{ project.repo }}" target="_blank" class="p-btn p-btn-outline" style="font-size: 0.8rem; padding: 0.4rem 1rem;">View Repo ↗</a>
+      </div>
+      {% endfor %}
+    </div>
+    
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="/portfolio/oss/" class="p-btn p-btn-primary">View All Open Source</a>
     </div>
   </div>
 </section>

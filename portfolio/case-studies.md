@@ -6,72 +6,78 @@ description: Deep dives into SRE transformation, hyperscale ML infra, and cost o
 ---
 
 <div class="p-container">
-  <div class="p-section">
+  <div class="p-section" style="border-bottom: none;">
     <h1>Engineering Case Studies</h1>
-    <p class="p-subhead">Deep dives into solving complex scaling, reliability, and organizational challenges at enterprise scale.</p>
+    <p class="p-subhead">Strategic technical initiatives delivered at enterprise scale.</p>
   </div>
 
-  {% for case in site.data.portfolio.case_studies %}
-  <div id="{{ case.id }}" class="cs-detail p-section">
-    <div class="cs-header">
-      <h2>{{ case.title }}</h2>
-      <p class="cs-context">{{ case.context }}</p>
-    </div>
+  <div style="display: flex; flex-direction: column; gap: 4rem; padding-bottom: 5rem;">
+    {% for case in site.data.portfolio.case_studies %}
+    <div id="{{ case.id }}" class="cs-detail">
+      <div class="cs-header">
+        <span class="cs-badge">Case Study</span>
+        <h2 style="font-size: 2.2rem;">{{ case.title }}</h2>
+        <p class="cs-context" style="font-style: normal; font-weight: 500;">{{ case.context }}</p>
+      </div>
 
-    <div class="cs-block">
-      <span class="cs-label">Role & Scope</span>
-      <p>{{ case.role }}</p>
-    </div>
+      <div class="p-grid-2">
+        <div class="cs-block">
+          <span class="cs-label">The Challenge</span>
+          <p>{{ case.problem }}</p>
+        </div>
+        <div class="cs-block">
+          <span class="cs-label">Constraints</span>
+          <p>{{ case.constraints }}</p>
+        </div>
+      </div>
 
-    <div class="p-grid-2">
+      <div class="cs-block cs-block-accent">
+        <span class="cs-label" style="color: var(--color-accent);">Strategic Solution</span>
+        <ul class="cs-list">
+          {% for step in case.solution %}
+          <li style="font-weight: 500;">{{ step }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
       <div class="cs-block">
-        <span class="cs-label">The Challenge</span>
-        <p>{{ case.problem }}</p>
+        <span class="cs-label">Measurable Outcomes</span>
+        <div class="cs-impact-grid">
+          {% for result in case.impact %}
+          <div class="cs-impact-card">
+            <span>{{ result }}</span>
+          </div>
+          {% endfor %}
+        </div>
       </div>
-      <div class="cs-block">
-        <span class="cs-label">Constraints</span>
-        <p>{{ case.constraints }}</p>
+
+      <div class="p-grid-2">
+        <div class="cs-block">
+          <span class="cs-label">Role & Scope</span>
+          <p style="font-size: 0.95rem;">{{ case.role }}</p>
+        </div>
+        <div class="cs-block">
+          <span class="cs-label">Lessons Learned</span>
+          <ul class="cs-list" style="font-size: 0.95rem; color: var(--color-text);">
+            {% for lesson in case.lessons %}
+            <li>{{ lesson }}</li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
-    </div>
-
-    <div class="cs-block">
-      <span class="cs-label">Solution Architecture</span>
-      <ul class="cs-list">
-        {% for step in case.solution %}
-        <li>{{ step }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-
-    <div class="cs-block">
-      <span class="cs-label" style="color: var(--color-accent);">Measurable Impact</span>
-      <div class="p-grid-3">
-        {% for result in case.impact %}
-        <div style="background: var(--color-bg-alt); padding: 1rem; border-radius: 4px; font-weight: 600;">{{ result }}</div>
-        {% endfor %}
+      
+      {% if case.artifacts %}
+      <div class="cs-block" style="margin-bottom: 0; padding-top: 2rem; border-top: 1px dashed var(--color-border);">
+        <span class="cs-label">Technical Artifacts</span>
+        <div style="display: flex; gap: 1rem;">
+          {% for art in case.artifacts %}
+          <a href="{{ art.link }}" class="p-btn p-btn-outline" style="font-size: 0.8rem; background: white;">{{ art.text }} ↗</a>
+          {% endfor %}
+        </div>
       </div>
-    </div>
+      {% endif %}
 
-    <div class="cs-block">
-      <span class="cs-label">Key Lessons</span>
-      <ul class="cs-list">
-        {% for lesson in case.lessons %}
-        <li style="font-style: italic;">{{ lesson }}</li>
-        {% endfor %}
-      </ul>
     </div>
-    
-    {% if case.artifacts %}
-    <div class="cs-block">
-      <span class="cs-label">Artifacts</span>
-      <div style="display: flex; gap: 1rem;">
-        {% for art in case.artifacts %}
-        <a href="{{ art.link }}" class="p-btn p-btn-outline" style="font-size: 0.8rem;">{{ art.text }}</a>
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
-
+    {% endfor %}
   </div>
-  {% endfor %}
 </div>

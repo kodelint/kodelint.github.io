@@ -6,31 +6,36 @@ description: Building high-performance engineering cultures.
 ---
 
 <div class="p-container">
-  <div class="p-section">
+  <div class="p-section" style="border-bottom: none; padding-bottom: 2rem;">
     <h1>Leadership Philosophy</h1>
     <p class="p-subhead">Building high-performance engineering cultures through autonomy, reliability, and growth.</p>
+  </div>
+
+  <div class="lead-mission-card">
+    <div style="max-width: 700px;">
+      <span class="cs-label" style="color: #38bdf8; margin-bottom: 1.5rem;">Core Mission</span>
+      <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Removing technical and organizational friction to clear the path for value delivery.</h3>
+      <p style="font-size: 1.15rem; line-height: 1.8; opacity: 0.9;">{{ site.data.portfolio.leadership.philosophy.mission }}</p>
+    </div>
   </div>
 
   <div class="p-section">
     <div class="p-grid-2">
       <div class="lead-philosophy">
-        <h3>Mission</h3>
-        <p>{{ site.data.portfolio.leadership.philosophy.mission }}</p>
-        
-        <h3>Hiring & Growth</h3>
+        <h3 style="border-left: 4px solid var(--color-accent); padding-left: 1rem;">Hiring & Growth</h3>
         <p>{{ site.data.portfolio.leadership.philosophy.hiring }}</p>
         
-        <h3>Velocity vs Reliability</h3>
+        <h3 style="border-left: 4px solid var(--color-accent); padding-left: 1rem;">Velocity vs Reliability</h3>
         <p>{{ site.data.portfolio.leadership.philosophy.balance }}</p>
       </div>
       
       <div>
-        <div style="background: white; border: 1px solid var(--color-border); padding: 2rem; border-radius: 6px;">
-          <h3 style="margin-bottom: 1.5rem;">Org Health Snapshots</h3>
+        <div style="background: #f8fafc; border: 1px solid var(--color-border); padding: 2.5rem; border-radius: 12px;">
+          <h3 style="margin-bottom: 2rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em;">Org Health Snapshots</h3>
           {% for metric in site.data.portfolio.leadership.metrics %}
           <div class="lead-stat-card">
-            <div class="lead-stat-label">{{ metric.label }}</div>
             <div class="lead-stat-val">{{ metric.value }}</div>
+            <div class="lead-stat-label">{{ metric.label }}</div>
           </div>
           {% endfor %}
         </div>
@@ -38,13 +43,13 @@ description: Building high-performance engineering cultures.
     </div>
   </div>
 
-  <div class="p-section">
-    <h3>Strategic Programs</h3>
+  <div class="p-section" style="border-bottom: none;">
+    <h3 style="margin-bottom: 2.5rem;">Strategic Programs & Frameworks</h3>
     <div class="p-grid-3">
       {% for prog in site.data.portfolio.leadership.programs %}
-      <div class="p-card">
-        <h4 class="p-card-title">{{ prog.title }}</h4>
-        <p style="font-size: 0.95rem;">{{ prog.desc }}</p>
+      <div class="p-card lead-prog-card">
+        <h4 class="p-card-title" style="color: var(--color-accent);">{{ prog.title }}</h4>
+        <p style="font-size: 0.95rem; line-height: 1.7;">{{ prog.desc }}</p>
       </div>
       {% endfor %}
     </div>

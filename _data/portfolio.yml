@@ -1,7 +1,8 @@
 # Portfolio Content Data
 
 home:
-  headline: "Satyajit Roy — Engineering Executive and Leader"
+  name: "Satyajit Roy"
+  role: "Engineering Executive and Leader"
   subhead: "I build reliable, cost-efficient cloud platforms and scale engineering teams to deliver mission-critical AI and SaaS systems."
   metrics:
     - title: "Experience"
