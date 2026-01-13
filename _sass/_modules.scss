@@ -918,55 +918,53 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 45px;
+  left: 47px;
   width: 2px;
   background: var(--accent-secondary);
-  opacity: 0.2;
+  opacity: 0.3;
 }
 
 .branch-fork,
 .branch-merge {
   position: absolute;
-  width: 20px;
-  height: 24px;
+  width: 22px;
+  height: 50%;
   border-left: 2px solid rgba(129, 140, 248, 0.3);
   pointer-events: none;
 }
 
 .branch-fork {
-  top: 0;
-  left: 25px;
-  border-bottom: 2px solid rgba(129, 140, 248, 0.3);
-  border-bottom-left-radius: 10px;
-  transform: skewX(-45deg);
-}
-
-.branch-merge {
   bottom: 0;
   left: 25px;
   border-top: 2px solid rgba(129, 140, 248, 0.3);
-  border-top-left-radius: 10px;
-  transform: skewX(45deg);
+  border-top-left-radius: 12px;
+}
+
+.branch-merge {
+  top: 0;
+  left: 25px;
+  border-bottom: 2px solid rgba(129, 140, 248, 0.3);
+  border-bottom-left-radius: 12px;
 }
 
 .graph-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background: var(--bg-depth);
   border: 2px solid var(--accent-primary);
   border-radius: 50%;
   position: absolute;
-  z-index: 5;
+  z-index: 10;
   top: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 8px var(--accent-glow);
+  box-shadow: 0 0 10px var(--accent-glow);
 }
 
 .graph-dot.l0 {
   left: 25px;
 }
 .graph-dot.l1 {
-  left: 45px;
+  left: 47px;
   border-color: var(--accent-secondary);
 }
 
