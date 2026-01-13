@@ -7,6 +7,7 @@ case_studies:
     role: "Architect & Technical Leader. Led a senior platform team, owning infrastructure strategy and hybrid cloud architecture."
     problem: "Existing infrastructure couldn't scale efficiently to meet the exploding demand for AI/ML workloads, leading to high costs and resource contention."
     constraints: "Strict latency requirements (<5ms P95), data sovereignty compliance, and the need to support legacy workloads during migration."
+    diagram_image: "/assets/uploads/01-rust-struct-generics.jpeg" 
     solution:
       - "Designed a hybrid GPU/CPU architecture spanning AWS, Azure, and on-prem."
       - "Optimized HPC clusters with RDMA InfiniBand and GPU-aware scheduling (Volcano)."
@@ -15,6 +16,14 @@ case_studies:
       - "Supported 30B+ daily API requests with >99.98% availability."
       - "Increased GPU utilization by 38% through advanced scheduling."
       - "Lowered cloud storage costs by 65% via lifecycle tiering."
+    lessons:
+      - "For HPC workloads, commodity Kubernetes schedulers often fall short; GPU-aware scheduling (like Volcano) is essential for utilization."
+      - "Hybrid cloud adds complexity but is necessary for cost-effective scaling of bursty ML training workloads."
+    artifacts:
+      - text: "Architecture Diagram"
+        link: "#"
+      - text: "Public Tech Talk"
+        link: "#"
     tags: ["AI/ML", "Hybrid Cloud", "HPC", "Kubernetes"]
 
   - id: f5-sre-transformation
@@ -23,6 +32,7 @@ case_studies:
     role: "Sr. Director of Product Engineering & Head of SRE. Managed 55+ engineers with full P&L accountability."
     problem: "Rapid growth led to operational silos, inconsistent incident response, and high on-call burnout (attrition risk)."
     constraints: "24/7 global operation, strict regulated industry compliance (FedRAMP, PCI-DSS)."
+    diagram_image: "/assets/uploads/01-terraform-tips.png"
     solution:
       - "Rebuilt the global SRE operating model into a follow-the-sun structure."
       - "Implemented policy-as-code and zero-trust architecture for compliance."
@@ -31,6 +41,12 @@ case_studies:
       - "Reduced Mean Time To Resolve (MTTR) by 73%."
       - "Lowered team attrition by 10% by reducing burnout."
       - "Absorbed 400% growth in attack traffic while supporting 200% customer expansion."
+    lessons:
+      - "Culture eats tools for breakfast; fixing SRE starts with psychological safety, not just better monitoring."
+      - "Compliance-as-code is the only way to survive FedRAMP/SOC2 velocity requirements."
+    artifacts:
+      - text: "SRE Handbook (Public)"
+        link: "#"
     tags: ["SRE", "Leadership", "Observability", "Compliance"]
 
   - id: arkose-finops
@@ -39,6 +55,7 @@ case_studies:
     role: "Director of Engineering & SRE. Owner of platform strategy, reliability, and cost efficiency."
     problem: "Rapid enterprise growth drove cloud costs unsustainable high while technical debt slowed feature velocity."
     constraints: "High-volume attack traffic (DDoS), real-time latency SLAs, and limited engineering headcount."
+    diagram_image: "/assets/uploads/01-optimize.png"
     solution:
       - "Amplified platform modernization, re-architecting to EKS microservices with eBPF service mesh."
       - "Instituted FinOps governance and tooling (Coralogix)."
@@ -46,7 +63,13 @@ case_studies:
     impact:
       - "Delivered 22% reduction in overall cloud spend."
       - "Enabled platform to sustain 7x transaction growth."
-      - " maintained 99.9% SLA even under heavy attack traffic."
+      - "maintained 99.9% SLA even under heavy attack traffic."
+    lessons:
+      - "FinOps is an engineering discipline, not a finance one. It requires architectural awareness."
+      - "eBPF is a game-changer for observability without sidecar overhead."
+    artifacts:
+      - text: "FinOps Strategy Deck"
+        link: "#"
     tags: ["FinOps", "Modernization", "Kubernetes", "eBPF"]
 
 leadership:
@@ -61,6 +84,13 @@ leadership:
       value: "Maintained <10% attrition in high-pressure environments"
     - label: "Promotion"
       value: "Promoted 30%+ of staff into senior roles"
+  programs:
+    - title: "Tour of Duty Rotation"
+      desc: "Implemented rotation programs allowing engineers to embed with different teams (e.g., Ops embedding with Product, Dev embedding with SRE) to foster empathy and cross-pollinate skills."
+    - title: "Incident Command Academy"
+      desc: "Created an internal certification program for Incident Commanders, ensuring calm, structured responses to high-severity outages."
+    - title: "Architecture Review Board (ARB)"
+      desc: "Established a lightweight ARB to ensure technical designs align with long-term reliability and cost goals without slowing down velocity."
 
 oss_projects:
   - title: "Setup DevBox"

@@ -2,6 +2,7 @@
 layout: portfolio_v4
 title: Contact
 permalink: /portfolio/contact/
+description: Get in touch regarding engineering leadership roles, speaking opportunities, or advisory work.
 ---
 
 <div class="container section-spacer">
@@ -13,16 +14,21 @@ permalink: /portfolio/contact/
 
     <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; text-align: left;">
       <div class="cs-card">
-        <h3 style="margin-bottom: 1rem;">Direct Contact</h3>
-        <p style="margin-bottom: 1rem;">
-          <strong>Email:</strong> <a href="mailto:talk2sroy.ch@gmail.com" style="color: var(--v4-accent);">talk2sroy.ch@gmail.com</a>
-        </p>
-        <p style="margin-bottom: 1rem;">
-          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/satyajitroychoudhury/" style="color: var(--v4-accent);">linkedin.com/in/satyajitroychoudhury/</a>
-        </p>
-        <p>
-          <strong>GitHub:</strong> <a href="https://github.com/kodelint" style="color: var(--v4-accent);">github.com/kodelint</a>
-        </p>
+        <h3 style="margin-bottom: 1.5rem;">Connect Socially</h3>
+        <div style="display: flex; gap: 2rem; justify-content: center; font-size: 2rem;">
+          <a href="https://www.linkedin.com/in/satyajitroychoudhury/" target="_blank" style="color: #0077b5; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/kodelint" target="_blank" style="color: #333; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:talk2sroy.ch@gmail.com" style="color: #ea4335; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+        <div style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem;">
+          <p><strong>Email:</strong> talk2sroy.ch@gmail.com</p>
+        </div>
       </div>
 
       <div class="cs-card">
@@ -31,9 +37,9 @@ permalink: /portfolio/contact/
           I am currently open to new opportunities in:
         </p>
         <ul style="padding-left: 1.5rem; margin-bottom: 0;">
-          <li>Director / VP of Engineering roles</li>
-          <li>Head of Platform / SRE / Infrastructure</li>
-          <li>Technical Advisory for AI/ML Startups</li>
+          <li style="margin-bottom: 0.5rem;">Director / VP of Engineering roles</li>
+          <li style="margin-bottom: 0.5rem;">Head of Platform / SRE / Infrastructure</li>
+          <li style="margin-bottom: 0.5rem;">Technical Advisory for AI/ML Startups</li>
         </ul>
       </div>
     </div>
