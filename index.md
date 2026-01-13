@@ -3,73 +3,104 @@ title: Home
 layout: page
 ---
 
-<div class="hero-container">
-  <div class="hero-profile">
-    <div class="profile-image-wrapper">
-      <img src="/assets/png/pic2.png" alt="Satyajit Roy" class="profile-image">
+<div class="intro-grid">
+  <div class="intro-content">
+    <div class="status-badge">
+      <span class="status-dot"></span> System Status: <strong>Caffeinated & Dangerous</strong>
     </div>
-  </div>
-  
-  <div class="hero-content">
-    <h1 class="hero-title">Satyajit Roy</h1>
-    <h2 class="hero-subtitle">Director of Engineering & Systems Architect</h2>
-    <p class="hero-bio">
-      Leading high-performance teams to build resilient, distributed systems. 
-      Bridging the gap between complex infrastructure and business value with 20+ years of experience in SRE, DevOps, and Platform Engineering.
-    </p>
     
-    <div class="hero-actions">
-      <a href="/blogs" class="button primary">Read the Blog</a>
-      <a href="/projects" class="button secondary">View Projects</a>
-    </div>
-  </div>
-</div>
+    <h1 class="hero-title">I'm Satyajit Roy. <br> <span class="highlight">I break things professionally.</span></h1>
+    
+    <p class="hero-bio">
+      Director of Engineering by day, distributed systems apologist by night. 
+      I have 20+ years of experience in SRE and DevOps, which means I've seen every error code known to man and invented a few new ones.
+    </p>
 
-<div class="section-divider"></div>
-
-<div class="home-section">
-  <h3 class="section-title">Core Competencies</h3>
-  <div class="competencies-grid">
-    <div class="competency-card">
-      <div class="icon">☁️</div>
-      <h4>Cloud Architecture</h4>
-      <p>Designing scalable, cost-effective infrastructure on AWS & Azure.</p>
-    </div>
-    <div class="competency-card">
-      <div class="icon">⚙️</div>
-      <h4>Platform Engineering</h4>
-      <p>Building internal developer platforms (IDPs) that accelerate delivery.</p>
-    </div>
-    <div class="competency-card">
-      <div class="icon">🛡️</div>
-      <h4>SRE & Reliability</h4>
-      <p>Implementing observability, SLOs, and incident management protocols.</p>
-    </div>
-    <div class="competency-card">
-      <div class="icon">🤝</div>
-      <h4>Technical Leadership</h4>
-      <p>Mentoring engineers and aligning technical strategy with business goals.</p>
-    </div>
-  </div>
-</div>
-
-<div class="section-divider"></div>
-
-<div class="home-section">
-  <div class="section-header-flex">
-    <h3 class="section-title">Latest Insights</h3>
-    <a href="/blogs" class="text-link">View all posts →</a>
-  </div>
-  
-  <div class="latest-posts-grid">
-    {% for post in site.posts limit:3 %}
-    <div class="post-card-minimal">
-      <div class="post-meta">{{ post.date | date: "%B %d, %Y" }}</div>
-      <a href="{{ post.url }}" class="post-link">
-        <h4 class="post-title">{{ post.title }}</h4>
+    <div class="action-buttons">
+      <a href="/blogs" class="btn-retro">
+        Read the Logs <span class="btn-icon">→</span>
       </a>
-      <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+      <a href="/projects" class="btn-retro secondary">
+        See the Damage <span class="btn-icon">⚡</span>
+      </a>
     </div>
+  </div>
+
+  <div class="intro-visual">
+    <div class="profile-card-retro">
+      <div class="card-header-bar">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="header-title">sroy_v2.0.exe</span>
+      </div>
+      <div class="card-image-wrapper">
+        <img src="/assets/png/pic2.png" alt="Satyajit Roy" class="retro-profile-img">
+      </div>
+      <div class="card-stats">
+        <div class="stat-row">
+          <span class="stat-label">CLASS:</span> <span class="stat-val">Architect</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">STR:</span> <span class="stat-val">Infrastructure</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">WEAKNESS:</span> <span class="stat-val">DNS (It's always DNS)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="spacer-large"></div>
+
+<div class="section-retro">
+  <h2 class="section-header-retro">// THE TOOLKIT (A.K.A. "Why I Drink")</h2>
+  
+  <div class="tech-grid-retro">
+    <div class="tech-item">
+      <span class="tech-icon">🦀</span>
+      <h3>Rust</h3>
+      <p>Because I enjoy the compiler yelling at me for my own good.</p>
+    </div>
+    <div class="tech-item">
+      <span class="tech-icon">🐳</span>
+      <h3>Kubernetes</h3>
+      <p>Converting money into YAML configuration since 2015.</p>
+    </div>
+    <div class="tech-item">
+      <span class="tech-icon">🐹</span>
+      <h3>Golang</h3>
+      <p>Simple, fast, and I don't have to explain monads to anyone.</p>
+    </div>
+    <div class="tech-item">
+      <span class="tech-icon">☁️</span>
+      <h3>AWS/Azure</h3>
+      <p>Building castles in someone else's sky computer.</p>
+    </div>
+  </div>
+</div>
+
+<div class="spacer-large"></div>
+
+<div class="section-retro">
+  <div class="flex-between">
+    <h2 class="section-header-retro">// LATEST RANTS & REFLECTIONS</h2>
+    <a href="/blogs" class="retro-link">View Archive_</a>
+  </div>
+
+  <div class="latest-posts-retro">
+    {% for post in site.posts limit:3 %}
+    <a href="{{ post.url }}" class="post-row-retro">
+      <div class="post-date-retro">{{ post.date | date: "%Y-%m-%d" }}</div>
+      <div class="post-info-retro">
+        <h3 class="post-title-retro">{{ post.title }}</h3>
+        <span class="post-tag-retro">
+          {% if post.caffeine %}☕ {{ post.caffeine }} cups{% else %}☕ Normal{% endif %}
+        </span>
+      </div>
+      <div class="post-arrow">➜</div>
+    </a>
     {% endfor %}
   </div>
 </div>

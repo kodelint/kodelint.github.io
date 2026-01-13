@@ -1,18 +1,19 @@
-<!-- Progress Bar (Optional, keep if styled subtly) -->
-<div id="scroll-progress"></div>
-
-<!-- Navigation Bar -->
+<!-- Witty Retro Nav -->
 <nav>
   <div class="nav-container">
-    {% for i in site.data.nav.toc %}
-    {% assign current_url = page.url | replace: 'index.html', '' | replace: '.html', '' %}
-    {% assign nav_url = i.url | replace: 'index.html', '' | replace: '.html', '' %}
-    <a
-      href="{{site.url}}{{site.baseurl}}{{i.url}}"
-      class="{% if current_url == nav_url %}active{% endif %}"
-    >
-      {{i.title}}
-    </a>
-    {% endfor %}
+    <a href="/" class="nav-brand">~/kodelint</a>
+    
+    <div class="nav-links">
+      {% for i in site.data.nav.toc %}
+      {% assign current_url = page.url | replace: 'index.html', '' | replace: '.html', '' %}
+      {% assign nav_url = i.url | replace: 'index.html', '' | replace: '.html', '' %}
+      <a
+        href="{{site.url}}{{site.baseurl}}{{i.url}}"
+        class="nav-link {% if current_url == nav_url %}active{% endif %}"
+      >
+        {{i.title}}
+      </a>
+      {% endfor %}
+    </div>
   </div>
 </nav>
