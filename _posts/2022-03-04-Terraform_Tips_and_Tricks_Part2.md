@@ -15,8 +15,6 @@ tags: [DevOps, SRE, Terraform]
 
 This is the continuation of my previous post [Terraform Tips and Tricks — Part 1](https://sroy.tech/infrastructure/2022/03/02/Terraform_Tips_and_Tricks_Part1.html). Here are some more advanced patterns and logic I use to keep Terraform projects efficient.
 
-![Terraform Logic](https://cdn-images-1.medium.com/fit/c/800/283/0*cDfxqylUSHWYJNGW.png)
-
 ### 1. Dynamic Region Short Names
 
 We often use region short names (like `uw2` for `us-west-2`) in our resource names or tags. Instead of hardcoding them, I declare a map variable:
@@ -42,7 +40,7 @@ master_instance_group {
     instance_type  = var.master_instance_type
     instance_count = var.master_instance_count
     name           = "${var.cluster_name}-${var.env}-${var.aws_region_shortname[var.aws_region]}-master"
-    
+
     ebs_config {
       size                 = var.master_instance_group_ebs_size
       type                 = var.master_instance_group_ebs_type
@@ -100,9 +98,9 @@ Using the `templatefile` function with a ternary operator allows you to switch c
 ```hcl
 resource "aws_emr_cluster" "cluster" {
   name = "${var.cluster_name}-${var.env}"
-  
-  configurations_json = var.cluster_type == "HBase" ? 
-    templatefile("${path.module}/templates/emr_hbase_configuration.json.tmpl", { heap_size = var.heap_size }) : 
+
+  configurations_json = var.cluster_type == "HBase" ?
+    templatefile("${path.module}/templates/emr_hbase_configuration.json.tmpl", { heap_size = var.heap_size }) :
     templatefile("${path.module}/templates/emr_spark_configuration.json.tmpl", { heap_size = var.heap_size })
 }
 ```

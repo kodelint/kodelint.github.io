@@ -85,10 +85,10 @@ nav a.active {
 
 .header-motto {
   display: block;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-family: var(--font-mono);
   color: var(--accent-tertiary);
-  margin-top: 0.5rem;
+  margin-top: 0.7rem;
   font-style: italic;
   opacity: 0.8;
   font-weight: 400;
@@ -108,7 +108,7 @@ nav a.active {
   }
 
   .header-motto {
-    margin: 0.5rem auto 0;
+    margin: 0.6rem auto 0;
     text-align: center;
   }
 }
@@ -116,7 +116,7 @@ nav a.active {
 header .profile-container {
   position: relative;
   width: 320px;
-  height: 320px;
+  height: 380px;
   margin: 0 auto;
   flex-shrink: 0;
 }
@@ -168,6 +168,7 @@ header .profile-container::before {
 header h1.owner-name .greeting {
   font-size: 5rem;
   display: block;
+  white-space: nowrap;
   background: linear-gradient(to right, #f9fafb, #94a3b8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -515,8 +516,8 @@ button[type="submit"]:hover {
 }
 
 /* Variation 1: Blue */
-.content-body p code:nth-of-type(2n+1),
-.content-body li code:nth-of-type(2n+1) {
+.content-body p code:nth-of-type(2n + 1),
+.content-body li code:nth-of-type(2n + 1) {
   color: #60a5fa; /* Blue */
   background: rgba(96, 165, 250, 0.08);
 }
@@ -541,7 +542,7 @@ button[type="submit"]:hover {
   padding: 0;
   border-radius: 0;
   border: none;
-  font-size: 1.0rem;
+  font-size: 1rem;
   color: #e5e7eb;
 }
 

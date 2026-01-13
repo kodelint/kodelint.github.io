@@ -13,15 +13,14 @@ categories: [Infrastructure]
 tags: [DevOps, SRE, Terraform]
 ---
 
-Like any other programming language, Terraform is a declarative language used to manage your infrastructure. Here is how HashiCorp defines the Terraform language:
+Like any other programming language, **Terraform** is a declarative language used to manage your infrastructure. Here is how HashiCorp defines the Terraform language:
 
-![Terraform](https://github.com/kodelint/blog-assets/raw/main/images/01-terraform.jpeg)
-
-> The Terraform language is declarative, describing an intended goal rather than the steps to reach that goal. The ordering of blocks and the files they are organized into are generally not significant; Terraform only considers implicit and explicit relationships between resources when determining an order of operations.
+| The Terraform language is declarative, describing an intended goal rather than the steps to reach that goal. The ordering of blocks and the files they are organized into are generally not significant; Terraform only considers implicit and explicit relationships between resources when determining an order of operations.
 
 In Terraform, all your code can technically reside in a single file with a `.tf` extension. However, as your infrastructure grows, it makes more sense to segregate components into multiple files for better navigation and maintainability. Let's look at the core building blocks:
 
 ### 1. Terraform Resources
+
 Resources are responsible for creating, modifying, or destroying infrastructure components. They are defined by the provider you choose.
 
 ```hcl
@@ -41,6 +40,7 @@ resource "aws_iam_role" "emr_service_role" {
 ```
 
 ### 2. Variables
+
 Variables allow you to provide dynamic input to your resource parameters.
 
 ```hcl
@@ -58,6 +58,7 @@ variable "aws_region_shortname" {
 ```
 
 ### 3. Providers
+
 Providers define which APIs Terraform will interact with (e.g., AWS, Azure, GCP) and their required versions.
 
 ```hcl
@@ -76,6 +77,7 @@ provider "aws" {
 ```
 
 ### 4. Locals
+
 Locals are Evaluable variables used for internal logic and interpolation before being fed into resource parameters.
 
 ```hcl
@@ -85,6 +87,7 @@ locals {
 ```
 
 ### 5. Outputs
+
 Outputs export values from your Terraform run, which can be used as inputs for other modules or simply displayed to the user.
 
 ```hcl
@@ -100,13 +103,13 @@ output "iam_name" {
 
 While putting everything in one file works, it becomes difficult to manage as soon as you introduce multiple modules or complex resources. The community has converged on a standard file segregation pattern:
 
-*   `main.tf`: Defines the core provider resources.
-*   `variables.tf`: Declares the input variables.
-*   `locals.tf`: Handles Evaluated logic and local constants.
-*   `providers.tf`: Configures the required providers and versions.
-*   `outputs.tf`: Defines what data to export.
-*   `terraform.tfvars`: Provides the actual input values for your variables.
-*   `validators.tf`: (Personal Preference) I use this for `data` blocks that validate inputs against live infrastructure.
+- `main.tf`: Defines the core provider resources.
+- `variables.tf`: Declares the input variables.
+- `locals.tf`: Handles Evaluated logic and local constants.
+- `providers.tf`: Configures the required providers and versions.
+- `outputs.tf`: Defines what data to export.
+- `terraform.tfvars`: Provides the actual input values for your variables.
+- `validators.tf`: (Personal Preference) I use this for `data` blocks that validate inputs against live infrastructure.
 
 ### Example Repository Layout
 

@@ -1,7 +1,7 @@
 # 🌐 [My Personal Blog](https://sroy.tech)
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/kodelint/blog-images/main/common/pic1.png" alt="Satyajit Roy" width="200" style="border-radius: 50%; border: 4px solid #111827; box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);">
+  <img src="/assets/png/pic2.png" alt="Satyajit Roy" width="200" style="border-radius: 50%; border: 4px solid #111827; box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);">
   <br />
   <b>"I turn coffee and Red Bull into code, and existential anxiety into distributed architecture."</b>
 </div>

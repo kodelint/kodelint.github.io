@@ -15,8 +15,6 @@ tags: [DevOps, SRE, Airflow, Python]
 
 It's been quite some time I have been using [Apache Airflow](https://airflow.apache.org/), we are using **Version:** [`1.10.12`](https://airflow.apache.org/docs/apache-airflow/1.10.12/project.html) for some legacy reasons. May be in future we might be able to upgrade it to latest version [`2.3.3`](https://airflow.apache.org/docs/apache-airflow/stable/start/index.html).
 
-![](https://github.com/kodelint/blog-assets/raw/main/images/01-airflow.png)
-
 Anyways we had a requirement to `create`, `terminate` `ec2` instances on the fly. With version [`1.10.12`](https://airflow.apache.org/docs/apache-airflow/1.10.12/project.html), one has to install [`apache-airflow-backport-providers-amazon`](https://pypi.org/project/apache-airflow-backport-providers-amazon/).
 
 So [`apache-airflow-backport-providers-amazon`](https://pypi.org/project/apache-airflow-backport-providers-amazon/) does have support for [`ec2`](https://github.com/apache/airflow/blob/main/airflow/providers/amazon/aws/operators/ec2.py) but only limited to **start** using [`EC2StartInstanceOperator`](https://github.com/apache/airflow/blob/main/airflow/providers/amazon/aws/operators/ec2.py#L29) and **stop** using [`EC2StopInstanceOperator`](https://github.com/apache/airflow/blob/main/airflow/providers/amazon/aws/operators/ec2.py#L75), given the `instance_id` is known. It is missing **create** and **terminate** functionality.
@@ -42,13 +40,11 @@ airflow-ec2-plugin-extended
 
 > **TL;DR** the plugin code is available **here -> [`airflow-ec2-plugin-extended`](https://github.com/kodelint/airflow-ec2-plugin-extended)**
 
----
 
 ### `ec2_extended_plugins.py`
 
 [`ec2_extended_plugins.py`](https://github.com/kodelint/airflow-ec2-plugin-extended/blob/main/ec2_extended_plugins.py) contains the definition for `EC2ExtendedPlugins`'s hooks [`EC2ExtendedHooks`](https://github.com/kodelint/airflow-ec2-plugin-extended/blob/main/ec2_extended_plugins.py#L16) and operators [`EC2ExtendedCreateInstance`,`EC2ExtendedTerminateInstance`](https://github.com/kodelint/airflow-ec2-plugin-extended/blob/main/ec2_extended_plugins.py#L18). Basically [`ec2_extended_plugins.py`](https://github.com/kodelint/airflow-ec2-plugin-extended/blob/main/ec2_extended_plugins.py) stitches all together _(hooks and operators)_
 
----
 
 ### `ec2_instance_hooks.py`
 
@@ -56,8 +52,6 @@ airflow-ec2-plugin-extended
 
 - [`create_instance`](https://github.com/kodelint/airflow-ec2-plugin-extended/blob/main/hooks/ec2_instance_hooks.py#L26)
 - [`terminate_instance`](https://github.com/kodelint/airflow-ec2-plugin-extended/blob/main/hooks/ec2_instance_hooks.py#L99)
-
----
 
 [`create_instance`](https://github.com/kodelint/airflow-ec2-plugin-extended/blob/main/hooks/ec2_instance_hooks.py#L26) takes following inputs arguments
 
@@ -77,7 +71,6 @@ airflow-ec2-plugin-extended
 
 And returns the `Instance Object`
 
----
 
 [`terminate_instance`](https://github.com/kodelint/airflow-ec2-plugin-extended/blob/main/hooks/ec2_instance_hooks.py#L99) takes following inputs arguments
 
@@ -88,7 +81,6 @@ And returns the `Instance Object`
 
 And returns **nothing**. Both [`create_instance`](https://github.com/kodelint/airflow-ec2-plugin-extended/blob/main/hooks/ec2_instance_hooks.py#L26) and [`terminate_instance`](https://github.com/kodelint/airflow-ec2-plugin-extended/blob/main/hooks/ec2_instance_hooks.py#L99) are powered by the operator classes [`EC2ExtendedCreateInstance`](https://github.com/kodelint/airflow-ec2-plugin-extended/blob/main/operators/ec2_create_instance.py#L8) and [`EC2ExtendedTerminateInstance`](https://github.com/kodelint/airflow-ec2-plugin-extended/blob/main/operators/ec2_terminate_instance.py#L7) which inherits the [`BaseOperator`](https://airflow.apache.org/docs/apache-airflow/1.10.12/_api/airflow/models/baseoperator/index.html) for native functionality.
 
----
 
 ### How to use
 

@@ -13,7 +13,7 @@ categories: [Infrastructure]
 tags: [DevOps, SRE, Terraform]
 ---
 
-I have been using Terraform for a long time now, working with versions ranging from `0.11.x` all the way to `1.1.x`. Over the years, I've adopted several patterns that make the code more robust and manageable. 
+I have been using Terraform for a long time now, working with versions ranging from `0.11.x` all the way to `1.1.x`. Over the years, I've adopted several patterns that make the code more robust and manageable.
 
 Here are some **tips and tricks** I frequently use while writing Terraform code.
 
@@ -28,7 +28,7 @@ If you want to ensure a provided `vpc_id` starts with the standard `vpc-` prefix
 variable "vpc_id" {
   default = ""
   type    = string
-  
+
   validation {
     condition     = can(regex("^vpc-", var.vpc_id))
     error_message = "The vpc_id value must start with \"vpc-\"."
@@ -43,7 +43,7 @@ You can restrict an `env` variable to a pre-defined set of allowed values:
 variable "env" {
   default = ""
   type    = string
-  
+
   validation {
     condition     = contains(["dev", "stage", "perf", "prod"], var.env)
     error_message = "Possible environments are \"dev\", \"stage\", \"perf\", and \"prod\"."
@@ -58,7 +58,7 @@ You can even iterate through a list to validate each element:
 variable "security_groups" {
   type    = list(string)
   default = []
-  
+
   validation {
     condition = var.security_groups == [] ? true : alltrue([
       for sg in var.security_groups : can(regex("^sg-", sg))
@@ -134,7 +134,7 @@ module "emr_spark_dns" {
 }
 ```
 
-These are some of the fundamental techniques I use to keep my infrastructure code clean and fail-safe. I will compile more advanced techniques in **[Terraform] Tips and Tricks — Part 2.**
+These are some of the fundamental techniques I use to keep my infrastructure code clean and fail-safe. I will compile more advanced techniques in **[Terraform Tips and Tricks — Part 2](https://awstip.com/terraform-tips-and-tricks-part-2-3c463c3d5ea2)**
 
 **Stay Tuned!**
 

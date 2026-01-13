@@ -13,122 +13,114 @@ categories: [Golang, Programming]
 tags: [Golang, Basics, Concepts]
 ---
 
+As an **Operations Engineer**, I was always a "scripting guy." However, as I transitioned into adopting a **DevOps Culture**, I started spending more time learning _programming languages._
 
-![](https://cdn-images-1.medium.com/fit/c/800/516/0*Azt1gLXgredC5rEQ.png)✍︎
+My obsession with **Go** started with my Terraform journey. I was fascinated by the fact that Go produces a single binary for the platform and can run without any external dependencies, unlike Python. This was more than enough to get me started...
 
-As **Operations Engineer** I was always a `scripting` guy, however as I transitioned and adopting **DevOps Culture**. I started spending more time learning _programming languages._
+> **The best way to learn a programming language is to write code in it.**
 
-My _obsession_ with `Go` started with my `terraform` journey. I was fascinated with the fact that `Go` produces a single binary for the platform and can run without any external dependency, unlike `python` . This was more than enough to get me started on this…..
+I had a requirement where I wanted to sync external **GitHub repositories** to our internal **GitHub repositories**. So, I thought, let me write the code in **Go**.
 
-_**The best way to learn a programming language is to write code in it**_
+### The Requirements
 
-I had this requirement where I wanted to sync external _**GitHub repositories**_ to our internal _**GitHub repositories. So,**_ I though let me write the code in****`Go`**.**
+#### 1. Read the YAML
 
-### Requirements:
+The program should read a `YAML` file, which is organized like this:
 
-  1. **Read the YAML:** The program should read a `YAML` file, which is organized something like below:
+```yaml
+RepositoryList:
+  - internal_org: "internal-modules"
+    internal_repo_name: "internal-aws-autoscaling-module"
+    internal_repo_description: "This module helps to create autoscaling groups and corresponding launch configurations for AWS"
+    github_repo_name: "terraform-aws-modules/terraform-aws-autoscaling"
+    repo_tags:
+      - "v3.6.0"
+      - "v4.4.0"
+      - "v4.5.0"
+```
 
+To parse this, I used the [`gopkg.in/yaml.v2`](https://github.com/go-yaml/yaml) module, which provides the ability to **encode** and **decode** YAML values.
 
-    
-    
-    RepositoryList:
-      - internal_org: "internal-modules"
-        internal_repo_name: "internal-aws-autoscaling-module"
-        internal_repo_description: "This module helps to create autoscaling groups and corresponding launch configurations for AWS"
-        github_repo_name: "terraform-aws-modules/terraform-aws-autoscaling"
-        repo_tags:
-          - "v3.6.0"
-          - "v4.4.0"
-          - "v4.5.0"
+I also needed a data structure to hold these values. I used a `struct` to define a type and a variable to store the data:
 
-So the `YAML` file is organized to provide a **List** of **Repositories** I used [`“gopkg.in/yaml.v2”`](https://gopkg.in/yaml.v2) module, which provides the ability to **encode** and**decode YAML** values.
+```go
+type GithubRepo struct {
+    InternalOrg             string   `yaml:"internal_org"`
+    InternalRepoName        string   `yaml:"internal_repo_name"`
+    InternalRepoDescription string   `yaml:"internal_repo_description"`
+    GitHubRepoName          string   `yaml:"github_repo_name"`
+    RepoTags                []string `yaml:"repo_tags"`
+}
 
-I would also need a _data structure_ to hold the values for me. So I used `struct` to define a `type` and variable to store the data in it. Something like below
-    
-    
-    type GithubRepo struct {
-     InternalOrg string `yaml:"internal_org"`
-     InternalRepoName string `yaml:"internal_repo_name"`
-     InternalRepoDescription string `yaml:"internal_repo_description"`
-     GitHubRepoName string `yaml:"github_repo_name""`
-     RepoTags []string `yaml:"repo_tags"`
-    }
-    
-    
-    type RepositoryList struct {
-     ListOfRepositories []GithubRepo `yaml:"RepositoryList"`
-    }
+type RepositoryList struct {
+    ListOfRepositories []GithubRepo `yaml:"RepositoryList"`
+}
+```
 
-Let me talk a little bit about the `yaml:”internal_org”` these are called **`Tags`** . **`Tags`** are a way to attach additional information to a struct field. **`Tags`** use the `key:"value"` format. It’s not a strict rule, but a convention, which provides built-in parsing.
+#### Understanding Tags
 
-Different packages use **`tags`** for different reasons. We can use them used them in encoding libs, like `json`, `xml`, `bson`, `yaml` etc
+The annotations like `yaml:"internal_org"` are called **Tags**. Tags are a way to attach additional information to a struct field. They use the `key:"value"` format. It’s a convention that provides built-in parsing capabilities. Different packages use tags for various reasons, such as encoding/decoding libraries for JSON, XML, BSON, and YAML.
 
-Now all I need is to read the `YAML` file and store the data in `RepositoryList` type variable
-    
-    
-    var yamlFile RepositoryList
-    
-    
-    f, err := os.Open("Repositories.yml")
-     if err != nil {
-      log.Fatalf("os.Open() failed with '%s'\n", err)
-     }
-     defer func(f *os.File) {
-      err := f.Close()
-      if err != nil {
-    
-    
-    }
-     }(f)
-    
-    
-    newDecoder := yaml.NewDecoder(f)
-    err = newDecoder.Decode(&yamlFile)
+Now, all I need is to read the `YAML` file and store the data in a `RepositoryList` variable:
+
+```go
+var yamlFile RepositoryList
+
+f, err := os.Open("Repositories.yml")
+if err != nil {
+    log.Fatalf("os.Open() failed with '%s'\n", err)
+}
+deferr func(f *os.File) {
+    err := f.Close()
     if err != nil {
-      log.Fatalf("newDecoder.Decode() failed with '%s'\n", err)
+        log.Printf("failed to close file: %s", err)
     }
+}(f)
 
-_**Quick Tip**_ : never forget to **close** the file after reading it. However you might need it again. To avoid opening and closing multiple time you can use the `defer` _key word and an anonymous function to check for closing errors_
+newDecoder := yaml.NewDecoder(f)
+err = newDecoder.Decode(&yamlFile)
+if err != nil {
+    log.Fatalf("newDecoder.Decode() failed with '%s'\n", err)
+}
+```
 
-**2.** **Fetch Credentials from**`Vault`**** : All credentials are in `vault` the program needs to fetch them from `vault` based on couple of environment variables like
+> **Quick Tip**: Never forget to **close** the file after reading it. To avoid opening and closing multiple times, use the `defer` keyword with an anonymous function to check for closing errors.
 
-  * `VAULT_ADDRESS` , `VAULT_APP_ROLE_ID` , `VAULT_APP_ROLE_SECRET_ID` , `VAULT_SECRET_PATH`
+#### 2. Fetch Credentials from Vault
 
+Since all credentials were in **Vault**, the program needed to fetch them based on environment variables like `VAULT_ADDRESS`, `VAULT_APP_ROLE_ID`, `VAULT_APP_ROLE_SECRET_ID`, and `VAULT_SECRET_PATH`. I used the [`hashicorp/vault/api`](https://github.com/hashicorp/vault) module for this.
 
+#### 3. Connect to GitHub APIs
 
-I used [`“hashicorp/vault/api”`](https://github.com/hashicorp/vault/api) module for the same.
+To fetch the external repository and push it to the internal one, I needed to connect to both external and internal GitHub APIs. I used the [`google/go-github`](https://github.com/google/go-github) module to accomplish that.
 
-**3.** **Connect to Internal and External GitHub APIs:** In order to fetch the external repository and push it internal one I needed to make connection to both external and internal. I used `“`[go-github/v38/github](https://github.com/google/go-github/v38/github)`”` module accomplish that.
+#### 4. Process the Data
 
-**4\. Do something with the Data:** Now I have the data stored in `yamlFile` variable, I have the `GitToken` from `Vault` . It’s time to access the data individually and do something with it**.** The data can be accessed something like this: Because it is **List** so I iterate over it and hold the chunk of data in temporary loop variable `v`
-    
-    
-    for _, v := range yamlFile.RepositoryList {
-      // Now I can access the content individually
-      // and do something about it
-      fmt.Println(v.InternalOrg)
-    }
+Now that I have the data stored in the `yamlFile` variable and the `GitToken` from Vault, it’s time to iterate over the list and process the repositories:
 
-All the data read from `YAML` file can now access under `v.<<FieldName>>`. Something like this
+```go
+for _, v := range yamlFile.ListOfRepositories {
+    // Now I can access the content individually
+    // and do something about it
+    fmt.Println(v.InternalOrg)
+}
+```
 
-`v.InternalOrg` , `v.InternalRepoName` , `v.GitHubRepoName` , `v.RepoTags` etc
+All the data read from the YAML file can now be accessed via `v.<FieldName>`, such as `v.InternalOrg`, `v.InternalRepoName`, `v.GitHubRepoName`, etc.
 
-![](https://cdn-images-1.medium.com/fit/c/800/436/1*Q4EanVcO8Lqx0SITZBKlPw.png)✍︎
+![Go Programming](https://cdn-images-1.medium.com/fit/c/800/436/1*Q4EanVcO8Lqx0SITZBKlPw.png)
 
 ### Learnings
 
-So with this exercise was I was able to quite few things, here are some of them:
+Through this exercise, I was able to learn several Go concepts:
 
-  * **Go Structs**
-  * **Go Structs Tags**
-  * **Go DataTypes**
-  * **How to use external modules**
-  * **Reading Files**
-  * **Encoding and Decoding**`YAML`**Data**
-  * **Access data with FieldName**
+- **Go Structs**: Organizing data into records.
+- **Struct Tags**: Mapping external data formats to Go types.
+- **Go DataTypes**: Working with slices and strings.
+- **External Modules**: Managing dependencies.
+- **File I/O**: Reading and parsing local files.
+- **Encoding/Decoding**: Working with YAML data.
 
-
-
-Learning a new programming language is always fun and when you choose something to build along side then it becomes more involved and interesting!
+Learning a new programming language is always fun, and it becomes much more engaging when you have a practical project to build along the way!
 
 ## Happy Coding!!

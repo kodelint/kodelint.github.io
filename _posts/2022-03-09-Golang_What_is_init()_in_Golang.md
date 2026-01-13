@@ -3,7 +3,7 @@ caffeine: 5
 stress: 2
 ozone: 1
 layout: post
-title: Golang - What is init() in Golang
+title: Golang - What is init in Golang
 author: Satyajit Roy
 date: 2022-03-09
 image: "/assets/uploads/01-init.png"
@@ -25,17 +25,17 @@ As the name suggests, `init()` is used to initialize your program with requireme
 
 ### Key Attributes of the `init()` function:
 
-*   **Scoped to Package**: Its scope is limited to the package block where it is defined.
-*   **Called Once**: It is executed exactly once per package.
-*   **Implicit Execution**: Go handles the execution of `init()` automatically; you don't call it manually.
-*   **No Arguments/Returns**: It takes no parameters and returns no values.
-*   **Order of Execution**: Go supports multiple `init()` functions within the same package, but their execution order is calculated alphabetically by filename and then by order of declaration.
+- **Scoped to Package**: Its scope is limited to the package block where it is defined.
+- **Called Once**: It is executed exactly once per package.
+- **Implicit Execution**: Go handles the execution of `init()` automatically; you don't call it manually.
+- **No Arguments/Returns**: It takes no parameters and returns no values.
+- **Order of Execution**: Go supports multiple `init()` functions within the same package, but their execution order is calculated alphabetically by filename and then by order of declaration.
 
 > Anything initialized within an `init()` function is exported within the scope of that package. For a deep dive, refer to the [Official Go Package Initialization Docs](https://go.dev/ref/spec#Package_initialization).
 
 ### Multiple `init()` functions
 
-It is possible to define multiple `init()` functions in a single file or across multiple files within the same package. 
+It is possible to define multiple `init()` functions in a single file or across multiple files within the same package.
 
 **Example:**
 
