@@ -109,10 +109,11 @@
     /* Widescreen Post Layout */
     .wide-layout {
       display: flex;
-      justify-content: space-between; /* Maximum separation */
+      justify-content: space-between; /* Maximum separation - align to edges */
       align-items: flex-start;
-      gap: 4rem;
+      gap: 6rem; /* Large gap */
       position: relative;
+      width: 100%;
     }
 
     .post-sidebar-left {
@@ -124,9 +125,9 @@
     }
 
     .post-content-wrapper {
-      width: 100%;
-      max-width: 1300px; /* Expansive width */
-      margin-left: auto; /* Push to right if flex doesn't do it fully */
+      flex: 1; /* Take up all remaining space */
+      max-width: none; /* Remove constraint to fill to the right edge */
+      margin-left: auto;
     }
 
     .sticky-sidebar {
