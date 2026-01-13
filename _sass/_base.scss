@@ -4,26 +4,14 @@
   box-sizing: border-box;
 }
 
-/* Custom Scrollbar */
+/* Hide Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-depth);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--accent-gradient);
-  border-radius: 10px;
-  border: 3px solid var(--bg-depth);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-primary);
+  display: none;
 }
 
 body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   background-color: var(--bg-depth);
   background-image: 
     radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08), transparent 25%),
