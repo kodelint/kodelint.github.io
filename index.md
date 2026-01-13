@@ -82,7 +82,7 @@ layout: page
 <div class="career-log-section">
   <div class="section-header-wide">
     <h2>// CAREER_LOG</h2>
-    <span class="terminal-prompt"><span class="symbol">$</span> git log --graph --oneline --color</span>
+    <span class="terminal-prompt"><span class="symbol">$</span> career log --all --graph --oneline --color</span>
   </div>
 
   <div class="tech-graph">
@@ -128,6 +128,14 @@ layout: page
       </div>
     </div>
 
+    <div class="graph-commit feat on-branch">
+      <div class="graph-lane"><div class="graph-dot l1"></div></div>
+      <div class="graph-content">
+        <span class="graph-hash">9c8c9ca</span>
+        <span class="graph-msg"><span class="type feat">feat</span> <span class="ref">(branch/security)</span> survived a security audit without losing my soul</span>
+      </div>
+    </div>
+
     <div class="graph-commit merge">
       <div class="graph-lane">
         <div class="branch-fork"></div>
@@ -163,12 +171,63 @@ layout: page
       </div>
     </div>
 
+    <div class="graph-commit feat">
+      <div class="graph-lane"><div class="graph-dot l0"></div></div>
+      <div class="graph-content">
+        <span class="graph-hash">8381d27</span>
+        <span class="graph-msg"><span class="type feat">feat</span> learned that <span class="tooltip-container">"Done"<span class="tooltip-box"><b>MVP [state]</b>The exact moment you can hand it off to support and go on vacation.</span></span> is better than <span class="tooltip-container">"Perfect"<span class="tooltip-box"><b>Mythical State [concept]</b>A theoretical point in space-time that developers chase instead of shipping.</span></span>, but <span class="tooltip-container">"Stable"<span class="tooltip-box"><b>The Holy Grail [state]</b>A system that doesn't trigger the pager for at least 72 hours.</span></span> is better than both</span>
+      </div>
+    </div>
+
+    <div class="graph-commit merge">
+      <div class="graph-lane"><div class="graph-dot l0"></div></div>
+      <div class="graph-content">
+        <span class="graph-hash">bd36139</span>
+        <span class="graph-msg"><span class="type merge">merge</span> successfully merged 15 sub-tasks without a single conflict <span class="tooltip-container">(A Miracle)<span class="tooltip-box"><b>Statistical Anomaly [noun]</b>An event so rare it's usually followed by a system-wide crash to restore cosmic balance.</span></span></span>
+      </div>
+    </div>
+
+    <div class="graph-commit refactor">
+      <div class="graph-lane"><div class="graph-dot l0"></div></div>
+      <div class="graph-content">
+        <span class="graph-hash">c044a82</span>
+        <span class="graph-msg"><span class="type refactor">refactor</span> deleted 5,000 lines of code. It was the best day of my life.</span>
+      </div>
+    </div>
+
+    <div class="graph-commit refactor">
+      <div class="graph-lane"><div class="graph-dot l0"></div></div>
+      <div class="graph-content">
+        <span class="graph-hash">0731214</span>
+        <span class="graph-msg"><span class="type refactor">refactor</span> simplified the architecture until a toddler could explain it</span>
+      </div>
+    </div>
+
     <div class="graph-commit init">
       <div class="graph-lane"><div class="graph-dot l0"></div></div>
       <div class="graph-content">
         <span class="graph-hash">b894es5</span>
         <span class="graph-msg"><span class="type init">init</span> started with a Hello World, now we're here.</span>
       </div>
+    </div>
+
+    <div class="graph-stats" style="font-style: normal; display: flex; flex-direction: column; gap: 0.4rem;">
+      <div style="color: var(--accent-primary); margin-bottom: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; display: flex; align-items: center; gap: 0.6rem; opacity: 0.8;">
+        <span style="background: rgba(56, 189, 248, 0.1); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.2); font-size: 0.9rem;"><strong>[STATUS]</strong></span> 
+        <span style="font-size: 1rem;"><strong>FINAL_DEPLOY_SUMMARY_SUCCESS</strong></span>
+      </div>
+      <span style="font-weight: 700; color: var(--text-secondary); font-size: 0.95rem;">
+        <span style="color: #00ff9d;">+++</span> 20 Years of <span style="color: #ff4757;">PagerDuty</span> Trauma (and counting)
+      </span>
+      <span style="font-weight: 700; color: var(--text-secondary); font-size: 0.95rem;">
+        <span style="color: #00ff9d;">+++</span> ~2M Lines of <span style="color: #38bdf8;">Polyglot Code</span> (<span style="color: #94a3af;">YAML</span>, <span style="color: #00ff9d;">Go</span>, <span style="color: #f87171;">Rust</span>)
+      </span>
+      <span style="font-weight: 700; color: var(--text-secondary); font-size: 0.95rem;">
+        <span style="color: #ff4757;">---</span> <span style="color: #ff4757;">0 Regrets</span> (Memory leaks not shown)
+      </span>
+      <span style="font-weight: 700; color: var(--text-secondary); font-size: 0.95rem;">
+        <span style="color: #facc15;">!!!</span> 1 <span style="color: #facc15;">Executive Ego</span> (Critical dependency)
+      </span>
     </div>
   </div>
 </div>
@@ -209,10 +268,10 @@ layout: page
   /* Local Styles for Index (Widescreen) */
   .hero-container-wide {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* More balanced columns */
-    gap: 6rem; /* Reduced from 8rem/15rem to fix "too much space" */
+    grid-template-columns: 1.2fr 0.8fr; 
+    gap: 3rem; /* Further reduced from 8rem/6rem to 3rem to fix "too much space" */
     align-items: center;
-    padding: 6rem 0; /* Reduced padding */
+    padding: 6rem 0;
     min-height: 80vh;
   }
 
@@ -231,7 +290,7 @@ layout: page
 
   .hero-title-wide {
     font-family: var(--font-heading);
-    font-size: 5rem;
+    font-size: 5rem; 
     line-height: 1.05;
     color: var(--text-primary);
     margin-bottom: 2.5rem;
@@ -349,7 +408,7 @@ layout: page
 
   .profile-img-container {
     width: 100%;
-    height: auto;
+    height: auto; 
     max-height: 450px;
     background: #000;
     margin-bottom: 1.5rem;
@@ -361,7 +420,7 @@ layout: page
     width: 100%;
     height: auto;
     display: block;
-    object-fit: contain;
+    object-fit: contain; 
     filter: grayscale(100%);
     transition: filter 0.3s;
   }
@@ -411,7 +470,7 @@ layout: page
   .status-log .success { color: #4ade80; }
 
   /* Logs Section */
-  .logs-section-wide, .career-log-section {
+  .logs-section-wide {
     margin-bottom: 6rem;
   }
 
@@ -439,7 +498,7 @@ layout: page
 
   .logs-grid-wide {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); 
     gap: 1.5rem;
   }
 
