@@ -889,8 +889,8 @@
 
 .graph-commit {
   display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 1.2rem;
+  grid-template-columns: 65px 1fr;
+  gap: 0.5rem;
   min-height: 36px;
   position: relative;
   align-items: center;
@@ -996,13 +996,14 @@
   display: flex;
   align-items: center;
   padding: 0.4rem 0;
+  white-space: nowrap;
 }
 
 .graph-msg {
   font-size: 1rem;
   color: var(--text-primary);
   letter-spacing: -0.01em;
-  white-space: normal;
+  white-space: nowrap;
 }
 .graph-msg .type {
   font-weight: 800;
@@ -1048,13 +1049,26 @@
     margin: 1.5rem 0;
   }
   .graph-commit {
-    grid-template-columns: 50px 1fr;
-    gap: 0.5rem;
+    grid-template-columns: 45px 1fr;
+    gap: 0.3rem;
     min-height: 28px;
   }
   .graph-msg {
-    font-size: 0.85rem;
-    white-space: normal;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+  .graph-hash {
+    font-size: 0.75rem;
+    margin-right: 0.5rem;
+  }
+  .graph-lane::before {
+    left: 15px;
+  }
+  .graph-dot.l0 {
+    left: 15px;
+  }
+  .graph-dot.l1 {
+    left: 30px;
   }
 }
 

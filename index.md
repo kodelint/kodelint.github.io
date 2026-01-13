@@ -197,7 +197,7 @@ layout: page
   <div class="graph-stats" style="font-style: normal; display: flex; flex-direction: column; gap: 0.4rem;">
     <div style="color: var(--accent-primary); margin-bottom: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; display: flex; align-items: center; gap: 0.6rem; opacity: 0.8;">
       <span style="background: rgba(56, 189, 248, 0.1); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.2); font-size: 0.9rem;"><strong>[STATUS]</strong></span> 
-      <span style="font-size: 1.1rem;"><strong>FINAL_DEPLOY_SUMMARY_SUCCESS</strong></span>
+      <span style="font-size: 1rem;"><strong>FINAL_DEPLOY_SUMMARY_SUCCESS</strong></span>
     </div>
     <span style="font-weight: 700; color: var(--text-secondary); font-size: 0.95rem;">
       <span style="color: #00ff9d;">+++</span> 20 Years of <span style="color: #ff4757;">PagerDuty</span> Trauma (and counting)
