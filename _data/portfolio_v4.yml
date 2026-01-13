@@ -1,0 +1,103 @@
+# Portfolio V4 Content
+
+case_studies:
+  - id: adobe-hyperscale
+    title: "Hyperscale ML & Search Platform"
+    context: "Adobe's Core Search and Sensei platform handles 30B+ daily requests, powering search and AI features across the Creative Cloud ecosystem."
+    role: "Architect & Technical Leader. Led a senior platform team, owning infrastructure strategy and hybrid cloud architecture."
+    problem: "Existing infrastructure couldn't scale efficiently to meet the exploding demand for AI/ML workloads, leading to high costs and resource contention."
+    constraints: "Strict latency requirements (<5ms P95), data sovereignty compliance, and the need to support legacy workloads during migration."
+    solution:
+      - "Designed a hybrid GPU/CPU architecture spanning AWS, Azure, and on-prem."
+      - "Optimized HPC clusters with RDMA InfiniBand and GPU-aware scheduling (Volcano)."
+      - "Unified fragmented Kubernetes environments into a single multi-tenant platform."
+    impact:
+      - "Supported 30B+ daily API requests with >99.98% availability."
+      - "Increased GPU utilization by 38% through advanced scheduling."
+      - "Lowered cloud storage costs by 65% via lifecycle tiering."
+    tags: ["AI/ML", "Hybrid Cloud", "HPC", "Kubernetes"]
+
+  - id: f5-sre-transformation
+    title: "Global SRE Transformation"
+    context: "F5's Distributed Cloud SaaS platform delivers multi-cloud networking and security services via a global network of 25+ PoPs."
+    role: "Sr. Director of Product Engineering & Head of SRE. Managed 55+ engineers with full P&L accountability."
+    problem: "Rapid growth led to operational silos, inconsistent incident response, and high on-call burnout (attrition risk)."
+    constraints: "24/7 global operation, strict regulated industry compliance (FedRAMP, PCI-DSS)."
+    solution:
+      - "Rebuilt the global SRE operating model into a follow-the-sun structure."
+      - "Implemented policy-as-code and zero-trust architecture for compliance."
+      - "Re-architected observability using ELK, Jaeger, and ML-based anomaly detection."
+    impact:
+      - "Reduced Mean Time To Resolve (MTTR) by 73%."
+      - "Lowered team attrition by 10% by reducing burnout."
+      - "Absorbed 400% growth in attack traffic while supporting 200% customer expansion."
+    tags: ["SRE", "Leadership", "Observability", "Compliance"]
+
+  - id: arkose-finops
+    title: "Platform Modernization & FinOps"
+    context: "Arkose Labs provides fraud detection and account security, requiring massive real-time processing under adversarial attack conditions."
+    role: "Director of Engineering & SRE. Owner of platform strategy, reliability, and cost efficiency."
+    problem: "Rapid enterprise growth drove cloud costs unsustainable high while technical debt slowed feature velocity."
+    constraints: "High-volume attack traffic (DDoS), real-time latency SLAs, and limited engineering headcount."
+    solution:
+      - "Amplified platform modernization, re-architecting to EKS microservices with eBPF service mesh."
+      - "Instituted FinOps governance and tooling (Coralogix)."
+      - "Introduced SLO-based release gates to balance velocity and reliability."
+    impact:
+      - "Delivered 22% reduction in overall cloud spend."
+      - "Enabled platform to sustain 7x transaction growth."
+      - " maintained 99.9% SLA even under heavy attack traffic."
+    tags: ["FinOps", "Modernization", "Kubernetes", "eBPF"]
+
+leadership:
+  philosophy:
+    - "I believe engineering leadership is about removing friction. Whether it's technical friction (legacy code, manual toil) or organizational friction (silos, unclear goals), my role is to clear the path so high-performing teams can deliver value."
+    - "Reliability is a feature, not an afterthought. I advocate for 'Shifting Left' on reliability and security, embedding SRE principles into the software development lifecycle rather than treating operations as a cleanup crew."
+    - "Growth comes from ownership. I build teams where engineers are empowered to own their services from design to production. I focus on mentorship and clear career ladders to turn junior engineers into future architects."
+  metrics:
+    - label: "Team Scaling"
+      value: "Scaled organizations from 7 to 55+ engineers"
+    - label: "Retention"
+      value: "Maintained <10% attrition in high-pressure environments"
+    - label: "Promotion"
+      value: "Promoted 30%+ of staff into senior roles"
+
+oss_projects:
+  - title: "Setup DevBox"
+    description: "An opinionated, highly configurable CLI tool to streamline development environment provisioning in minutes."
+    impact: "Reduces onboarding time for new engineers; ensures consistent tooling across teams."
+    repo: "https://github.com/kodelint/setup-devbox"
+    tags: ["Rust", "CLI", "Productivity"]
+
+  - title: "Git Selective Ignore"
+    description: "A Git plugin allowing developers to selectively ignore specific lines or blocks of code during commits without altering .gitignore."
+    impact: "Prevents accidental commit of secrets or local debug code; widely used for keeping local configs private."
+    repo: "https://github.com/kodelint/git-selective-ignore"
+    tags: ["Rust", "Git", "Security"]
+
+  - title: "Blogs Publisher"
+    description: "GitHub Action to automatically cross-post Markdown blogs to Medium, Dev.to, and Hashnode."
+    impact: "Automates content distribution for developer advocates and engineering blogs."
+    repo: "https://github.com/kodelint/blogs-publisher"
+    tags: ["TypeScript", "GitHub Actions", "Content"]
+
+writing_curated:
+  - title: "Overlay Networking Deep Dive"
+    summary: "Exploring the matryoshka dolls of modern networking and technical evolution."
+    link: "/2026/01/05/Overlay_Networking_deep_dive.html"
+    type: "Deep Dive"
+  
+  - title: "GitOps Journey"
+    summary: "Lessons learned moving infrastructure to a GitOps model: the good, the bad, and the eventual consistency."
+    link: "/2022/04/18/Our_GitOps_Journey.html"
+    type: "Case Study"
+
+  - title: "Rust Basics & Ownership"
+    summary: "Understanding the borrow checker and memory safety without garbage collection."
+    link: "/2022/07/02/Rust_Basics_and_Concepts_1st_Iteration.html"
+    type: "Technical"
+
+  - title: "Terraform at Scale"
+    summary: "Strategies for organizing Terraform code in large organizations to prevent state bloat."
+    link: "/2022/03/01/Terraform_How_to_organize_your_terraform_code.html"
+    type: "Architecture"

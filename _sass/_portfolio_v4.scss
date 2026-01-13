@@ -1,0 +1,280 @@
+/* Portfolio V4 - Professional, Technical, Authoritative */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+:root {
+  --v4-bg: #ffffff;
+  --v4-bg-alt: #f8fafc; /* Slate 50 */
+  --v4-text: #334155;   /* Slate 700 */
+  --v4-heading: #0f172a; /* Slate 900 */
+  --v4-accent: #0284c7;  /* Sky 600 */
+  --v4-accent-hover: #0369a1; /* Sky 700 */
+  --v4-border: #e2e8f0;  /* Slate 200 */
+  
+  --font-heading: 'Merriweather', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  --container-max: 1100px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--v4-bg);
+  color: var(--v4-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--v4-heading);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Utilities */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--v4-accent);
+  color: white;
+}
+.btn-primary:hover {
+  background: var(--v4-accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  border: 1px solid var(--v4-border);
+  color: var(--v4-heading);
+}
+.btn-outline:hover {
+  border-color: var(--v4-heading);
+  background: var(--v4-bg-alt);
+}
+
+.section-spacer {
+  padding: 5rem 0;
+}
+
+.bg-alt { background-color: var(--v4-bg-alt); }
+
+/* Navigation */
+.v4-nav {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--v4-border);
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--v4-heading);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--v4-text);
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--v4-accent);
+}
+
+/* Hero */
+.hero-section {
+  padding: 6rem 0;
+  border-bottom: 1px solid var(--v4-border);
+}
+
+.hero-headline {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-subhead {
+  font-size: 1.25rem;
+  color: var(--v4-text);
+  max-width: 700px;
+  margin-bottom: 2rem;
+  font-family: var(--font-body);
+  font-weight: 300;
+}
+
+.metrics-strip {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--v4-border);
+  font-size: 0.9rem;
+  color: var(--v4-heading);
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+
+/* Case Study Cards (Home) */
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.cs-card {
+  background: white;
+  border: 1px solid var(--v4-border);
+  border-radius: 6px;
+  padding: 2rem;
+  transition: all 0.2s;
+}
+
+.cs-card:hover {
+  border-color: var(--v4-accent);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.cs-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.cs-outcome {
+  color: var(--v4-accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.cs-impact {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.cs-impact li {
+  margin-bottom: 0.25rem;
+  padding-left: 1rem;
+  list-style: none;
+  position: relative;
+}
+.cs-impact li::before {
+  content: "•";
+  color: var(--v4-accent);
+  position: absolute;
+  left: 0;
+}
+
+/* Detail Pages */
+.page-header {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--v4-border);
+  padding-bottom: 2rem;
+}
+
+.cs-detail-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+}
+
+.cs-sidebar {
+  font-size: 0.9rem;
+  background: var(--v4-bg-alt);
+  padding: 1.5rem;
+  border-radius: 6px;
+  height: fit-content;
+}
+
+.cs-sidebar h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--v4-text); margin-top: 1rem; margin-bottom: 0.5rem; }
+.cs-sidebar h4:first-child { margin-top: 0; }
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.oss-grid, .writing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+/* Resume */
+.resume-container {
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid var(--v4-border);
+  padding: 3rem;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.r-header { border-bottom: 2px solid var(--v4-heading); padding-bottom: 1rem; margin-bottom: 2rem; }
+.r-name { font-size: 2rem; font-weight: 700; }
+.r-contact { font-size: 0.9rem; color: var(--v4-text); margin-top: 0.5rem; }
+.r-section { margin-bottom: 2rem; }
+.r-section-title { font-size: 1rem; text-transform: uppercase; border-bottom: 1px solid var(--v4-border); margin-bottom: 1rem; padding-bottom: 0.25rem; }
+.r-item { margin-bottom: 1.5rem; }
+.r-role-row { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 0.25rem; }
+.r-company { font-family: var(--font-heading); font-size: 1.1rem; }
+.r-date { font-family: var(--font-body); font-size: 0.9rem; color: var(--v4-text); }
+.r-desc li { font-size: 0.95rem; margin-bottom: 0.25rem; padding-left: 1.2rem; position: relative; list-style: none; }
+.r-desc li::before { content: "›"; position: absolute; left: 0; font-weight: bold; color: var(--v4-accent); }
+
+/* Footer */
+.v4-footer {
+  border-top: 1px solid var(--v4-border);
+  padding: 3rem 0;
+  margin-top: 4rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--v4-text);
+}
+.footer-links { margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem; }
+
+@media (max-width: 768px) {
+  .hero-headline { font-size: 2rem; }
+  .cs-detail-grid { grid-template-columns: 1fr; }
+  .leadership-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; } /* Mobile menu implementation skipped for brevity, simplified */
+  .resume-container { padding: 1.5rem; }
+}

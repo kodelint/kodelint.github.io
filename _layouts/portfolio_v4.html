@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | Satyajit Roy</title>
+  <meta name="description" content="{{ page.description | default: 'Engineering leader specializing in hyperscale AI/ML infrastructure, SRE, and cloud cost optimization.' }}">
+  
+  <!-- SEO & OpenGraph -->
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  <style>
+    {% include_relative assets/css/portfolio.scss %}
+    /* Inline V4 Styles to ensure separation */
+    @import "{{ '/assets/css/portfolio.css' | relative_url }}"; 
+    /* Actually, better to link the CSS file directly if Jekyll processes it */
+  </style>
+  <link rel="stylesheet" href="/assets/css/portfolio_v4.css">
+</head>
+<body>
+
+  <nav class="v4-nav">
+    <div class="container nav-wrapper">
+      <a href="/portfolio/" class="nav-logo">Satyajit Roy</a>
+      <div class="nav-links">
+        <a href="/portfolio/" class="nav-link {% if page.url == '/portfolio/' %}active{% endif %}">Home</a>
+        <a href="/portfolio/case-studies/" class="nav-link {% if page.url contains 'case-studies' %}active{% endif %}">Case Studies</a>
+        <a href="/portfolio/leadership/" class="nav-link {% if page.url contains 'leadership' %}active{% endif %}">Leadership</a>
+        <a href="/portfolio/writing/" class="nav-link {% if page.url contains 'writing' %}active{% endif %}">Writing</a>
+        <a href="/portfolio/oss/" class="nav-link {% if page.url contains 'oss' %}active{% endif %}">OSS</a>
+        <a href="/portfolio/resume/" class="nav-link {% if page.url contains 'resume' %}active{% endif %}">Resume</a>
+        <a href="/portfolio/contact/" class="nav-link {% if page.url contains 'contact' %}active{% endif %}">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer class="v4-footer">
+    <div class="container">
+      <p>&copy; {{ site.time | date: '%Y' }} Satyajit Roy. Engineering Leadership.</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/satyajitroychoudhury/">LinkedIn</a>
+        <a href="https://github.com/kodelint">GitHub</a>
+        <a href="/portfolio/contact/">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
