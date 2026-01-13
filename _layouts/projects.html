@@ -6,212 +6,165 @@
   {% include nav.html %}
   
   <main class="container">
-    <div class="page-header">
-      <h1 class="page-title">The Lab</h1>
-      <p class="tagline">Experiments, open source, and weekend projects.</p>
+    <div class="page-header" style="border-bottom: 2px solid var(--border-subtle); padding-bottom: 2rem; margin-bottom: 3rem;">
+      <h1 class="page-title" style="font-family: var(--font-heading); font-size: 3rem; margin-bottom: 0.5rem;">The Lab</h1>
+      <p class="tagline" style="font-family: var(--font-mono); color: var(--text-tertiary);">Experiments, open source, and weekend projects.</p>
     </div>
 
-    <div class="project-list">
+    <div class="project-list-grid">
       {% for project in site.data.projects_data.projects %}
-      <div class="project" 
+      <div class="project-card-retro-grid" 
            data-tags="{{ project.tags | join: ' ' | downcase }}"
            onmouseenter="startBuild(this)" 
            onmouseleave="resetBuild(this)">
-        <!-- 4. Dependency Cloud -->
-        <div class="dependency-cloud">
-          {% for tag in project.tags %}
-            {% assign tag_lower = tag | downcase %}
-            {% if tag_lower contains 'go' %}<i class="fab fa-golang dep-icon" style="top: 10%; left: 10%;"></i>{% endif %}
-            {% if tag_lower contains 'rust' %}<i class="fab fa-rust dep-icon" style="top: 20%; right: 10%;"></i>{% endif %}
-            {% if tag_lower contains 'docker' %}<i class="fab fa-docker dep-icon" style="bottom: 20%; left: 15%;"></i>{% endif %}
-            {% if tag_lower contains 'terraform' %}<i class="fas fa-cloud dep-icon" style="bottom: 10%; right: 15%;"></i>{% endif %}
-            {% if tag_lower contains 'kubernetes' %}<i class="fas fa-dharmachakra dep-icon" style="top: 50%; left: 5%;"></i>{% endif %}
-            {% if tag_lower contains 'aws' %}<i class="fab fa-aws dep-icon" style="bottom: 40%; right: 5%;"></i>{% endif %}
-          {% endfor %}
-        </div>
-
-        <div class="build-overlay">
-          <div class="build-header">
-            <span class="build-status">Executing build</span>
-            <span class="build-timer">0.0s</span>
-          </div>
-          
-          <!-- 1. Live Tail Log Container -->
-          <div class="build-logs" id="build-logs-{{ forloop.index }}"></div>
-
-          <div class="progress-bar"><div class="progress-fill"></div></div>
-          <div class="build-success-msg">[SUCCESS] artifacts deployed</div>
-          {% if project.code %}
-          <a href="{{project.code}}" target="_blank" class="github-btn-active">View on GitHub →</a>
-          {% endif %}
-        </div>
-        <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}{{project.img}})"></div>
         
-        <div class="card-content">
-          <div class="card-meta">
-            <h2 class="card-title">{{project.title}}</h2>
-            <div class="post-metrics">
-              <span title="Caffeine Required" class="{% if project.caffeine > 5 %}danger{% endif %}"><i class="fas fa-coffee"></i> {{ project.caffeine | default: 3 }}</span>
-              <span title="Anxiety Level" class="{% if project.stress > 5 %}danger{% endif %}"><i class="fas fa-wave-square"></i> {{ project.stress | default: 2 }}</span>
-              <span title="Ozone Produced" class="{% if project.ozone > 5 %}danger{% endif %}"><i class="fas fa-bolt"></i> {{ project.ozone | default: 1 }}</span>
-            </div>
+        <div class="card-image" style="background-image: url('{{site.url}}{{site.baseurl}}{{project.img}}');"></div>
+
+        <div class="card-top-bar">
+          <span class="file-name">{{ project.title | slugify }}.exe</span>
+          <div class="window-controls">
+             <!-- build indicator icons -->
+             <i class="fas fa-terminal" style="font-size: 0.7rem;"></i>
           </div>
-          <p class="card-excerpt">{{project.about}}</p>
+        </div>
+        
+        <div class="card-content-inner">
+          <div class="meta-tags">
+            <span class="meta-pill time">v{{ forloop.index }}.0.0</span>
+          </div>
+
+          <h2 class="retro-card-title">{{project.title}}</h2>
+          <p class="retro-excerpt">{{project.about}}</p>
           
           {% if project.tags %}
           <div style="margin-bottom: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
             {% for tag in project.tags %}
-              <span style="font-size: 0.75rem; background: rgba(56, 189, 248, 0.1); color: var(--accent-primary); padding: 2px 8px; border-radius: 4px;">{{ tag }}</span>
+              <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-secondary); background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 4px;">{{ tag }}</span>
             {% endfor %}
           </div>
           {% endif %}
 
-          <div class="card-footer">
-            {% if project.code == nil or project.code == "" %}
-            <div class="sys-core sys-encrypted">
-              <i class="fas fa-user-secret"></i>
-              <div class="spectrum-bars static-hatch">
-                <span></span><span></span><span></span><span></span><span></span>
-              </div>
-              <span class="core-label">ENCRYPTED SIGNAL</span>
-            </div>
-            {% else %}
-              
-              {% assign core_type = "default" %}
-              {% assign core_color = "#a3e635" %} <!-- Lime -->
-              {% assign core_icon = "fa-power-off" %}
-              {% assign core_label = "SYSTEM ONLINE" %}
-
-              {% for tag in project.tags %}
-                {% assign t = tag | downcase %}
-                {% if core_type == "default" %}
-                  {% if t contains 'rust' %}
-                    {% assign core_type = "rust" %}
-                    {% assign core_color = "#f97316" %} <!-- Orange -->
-                    {% assign core_icon = "fab fa-rust" %}
-                    {% assign core_label = "RUST CORE" %}
-                  {% elsif t contains 'go' %}
-                    {% assign core_type = "go" %}
-                    {% assign core_color = "#06b6d4" %} <!-- Cyan -->
-                    {% assign core_icon = "fab fa-golang" %}
-                    {% assign core_label = "GO REACTOR" %}
-                  {% elsif t contains 'python' %}
-                    {% assign core_type = "python" %}
-                    {% assign core_color = "#fbbf24" %} <!-- Amber -->
-                    {% assign core_icon = "fab fa-python" %}
-                    {% assign core_label = "NEURAL NET" %}
-                  {% elsif t contains 'docker' %}
-                    {% assign core_type = "docker" %}
-                    {% assign core_color = "#3b82f6" %} <!-- Blue -->
-                    {% assign core_icon = "fab fa-docker" %}
-                    {% assign core_label = "CONTAINER FIELD" %}
-                  {% elsif t contains 'terraform' %}
-                    {% assign core_type = "terraform" %}
-                    {% assign core_color = "#a855f7" %} <!-- Purple -->
-                    {% assign core_icon = "fas fa-cubes" %}
-                    {% assign core_label = "INFRASTRUCTURE" %}
-                  {% elsif t contains 'chef' %}
-                    {% assign core_type = "chef" %}
-                    {% assign core_color = "#ef4444" %} <!-- Red -->
-                    {% assign core_icon = "fas fa-fire-burner" %}
-                    {% assign core_label = "KITCHEN SYNC" %}
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
-
-            <div class="sys-core" style="--core-color: {{ core_color }}">
-              <i class="{{ core_icon }} core-icon"></i>
-              <div class="spectrum-bars">
-                <span style="animation-delay: 0.1s"></span>
-                <span style="animation-delay: 0.3s"></span>
-                <span style="animation-delay: 0.5s"></span>
-                <span style="animation-delay: 0.2s"></span>
-                <span style="animation-delay: 0.4s"></span>
-              </div>
-              <span class="core-label">{{ core_label }}</span>
-            </div>
-            {% endif %}
+          <div class="card-action">
+             {% if project.code %}
+             <a href="{{project.code}}" target="_blank" class="read-btn">GIT_CLONE()</a>
+             {% else %}
+             <span class="read-btn" style="opacity: 0.5; cursor: not-allowed;">PRIVATE_REPO</span>
+             {% endif %}
           </div>
         </div>
+
+        <!-- Dependency Cloud / Build Overlay Logic (Simplified/Hidden for clean retro grid, or kept if desired) -->
+        <!-- Keeping it simple for the retro grid request, relying on hover effect mainly -->
       </div>
       {% endfor %}
     </div>
   </main>
   
   <style>
-    .sys-core {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.7rem;
-      color: var(--text-secondary);
-      background: rgba(0, 0, 0, 0.2);
-      padding: 6px 12px;
-      border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      width: fit-content;
-      transition: all 0.3s ease;
+    .project-list-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Force 3 columns */
+        gap: 2rem;
     }
 
-    .sys-core:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: var(--core-color, #fff);
-      box-shadow: 0 0 10px var(--core-color, rgba(255,255,255,0.1));
+    @media (max-width: 900px) {
+        .project-list-grid {
+           grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .project-list-grid {
+           grid-template-columns: 1fr;
+        }
+    }
+
+    .project-card-retro-grid {
+        background: var(--bg-surface);
+        border: 2px solid var(--border-subtle);
+        transition: all 0.2s;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+      
+    .project-card-retro-grid:hover {
+        border-color: var(--accent-secondary);
+        transform: translateY(-4px);
+        box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.3);
+    }
+
+    .card-image {
+        height: 180px;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        border-bottom: 2px solid var(--border-subtle);
+    }
+
+    .card-top-bar {
+        background: var(--border-subtle);
+        padding: 0.4rem 0.8rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--text-secondary);
+    }
+
+    .card-content-inner {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .retro-card-title {
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        color: var(--text-primary);
+        margin: 0 0 1rem 0;
+        line-height: 1.3;
+    }
+
+    .retro-excerpt {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+        line-height: 1.5;
+    }
+
+    .card-action {
+        border-top: 1px dashed var(--border-subtle);
+        padding-top: 1rem;
+        text-align: right;
+    }
+
+    .read-btn {
+        font-family: var(--font-mono);
+        color: var(--accent-secondary);
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .read-btn:hover {
+        text-decoration: underline;
     }
     
-    .sys-core i.core-icon {
-      color: var(--core-color);
-      font-size: 0.9rem;
-      filter: drop-shadow(0 0 2px var(--core-color));
-    }
-
-    .core-label {
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      opacity: 0.9;
-    }
-
-    /* Spectrum Bars Animation */
-    .spectrum-bars {
-      display: flex;
-      gap: 2px;
-      align-items: flex-end;
-      height: 12px;
-    }
-
-    .spectrum-bars span {
-      width: 3px;
-      background-color: var(--core-color);
-      border-radius: 1px;
-      animation: spectrum 1s infinite ease-in-out alternate;
-      height: 20%;
-      opacity: 0.8;
+    .meta-tags {
+        margin-bottom: 1rem;
     }
     
-    @keyframes spectrum {
-      0% { height: 20%; opacity: 0.5; }
-      100% { height: 100%; opacity: 1; box-shadow: 0 0 4px var(--core-color); }
-    }
-
-    /* Encrypted / Private Variant */
-    .sys-encrypted {
-      --core-color: #ec4899; /* Pink */
-      border-style: dashed;
-    }
-    
-    .static-hatch span {
-      animation: none;
-      height: 100%;
-      background: repeating-linear-gradient(
-        45deg,
-        var(--core-color),
-        var(--core-color) 2px,
-        transparent 2px,
-        transparent 4px
-      );
-      width: 4px;
-      opacity: 0.3;
+    .meta-pill {
+        font-size: 0.7rem;
+        font-family: var(--font-mono);
+        padding: 2px 6px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 4px;
+        color: var(--text-tertiary);
     }
   </style>
   
