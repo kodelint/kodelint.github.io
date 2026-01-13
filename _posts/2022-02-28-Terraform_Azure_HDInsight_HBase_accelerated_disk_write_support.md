@@ -19,7 +19,24 @@ There has been a long-standing request in the community to support **HBase Accel
 
 According to Azure APIs, specific flags must be set to enable accelerated writes:
 
-![Azure API Insight](https://cdn-images-1.medium.com/fit/c/800/95/1*K3_srEoFa-CCtXUMkuT-Ww.png)
+```json
+{
+  "properties": {
+    "computeProfile": {
+      "roles": [
+        {
+          "name": "workernode",
+          "dataDisksGroups": [
+            {
+              "disksPerNode": 1
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
 
 ### The Problem
 

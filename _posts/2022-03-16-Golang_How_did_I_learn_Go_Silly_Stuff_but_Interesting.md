@@ -15,11 +15,7 @@ tags: [Golang, Basics, Concepts]
 
 I'm writing this blog in the hope that the silly mistakes I made—and learned from—while coding in Go can help others avoid them. I learned the hard way how to fix these issues, and the process encouraged me to dive deeper into the language.
 
-![Learning Go](https://cdn-images-1.medium.com/fit/c/400/519/0*tOqkcqTP1whELGRs.png)
-
 My goal is to keep this short and to the point. Most of these are simple misunderstandings, but every lesson counts!
-
----
 
 ### 1. Array vs. Slice
 

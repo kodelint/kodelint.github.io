@@ -62,7 +62,7 @@
             <div class="cross-post-links" style="display: flex; align-items: center; gap: 0.5rem;">
               <span style="font-size: 0.7rem; color: var(--accent-secondary); font-family: var(--font-mono); text-transform: uppercase; font-weight: 700;">Published on:</span>
               
-              {% if post.cross_post_url contains 'medium.com' or post.medium_url %}
+              {% if post.cross_post_url or post.medium_url %}
               <a href="{{ post.cross_post_url | default: post.medium_url }}" target="_blank" title="Read on Medium" onclick="event.stopPropagation();" style="display: flex; align-items: center;">
                 <i class="fab fa-medium cross-post-icon active" style="color: #fff; font-size: 0.9rem;"></i>
               </a>
@@ -76,7 +76,7 @@
 
               {% if post.hashnode_url %}
               <a href="{{ post.hashnode_url }}" target="_blank" title="Read on Hashnode" onclick="event.stopPropagation();" style="display: flex; align-items: center;">
-                <i class="fas fa-h cross-post-icon active" style="color: #2962ff; font-size: 0.8rem;"></i>
+                <i class="fab fa-hashnode cross-post-icon active" style="color: #2962ff; font-size: 0.8rem;"></i>
               </a>
               {% endif %}
             </div>
