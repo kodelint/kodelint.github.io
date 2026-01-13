@@ -78,6 +78,101 @@ layout: page
 
 </div>
 
+<!-- Career Log Section -->
+<div class="career-log-section">
+  <div class="section-header-wide">
+    <h2>// CAREER_LOG</h2>
+    <span class="terminal-prompt"><span class="symbol">$</span> git log --graph --oneline --color</span>
+  </div>
+
+  <div class="tech-graph">
+    <div class="graph-commit deploy">
+      <div class="graph-lane"><div class="graph-dot l0"></div></div>
+      <div class="graph-content">
+        <span class="graph-hash">af5c170</span>
+        <span class="graph-msg"><span class="type deploy">deploy</span> <span class="ref">(HEAD -> master)</span> finally understood that <strong>Rust</strong>'s compiler is actually a protective parent</span>
+      </div>
+    </div>
+
+    <div class="graph-commit feat">
+      <div class="graph-lane"><div class="graph-dot l0"></div></div>
+      <div class="graph-content">
+        <span class="graph-hash">7ece5b8</span>
+        <span class="graph-msg"><span class="type feat">feat</span> realized the <span class="tooltip-container">"Edge"<span class="tooltip-box"><b>The Frontier [tech]</b>Computing so close to the user you can almost smell their search history.</span></span> is just a server with a better view</span>
+      </div>
+    </div>
+    <div class="graph-commit hotfix">
+      <div class="graph-lane">
+        <div class="branch-merge"></div>
+        <div class="graph-dot l0"></div>
+      </div>
+      <div class="graph-content">
+        <span class="graph-hash">c19feaa</span>
+        <span class="graph-msg"><span class="type hotfix">fix</span> learned that <span class="tooltip-container">"cloud native"<span class="tooltip-box"><b>Expensive by Design [concept]</b>A methodology that ensures your cloud provider reaches their quarterly revenue targets.</span></span> usually means "expensive native"</span>
+      </div>
+    </div>
+
+    <div class="graph-commit feat on-branch">
+      <div class="graph-lane"><div class="graph-dot l1"></div></div>
+      <div class="graph-content">
+        <span class="graph-hash">e18ce41</span>
+        <span class="graph-msg"><span class="type feat">feat</span> <span class="ref">(branch/gpu-voodoo)</span> optimized GPU utilization from 'expensive space heater' to 'inference machine'</span>
+      </div>
+    </div>
+
+    <div class="graph-commit feat on-branch">
+      <div class="graph-lane"><div class="graph-dot l1"></div></div>
+      <div class="graph-content">
+        <span class="graph-hash">bd36139</span>
+        <span class="graph-msg"><span class="type feat">feat</span> accepted that <span class="tooltip-container"><strong>Kubernetes</strong><span class="tooltip-box"><b>The YAML Orchestrator [tool]</b>If you have one problem, use Kubernetes. Now you have a cluster of problems and a networking degree.</span></span> is just a collection of very angry containers</span>
+      </div>
+    </div>
+
+    <div class="graph-commit merge">
+      <div class="graph-lane">
+        <div class="branch-fork"></div>
+        <div class="graph-dot l0"></div>
+      </div>
+      <div class="graph-content">
+        <span class="graph-hash">0731214</span>
+        <span class="graph-msg"><span class="type merge">merge</span> Security is now a feature, not a ticket</span>
+      </div>
+    </div>
+
+    <div class="graph-commit fix">
+      <div class="graph-lane"><div class="graph-dot l0"></div></div>
+      <div class="graph-content">
+        <span class="graph-hash">f4dff42</span>
+        <span class="graph-msg"><span class="type fix">fix</span> fixed a bug that only appeared on Tuesdays during a full moon</span>
+      </div>
+    </div>
+
+    <div class="graph-commit feat">
+      <div class="graph-lane"><div class="graph-dot l0"></div></div>
+      <div class="graph-content">
+        <span class="graph-hash">f765b47</span>
+        <span class="graph-msg"><span class="type feat">feat</span> converted our infrastructure into <span class="tooltip-container"><strong>GitOps</strong><span class="tooltip-box"><b>The Single Source of Truth [method]</b>A methodology where we pretend that everything in the repo is exactly what's in production, until it isn't.</span></span> because clicking buttons is for amateurs</span>
+      </div>
+    </div>
+
+    <div class="graph-commit perf">
+      <div class="graph-lane"><div class="graph-dot l0"></div></div>
+      <div class="graph-content">
+        <span class="graph-hash">ea21f3c</span>
+        <span class="graph-msg"><span class="type perf">perf</span> optimized my coffee consumption for maximum code output</span>
+      </div>
+    </div>
+
+    <div class="graph-commit init">
+      <div class="graph-lane"><div class="graph-dot l0"></div></div>
+      <div class="graph-content">
+        <span class="graph-hash">b894es5</span>
+        <span class="graph-msg"><span class="type init">init</span> started with a Hello World, now we're here.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="spacer-xl"></div>
 
 <!-- Widescreen Section: Latest Logs -->
@@ -115,9 +210,9 @@ layout: page
   .hero-container-wide {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr; /* More balanced columns */
-    gap: 8rem; /* Reduced from 15rem for better alignment */
+    gap: 6rem; /* Reduced from 8rem/15rem to fix "too much space" */
     align-items: center;
-    padding: 8rem 0; 
+    padding: 6rem 0; /* Reduced padding */
     min-height: 80vh;
   }
 
@@ -136,7 +231,7 @@ layout: page
 
   .hero-title-wide {
     font-family: var(--font-heading);
-    font-size: 5rem; /* Even larger */
+    font-size: 5rem;
     line-height: 1.05;
     color: var(--text-primary);
     margin-bottom: 2.5rem;
@@ -254,7 +349,7 @@ layout: page
 
   .profile-img-container {
     width: 100%;
-    height: auto; /* Removed fixed height to prevent cropping */
+    height: auto;
     max-height: 450px;
     background: #000;
     margin-bottom: 1.5rem;
@@ -266,7 +361,7 @@ layout: page
     width: 100%;
     height: auto;
     display: block;
-    object-fit: contain; /* Ensure full image is visible */
+    object-fit: contain;
     filter: grayscale(100%);
     transition: filter 0.3s;
   }
@@ -316,7 +411,7 @@ layout: page
   .status-log .success { color: #4ade80; }
 
   /* Logs Section */
-  .logs-section-wide {
+  .logs-section-wide, .career-log-section {
     margin-bottom: 6rem;
   }
 
@@ -344,7 +439,7 @@ layout: page
 
   .logs-grid-wide {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Updated to 4 columns */
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
   }
 
