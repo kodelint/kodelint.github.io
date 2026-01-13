@@ -105,7 +105,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l1"></div></div>
     <div class="graph-content">
       <span class="graph-hash">bd36139</span>
-      <span class="graph-msg"><span class="type feat">feat</span> accepted that <strong>Kubernetes</strong> is just a collection of very angry containers</span>
+      <span class="graph-msg"><span class="type feat">feat</span> accepted that <span class="tooltip-container"><strong>Kubernetes</strong><span class="tooltip-box"><b>The YAML Orchestrator [tool]</b>If you have one problem, use Kubernetes. Now you have a cluster of problems and a networking degree.</span></span> is just a collection of very angry containers</span>
     </div>
   </div>
 
@@ -140,7 +140,7 @@ layout: page
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
       <span class="graph-hash">f765b47</span>
-      <span class="graph-msg"><span class="type feat">feat</span> converted our infrastructure into <strong>GitOps</strong> because clicking buttons is for amateurs</span>
+      <span class="graph-msg"><span class="type feat">feat</span> converted our infrastructure into <span class="tooltip-container"><strong>GitOps</strong><span class="tooltip-box"><b>The Single Source of Truth [method]</b>A methodology where we pretend that everything in the repo is exactly what's in production, until it isn't.</span></span> because clicking buttons is for amateurs</span>
     </div>
   </div>
 
