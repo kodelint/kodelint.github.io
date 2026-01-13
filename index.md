@@ -189,7 +189,7 @@ layout: page
   <div class="graph-commit init">
     <div class="graph-lane"><div class="graph-dot l0"></div></div>
     <div class="graph-content">
-      <span class="graph-hash">init_02</span>
+      <span class="graph-hash">b894es5</span>
       <span class="graph-msg"><span class="type init">init</span> started with a Hello World, now we're here.</span>
     </div>
   </div>
