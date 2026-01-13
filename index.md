@@ -194,18 +194,21 @@ layout: page
     </div>
   </div>
 
-  <div class="graph-stats" style="font-style: normal; display: flex; flex-direction: column; gap: 0.25rem; padding-left: 2.5rem;">
-    <div style="color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; opacity: 0.7;">Final Deployment Summary:</div>
-    <span style="font-weight: 700; color: var(--text-primary);">
+  <div class="graph-stats" style="font-style: normal; display: flex; flex-direction: column; gap: 0.4rem; padding-left: 2.5rem; border-left: 1px solid rgba(255,255,255,0.05); margin-left: 0.5rem;">
+    <div style="color: var(--accent-primary); margin-bottom: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; display: flex; align-items: center; gap: 0.6rem; opacity: 0.8;">
+      <span style="background: rgba(56, 189, 248, 0.1); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.2); font-size: 0.6rem;">[STATUS]</span> 
+      <span>FINAL_DEPLOY_SUMMARY_SUCCESS</span>
+    </div>
+    <span style="font-weight: 700; color: var(--text-secondary); font-size: 0.95rem;">
       <span style="color: #00ff9d;">+++</span> 20 Years of <span style="color: #ff4757;">PagerDuty</span> Trauma (and counting)
     </span>
-    <span style="font-weight: 700; color: var(--text-primary);">
-      <span style="color: #00ff9d;">+++</span> 1,048,576 Lines of <span style="color: #38bdf8;">Polyglot Code</span> (<span style="color: #94a3af;">YAML</span>, <span style="color: #00ff9d;">Go</span>, <span style="color: #f87171;">Rust</span>, and shell)
+    <span style="font-weight: 700; color: var(--text-secondary); font-size: 0.95rem;">
+      <span style="color: #00ff9d;">+++</span> 1,048,576 Lines of <span style="color: #38bdf8;">Polyglot Code</span> (<span style="color: #94a3af;">YAML</span>, <span style="color: #00ff9d;">Go</span>, <span style="color: #f87171;">Rust</span>)
     </span>
-    <span style="font-weight: 700; color: var(--text-primary);">
+    <span style="font-weight: 700; color: var(--text-secondary); font-size: 0.95rem;">
       <span style="color: #ff4757;">---</span> <span style="color: #ff4757;">0 Regrets</span> (Memory leaks not shown)
     </span>
-    <span style="font-weight: 700; color: var(--text-primary);">
+    <span style="font-weight: 700; color: var(--text-secondary); font-size: 0.95rem;">
       <span style="color: #facc15;">!!!</span> 1 <span style="color: #facc15;">Executive Ego</span> (Critical dependency)
     </span>
   </div>
