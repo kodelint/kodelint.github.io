@@ -1,132 +1,160 @@
 ---
 layout: portfolio_simple
-title: Satyajit Roy
+title: Satyajit Roy | Engineering Executive
 permalink: /portfolio/
 ---
 
 <header class="p-header">
-  <h1 class="p-name">Satyajit Roy</h1>
-  <div class="p-role">Engineering Executive | Cloud & Platform Strategy | SRE Leadership</div>
+  <div class="p-header-content">
+    <span class="p-role-badge">Engineering Executive</span>
+    <h1 class="p-name">Satyajit Roy</h1>
+    <p class="p-intro">
+      Platform leader with <strong>20+ years</strong> of experience scaling mission-critical SaaS, AI/ML infrastructure, and SRE organizations.
+      <br><br>
+      I bridge the gap between complex distributed systems and business value, building resilient engineering cultures that deliver at hyperscale.
+    </p>
+    
+    <div class="p-socials">
+      <a href="mailto:talk2sroy.ch@gmail.com" class="p-social-link">Email</a>
+      <a href="https://www.linkedin.com/in/satyajitroychoudhury/" target="_blank" class="p-social-link">LinkedIn</a>
+      <a href="https://github.com/kodelint" target="_blank" class="p-social-link">GitHub</a>
+      <a href="/blogs" class="p-social-link">Writing</a>
+    </div>
+  </div>
   
-  <div class="p-contact">
-    <a href="mailto:talk2sroy.ch@gmail.com">Email</a>
-    <a href="https://www.linkedin.com/in/satyajitroychoudhury/" target="_blank">LinkedIn</a>
-    <a href="https://github.com/kodelint" target="_blank">GitHub</a>
-    <a href="/blogs">Writing</a>
+  <div class="p-avatar-frame">
+    <img src="/assets/png/pic2.png" alt="Satyajit Roy" class="p-avatar-img">
   </div>
 </header>
 
 <section class="p-section">
-  <div class="p-summary">
-    Engineering and Platform leader with <strong>20+ years</strong> of experience scaling mission-critical SaaS and AI/ML platforms. Proven track record of building global SRE organizations, optimizing <strong>hyperscale systems</strong>, and aligning technical strategy with business goals.
+  <div class="p-section-header">
+    <h2 class="p-section-title">Professional Experience</h2>
   </div>
-</section>
 
-<section class="p-section">
-  <h2 class="p-section-title">Leadership Experience</h2>
-  
-  <div class="exp-list">
-    <!-- Arkose -->
-    <div class="exp-item">
-      <div class="exp-date">2024 — Present</div>
-      <div class="exp-details">
+  <div class="exp-card">
+    <div class="exp-header">
+      <div class="exp-role">
         <h3>Director of Engineering & SRE</h3>
         <span class="exp-company">Arkose Labs</span>
-        <div class="exp-desc">
-          <ul>
-            <li>Owning platform engineering and SRE strategy for a high-growth fraud detection SaaS.</li>
-            <li>Amplified platform modernization, re-architecting to EKS-based microservices with eBPF service mesh.</li>
-            <li>Instituted FinOps governance, reducing cloud spend while supporting aggressive enterprise traffic growth.</li>
-          </ul>
-        </div>
       </div>
+      <div class="exp-meta">Aug 2024 — Present<br>San Mateo, CA</div>
     </div>
+    <div class="exp-body">
+      <p>Leading Platform Engineering and SRE strategy for a high-growth fraud detection SaaS protecting major global enterprises.</p>
+      <ul>
+        <li>Modernized platform architecture to <strong>EKS microservices with eBPF service mesh</strong>, enabling 7x transaction growth.</li>
+        <li>Implemented advanced <strong>SLO-based release gates</strong> to balance feature velocity with 99.9% availability under attack.</li>
+        <li>Instituted <strong>FinOps governance</strong>, optimizing cloud spend while scaling infrastructure for enterprise demand.</li>
+      </ul>
+    </div>
+  </div>
 
-    <!-- F5 -->
-    <div class="exp-item">
-      <div class="exp-date">2022 — 2024</div>
-      <div class="exp-details">
+  <div class="exp-card">
+    <div class="exp-header">
+      <div class="exp-role">
         <h3>Sr. Director of Product Engineering</h3>
         <span class="exp-company">F5 Inc</span>
-        <div class="exp-desc">
-          <ul>
-             <li>Led Platform Engineering and Global SRE with full P&L accountability for F5’s Distributed Cloud SaaS.</li>
-             <li>Oversaw architectural strategy for a global multi-cloud networking platform absorbing massive attack traffic.</li>
-             <li>Delivered FedRAMP High, PCI-DSS, and SOC 2 compliance through policy-as-code initiatives.</li>
-          </ul>
-        </div>
       </div>
+      <div class="exp-meta">Oct 2022 — Apr 2024<br>San Jose, CA</div>
     </div>
+    <div class="exp-body">
+      <p>Executive leader with full P&L accountability for Platform Engineering and Global SRE for F5’s Distributed Cloud SaaS.</p>
+      <ul>
+        <li>Led global engineering organizations (55+ engineers), managing hiring, budget, and operational strategy.</li>
+        <li>Oversaw architecture for a <strong>25+ PoP global network</strong> delivering multi-cloud networking and security services.</li>
+        <li>Collaborated with CISO to deliver <strong>FedRAMP High, PCI-DSS, and SOC 2</strong> compliance via policy-as-code.</li>
+        <li>Rebuilt the global SRE operating model to a follow-the-sun structure, reducing on-call burnout.</li>
+      </ul>
+    </div>
+  </div>
 
-    <!-- Adobe -->
-    <div class="exp-item">
-      <div class="exp-date">2018 — 2022</div>
-      <div class="exp-details">
+  <div class="exp-card">
+    <div class="exp-header">
+      <div class="exp-role">
         <h3>Architect / Technical Leader</h3>
         <span class="exp-company">Adobe Inc</span>
-        <div class="exp-desc">
-          <ul>
-            <li>Architected infrastructure for Adobe’s Core Search and Sensei Machine Learning platform.</li>
-            <li>Designed and optimized large-scale hybrid GPU/CPU clusters for hyperscale AI workloads.</li>
-            <li>Unified fragmented Kubernetes environments into a single multi-tenant platform, eliminating sprawl.</li>
-          </ul>
-        </div>
       </div>
+      <div class="exp-meta">Aug 2018 — Oct 2022<br>San Jose, CA</div>
     </div>
-    
-    <!-- Macy's -->
-    <div class="exp-item">
-      <div class="exp-date">2016 — 2018</div>
-      <div class="exp-details">
+    <div class="exp-body">
+      <p>Technical leader for Adobe’s Core Search and Sensei Machine Learning platform.</p>
+      <ul>
+        <li>Designed hybrid <strong>GPU/CPU infrastructure</strong> spanning AWS, Azure, and on-prem for hyperscale AI workloads.</li>
+        <li>Unified fragmented Kubernetes environments into a single multi-tenant platform, eliminating cluster sprawl.</li>
+        <li>Optimized HPC clusters with <strong>RDMA InfiniBand</strong> and GPU-aware scheduling, increasing utilization by 38%.</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="exp-card">
+    <div class="exp-header">
+      <div class="exp-role">
         <h3>Tech Leader</h3>
         <span class="exp-company">Macys.com</span>
-        <div class="exp-desc">
-          <ul>
-            <li>Led enterprise-wide CI/CD and platform modernization for e-commerce workloads.</li>
-            <li>Designed a modern deployment platform using Kubernetes and Spinnaker, enabling near-zero downtime.</li>
-          </ul>
-        </div>
       </div>
+      <div class="exp-meta">Nov 2016 — Aug 2018<br>San Francisco, CA</div>
+    </div>
+    <div class="exp-body">
+      <ul>
+        <li>Led enterprise-wide CI/CD and platform modernization supporting e-commerce revenue streams.</li>
+        <li>Designed a hybrid cloud architecture spanning GCP, AWS, and VMware Tanzu.</li>
+        <li>Implemented blue-green and canary deployment strategies for near-zero downtime releases.</li>
+      </ul>
     </div>
   </div>
 </section>
 
 <section class="p-section">
-  <h2 class="p-section-title">Core Competencies</h2>
+  <div class="p-section-header">
+    <h2 class="p-section-title">Strategic Competencies</h2>
+  </div>
   
-  <div class="skills-container">
-    <div class="skill-category">
-      <h4>Strategy</h4>
-      <ul class="skill-list">
-        <li>Global Org Scaling</li>
-        <li>Technical Roadmapping</li>
-        <li>P&L Accountability</li>
-        <li>FinOps & Cost Optimization</li>
-      </ul>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h4>Executive Leadership</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Global Org Scaling</span>
+        <span class="skill-tag">P&L Accountability</span>
+        <span class="skill-tag">Technical Strategy</span>
+        <span class="skill-tag">FinOps & TCO</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h4>Cloud & Platform</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Multi-Cloud Strategy</span>
+        <span class="skill-tag">Kubernetes (EKS/AKS)</span>
+        <span class="skill-tag">Internal Developer Platforms</span>
+        <span class="skill-tag">GitOps</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h4>Reliability (SRE)</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">SLO/SLI Design</span>
+        <span class="skill-tag">Incident Command</span>
+        <span class="skill-tag">Observability Strategy</span>
+        <span class="skill-tag">Chaos Engineering</span>
+      </div>
     </div>
     
-    <div class="skill-category">
-      <h4>Cloud & Infra</h4>
-      <ul class="skill-list">
-        <li>Multi-Cloud (AWS/Azure/GCP)</li>
-        <li>Kubernetes (EKS, AKS)</li>
-        <li>GitOps & IaC</li>
-        <li>High Performance Computing</li>
-      </ul>
-    </div>
-    
-    <div class="skill-category">
-      <h4>Reliability</h4>
-      <ul class="skill-list">
-        <li>Incident Command</li>
-        <li>SLO/SLI Design</li>
-        <li>Observability Strategy</li>
-        <li>Chaos Engineering</li>
-      </ul>
+    <div class="skill-card">
+      <h4>AI & Data Infra</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">GPU Optimization</span>
+        <span class="skill-tag">HPC Networking</span>
+        <span class="skill-tag">MLOps</span>
+        <span class="skill-tag">Search Architecture</span>
+      </div>
     </div>
   </div>
 </section>
 
 <footer class="p-footer">
-  &copy; {{ site.time | date: '%Y' }} Satyajit Roy. <a href="/">Return to Main Site</a>
+  <p>&copy; {{ site.time | date: '%Y' }} Satyajit Roy. All rights reserved.</p>
+  <br>
+  <a href="/">Return to Main Site</a>
 </footer>
