@@ -825,7 +825,7 @@
   margin: 1rem 0 3rem;
   font-family: var(--font-mono);
   line-height: 1.2;
-  overflow-x: auto;
+  overflow: visible;
   padding-bottom: 0.5rem;
 }
 
@@ -835,7 +835,6 @@
   color: var(--text-secondary);
   margin-bottom: 0.75rem;
   opacity: 0.8;
-  white-space: nowrap;
 }
 
 .terminal-prompt .symbol {
@@ -994,10 +993,8 @@
 }
 
 .graph-content {
-  white-space: nowrap;
   display: flex;
   align-items: center;
-  overflow: hidden;
   padding: 0.4rem 0;
 }
 
@@ -1005,6 +1002,7 @@
   font-size: 1rem;
   color: var(--text-primary);
   letter-spacing: -0.01em;
+  white-space: normal;
 }
 .graph-msg .type {
   font-weight: 800;
@@ -1056,7 +1054,7 @@
   }
   .graph-msg {
     font-size: 0.85rem;
-    white-space: nowrap;
+    white-space: normal;
   }
 }
 

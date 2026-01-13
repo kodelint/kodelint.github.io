@@ -196,14 +196,14 @@ layout: page
 
   <div class="graph-stats" style="font-style: normal; display: flex; flex-direction: column; gap: 0.4rem;">
     <div style="color: var(--accent-primary); margin-bottom: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; display: flex; align-items: center; gap: 0.6rem; opacity: 0.8;">
-      <span style="background: rgba(56, 189, 248, 0.1); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.2); font-size: 0.6rem;">[STATUS]</span> 
-      <span>FINAL_DEPLOY_SUMMARY_SUCCESS</span>
+      <span style="background: rgba(56, 189, 248, 0.1); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.2); font-size: 0.9rem;"><strong>[STATUS]</strong></span> 
+      <span><strong>FINAL_DEPLOY_SUMMARY_SUCCESS</strong></span>
     </div>
     <span style="font-weight: 700; color: var(--text-secondary); font-size: 0.95rem;">
       <span style="color: #00ff9d;">+++</span> 20 Years of <span style="color: #ff4757;">PagerDuty</span> Trauma (and counting)
     </span>
     <span style="font-weight: 700; color: var(--text-secondary); font-size: 0.95rem;">
-      <span style="color: #00ff9d;">+++</span> 1,048,576 Lines of <span style="color: #38bdf8;">Polyglot Code</span> (<span style="color: #94a3af;">YAML</span>, <span style="color: #00ff9d;">Go</span>, <span style="color: #f87171;">Rust</span>)
+      <span style="color: #00ff9d;">+++</span> ~2M Lines of <span style="color: #38bdf8;">Polyglot Code</span> (<span style="color: #94a3af;">YAML</span>, <span style="color: #00ff9d;">Go</span>, <span style="color: #f87171;">Rust</span>)
     </span>
     <span style="font-weight: 700; color: var(--text-secondary); font-size: 0.95rem;">
       <span style="color: #ff4757;">---</span> <span style="color: #ff4757;">0 Regrets</span> (Memory leaks not shown)
