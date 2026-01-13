@@ -1134,6 +1134,9 @@
   font-family: var(--font-mono);
   font-size: 0.75rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  white-space: normal; /* Force text wrapping */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .tooltip-container .tooltip-box b {

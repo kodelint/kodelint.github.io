@@ -242,7 +242,7 @@ layout: page
   </div>
   
   <div class="logs-grid-wide">
-    {% for post in site.posts limit:3 %}
+    {% for post in site.posts limit:4 %}
     <a href="{{ post.url }}" class="log-card-wide card-retro-smooth">
       {% if post.image %}
       <div class="card-image-retro" style="background-image: url('{{ post.image | relative_url }}');"></div>
