@@ -610,7 +610,7 @@
   animation: glitch 0.2s infinite;
 }
 
-.ozone-gauge-container {
+.core-temp-container {
   position: fixed;
   bottom: 2rem;
   left: 2rem;
@@ -624,48 +624,52 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  min-width: 120px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.gauge {
-  width: 60px;
-  height: 30px;
-  background: #1f2937;
-  border-radius: 60px 60px 0 0;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--border-subtle);
-}
-
-.gauge-fill {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--accent-gradient);
-  transform-origin: center top;
-  transform: rotate(0deg);
-  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.gauge-needle {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  height: 25px;
-  background: #fff;
-  transform-origin: bottom center;
-  transform: translateX(-50%) rotate(-90deg);
-  transition: transform 0.3s ease-out;
-  z-index: 2;
-}
-
-.gauge-label {
+.temp-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.6rem;
-  color: var(--text-tertiary);
-  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.temp-display i {
+  color: var(--accent-primary);
+  animation: pulse 2s infinite;
+}
+
+.temp-bar-bg {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.temp-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent-primary);
+  transition: width 0.1s ease-out, background-color 0.3s ease;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+@media (max-width: 768px) {
+  .core-temp-container {
+    bottom: 6rem;
+    left: 1rem;
+    transform: scale(0.8);
+  }
 }
 
 .system-logs {
@@ -804,12 +808,6 @@
 }
 
 @media (max-width: 768px) {
-  .ozone-gauge-container {
-    bottom: 6rem;
-    left: 1rem;
-    transform: scale(0.8);
-  }
-
   .system-logs {
     bottom: 6rem;
     right: 1rem;

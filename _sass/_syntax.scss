@@ -24,36 +24,46 @@ div.highlight {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Terminal Title Bar */
+/* Terminal Title Bar & Window Controls */
 div.highlight::before {
-  content: "";
+  content: "● ● ●";
   display: block;
   height: 34px;
+  line-height: 34px;
+  padding: 0 15px;
   background: #24283b;
   border-bottom: 1px solid #2f3542;
+  font-size: 16px;
+  color: #ff5f56; /* Red dot */
+  letter-spacing: 2px;
+  /* Use text-shadow to create the yellow and green dots */
+  text-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f; 
+  font-family: sans-serif;
 }
 
-/* Window Controls (MacOS Style) */
+/* Language Badge (Pinned to the top right of the container) */
 div.highlight::after {
-  content: "";
   position: absolute;
-  top: 12px;
-  left: 15px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ff5f56;
-  box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f;
-  z-index: 5;
+  top: 10px;
+  right: 15px;
+  font-size: 10px;
+  color: var(--accent-primary);
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 10;
 }
 
-/* Language Badge in Title Bar */
-.language-go::after { content: "󰟓 GOLANG"; position: absolute; top: 8px; right: 15px; font-size: 11px; color: #565f89; font-weight: 700; }
-.language-rust::after { content: " RUST"; position: absolute; top: 8px; right: 15px; font-size: 11px; color: #565f89; font-weight: 700; }
-.language-bash::after { content: " BASH"; position: absolute; top: 8px; right: 15px; font-size: 11px; color: #565f89; font-weight: 700; }
-.language-yaml::after { content: "󰂺 YAML"; position: absolute; top: 8px; right: 15px; font-size: 11px; color: #565f89; font-weight: 700; }
-.language-json::after { content: "󰘦 JSON"; position: absolute; top: 8px; right: 15px; font-size: 11px; color: #565f89; font-weight: 700; }
-.language-terraform::after { content: "󱁢 TERRAFORM"; position: absolute; top: 8px; right: 15px; font-size: 11px; color: #565f89; font-weight: 700; }
+/* Language-specific content for the badge */
+div[class*="language-go"]::after { content: "󰟓 GOLANG"; }
+div[class*="language-rust"]::after { content: " RUST"; }
+div[class*="language-bash"]::after { content: " BASH"; }
+div[class*="language-yaml"]::after { content: "󰂺 YAML"; }
+div[class*="language-json"]::after { content: "󰘦 JSON"; }
+div[class*="language-terraform"]::after { content: "󱁢 TF_INFRA"; }
+div[class*="language-ruby"]::after { content: " RUBY"; }
+div[class*="language-python"]::after { content: " PYTHON"; }
 
 div.highlight pre {
   padding: 1.25rem 1.5rem !important;
@@ -63,4 +73,3 @@ div.highlight pre {
   overflow-x: auto;
   color: #cfc9c2;
 }
-
