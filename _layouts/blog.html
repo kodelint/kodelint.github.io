@@ -30,12 +30,12 @@
     <div class="post-list" id="post-grid">
       {% for post in site.posts %}
       <div class="post" 
-           data-tags="{{ post.title | downcase }} {{ post.tags | join: ' ' | downcase }}"
-           onclick="window.open('{{site.url}}{{site.baseurl}}{{post.url}}', '_blank');">
+           data-tags="{{ post.title | downcase }} {{ post.tags | join: ' ' | downcase }}">
+        <a href="{{site.url}}{{site.baseurl}}{{post.url}}" class="card-cover-link" aria-label="{{ post.title }}"></a>
         {% if post.image %}
-        <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}{{post.image}})"></div>
+        <div class="thumbnail" style="background-image: url({{site.baseurl}}{{post.image}})"></div>
         {% else %}
-        <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}/assets/uploads/default.jpg); background: linear-gradient(45deg, #1e293b, #0f172a);"></div>
+        <div class="thumbnail" style="background-image: url({{site.baseurl}}/assets/uploads/default.jpg); background: linear-gradient(45deg, #1e293b, #0f172a);"></div>
         {% endif %}
         
         <div class="card-content">
@@ -57,32 +57,30 @@
           </div>
           {% endif %}
 
-          <div class="card-footer">
-            <div class="cross-post-links">
-              {% if post.redirect_to contains 'medium.com' or post.medium_url %}
-              <a href="{{ post.redirect_to | default: post.medium_url }}" target="_blank" title="Read on Medium" onclick="event.stopPropagation();">
-                <i class="fab fa-medium cross-post-icon medium active"></i>
+          <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center;">
+            {% if post.cross_post_url or post.medium_url or post.devto_url or post.hashnode_url %}
+            <div class="cross-post-links" style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 0.7rem; color: var(--accent-secondary); font-family: var(--font-mono); text-transform: uppercase; font-weight: 700;">Published on:</span>
+              
+              {% if post.cross_post_url or post.medium_url %}
+              <a href="{{ post.cross_post_url | default: post.medium_url }}" target="_blank" title="Read on Medium" onclick="event.stopPropagation();" style="display: flex; align-items: center;">
+                <i class="fab fa-medium cross-post-icon active" style="color: #fff; font-size: 0.9rem;"></i>
               </a>
-              {% else %}
-              <i class="fab fa-medium cross-post-icon medium" title="Not on Medium"></i>
               {% endif %}
 
               {% if post.devto_url %}
-              <a href="{{ post.devto_url }}" target="_blank" title="Read on Dev.to" onclick="event.stopPropagation();">
-                <i class="fab fa-dev cross-post-icon devto active"></i>
+              <a href="{{ post.devto_url }}" target="_blank" title="Read on Dev.to" onclick="event.stopPropagation();" style="display: flex; align-items: center;">
+                <i class="fab fa-dev cross-post-icon active" style="color: #3b82f6; font-size: 0.9rem;"></i>
               </a>
-              {% else %}
-              <i class="fab fa-dev cross-post-icon devto" title="Not on Dev.to"></i>
               {% endif %}
 
               {% if post.hashnode_url %}
-              <a href="{{ post.hashnode_url }}" target="_blank" title="Read on Hashnode" onclick="event.stopPropagation();">
-                <i class="fas fa-h cross-post-icon hashnode active"></i>
+              <a href="{{ post.hashnode_url }}" target="_blank" title="Read on Hashnode" onclick="event.stopPropagation();" style="display: flex; align-items: center;">
+                <i class="fab fa-hashnode cross-post-icon active" style="color: #2962ff; font-size: 0.8rem;"></i>
               </a>
-              {% else %}
-              <i class="fas fa-h cross-post-icon hashnode" title="Not on Hashnode"></i>
               {% endif %}
             </div>
+            {% endif %}
             <span class="read-more">Read Article</span>
           </div>
         </div>

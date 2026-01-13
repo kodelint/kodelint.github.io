@@ -4,9 +4,9 @@ title: Git Selective Ignore - Because Sometimes You Need to Keep Secrets from Gi
 author: Satyajit Roy
 date: 2025-08-16
 image: "/assets/uploads/01-git-selecting-ignore.png"
-redirect_to: "https://medium.com/@email2sroy/git-selective-ignore-because-sometimes-you-need-to-keep-secrets-from-git-but-not-from-yourself-e986725dc489"
+cross_post_url: "https://medium.com/@email2sroy/git-selective-ignore-because-sometimes-you-need-to-keep-secrets-from-git-but-not-from-yourself-e986725dc489"
 devto_url: "https://dev.to/deadlock/golang-garbage-collection-in-general-1o2l"
-hashnode_url: "https://sroy.hashnode.dev/golang-garbage-collection-in-general"
+hashnode_url: "https://sroy.hashnode.dev/git-selective-ignore-because-sometimes-you-need-to-keep-secrets-from-git-but-not-from-yourself-1"
 caffeine: 10
 stress: 7
 ozone: 5
@@ -71,19 +71,26 @@ You realize you've committed something sensitive and spend the next hour learnin
 
 This is where `git-selective-ignore` comes in. Think of it as a precision instrument in a world of sledgehammers.
 
-<p align="center">
-  <img src="https://github.com/kodelint/blog-images/blob/main/common/01-git-selecting-ignore.png" alt="git-selective-ignore" width="500"/>
-</p>
+Instead of treating files as atomic units, this tool lets you specify exactly which parts of a file should be ignored during commits. It’s like having a conversation with Git:
 
-Instead of treating files as atomic units, this tool lets you specify exactly which parts of a file should be ignored during commits. It's like having a conversation with Git:
-
-**You**: _"Hey Git, commit this file, but ignore lines 13-16, and also any line that contains 'API_KEY', and oh, while you're at it, skip that debug block between the comments."_
-
-**Git**: _"That's not how I—"_
-
-**git-selective-ignore**: _"I got this. `Git`, just commit what they want you to commit. Trust me."_
-
-**Git**: "...okay, but this feels weird."
+<div class="holo-communication-log">
+  <div class="comm-line">
+    <span class="comm-label user">You</span>
+    <span class="comm-text">"Hey Git, commit this file, but ignore lines 13-16, and also any line that contains 'API_KEY', and oh, while you're at it, skip that debug block between the comments."</span>
+  </div>
+  <div class="comm-line">
+    <span class="comm-label git">Git</span>
+    <span class="comm-text">"That's not how I—"</span>
+  </div>
+  <div class="comm-line">
+    <span class="comm-label tool">Tool</span>
+    <span class="comm-text">"I got this. <em>Git</em>, just commit what they want you to commit. Trust me."</span>
+  </div>
+  <div class="comm-line">
+    <span class="comm-label git">Git</span>
+    <span class="comm-text">"...okay, but this feels weird."</span>
+  </div>
+</div>
 
 ## How It Actually Works (The Magic Behind the Curtain)
 

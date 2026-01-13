@@ -8,8 +8,6 @@
   border: 1px solid var(--border-subtle);
   margin-bottom: 4rem;
   position: relative;
-  overflow-y: auto;
-  max-height: 400px;
 }
 
 #matrix-canvas {
@@ -23,7 +21,7 @@
 }
 
 .terminal-header .command {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -610,7 +608,7 @@
   animation: glitch 0.2s infinite;
 }
 
-.ozone-gauge-container {
+.core-temp-container {
   position: fixed;
   bottom: 2rem;
   left: 2rem;
@@ -624,48 +622,52 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  min-width: 120px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.gauge {
-  width: 60px;
-  height: 30px;
-  background: #1f2937;
-  border-radius: 60px 60px 0 0;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--border-subtle);
-}
-
-.gauge-fill {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--accent-gradient);
-  transform-origin: center top;
-  transform: rotate(0deg);
-  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.gauge-needle {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  height: 25px;
-  background: #fff;
-  transform-origin: bottom center;
-  transform: translateX(-50%) rotate(-90deg);
-  transition: transform 0.3s ease-out;
-  z-index: 2;
-}
-
-.gauge-label {
+.temp-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.6rem;
-  color: var(--text-tertiary);
-  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.temp-display i {
+  color: var(--accent-primary);
+  animation: pulse 2s infinite;
+}
+
+.temp-bar-bg {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.temp-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent-primary);
+  transition: width 0.1s ease-out, background-color 0.3s ease;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+@media (max-width: 768px) {
+  .core-temp-container {
+    bottom: 6rem;
+    left: 1rem;
+    transform: scale(0.8);
+  }
 }
 
 .system-logs {
@@ -804,12 +806,6 @@
 }
 
 @media (max-width: 768px) {
-  .ozone-gauge-container {
-    bottom: 6rem;
-    left: 1rem;
-    transform: scale(0.8);
-  }
-
   .system-logs {
     bottom: 6rem;
     right: 1rem;
@@ -826,10 +822,10 @@
 .tech-graph {
   position: relative;
   max-width: 100%;
-  margin: 1rem 0 3rem;
+  margin: 0rem 0 3rem;
   font-family: var(--font-mono);
   line-height: 1.2;
-  overflow-x: auto;
+  overflow: visible;
   padding-bottom: 0.5rem;
 }
 
@@ -837,9 +833,8 @@
   font-family: var(--font-mono);
   font-size: 1rem;
   color: var(--text-secondary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
   opacity: 0.8;
-  white-space: nowrap;
 }
 
 .terminal-prompt .symbol {
@@ -854,18 +849,48 @@
 }
 
 .graph-stats {
+  position: relative;
+  margin-top: 1.5rem;
+  padding-left: 80px;
   font-size: 1rem;
   color: var(--text-tertiary);
-  margin-top: 1.5rem;
-  padding-top: 0.75rem;
-  font-style: italic;
-  white-space: nowrap;
+  white-space: normal;
+}
+
+.graph-stats::before {
+  content: "";
+  position: absolute;
+  top: -1.5rem;
+  left: 25px;
+  width: 2px;
+  height: 2.2rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.graph-stats::after {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  left: 25px;
+  width: 35px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 0 4px;
+}
+
+@media (max-width: 768px) {
+  .graph-stats {
+    padding-left: 50px;
+  }
+  .graph-stats::after {
+    width: 15px;
+  }
 }
 
 .graph-commit {
   display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 1.2rem;
+  grid-template-columns: 65px 1fr;
+  gap: 0.5rem;
   min-height: 36px;
   position: relative;
   align-items: center;
@@ -968,17 +993,17 @@
 }
 
 .graph-content {
-  white-space: nowrap;
   display: flex;
   align-items: center;
-  overflow: hidden;
   padding: 0.4rem 0;
+  white-space: nowrap;
 }
 
 .graph-msg {
   font-size: 1rem;
   color: var(--text-primary);
   letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 .graph-msg .type {
   font-weight: 800;
@@ -1024,13 +1049,26 @@
     margin: 1.5rem 0;
   }
   .graph-commit {
-    grid-template-columns: 50px 1fr;
-    gap: 0.5rem;
+    grid-template-columns: 45px 1fr;
+    gap: 0.3rem;
     min-height: 28px;
   }
   .graph-msg {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     white-space: nowrap;
+  }
+  .graph-hash {
+    font-size: 0.75rem;
+    margin-right: 0.5rem;
+  }
+  .graph-lane::before {
+    left: 15px;
+  }
+  .graph-dot.l0 {
+    left: 15px;
+  }
+  .graph-dot.l1 {
+    left: 30px;
   }
 }
 

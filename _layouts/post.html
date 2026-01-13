@@ -12,6 +12,103 @@
     </div>
     
     <div class="content-body">
+      {% if page.cross_post_url or page.devto_url or page.hashnode_url %}
+      {% assign link_count = 0 %}
+      {% if page.cross_post_url %}{% assign link_count = link_count | plus: 1 %}{% endif %}
+      {% if page.devto_url %}{% assign link_count = link_count | plus: 1 %}{% endif %}
+      {% if page.hashnode_url %}{% assign link_count = link_count | plus: 1 %}{% endif %}
+      <div class="cross-post-notice" style="
+          background: rgba(56, 189, 248, 0.05); 
+          border: 1px solid var(--accent-primary); 
+          padding: 2rem; 
+          border-radius: var(--radius-md); 
+          margin-bottom: 2rem; 
+          text-align: center;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          backdrop-filter: blur(10px);
+        ">
+        <p style="margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--text-primary);">
+          <i class="fas fa-bullhorn" style="color: var(--accent-secondary); margin-right: 0.5rem;"></i>
+          This article was originally published on {% if link_count > 1 %}multiple external platforms{% else %}an external platform{% endif %}.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          {% if page.cross_post_url %}
+          <a href="{{ page.cross_post_url }}" class="button" target="_blank" style="
+              display: inline-flex; 
+              align-items: center;
+              background: var(--accent-gradient); 
+              color: white; 
+              padding: 0.75rem 1.5rem; 
+              border-radius: 9999px; 
+              font-weight: 600; 
+              text-decoration: none; 
+              border: none;
+              transition: transform 0.2s, box-shadow 0.2s;
+              box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);
+            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,118,255,0.23)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px 0 rgba(0,118,255,0.39)';">
+            <i class="fab fa-medium" style="margin-right: 0.5rem; font-size: 1.1rem;"></i> Read on Medium
+          </a>
+          {% endif %}
+          
+          {% if page.devto_url %}
+          <a href="{{ page.devto_url }}" class="button" target="_blank" style="
+              display: inline-flex; 
+              align-items: center;
+              background: var(--accent-gradient); 
+              color: white; 
+              padding: 0.75rem 1.5rem; 
+              border-radius: 9999px; 
+              font-weight: 600; 
+              text-decoration: none; 
+              border: none;
+              transition: transform 0.2s, box-shadow 0.2s;
+              box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);
+            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,118,255,0.23)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px 0 rgba(0,118,255,0.39)';">
+            <i class="fab fa-dev" style="margin-right: 0.5rem; font-size: 1.1rem;"></i> Read on Dev.to
+          </a>
+          {% endif %}
+          
+          {% if page.hashnode_url %}
+          <a href="{{ page.hashnode_url }}" class="button" target="_blank" style="
+              display: inline-flex; 
+              align-items: center;
+              background: var(--accent-gradient); 
+              color: white; 
+              padding: 0.75rem 1.5rem; 
+              border-radius: 9999px; 
+              font-weight: 600; 
+              text-decoration: none; 
+              border: none;
+              transition: transform 0.2s, box-shadow 0.2s;
+              box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);
+            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,118,255,0.23)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px 0 rgba(0,118,255,0.39)';">
+            <i class="fab fa-hashnode" style="margin-right: 0.5rem; font-size: 1.1rem;"></i> Read on Hashnode
+          </a>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if page.image %}
+      <div class="featured-image-container" style="
+          margin: 0 auto 3rem; 
+          max-width: 800px;
+          border-radius: var(--radius-md); 
+          overflow: hidden; 
+          border: 1px solid var(--border-subtle); 
+          box-shadow: var(--glow-shadow); 
+          position: relative;
+          background: rgba(0,0,0,0.2);
+        ">
+        <img src="{{site.baseurl}}{{page.image}}" alt="{{page.title}}" style="
+            width: 100%; 
+            max-height: 450px; 
+            display: block; 
+            object-fit: contain;
+          ">
+      </div>
+      {% endif %}
+
       {{content}}
     </div>
   </main>
