@@ -470,7 +470,7 @@ layout: page
   .status-log .success { color: #4ade80; }
 
   /* Logs Section */
-  .logs-section-wide {
+  .logs-section-wide, .career-log-section {
     margin-bottom: 6rem;
   }
 
