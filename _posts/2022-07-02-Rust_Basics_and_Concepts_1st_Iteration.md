@@ -10,6 +10,7 @@ categories: [Rust, Programming]
 tags: [Rustt, Programming, Basics, Concepts]
 image: '/assets/uploads/01-rust.png'
 cross_post_url: 'https://blog.devgenius.io/rust-basics-and-Concepts-step-by-step-1st-iteration-f71dc14d5ae6'
+devto_url: "https://dev.to/deadlock/rust-basics-and-concepts-step-by-step-1st-iteration-1mhj"
 toc: true
 categories: [Rust, Programming]
 tags: [Rust, Basics, Concepts]

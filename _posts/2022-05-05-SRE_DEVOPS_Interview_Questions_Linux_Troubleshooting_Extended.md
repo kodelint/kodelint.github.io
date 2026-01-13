@@ -11,6 +11,7 @@ categories: [DevOps, Interview, Linux Troubleshooting]
 tags: [DevOps, SRE, Interview, Linux Troubleshooting]
 image: '/assets/uploads/03-interview.png'
 cross_post_url: 'https://awstip.com/sre-devops-interview-questions-linux-troubleshooting-extended-c12cb5ded3b0'
+devto_url: https://dev.to/deadlock/sre-devops-interview-questions-linux-troubleshooting-extended-no4
 toc: true
 ---
 

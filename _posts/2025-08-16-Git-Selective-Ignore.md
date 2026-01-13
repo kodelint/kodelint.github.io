@@ -72,7 +72,7 @@ You realize you've committed something sensitive and spend the next hour learnin
 This is where `git-selective-ignore` comes in. Think of it as a precision instrument in a world of sledgehammers.
 
 <p align="center">
-  <img src="https://github.com/kodelint/blog-images/blob/main/common/01-git-selecting-ignore.png" alt="git-selective-ignore" width="500"/>
+  <img src="https://raw.githubusercontent.com/kodelint/blog-images/main/common/01-git-selecting-ignore.png" alt="git-selective-ignore" width="500"/>
 </p>
 
 Instead of treating files as atomic units, this tool lets you specify exactly which parts of a file should be ignored during commits. It's like having a conversation with Git:

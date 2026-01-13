@@ -50,7 +50,7 @@ print(f"We can only support {coverage:.2f}% of our customers.")
 
 Before overlays, an IP address wasn't just a number; it was a physical location. IP `10.1.1.5` meant "Row 4, Rack 2, Switch Port 12."
 
-![VLAN Exhaustion](https://github.com/kodelint/blog-images/blob/main/common/VLAN_exhaustion.png?raw=true)
+![VLAN Exhaustion](https://raw.githubusercontent.com/kodelint/blog-images/main/common/VLAN_exhaustion.png)
 
 If you wanted to move a Virtual Machine to a different server with a different subnet, you had to change its IP address. This broke the application. The alternative? Network engineers physically rewiring switches to extend Layer 2 domains across the data center. This resulted in "Spanning Tree" loops that would occasionally take down the entire banking sector for an afternoon.
 
@@ -64,7 +64,7 @@ We stopped trying to fix the physical network and decided to just hide it. Today
 
 ### 1. EVPN-VXLAN: The Enterprise Workhorse
 
-![EVPN+VXLAN](https://github.com/kodelint/blog-images/blob/main/common/evpn_vxlan.png?raw=true)
+![EVPN+VXLAN](https://raw.githubusercontent.com/kodelint/blog-images/main/common/evpn_vxlan.png)
 _**Used by:** 80% of Fortune 500 Data Centers, Banks, Telecoms._
 
 `VXLAN` (Virtual Extensible LAN) solved the "`4,096` problem" by giving us a 24-bit ID. That’s **16 million** segments. Enough for everyone to have their own private party.
@@ -80,7 +80,7 @@ This eliminated the flooding and made the network stable enough for JP Morgan to
 
 ### 2. Geneve + eBPF: The Cool Cloud Kids
 
-![Geneve + eBPF](https://github.com/kodelint/blog-images/blob/main/common/geneve_with_ebpf.png?raw=true)
+![Geneve + eBPF](https://raw.githubusercontent.com/kodelint/blog-images/main/common/geneve_with_ebpf.png)
 _**Used by:** Kubernetes (Cilium), AWS (Nitro), Service Meshes._
 
 VXLAN is great, but its header is fixed. You can't add notes to it. Modern cloud apps need to say things like, _"This packet is from the Frontend, it has a Security Clearance of Level 5, and it prefers to avoid the slow router."_
@@ -89,7 +89,7 @@ VXLAN is great, but its header is fixed. You can't add notes to it. Modern cloud
 
 ### 3. AWS Nitro (The Hardware Way)
 
-![](https://github.com/kodelint/blog-images/blob/main/common/AWS_nitro.png?raw=true)
+![](https://raw.githubusercontent.com/kodelint/blog-images/main/common/AWS_nitro.png)
 _**Used by:** AWS (obviously), and copied by everyone else (IPUs/DPUs)._
 
 While Spotify and Kubernetes developers were busy optimizing software with eBPF to save CPU cycles, Amazon took a different approach: **They just built better hardware**. The **AWS Nitro System** solves the "Matryoshka Tax" by cheating.
@@ -107,7 +107,7 @@ Amazon realized that if the main CPU has to spend 20% of its time wrapping packe
 
 ### 4. Disaggregated Core: The "IKEA" Router
 
-![](https://github.com/kodelint/blog-images/blob/main/common/disaggregated_core_networking.png?raw=true)
+![](https://raw.githubusercontent.com/kodelint/blog-images/main/common/disaggregated_core_networking.png)
 _**Used by:** AT&T (DriveNets), Major ISPs, Hyperscalers._
 
 For decades, if you wanted to be an ISP like AT&T, you had to buy a "Router Chassis." This was essentially a refrigerator-sized metal box that cost more than a house, sold by a vendor who locked you into their proprietary ecosystem forever. If you needed more ports? You had to buy a new fridge.

@@ -8,6 +8,8 @@ author: Satyajit Roy
 date: 2025-06-23
 image: "/assets/uploads/01-git-spellchecker.png"
 cross_post_url: "https://medium.com/@email2sroy/i-got-tired-of-typoing-in-my-git-commits-so-i-wrote-a-spellchecker-b9a74a12e9c1/"
+devto_url: "https://dev.to/deadlock/i-got-tired-of-typoing-in-my-git-commits-so-i-wrote-a-spellchecker-916"
+hashnode_url: "https://sroy.hashnode.dev/i-got-tired-of-typoing-in-my-git-commits-so-i-wrote-a-spellchecker"
 categories: [Rust, Git]
 tags: [Rust, Git, Basics]
 toc: true
