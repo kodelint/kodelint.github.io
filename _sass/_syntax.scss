@@ -43,40 +43,37 @@
 
 div.highlight {
   position: relative;
-  margin: 2rem 0;
-  background: #1a1b26 !important; /* Tokyo Night background */
-  border-radius: 10px;
-  border: 1px solid #2f3542;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-  font-family: "JetBrains Mono", monospace;
+  margin: 2.5rem 0;
+  background: #0f1117 !important; /* Solid dark background */
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: visible; /* Avoid cropping */
+  font-family: var(--font-mono);
 }
 
-/* Terminal Title Bar & Window Controls */
-
+/* Terminal Title Bar */
 div.highlight::before {
-  content: "● ● ●";
+  content: "terminal -- bash";
   display: block;
-  height: 34px;
-  line-height: 34px;
-  padding: 0 15px;
-  background: #24283b;
-  border-bottom: 1px solid #2f3542;
-  font-size: 16px;
-  color: #ff5f56; /* Red dot */
-  letter-spacing: 2px;
-  /* Use text-shadow to create the yellow and green dots */
-  text-shadow:
-    18px 0 0 #ffbd2e,
-    36px 0 0 #27c93f;
-  font-family: sans-serif;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 1rem;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 div.highlight pre {
-  padding: 1.25rem 1.5rem !important;
+  padding: 1.5rem !important;
   margin: 0 !important;
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   overflow-x: auto;
-  color: #cfc9c2;
+  color: #e2e8f0;
+  font-family: var(--font-mono) !important;
 }

@@ -1,47 +1,41 @@
 :root {
   /* Theme: "Retro Future Professional" */
-  /* Backgrounds: Deep void with subtle noise texture potential */
-  --bg-depth: #0f1219;      /* Darker, cooler black */
-  --bg-surface: #1a1f2c;    /* Deep blue-grey */
-  --bg-surface-glass: rgba(26, 31, 44, 0.85);
+  --bg-depth: #0c0e14;      /* Solid, deep professional charcoal */
+  --bg-surface: #161a23;    /* Cards */
+  --bg-surface-glass: rgba(22, 26, 35, 0.85);
   
   /* Text */
-  --text-primary: #e2e8f0;
+  --text-primary: #f1f5f9;
   --text-secondary: #94a3b8;
   --text-tertiary: #64748b;
   
-  /* Accents: Playful but sharp */
-  --accent-primary: #f43f5e;   /* Rose Red (The "Error" that isn't) */
-  --accent-secondary: #3b82f6; /* Tech Blue */
-  --accent-tertiary: #fbbf24;  /* Warning Yellow (for humor) */
+  /* Accents */
+  --accent-primary: #f43f5e;
+  --accent-secondary: #3b82f6;
+  --accent-tertiary: #fbbf24;
   
-  --code-bg: #2d3748;
+  --code-bg: #1e293b;
   
   /* UI Elements */
-  --border-subtle: #334155;
+  --border-subtle: rgba(255, 255, 255, 0.08);
   --border-focus: #f43f5e;
   
-  --shadow-card: 4px 4px 0px 0px rgba(0,0,0,0.4); /* Retro Block Shadow */
+  --shadow-card: 4px 4px 0px 0px rgba(0,0,0,0.4);
   --shadow-hover: 6px 6px 0px 0px var(--accent-primary);
   
   /* Typography */
-  --font-heading: 'Space Grotesk', system-ui, sans-serif; /* Quirky, techy sans */
+  --font-heading: 'Space Grotesk', 'Inter', system-ui, sans-serif;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-serif: 'Lora', 'Charter', 'Georgia', serif; /* For long-form reading */
+  --font-mono: 'JetBrainsMono Nerd Font', 'FiraCode Nerd Font', 'JetBrains Mono', 'Fira Code', monospace;
   
   --radius-sm: 4px;
   --radius-md: 8px;
   --container-width: 1400px;
-  
-  --bg-grid-color: rgba(255, 255, 255, 0.03);
-  --bg-grid-size: 40px;
 }
 
 body {
   background-color: var(--bg-depth);
-  background-image: 
-    linear-gradient(var(--bg-grid-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--bg-grid-color) 1px, transparent 1px);
-  background-size: var(--bg-grid-size) var(--bg-grid-size);
-  background-position: center top;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }

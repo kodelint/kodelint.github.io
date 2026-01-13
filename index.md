@@ -105,19 +105,19 @@ layout: page
   /* Local Styles for Index (Widescreen) */
   .hero-container-wide {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* Text takes more space */
-    gap: 4rem;
+    grid-template-columns: 1.3fr 0.7fr; /* Text takes more space */
+    gap: 6rem; /* Increased gap */
     align-items: center;
-    padding: 6rem 0;
+    padding: 8rem 0; /* More vertical breathing room */
     min-height: 80vh;
   }
 
   .hero-title-wide {
     font-family: var(--font-heading);
-    font-size: 4.5rem;
+    font-size: 5rem; /* Even larger */
     line-height: 1.05;
     color: var(--text-primary);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
 
   .hero-bio-wide {
@@ -232,7 +232,7 @@ layout: page
 
   .profile-img-container {
     width: 100%;
-    height: 250px;
+    height: 350px; /* Increased from 250px */
     background: #000;
     margin-bottom: 1.5rem;
     border: 2px solid var(--text-primary);
@@ -243,7 +243,13 @@ layout: page
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center; /* Focus on face */
     filter: grayscale(100%);
+    transition: filter 0.3s;
+  }
+
+  .profile-card-v3:hover .profile-img-v3 {
+    filter: grayscale(0%);
   }
 
   .stats-grid {
