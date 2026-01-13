@@ -75,7 +75,7 @@
         <div class="notice-content">
           <span class="notice-label">>> INCOMING_TRANSMISSION:</span>
           Article originally published on 
-          {% if page.cross_post_url %}<a href="{{ page.cross_post_url }}" target="_blank" class="notice-link">External Site</a>{% endif %}
+          {% if page.cross_post_url %}<a href="{{ page.cross_post_url }}" target="_blank" class="notice-link">Medium</a>{% endif %}
           {% if page.devto_url %} | <a href="{{ page.devto_url }}" target="_blank" class="notice-link">Dev.to</a>{% endif %}
           {% if page.hashnode_url %} | <a href="{{ page.hashnode_url }}" target="_blank" class="notice-link">Hashnode</a>{% endif %}
         </div>
@@ -145,6 +145,46 @@
       position: sticky;
       top: 120px; 
       padding-right: 2rem;
+    }
+
+    /* Table of Contents Styling */
+    .retro-toc-sidebar {
+      list-style-type: none;
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .retro-toc-sidebar ul {
+      list-style-type: none;
+      padding-left: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .retro-toc-sidebar li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .retro-toc-sidebar li::before {
+      content: ">";
+      color: var(--accent-primary);
+      position: absolute;
+      left: -1rem;
+      font-weight: bold;
+    }
+
+    .retro-toc-sidebar a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .retro-toc-sidebar a:hover {
+      color: var(--accent-primary);
+      text-decoration: underline;
     }
 
     /* Metadata & Sidebar Styling */
