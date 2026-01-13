@@ -39,7 +39,7 @@ header {
 
 /* Page Structure */
 .page {
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
   padding-top: 2rem;
 }
@@ -56,7 +56,7 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 .post,
@@ -65,7 +65,7 @@ header {
   flex-direction: column;
   height: 100%;
   position: relative;
-  padding: 1rem;
+  padding: 0.7rem;
   gap: 1rem;
 }
 
