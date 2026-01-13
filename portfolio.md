@@ -153,6 +153,52 @@ permalink: /portfolio/
   </div>
 </section>
 
+<section class="p-section">
+  <div class="p-section-header">
+    <h2 class="p-section-title">Education & Certifications</h2>
+  </div>
+  
+  <div class="skills-grid" style="grid-template-columns: 1fr 1fr;">
+    <div class="skill-card">
+      <h4>Education</h4>
+      <div style="margin-bottom: 1rem;">
+        <div style="font-weight: 600; font-size: 1rem;">Bachelor of Science</div>
+        <div style="color: var(--p-text-secondary); font-size: 0.9rem;">Mahatma Gandhi Kashi Vidyapith</div>
+        <div style="color: var(--p-text-tertiary); font-size: 0.85rem;">2002</div>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h4>Certifications</h4>
+      <div>
+        <div style="font-weight: 600; font-size: 1rem;">Leading Effective Decision-Making</div>
+        <div style="color: var(--p-text-secondary); font-size: 0.9rem;">Yale School of Management</div>
+        <div style="color: var(--p-text-tertiary); font-size: 0.85rem;">Oct 2021</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="p-section">
+  <div class="p-section-header">
+    <h2 class="p-section-title">Selected Projects</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h4 style="border:none; margin-bottom: 0.5rem;"><a href="https://github.com/kodelint/blogs-publisher" target="_blank" style="text-decoration: underline;">Blogs Publisher ↗</a></h4>
+      <p style="font-size: 0.9rem; color: var(--p-text-secondary); margin-bottom: 1rem;">Automated Markdown publishing to Medium & Dev.to via GitHub Actions.</p>
+    </div>
+    <div class="skill-card">
+      <h4 style="border:none; margin-bottom: 0.5rem;"><a href="https://github.com/kodelint/git-selective-ignore" target="_blank" style="text-decoration: underline;">Git Selective Ignore ↗</a></h4>
+      <p style="font-size: 0.9rem; color: var(--p-text-secondary); margin-bottom: 1rem;">Rust-based Git plugin to selectively ignore lines during commits.</p>
+    </div>
+    <div class="skill-card">
+      <h4 style="border:none; margin-bottom: 0.5rem;"><a href="https://github.com/kodelint/setup-devbox" target="_blank" style="text-decoration: underline;">Setup DevBox ↗</a></h4>
+      <p style="font-size: 0.9rem; color: var(--p-text-secondary); margin-bottom: 1rem;">Opinionated CLI tool to streamline development environment provisioning.</p>
+    </div>
+  </div>
+</section>
+
+
 <footer class="p-footer">
   <p>&copy; {{ site.time | date: '%Y' }} Satyajit Roy. All rights reserved.</p>
   <br>
