@@ -1,0 +1,267 @@
+/* Portfolio V4 Style System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+:root {
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8fafc; /* Slate 50 */
+  --color-text: #334155;   /* Slate 700 */
+  --color-heading: #0f172a; /* Slate 900 */
+  --color-accent: #2563eb;  /* Royal Blue 600 */
+  --color-accent-hover: #1d4ed8;
+  --color-border: #e2e8f0;
+  
+  --font-serif: 'Merriweather', serif;
+  --font-sans: 'Inter', sans-serif;
+  
+  --container-width: 1000px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--color-heading);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+a { color: inherit; text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--color-accent); }
+
+/* Layout */
+.p-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.p-section {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.p-section:last-child { border-bottom: none; }
+
+/* Navigation */
+.p-nav {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 100;
+}
+
+.p-nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.p-logo {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--color-heading);
+  font-size: 1.1rem;
+}
+
+.p-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.p-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+.p-link.active { color: var(--color-accent); }
+
+/* Hero */
+.p-hero {
+  padding: 6rem 0;
+  text-align: left;
+}
+
+.p-headline {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.p-subhead {
+  font-size: 1.25rem;
+  color: var(--color-text);
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+  font-family: var(--font-sans);
+  font-weight: 300;
+}
+
+.p-cta-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.p-btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.p-btn-primary {
+  background: var(--color-accent);
+  color: white;
+}
+.p-btn-primary:hover {
+  background: var(--color-accent-hover);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.p-btn-outline {
+  border: 1px solid var(--color-border);
+  color: var(--color-heading);
+}
+.p-btn-outline:hover {
+  border-color: var(--color-heading);
+  background: var(--color-bg-alt);
+}
+
+.p-metrics-strip {
+  display: flex;
+  gap: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--color-border);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-heading);
+  flex-wrap: wrap;
+}
+
+/* Cards & Grid */
+.p-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.p-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.p-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 2rem;
+  transition: all 0.2s;
+}
+
+.p-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.p-card-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.p-card-meta {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Case Study Detail */
+.cs-detail {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cs-header {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 2rem;
+}
+
+.cs-context {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.cs-block { margin-bottom: 2.5rem; }
+.cs-label { 
+  font-family: var(--font-sans);
+  font-size: 0.85rem; 
+  text-transform: uppercase; 
+  letter-spacing: 0.1em; 
+  color: var(--color-text); 
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.cs-list { padding-left: 1.2rem; }
+.cs-list li { margin-bottom: 0.5rem; }
+
+/* Leadership */
+.lead-philosophy p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+
+.lead-stat-card {
+  background: var(--color-bg-alt);
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.lead-stat-val { font-size: 1.5rem; font-weight: 700; color: var(--color-heading); }
+.lead-stat-label { font-size: 0.9rem; text-transform: uppercase; color: var(--color-text); }
+
+/* Resume */
+.r-header { border-bottom: 2px solid var(--color-heading); padding-bottom: 1rem; margin-bottom: 2rem; }
+.r-name { font-size: 2rem; font-weight: 700; }
+.r-item { margin-bottom: 2rem; }
+.r-role-row { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 0.2rem; font-family: var(--font-serif); font-size: 1.1rem; color: var(--color-heading); }
+.r-company { font-style: italic; }
+
+/* Contact */
+.c-form { max-width: 600px; margin: 0 auto; }
+.c-socials { display: flex; justify-content: center; gap: 2rem; font-size: 1.5rem; margin-top: 2rem; }
+
+/* Footer */
+.p-footer {
+  padding: 3rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .p-grid-2 { grid-template-columns: 1fr; }
+  .p-nav-inner { flex-direction: column; height: auto; padding: 1rem 0; gap: 1rem; }
+  .p-links { flex-wrap: wrap; justify-content: center; }
+  .p-headline { font-size: 2rem; }
+}

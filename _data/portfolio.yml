@@ -1,0 +1,158 @@
+# Portfolio Content Data
+
+home:
+  headline: "Satyajit Roy — Director of Engineering and SRE"
+  subhead: "I build reliable, cost-efficient cloud platforms and scale engineering teams to deliver mission-critical AI and SaaS systems."
+  metrics:
+    - "20+ Years Exp"
+    - "30B Daily Requests"
+    - "99.95%+ Availability"
+    - "55+ Engineers Scaled"
+  why_work:
+    - "Leadership in hyperscale systems"
+    - "SRE operating models"
+    - "Cloud cost optimization"
+
+case_studies:
+  - id: adobe-hyperscale
+    title: "Hyperscale ML/Search platform at Adobe"
+    outcome: "30B requests, GPU utilization +38%"
+    context: "Adobe's Core Search and Sensei platform handles 30B+ daily requests."
+    role: "Architect & Technical Leader. Led a senior platform team."
+    problem: "Existing infrastructure couldn't scale efficiently for AI/ML workloads."
+    constraints: "Strict latency (<5ms P95), data sovereignty, legacy support."
+    solution:
+      - "Designed hybrid GPU/CPU architecture spanning AWS, Azure, on-prem."
+      - "Optimized HPC clusters with RDMA InfiniBand and Volcano scheduling."
+      - "Unified fragmented Kubernetes environments."
+    impact:
+      - "Supported 30B+ daily API requests."
+      - "Increased GPU utilization by 38%."
+      - "Lowered cloud storage costs by 65%."
+    lessons:
+      - "GPU-aware scheduling is essential for HPC utilization."
+      - "Hybrid cloud adds complexity but enables cost-effective burst scaling."
+    artifacts:
+      - text: "Architecture Diagram"
+        link: "#"
+    tags: ["AI/ML", "HPC", "Kubernetes"]
+
+  - id: f5-sre-transformation
+    title: "Global SRE operating model at F5"
+    outcome: "55+ engineers, MTTR −73%"
+    context: "F5's Distributed Cloud SaaS platform delivers multi-cloud networking globally."
+    role: "Sr. Director of Product Engineering & Head of SRE."
+    problem: "Operational silos, inconsistent incident response, and high burnout."
+    constraints: "24/7 global operation, FedRAMP/PCI-DSS compliance."
+    solution:
+      - "Rebuilt SRE model to follow-the-sun structure."
+      - "Implemented policy-as-code and zero-trust architecture."
+      - "Re-architected observability with ML-based anomaly detection."
+    impact:
+      - "Reduced MTTR by 73%."
+      - "Lowered attrition by 10%."
+      - "Absorbed 400% growth in attack traffic."
+    lessons:
+      - "Culture eats tools for breakfast; fix psychological safety first."
+      - "Compliance-as-code is the only way to survive velocity requirements."
+    artifacts:
+      - text: "SRE Handbook"
+        link: "#"
+    tags: ["SRE", "Transformation", "Compliance"]
+
+  - id: arkose-finops
+    title: "Platform modernization and FinOps at Arkose Labs"
+    outcome: "22% cloud spend reduction"
+    context: "Arkose Labs provides fraud detection requiring massive real-time processing."
+    role: "Director of Engineering & SRE."
+    problem: "Cloud costs unsustainable high while technical debt slowed velocity."
+    constraints: "High-volume DDoS traffic, real-time latency SLAs."
+    solution:
+      - "Re-architected to EKS microservices with eBPF service mesh."
+      - "Instituted FinOps governance and tooling."
+      - "Introduced SLO-based release gates."
+    impact:
+      - "Delivered 22% reduction in cloud spend."
+      - "Enabled 7x transaction growth."
+      - "Maintained 99.9% SLA under attack."
+    lessons:
+      - "FinOps is an engineering discipline requiring architectural awareness."
+      - "eBPF provides observability without sidecar overhead."
+    artifacts:
+      - text: "FinOps Strategy"
+        link: "#"
+    tags: ["FinOps", "Modernization", "eBPF"]
+
+leadership:
+  philosophy:
+    mission: "I believe engineering leadership is about removing friction. Whether it's technical friction (legacy code, manual toil) or organizational friction (silos, unclear goals), my role is to clear the path so high-performing teams can deliver value."
+    hiring: "Growth comes from ownership. I build teams where engineers are empowered to own their services from design to production. I focus on mentorship and clear career ladders to turn junior engineers into future architects."
+    balance: "Reliability is a feature, not an afterthought. I advocate for 'Shifting Left' on reliability and security, embedding SRE principles into the software development lifecycle rather than treating operations as a cleanup crew."
+  metrics:
+    - label: "Team Scaling"
+      value: "7 to 55+ engineers"
+    - label: "Retention"
+      value: "<10% attrition"
+    - label: "Promotion"
+      value: "30%+ promoted"
+  programs:
+    - title: "SRE On-Call Model"
+      desc: "Transitioned from 'hero culture' to sustainable rotations with defined escalation paths."
+    - title: "Incident Command"
+      desc: "Established an Incident Command Academy to train engineers in calm, structured response."
+    - title: "Mentoring Framework"
+      desc: "Implemented 'Tour of Duty' rotations to foster cross-team empathy and skill growth."
+
+writing:
+  - title: "Overlay Networking Deep Dive"
+    summary: "Exploring the matryoshka dolls of modern networking and technical evolution."
+    link: "/2026/01/05/Overlay_Networking_deep_dive.html"
+    why: "Fundamental understanding of container networking."
+  - title: "GitOps Journey"
+    summary: "Lessons learned moving infrastructure to a GitOps model."
+    link: "/2022/04/18/Our_GitOps_Journey.html"
+    why: "Real-world migration challenges."
+  - title: "Rust Basics & Ownership"
+    summary: "Understanding the borrow checker and memory safety."
+    link: "/2022/07/02/Rust_Basics_and_Concepts_1st_Iteration.html"
+    why: "Systems programming fundamentals."
+  - title: "Terraform at Scale"
+    summary: "Strategies for organizing Terraform code in large organizations."
+    link: "/2022/03/01/Terraform_How_to_organize_your_terraform_code.html"
+    why: "IaC best practices for teams."
+
+oss:
+  - title: "Setup DevBox"
+    problem: "Inconsistent dev environments slow down onboarding."
+    impact: "Reduces setup time from days to minutes."
+    repo: "https://github.com/kodelint/setup-devbox"
+  - title: "Git Selective Ignore"
+    problem: "Accidental commits of local config/secrets."
+    impact: "Prevents security leaks and git noise."
+    repo: "https://github.com/kodelint/git-selective-ignore"
+  - title: "Blogs Publisher"
+    problem: "Manual cross-posting is tedious."
+    impact: "Automates distribution to 3 platforms."
+    repo: "https://github.com/kodelint/blogs-publisher"
+
+resume:
+  summary: "Engineering and Platform leader with 20+ years of experience scaling mission-critical SaaS and AI/ML platforms."
+  experience:
+    - company: "Arkose Labs"
+      role: "Director of Engineering & SRE"
+      date: "Aug 2024 — Present"
+      points:
+        - "Amplified platform modernization supporting 7x transaction growth."
+        - "Instituted FinOps governance reducing cloud spend by 22%."
+    - company: "F5 Inc"
+      role: "Sr. Director of Product Engineering & Head of SRE"
+      date: "Oct 2022 — Apr 2024"
+      points:
+        - "Headed 55+ engineers; reduced MTTR by 73%."
+        - "Oversaw strategy for 25+ PoP global network."
+    - company: "Adobe Inc"
+      role: "Architect / Technical Leader"
+      date: "Aug 2018 — Oct 2022"
+      points:
+        - "Led hybrid GPU/CPU infra for hyperscale ML/AI."
+        - "Optimized HPC clusters increasing utilization by 38%."

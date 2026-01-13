@@ -1,26 +1,29 @@
 ---
-layout: portfolio_v4
-title: Curated Writing
+layout: portfolio
+title: Writing
 permalink: /portfolio/writing/
+description: Curated selection of technical writing and talks.
 ---
 
-<div class="container section-spacer">
-  <div class="page-header">
-    <h1>Writing & Thoughts</h1>
-    <p style="font-size: 1.1rem; max-width: 800px; color: var(--v4-text);">Deep dives into distributed systems, SRE culture, and architectural patterns.</p>
+<div class="p-container">
+  <div class="p-section">
+    <h1>Writing & Talks</h1>
+    <p class="p-subhead">Curated selection of 6–8 blog posts and conference talks.</p>
   </div>
 
-  <div class="writing-grid">
-    {% for article in site.data.portfolio_v4.writing_curated %}
-    <a href="{{ article.link }}" class="cs-card" style="display: block; text-decoration: none; border-left: 4px solid var(--v4-accent);">
-      <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--v4-accent); font-weight: 600;">{{ article.type }}</span>
-      <h3 style="font-size: 1.25rem; margin: 0.5rem 0;">{{ article.title }}</h3>
-      <p style="color: var(--v4-text);">{{ article.summary }}</p>
-    </a>
-    {% endfor %}
-  </div>
-  
-  <div style="margin-top: 4rem; text-align: center;">
-    <a href="/blogs" class="btn btn-primary">View Full Blog Archive</a>
+  <div class="p-section">
+    <div class="p-grid-2">
+      {% for post in site.data.portfolio.writing %}
+      <div class="p-card">
+        <h3 class="p-card-title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
+        <p style="margin-bottom: 1rem;">{{ post.summary }}</p>
+        <span style="font-size: 0.85rem; color: var(--color-text); font-style: italic;">Why it matters: {{ post.why }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    
+    <div style="margin-top: 3rem; text-align: center;">
+      <a href="/blogs" class="p-btn p-btn-primary">Visit Full Blog</a>
+    </div>
   </div>
 </div>
