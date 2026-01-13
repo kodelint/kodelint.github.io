@@ -850,12 +850,42 @@
 }
 
 .graph-stats {
+  position: relative;
+  margin-top: 1.5rem;
+  padding-left: 80px;
   font-size: 1rem;
   color: var(--text-tertiary);
-  margin-top: 1.5rem;
-  padding-top: 0.75rem;
-  font-style: italic;
   white-space: normal;
+}
+
+.graph-stats::before {
+  content: "";
+  position: absolute;
+  top: -1.5rem;
+  left: 25px;
+  width: 2px;
+  height: 2.2rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.graph-stats::after {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  left: 25px;
+  width: 35px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 0 4px;
+}
+
+@media (max-width: 768px) {
+  .graph-stats {
+    padding-left: 50px;
+  }
+  .graph-stats::after {
+    width: 15px;
+  }
 }
 
 .graph-commit {

@@ -194,7 +194,7 @@ layout: page
     </div>
   </div>
 
-  <div class="graph-stats" style="font-style: normal; display: flex; flex-direction: column; gap: 0.4rem; padding-left: 2.5rem; border-left: 1px solid rgba(255,255,255,0.05); margin-left: 0.5rem;">
+  <div class="graph-stats" style="font-style: normal; display: flex; flex-direction: column; gap: 0.4rem;">
     <div style="color: var(--accent-primary); margin-bottom: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; display: flex; align-items: center; gap: 0.6rem; opacity: 0.8;">
       <span style="background: rgba(56, 189, 248, 0.1); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.2); font-size: 0.6rem;">[STATUS]</span> 
       <span>FINAL_DEPLOY_SUMMARY_SUCCESS</span>
