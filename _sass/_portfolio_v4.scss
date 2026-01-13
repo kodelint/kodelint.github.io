@@ -1,5 +1,4 @@
 /* Portfolio V4 - Professional, Technical, Authoritative */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 
 :root {
   --v4-bg: #ffffff;
@@ -275,6 +274,21 @@ a {
   .hero-headline { font-size: 2rem; }
   .cs-detail-grid { grid-template-columns: 1fr; }
   .leadership-grid { grid-template-columns: 1fr; }
-  .nav-links { display: none; } /* Mobile menu implementation skipped for brevity, simplified */
+  
+  .nav-links { 
+    display: flex; 
+    gap: 1rem; 
+    overflow-x: auto; 
+    padding-bottom: 0.5rem; 
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+  
+  .nav-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
   .resume-container { padding: 1.5rem; }
 }
