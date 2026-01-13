@@ -195,8 +195,9 @@ layout: page
   </div>
 
   <div class="graph-stats" style="font-style: normal; display: flex; flex-direction: column; gap: 0.25rem;">
+    <div style="color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; opacity: 0.7;">Final Deployment Summary:</div>
     <span style="color: #00ff9d; font-weight: 700;">+++ 20 Years of PagerDuty Trauma (and counting)</span>
-    <span style="color: #00ff9d; font-weight: 700;">+++ 1,048,576 Lines of YAML (Indentation Errors included)</span>
+    <span style="color: #00ff9d; font-weight: 700;">+++ 1,048,576 Lines of Polyglot Code (YAML, Go, Rust, and the occasional shell script)</span>
     <span style="color: #ff4757; font-weight: 700;">--- 0 Regrets (Memory leaks not shown)</span>
     <span style="color: #facc15; font-weight: 700;">!!! 1 Executive Ego (Critical dependency)</span>
   </div>
