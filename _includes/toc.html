@@ -1,5 +1,5 @@
-<div id="table_of_c">
-<h1>Table of Contents</h1>
+<div class="toc-container">
+<h3 class="toc-title">Table of Contents</h3>
 
 {% capture tocWorkspace %}
     {% capture my_toc %}{% endcapture %}
@@ -71,12 +71,3 @@
 {% endcapture %}{% assign tocWorkspace = '' %}{{ my_toc | markdownify | strip }}
 
 </div>
-
-
-<style>
-#table_of_c{
-    margin: 2rem 0;
-    border: 2px solid #0C4B33;
-    padding: 1rem;
-}
-</style>

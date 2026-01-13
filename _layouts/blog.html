@@ -1,95 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include head.html%}
+{% include head.html %}
 
 <body>
   {% include nav.html %}
   
-  <main class="container">
+  <main class="container page">
     <div class="page-header">
-      <h1 class="page-title glitch-text" data-text="The Brain Dump">The Brain Dump</h1>
-      <p class="tagline">Thoughts, tutorials, and rants about technology.</p>
+      <h1 class="page-title">Engineering Blog</h1>
+      <p class="tagline">Deep dives into distributed systems, SRE, and platform engineering.</p>
     </div>
 
-    <!-- 3. Tag Terminal Filter -->
-    <div class="tag-terminal">
-      <div class="prompt"><span class="symbol">$</span> cat categories.conf</div>
-      <div class="var">BLOG_TOPICS=(</div>
-      <div class="tags-list">
-        <span class="tag-item active" onclick="filterPosts('all', this)">all_posts</span>
-        <span class="tag-item" onclick="filterPosts('golang', this)">golang_binaries</span>
-        <span class="tag-item" onclick="filterPosts('rust', this)">rust_safety</span>
-        <span class="tag-item" onclick="filterPosts('sre', this)">sre_therapy</span>
-        <span class="tag-item" onclick="filterPosts('terraform', this)">terraform_chaos</span>
-        <span class="tag-item" onclick="filterPosts('git', this)">git_voodoo</span>
-        <span class="tag-item" onclick="filterPosts('automation', this)">auto_everything</span>
-      </div>
-      <div class="var">)</div>
+    <!-- Clean Category Filter -->
+    <div class="category-filter-container" style="margin-bottom: 3rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem;">
+      <button class="filter-btn active" onclick="filterPosts('all', this)" style="
+        background: var(--bg-surface); 
+        border: 1px solid var(--border-subtle); 
+        color: var(--text-secondary); 
+        padding: 0.5rem 1rem; 
+        border-radius: 99px; 
+        cursor: pointer; 
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        transition: all 0.2s ease;">All Posts</button>
+      
+      <button class="filter-btn" onclick="filterPosts('golang', this)" style="
+        background: var(--bg-surface); 
+        border: 1px solid var(--border-subtle); 
+        color: var(--text-secondary); 
+        padding: 0.5rem 1rem; 
+        border-radius: 99px; 
+        cursor: pointer; 
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        transition: all 0.2s ease;">Golang</button>
+        
+      <button class="filter-btn" onclick="filterPosts('rust', this)" style="
+        background: var(--bg-surface); 
+        border: 1px solid var(--border-subtle); 
+        color: var(--text-secondary); 
+        padding: 0.5rem 1rem; 
+        border-radius: 99px; 
+        cursor: pointer; 
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        transition: all 0.2s ease;">Rust</button>
+
+      <button class="filter-btn" onclick="filterPosts('terraform', this)" style="
+        background: var(--bg-surface); 
+        border: 1px solid var(--border-subtle); 
+        color: var(--text-secondary); 
+        padding: 0.5rem 1rem; 
+        border-radius: 99px; 
+        cursor: pointer; 
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        transition: all 0.2s ease;">Terraform</button>
+
+      <button class="filter-btn" onclick="filterPosts('sre', this)" style="
+        background: var(--bg-surface); 
+        border: 1px solid var(--border-subtle); 
+        color: var(--text-secondary); 
+        padding: 0.5rem 1rem; 
+        border-radius: 99px; 
+        cursor: pointer; 
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        transition: all 0.2s ease;">SRE</button>
     </div>
 
     <div class="post-list" id="post-grid">
       {% for post in site.posts %}
-      <div class="post" 
-           data-tags="{{ post.title | downcase }} {{ post.tags | join: ' ' | downcase }}">
-        <a href="{{site.url}}{{site.baseurl}}{{post.url}}" class="card-cover-link" aria-label="{{ post.title }}"></a>
+      <article class="post-card" data-tags="{{ post.title | downcase }} {{ post.tags | join: ' ' | downcase }}">
         {% if post.image %}
-        <div class="thumbnail" style="background-image: url({{site.baseurl}}{{post.image}})"></div>
+        <div class="post-card-image" style="background-image: url('{{site.baseurl}}{{post.image}}')"></div>
         {% else %}
-        <div class="thumbnail" style="background-image: url({{site.baseurl}}/assets/uploads/default.jpg); background: linear-gradient(45deg, #1e293b, #0f172a);"></div>
+        <!-- Fallback geometric pattern if no image -->
+        <div class="post-card-image" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); position: relative; overflow: hidden;">
+           <div style="position: absolute; inset: 0; opacity: 0.1; background-image: radial-gradient(#6366f1 1px, transparent 1px); background-size: 20px 20px;"></div>
+        </div>
         {% endif %}
         
-        <div class="card-content">
-          <div class="card-meta">
-            <div class="card-date">{{post.date | date_to_string}}</div>
-            <div class="post-metrics">
-              <span title="Caffeine Required" class="{% if post.caffeine > 5 %}danger{% endif %}"><i class="fas fa-coffee"></i> {{ post.caffeine | default: 2 }}</span>
-              <span title="Anxiety Level" class="{% if post.stress > 5 %}danger{% endif %}"><i class="fas fa-wave-square"></i> {{ post.stress | default: 1 }}</span>
-              <span title="Ozone Produced" class="{% if post.ozone > 5 %}danger{% endif %}"><i class="fas fa-bolt"></i> {{ post.ozone | default: 1 }}</span>
-            </div>
+        <div class="post-card-content">
+          <div class="post-card-meta">
+            <span>{{ post.date | date: "%B %d, %Y" }}</span>
+            <span>{{ post.content | number_of_words | divided_by: 180 }} min read</span>
           </div>
-          <h2 class="card-title">{{post.title}}</h2>
-
-          {% if post.tags %}
-          <div style="margin-bottom: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
-            {% for tag in post.tags %}
-              <span style="font-size: 0.75rem; background: rgba(56, 189, 248, 0.1); color: var(--accent-primary); padding: 2px 8px; border-radius: 4px;">{{ tag }}</span>
+          
+          <h2 class="post-card-title">
+            <a href="{{site.url}}{{site.baseurl}}{{post.url}}">{{post.title}}</a>
+          </h2>
+          
+          <div class="post-card-excerpt">
+            {{ post.excerpt | strip_html | truncatewords: 25 }}
+          </div>
+          
+          <div class="post-card-tags">
+            {% for tag in post.tags limit:3 %}
+              <span class="tag-pill">{{ tag }}</span>
             {% endfor %}
           </div>
-          {% endif %}
-
-          <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center;">
-            {% if post.cross_post_url or post.medium_url or post.devto_url or post.hashnode_url %}
-            <div class="cross-post-links" style="display: flex; align-items: center; gap: 0.5rem;">
-              <span style="font-size: 0.7rem; color: var(--accent-secondary); font-family: var(--font-mono); text-transform: uppercase; font-weight: 700;">Published on:</span>
-              
-              {% if post.cross_post_url or post.medium_url %}
-              <a href="{{ post.cross_post_url | default: post.medium_url }}" target="_blank" title="Read on Medium" onclick="event.stopPropagation();" style="display: flex; align-items: center;">
-                <i class="fab fa-medium cross-post-icon active" style="color: #fff; font-size: 0.9rem;"></i>
-              </a>
-              {% endif %}
-
-              {% if post.devto_url %}
-              <a href="{{ post.devto_url }}" target="_blank" title="Read on Dev.to" onclick="event.stopPropagation();" style="display: flex; align-items: center;">
-                <i class="fab fa-dev cross-post-icon active" style="color: #3b82f6; font-size: 0.9rem;"></i>
-              </a>
-              {% endif %}
-
-              {% if post.hashnode_url %}
-              <a href="{{ post.hashnode_url }}" target="_blank" title="Read on Hashnode" onclick="event.stopPropagation();" style="display: flex; align-items: center;">
-                <i class="fab fa-hashnode cross-post-icon active" style="color: #2962ff; font-size: 0.8rem;"></i>
-              </a>
-              {% endif %}
-            </div>
-            {% endif %}
-            <span class="read-more">Read Article</span>
-          </div>
         </div>
-      </div>
+      </article>
       {% endfor %}
     </div>
   </main>
   
   {% include footer.html %}
-</body>
 
+  <script>
+    function filterPosts(filter, btn) {
+      // Update active button state
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.style.background = 'var(--bg-surface)';
+        b.style.color = 'var(--text-secondary)';
+        b.style.borderColor = 'var(--border-subtle)';
+      });
+      
+      btn.style.background = 'rgba(56, 189, 248, 0.1)';
+      btn.style.color = 'var(--accent-primary)';
+      btn.style.borderColor = 'var(--accent-primary)';
+
+      const posts = document.querySelectorAll('.post-card');
+      
+      posts.forEach(post => {
+        if (filter === 'all') {
+          post.style.display = 'flex';
+        } else {
+          const tags = post.getAttribute('data-tags');
+          if (tags.includes(filter)) {
+            post.style.display = 'flex';
+          } else {
+            post.style.display = 'none';
+          }
+        }
+      });
+    }
+  </script>
+</body>
 </html>

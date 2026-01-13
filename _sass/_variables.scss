@@ -1,35 +1,39 @@
 :root {
-  /* Core Palette - Deep Space Theme */
-  --bg-depth: #030712;      /* Deepest background */
-  --bg-surface: #111827;    /* Card background */
-  --bg-surface-glass: rgba(17, 24, 39, 0.7); /* Glass effect */
-  --bg-elevated: #1f2937;   /* Hover states */
+  /* Core Palette - Modern Professional Dark */
+  --bg-depth: #0f172a;      /* Slate 900 - Deep, rich background */
+  --bg-surface: #1e293b;    /* Slate 800 - Cards/Sections */
+  --bg-surface-glass: rgba(30, 41, 59, 0.8); /* Glass effect */
+  --bg-elevated: #334155;   /* Slate 700 - Hover/Active */
   
   /* Text Colors */
-  --text-primary: #f9fafb;
-  --text-secondary: #9ca3af;
-  --text-tertiary: #6b7280;
+  --text-primary: #f8fafc;  /* Slate 50 - High contrast text */
+  --text-secondary: #cbd5e1;/* Slate 300 - Readable body text */
+  --text-tertiary: #94a3b8; /* Slate 400 - Meta info */
   
-  /* Accents - Neon/Cyber vibes */
-  --accent-primary: #38bdf8;   /* Cyan */
-  --accent-secondary: #818cf8; /* Indigo */
-  --accent-tertiary: #c084fc;  /* Purple */
-  --accent-gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  --accent-glow: rgba(56, 189, 248, 0.3);
+  /* Accents - Trust & Authority */
+  --accent-primary: #38bdf8;   /* Sky 400 - Primary Actions/Links */
+  --accent-secondary: #818cf8; /* Indigo 400 - Secondary highlights */
+  --accent-tertiary: #2dd4bf;  /* Teal 400 - Success/Freshness */
   
-  /* Borders & Glows */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-focus: rgba(56, 189, 248, 0.5);
-  --glow-shadow: 0 0 30px rgba(56, 189, 248, 0.15); /* More intense glow */
+  --accent-gradient: linear-gradient(135deg, #0ea5e9, #6366f1); /* Sky 500 to Indigo 500 */
+  --accent-glow: rgba(14, 165, 233, 0.15); /* Subtle glow */
+  
+  /* Borders & Shadows */
+  --border-subtle: #334155; /* Slate 700 */
+  --border-focus: #38bdf8;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --glow-shadow: 0 0 0 0 transparent; /* Removed excessive glow for professionalism */
   
   /* Spacing & Radius */
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --container-width: 1200px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --container-width: 1000px; /* Slightly tighter reading column */
   
   /* Typography */
-  --font-heading: 'Sora', system-ui, sans-serif;
-  --font-sans: 'Figtree', system-ui, -apple-system, sans-serif;
-  --font-mono: 'Space Mono', monospace;
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif; /* Unified font for cleaner look */
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
