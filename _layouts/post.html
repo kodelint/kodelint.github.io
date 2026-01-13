@@ -63,6 +63,10 @@
         <div class="post-header-line"></div>
       </header>
 
+      {% if page.image %}
+      <div class="post-featured-image" style="margin-bottom: 3rem; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; height: 400px; width: 100%; background-image: url('{{ page.image | relative_url }}'); background-size: cover; background-position: center;"></div>
+      {% endif %}
+
       {% if page.cross_post_url or page.devto_url or page.hashnode_url %}
       <div class="cross-post-notice">
         <div class="notice-icon"><i class="fas fa-broadcast-tower"></i></div>

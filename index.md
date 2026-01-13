@@ -89,12 +89,21 @@ layout: page
   
   <div class="logs-grid-wide">
     {% for post in site.posts limit:3 %}
-    <a href="{{ post.url }}" class="log-card-wide">
-      <div class="log-date">{{ post.date | date: "%Y-%m-%d" }}</div>
-      <h3 class="log-title">{{ post.title }}</h3>
-      <div class="log-meta">
-        <span class="log-tag">Read: {{ post.content | number_of_words | divided_by: 180 }}m</span>
-        <span class="arrow-icon">→</span>
+    <a href="{{ post.url }}" class="log-card-wide card-retro-smooth">
+      {% if post.image %}
+      <div class="card-image-retro" style="background-image: url('{{ post.image | relative_url }}');"></div>
+      {% else %}
+      <div class="card-image-retro" style="background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-depth) 100%); display: flex; align-items: center; justify-content: center; opacity: 0.1;">
+        <span style="font-size: 2rem;">~/</span>
+      </div>
+      {% endif %}
+      <div class="card-content-inner">
+        <div class="log-date">{{ post.date | date: "%Y-%m-%d" }}</div>
+        <h3 class="log-title">{{ post.title }}</h3>
+        <div class="log-meta">
+          <span class="log-tag">Read: {{ post.content | number_of_words | divided_by: 180 }}m</span>
+          <span class="arrow-icon">→</span>
+        </div>
       </div>
     </a>
     {% endfor %}
@@ -110,6 +119,19 @@ layout: page
     align-items: center;
     padding: 12rem 0; /* More vertical breathing room */
     min-height: 80vh;
+  }
+
+  .log-card-wide {
+    text-decoration: none;
+    height: 100%;
+  }
+
+  .log-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 0.5rem 0 1rem 0;
+    line-height: 1.2;
   }
 
   .hero-title-wide {

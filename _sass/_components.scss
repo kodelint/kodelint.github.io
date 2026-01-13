@@ -367,6 +367,33 @@ nav .nav-container {
   .post-arrow { display: none; }
 }
 
+/* Smooth Retro Cards */
+.card-retro-smooth {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.card-retro-smooth:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.4);
+}
+
+.card-image-retro {
+  height: 120px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--border-subtle);
+  background-color: #000;
+}
+
 /* Inline code styling - Subtle and integrated */
 code {
   font-family: var(--font-mono);

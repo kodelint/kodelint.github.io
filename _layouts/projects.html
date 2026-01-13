@@ -13,20 +13,19 @@
 
     <div class="project-list-grid">
       {% for project in site.data.projects_data.projects %}
-      <div class="project-card-retro-grid" 
+      <div class="project-card-retro-grid card-retro-smooth" 
            data-tags="{{ project.tags | join: ' ' | downcase }}"
            onmouseenter="startBuild(this)" 
            onmouseleave="resetBuild(this)">
         
-        <div class="card-image" style="background-image: url('{{site.url}}{{site.baseurl}}{{project.img}}');"></div>
-
         <div class="card-top-bar">
-          <span class="file-name">{{ project.title | slugify }}.exe</span>
+          <span class="file-name">{{ project.title | slugify | truncate: 15 }}.exe</span>
           <div class="window-controls">
-             <!-- build indicator icons -->
-             <i class="fas fa-terminal" style="font-size: 0.7rem;"></i>
+             <i class="fas fa-terminal" style="font-size: 0.6rem;"></i>
           </div>
         </div>
+
+        <div class="card-image-retro" style="background-image: url('{{ project.img | relative_url }}');"></div>
         
         <div class="card-content-inner">
           <div class="meta-tags">
@@ -34,12 +33,12 @@
           </div>
 
           <h2 class="retro-card-title">{{project.title}}</h2>
-          <p class="retro-excerpt">{{project.about}}</p>
+          <p class="retro-excerpt">{{project.about | truncatewords: 15 }}</p>
           
           {% if project.tags %}
-          <div style="margin-bottom: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
-            {% for tag in project.tags %}
-              <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-secondary); background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 4px;">{{ tag }}</span>
+          <div style="margin-bottom: 1rem; display: flex; flex-wrap: wrap; gap: 0.4rem;">
+            {% for tag in project.tags limit: 3 %}
+              <span style="font-family: var(--font-mono); font-size: 0.6rem; color: var(--text-tertiary); background: rgba(255,255,255,0.03); padding: 2px 5px; border-radius: 4px;">{{ tag }}</span>
             {% endfor %}
           </div>
           {% endif %}
@@ -52,9 +51,6 @@
              {% endif %}
           </div>
         </div>
-
-        <!-- Dependency Cloud / Build Overlay Logic (Simplified/Hidden for clean retro grid, or kept if desired) -->
-        <!-- Keeping it simple for the retro grid request, relying on hover effect mainly -->
       </div>
       {% endfor %}
     </div>
@@ -63,67 +59,28 @@
   <style>
     .project-list-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr); /* Force 4 columns */
-        gap: 1.5rem; /* Tighter gap */
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 1.5rem;
     }
 
-    @media (max-width: 1200px) {
-        .project-list-grid {
-           grid-template-columns: repeat(3, 1fr);
-        }
-    }
-
-    @media (max-width: 900px) {
-        .project-list-grid {
-           grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (max-width: 600px) {
-        .project-list-grid {
-           grid-template-columns: 1fr;
-        }
-    }
-
-    .project-card-retro-grid {
-        background: var(--bg-surface);
-        border: 1px solid var(--border-subtle); /* Thinner border */
-        border-radius: var(--radius-md); /* Smoother corners */
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        box-shadow: var(--shadow-card);
-    }
-      
-    .project-card-retro-grid:hover {
-        border-color: var(--accent-secondary);
-        transform: translateY(-6px);
-        box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.3); /* Softer, deeper shadow */
-    }
-
-    .card-image {
-        height: 140px; /* Reduced height */
-        width: 100%;
-        background-size: cover;
-        background-position: center;
-        border-bottom: 1px solid var(--border-subtle);
-    }
+    @media (max-width: 1200px) { .project-list-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 900px) { .project-list-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .project-list-grid { grid-template-columns: 1fr; } }
 
     .card-top-bar {
-        background: rgba(255, 255, 255, 0.02);
+        background: rgba(255, 255, 255, 0.03);
         padding: 0.3rem 0.6rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
         font-family: var(--font-mono);
-        font-size: 0.65rem;
-        color: var(--text-secondary);
+        font-size: 0.6rem;
+        color: var(--text-tertiary);
         border-bottom: 1px solid var(--border-subtle);
     }
 
     .card-content-inner {
-        padding: 1rem; /* Reduced padding */
+        padding: 1rem;
         display: flex;
         flex-direction: column;
         flex: 1;
@@ -131,15 +88,15 @@
 
     .retro-card-title {
         font-family: var(--font-heading);
-        font-size: 1rem; /* Smaller title */
+        font-size: 0.95rem;
         color: var(--text-primary);
-        margin: 0 0 0.5rem 0;
+        margin: 0 0 1rem 0;
         line-height: 1.3;
         font-weight: 700;
     }
 
     .retro-excerpt {
-        font-size: 0.8rem; /* Smaller text */
+        font-size: 0.75rem;
         color: var(--text-secondary);
         margin-bottom: 1rem;
         flex-grow: 1;
@@ -159,21 +116,14 @@
     .read-btn {
         font-family: var(--font-mono);
         color: var(--accent-secondary);
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         font-weight: 700;
         text-decoration: none;
-        transition: letter-spacing 0.2s;
+        transition: all 0.2s;
     }
-
-    .read-btn:hover {
-        text-decoration: none;
-        letter-spacing: 1px;
-    }
+    .read-btn:hover { letter-spacing: 1px; }
     
-    .meta-tags {
-        margin-bottom: 0.8rem;
-    }
-    
+    .meta-tags { margin-bottom: 0.8rem; }
     .meta-pill {
         font-size: 0.6rem;
         font-family: var(--font-mono);
