@@ -126,14 +126,14 @@ exit 0
 The effect was immediate and glorious. Now, when I try to commit with a typo:
 
 ```bash
-$ git commit -m "Fix the tpyo"
-OH NO! Your commit message has spelling mistakes!
----------------------------------------------------------
-The following words are not recognized:
-tpyo
----------------------------------------------------------
-Please fix your commit message and try again.
-To bypass this check, use 'git commit --no-verify'.
+    $ git commit -m "Fix the tpyo"
+    OH NO! Your commit message has spelling mistakes!
+    ---------------------------------------------------------
+    The following words are not recognized:
+    tpyo
+    ---------------------------------------------------------
+    Please fix your commit message and try again.
+    To bypass this check, use 'git commit --no-verify'.
 ```
 
 It forces me to be better. It’s a small, automated nudge towards quality that has completely eliminated this petty annoyance from my workflow. My commit history is cleaner, and my pull requests no longer have that initial, embarrassing comment from me that just says _"fixed a typo in the commit message."_

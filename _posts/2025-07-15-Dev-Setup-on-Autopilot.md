@@ -39,7 +39,7 @@ This constant “re-setup tax” was a major pain point, a recurring nightmare t
 
 ---
 
-### My Solution: Introducing `setup-devbox`
+## My Solution: Introducing `setup-devbox`
 
 That frustration finally boiled over, and I decided to tackle it head-on. I focused on a piece of software that solves this exact problem: [`setup-devbox`](https://github.com/kodelint/setup-devbox).
 

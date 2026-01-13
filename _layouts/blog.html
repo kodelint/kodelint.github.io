@@ -57,32 +57,30 @@
           </div>
           {% endif %}
 
-          <div class="card-footer">
-            <div class="cross-post-links">
+          <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center;">
+            {% if post.cross_post_url or post.medium_url or post.devto_url or post.hashnode_url %}
+            <div class="cross-post-links" style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 0.7rem; color: var(--accent-secondary); font-family: var(--font-mono); text-transform: uppercase; font-weight: 700;">Published on:</span>
+              
               {% if post.cross_post_url contains 'medium.com' or post.medium_url %}
-              <a href="{{ post.cross_post_url | default: post.medium_url }}" target="_blank" title="Read on Medium" onclick="event.stopPropagation();">
-                <i class="fab fa-medium cross-post-icon medium active"></i>
+              <a href="{{ post.cross_post_url | default: post.medium_url }}" target="_blank" title="Read on Medium" onclick="event.stopPropagation();" style="display: flex; align-items: center;">
+                <i class="fab fa-medium cross-post-icon active" style="color: #fff; font-size: 0.9rem;"></i>
               </a>
-              {% else %}
-              <i class="fab fa-medium cross-post-icon medium" title="Not on Medium"></i>
               {% endif %}
 
               {% if post.devto_url %}
-              <a href="{{ post.devto_url }}" target="_blank" title="Read on Dev.to" onclick="event.stopPropagation();">
-                <i class="fab fa-dev cross-post-icon devto active"></i>
+              <a href="{{ post.devto_url }}" target="_blank" title="Read on Dev.to" onclick="event.stopPropagation();" style="display: flex; align-items: center;">
+                <i class="fab fa-dev cross-post-icon active" style="color: #3b82f6; font-size: 0.9rem;"></i>
               </a>
-              {% else %}
-              <i class="fab fa-dev cross-post-icon devto" title="Not on Dev.to"></i>
               {% endif %}
 
               {% if post.hashnode_url %}
-              <a href="{{ post.hashnode_url }}" target="_blank" title="Read on Hashnode" onclick="event.stopPropagation();">
-                <i class="fas fa-h cross-post-icon hashnode active"></i>
+              <a href="{{ post.hashnode_url }}" target="_blank" title="Read on Hashnode" onclick="event.stopPropagation();" style="display: flex; align-items: center;">
+                <i class="fas fa-h cross-post-icon active" style="color: #2962ff; font-size: 0.8rem;"></i>
               </a>
-              {% else %}
-              <i class="fas fa-h cross-post-icon hashnode" title="Not on Hashnode"></i>
               {% endif %}
             </div>
+            {% endif %}
             <span class="read-more">Read Article</span>
           </div>
         </div>

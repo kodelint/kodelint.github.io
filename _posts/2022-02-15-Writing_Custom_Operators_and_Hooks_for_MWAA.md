@@ -123,9 +123,9 @@ Above piece of code banks on the operator and creates the `ec2` instance with ar
 
 > [XComs](https://airflow.apache.org/docs/apache-airflow/1.10.12/concepts.html#xcoms) let tasks exchange messages, allowing more nuanced forms of control and shared state. The name is an abbreviation of “cross-communication”. XComs are principally defined by a key, value, and timestamp, but also track attributes like the task/DAG that created the XCom and when it should become visible. Any object that can be pickled can be used as an XCom value, so users should make sure to use objects of appropriate size.
 
-<p float="left">
-  <img src=https://github.com/kodelint/blog-assets/raw/main/images/02-airflow-ec2-plugin.png width="470" height="250" />
-  <img src=https://github.com/kodelint/blog-assets/raw/main/images/03-airflow-ec2-plugin.png width="470" height="250" />
+<p style="display: flex; gap: 10px;">
+  <img src="https://github.com/kodelint/blog-assets/raw/main/images/02-airflow-ec2-plugin.png" width="470" height="250" />
+  <img src="https://github.com/kodelint/blog-assets/raw/main/images/03-airflow-ec2-plugin.png" width="470" height="250" />
 </p>
 
 #### Terminate instance `dag` code snippet
@@ -133,14 +133,16 @@ Above piece of code banks on the operator and creates the `ec2` instance with ar
 ```python
 from operators.ec2_create_instance import EC2ExtendedCreateInstance
 from operators.ec2_terminate_instance import EC2ExtendedTerminateInstance
+
 ....
 ....
 ....
-terminate_ec2 = EC2ExtendedTerminateInstance(
-    instance_id="{{ task_instance.xcom_pull('create_ec2', dag_id=DAG_ID, key='return_value')[0] }}",
-    region_name='us-east-1',
-    task_id='terminate_ec2',
- )
+
+    terminate_ec2 = EC2ExtendedTerminateInstance(
+        instance_id="{% raw %}{{ task_instance.xcom_pull('create_ec2', dag_id=DAG_ID, key='return_value')[0] }}{% endraw %}",
+        region_name='us-east-1',
+        task_id='terminate_ec2',
+    )
 )
 
 create_ec2 >> terminate_ec2

@@ -6,7 +6,7 @@ date: 2026-01-05
 image: "/assets/uploads/overall_overlay.png"
 cross_post_url: "https://medium.com/@email2sroy/the-matryoshka-dolls-of-modern-networking-a-technical-evolution-c45a2555c710"
 devto_url: "https://dev.to/deadlock/the-matryoshka-dolls-of-modern-networking-a-technical-evolution-1n1c"
-hashnode_url: ""
+hashnode_url: "https://sroy.hashnode.dev/the-matryoshka-dolls-of-modern-networking-a-technical-evolution"
 caffeine: 7
 stress: 7
 ozone: 6

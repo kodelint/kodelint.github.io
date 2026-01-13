@@ -12,3 +12,55 @@
 .highlight .nn { color: #9ca3af; } /* Name Namespace */
 .highlight .mi { color: #f472b6; } /* Literal Number */
 
+/* Professional Terminal Style */
+div.highlight {
+  position: relative;
+  margin: 2rem 0;
+  background: #1a1b26 !important; /* Tokyo Night background */
+  border-radius: 10px;
+  border: 1px solid #2f3542;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Terminal Title Bar */
+div.highlight::before {
+  content: "";
+  display: block;
+  height: 34px;
+  background: #24283b;
+  border-bottom: 1px solid #2f3542;
+}
+
+/* Window Controls (MacOS Style) */
+div.highlight::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f;
+  z-index: 5;
+}
+
+/* Language Badge in Title Bar */
+.language-go::after { content: "󰟓 GOLANG"; position: absolute; top: 8px; right: 15px; font-size: 11px; color: #565f89; font-weight: 700; }
+.language-rust::after { content: " RUST"; position: absolute; top: 8px; right: 15px; font-size: 11px; color: #565f89; font-weight: 700; }
+.language-bash::after { content: " BASH"; position: absolute; top: 8px; right: 15px; font-size: 11px; color: #565f89; font-weight: 700; }
+.language-yaml::after { content: "󰂺 YAML"; position: absolute; top: 8px; right: 15px; font-size: 11px; color: #565f89; font-weight: 700; }
+.language-json::after { content: "󰘦 JSON"; position: absolute; top: 8px; right: 15px; font-size: 11px; color: #565f89; font-weight: 700; }
+.language-terraform::after { content: "󱁢 TERRAFORM"; position: absolute; top: 8px; right: 15px; font-size: 11px; color: #565f89; font-weight: 700; }
+
+div.highlight pre {
+  padding: 1.25rem 1.5rem !important;
+  margin: 0 !important;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  color: #cfc9c2;
+}
+

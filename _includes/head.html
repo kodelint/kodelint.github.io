@@ -9,11 +9,35 @@
     rel="stylesheet"
     href="{{site.url}}{{site.baseurl}}/assets/css/main.css?v={{ 'now' | date: '%s' }}"
   />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
   <script type="module">
     import "https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate";
     const el = document.createElement("pwa-update");
     document.body.appendChild(el);
+  </script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Transform Jekyll code blocks to mermaid divs
+      const mermaidCodeBlocks = document.querySelectorAll('pre code.language-mermaid');
+      
+      mermaidCodeBlocks.forEach(codeBlock => {
+        const preElement = codeBlock.parentElement; // The <pre>
+        const container = preElement.parentElement.classList.contains('highlight') 
+                          ? preElement.parentElement.parentElement // The outer div.language-mermaid
+                          : preElement;
+
+        const div = document.createElement('div');
+        div.className = 'mermaid';
+        div.textContent = codeBlock.textContent;
+        
+        container.replaceWith(div);
+      });
+
+      mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    });
   </script>
 </head>

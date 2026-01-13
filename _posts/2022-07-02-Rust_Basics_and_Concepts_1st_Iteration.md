@@ -112,6 +112,28 @@ Check out the below **illustration** for `shadowing` and code
 ![Shadowing Variables in Rust](https://cdn-images-1.medium.com/max/12406/1*1h9v0MQAUHtCgneSBKJDVA.jpeg)
 
 ```rust
+fn main() {
+    let shadowed_variable = 10;
+    println!("value of shadowed_variable is {}", shadowed_variable);
+
+    let shadowed_variable = "ten";
+    println!("value of shadowed_variable is {}", shadowed_variable);
+
+    let shadowed_variable = 10;
+    println!("value of shadowed_variable is {}", shadowed_variable);
+    {
+        let shadowed_variable = "scope check";
+        println!("value of shadowed_variable is {}", shadowed_variable);
+    }
+
+    let first_value = &shadowed_variable;
+    let shadowed_variable = 20;
+    println!("value of shadowed_variable is {}", shadowed_variable);
+    println!("First value of shadowed_variable is {}", first_value);
+}
+```
+
+```rust
     value of shadowed_variable is 10 -> 1st Value
     value of shadowed_variable is ten -> 2nd Value
     value of shadowed_variable is 10 -> First Value in different scope
@@ -215,6 +237,19 @@ Take a look at the below Diff View and I will try to explain what I meant to sho
 
 ![Strings Stack and Heap](https://cdn-images-1.medium.com/max/3112/1*fmd8dF2JqTLubtmSu_nkzw.png)
 
+```rust
+fn main() {
+    work_with_strings();
+}
+
+fn work_with_strings() {
+    let mut my_string = String::from("APPLE");
+    // my_string (ptr, len, cap) is on stack
+    // "APPLE" data is on heap
+    println!("Original my string: {}", my_string);
+}
+```
+
 In Rust there 2 ways work with **Strings** using `String Literals` or `String Type`. When say let `some_string = "actually it is random string"` this is called `String Literals` because it is literally written in the **executable**. As mentioned above they are **immutable** and the **size** needs to be known before compilation. So it can’t hold any value which is dynamic in nature.
 
 > A String is stored as a vector of bytes _`(Vec<u8>)`_, but guaranteed to always be a valid `UTF-8` sequence. **String** is heap allocated, growable and not null terminated. `&str` is a `slice (&[u8])` that always points to a valid `UTF-8` sequence, and can be used to view into a **String**, just like `&[T]` is a view into `Vec<T>`.
@@ -232,9 +267,9 @@ The code below will create a variable called `my_string` which is `&str` type st
         let mut my_string = String::from("APPLE");
         println!("Original my string: {}", my_string);
     }
-```
 
 ![Strings Stack and Heap](https://cdn-images-1.medium.com/max/4898/1*d0x2WMH6qJTenUTviNXn2g.jpeg)
+```
 
 Same code with adding more to the existing string
 
@@ -253,26 +288,23 @@ Same code with adding more to the existing string
 
 Becomes something like this
 
-![Strings Concatination](https://cdn-images-1.medium.com/max/4276/1*_eznCBCn0jcfMaDHrv6ICQ.jpeg)
+```rust
+fn main() {
+    work_with_strings();
+}
+
+fn work_with_strings() {
+    let mut my_string = String::from("APPLE");
+    println!("Original my string: {}", my_string);
+    // Heap data grows, potentially reallocating
+    my_string.push_str(" is GOOD");
+    println!("Final my string: {}", my_string);
+}
+```
+
+![Strings Concatination](https://cdn-images-1.medium.com/max/4276/1*_eznCBCn0jcfMaDHrv6ICQ.jpeg)```
 
 To reference characters in string using **index**, because strings are valid `UTF-8`, they do not support indexing. We need to use the `.chars()` method. Read more about the Strings [here](https://doc.rust-lang.org/std/string/struct.String.html)
-
-```rust
-    fn main() {
-        work_with_strings();
-    }
-
-    fn work_with_strings() {
-        let mut my_string = String::*from*("APPLE");
-        println!("Original my string: {}", my_string);
-        my_string.push_str(" is GOOD");
-        println!("Final my string: {}", my_string);
-        println!("The characters are \n");
-        for ch in my_string.chars() {
-            print!("{},", ch)
-        }
-    }
-```
 
 ## Loopy Loops
 
@@ -280,7 +312,44 @@ Like any other language Rust also has couple of mechanisms which we can use to i
 
 [Loops](https://doc.rust-lang.org/reference/expressions/loop-expr.html) are very much similar to [While](https://doc.rust-lang.org/rust-by-example/flow_control/while.html), with 2 main difference. It doesn’t come with a condition like [while](https://doc.rust-lang.org/rust-by-example/flow_control/while.html) and it can return value which [while](https://doc.rust-lang.org/rust-by-example/flow_control/while.html) can’t.
 
-![Loops vs While](https://cdn-images-1.medium.com/max/5510/1*Y0L05lzzwLPPdblNP1KghA.jpeg)
+<div style="display: flex; gap: 20px; flex-wrap: wrap;" markdown="1">
+<div style="flex: 1; min-width: 300px;" markdown="1">
+
+**Using `loop`**
+
+```rust
+fn main() {
+    let mut count = 0;
+    let result = loop {
+        count += 1;
+        if count == 10 {
+            break count * 2;
+        }
+    };
+    println!("The result is {}", result);
+}
+```
+
+</div>
+<div style="flex: 1; min-width: 300px;" markdown="1">
+
+**Using `while`**
+
+```rust
+fn main() {
+    let mut count = 0;
+    while count < 10 {
+        count += 1;
+        if count == 10 {
+            break; // Can't return value
+        }
+    }
+    println!("The count is {}", count);
+}
+```
+
+</div>
+</div>
 
 As you can see the [loops](https://doc.rust-lang.org/reference/expressions/loop-expr.html) actually returns the `count` to the **result** variable once the `break` statement executes, however `while` just execute and breaks out of the loop when the condition matched.
 
