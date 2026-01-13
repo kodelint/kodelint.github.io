@@ -17,7 +17,10 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
 
     <div class="p-metrics-strip">
       {% for metric in site.data.portfolio.home.metrics %}
-      <span>{{ metric }}</span>
+      <div class="p-metric-card">
+        <span class="p-metric-value">{{ metric.value }}</span>
+        <span class="p-metric-title">{{ metric.title }}</span>
+      </div>
       {% endfor %}
     </div>
   </div>
@@ -25,20 +28,29 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
 
 <section class="p-section">
   <div class="p-container">
-    <h3 style="margin-bottom: 2rem;">Featured Case Studies</h3>
-    <div class="p-grid-3">
-      {% for case in site.data.portfolio.case_studies %}
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem;">
+      <h3>Selected Case Studies</h3>
+      <a href="/portfolio/case-studies/" style="font-size: 0.9rem; font-weight: 500;">View All &rarr;</a>
+    </div>
+    
+    <div class="p-grid-2">
+      {% for case in site.data.portfolio.case_studies limit:4 %}
       <div class="p-card">
         <h4 class="p-card-title">{{ case.title }}</h4>
         <span class="p-card-meta">{{ case.outcome }}</span>
+        <p style="margin-bottom: 1rem; color: var(--color-text); font-size: 0.95rem;">{{ case.problem }}</p>
         <ul style="padding-left: 1.2rem; margin-bottom: 1.5rem; font-size: 0.9rem;">
           {% for point in case.impact limit:2 %}
           <li style="margin-bottom: 0.5rem;">{{ point }}</li>
           {% endfor %}
         </ul>
-        <a href="/portfolio/case-studies/#{{ case.id }}" class="p-btn p-btn-outline" style="font-size: 0.8rem; padding: 0.4rem 1rem;">Read Full Study</a>
+        <a href="/portfolio/case-studies/#{{ case.id }}" class="p-btn p-btn-outline" style="font-size: 0.8rem; padding: 0.4rem 1rem;">Read Study</a>
       </div>
       {% endfor %}
+    </div>
+    
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="/portfolio/case-studies/" class="p-btn p-btn-primary">View Full Case Studies</a>
     </div>
   </div>
 </section>
@@ -58,7 +70,6 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
         </ul>
       </div>
       <div>
-        <!-- Optional visual or quote -->
         <blockquote style="font-size: 1.2rem; font-style: italic; border-left: 4px solid var(--color-accent); padding-left: 1.5rem;">
           "Reliability is a feature, not an afterthought."
         </blockquote>

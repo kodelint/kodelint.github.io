@@ -13,7 +13,7 @@ description: Open source contributions and projects.
 
   <div class="p-section">
     <div class="p-grid-2">
-      {% for project in site.data.portfolio.oss %}
+      {% for project in site.data.portfolio.oss limit:4 %}
       <div class="p-card">
         <h3 class="p-card-title">{{ project.title }}</h3>
         <p style="margin-bottom: 1rem;">{{ project.problem }}</p>
@@ -21,6 +21,10 @@ description: Open source contributions and projects.
         <a href="{{ project.repo }}" target="_blank" class="p-btn p-btn-outline">View Repository</a>
       </div>
       {% endfor %}
+    </div>
+    
+    <div style="margin-top: 3rem; text-align: center;">
+      <a href="https://github.com/kodelint" target="_blank" class="p-btn p-btn-primary">View All Projects on GitHub</a>
     </div>
   </div>
 </div>

@@ -1,16 +1,15 @@
----
----
 /* Portfolio V4 Style System */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 
 :root {
   --color-bg: #ffffff;
-  --color-bg-alt: #f8fafc; /* Slate 50 */
+  --color-bg-alt: #f1f5f9; /* Slate 100 - Warmer/Cooler Grey */
+  --color-bg-card: #ffffff;
   --color-text: #334155;   /* Slate 700 */
   --color-heading: #0f172a; /* Slate 900 */
   --color-accent: #2563eb;  /* Royal Blue 600 */
   --color-accent-hover: #1d4ed8;
-  --color-border: #e2e8f0;
+  --color-border: #cbd5e1;  /* Slate 300 - Slightly clearer border */
   
   --font-serif: 'Merriweather', serif;
   --font-sans: 'Inter', sans-serif;
@@ -93,6 +92,7 @@ a:hover { color: var(--color-accent); }
 .p-hero {
   padding: 6rem 0;
   text-align: left;
+  background: linear-gradient(to bottom right, #f8fafc, #ffffff); /* Subtle gradient */
 }
 
 .p-headline {
@@ -138,6 +138,7 @@ a:hover { color: var(--color-accent); }
 .p-btn-outline {
   border: 1px solid var(--color-border);
   color: var(--color-heading);
+  background-color: white;
 }
 .p-btn-outline:hover {
   border-color: var(--color-heading);
@@ -146,13 +147,36 @@ a:hover { color: var(--color-accent); }
 
 .p-metrics-strip {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   padding-top: 1.5rem;
   border-top: 1px dashed var(--color-border);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-heading);
   flex-wrap: wrap;
+}
+
+.p-metric-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  text-align: center;
+  flex: 1;
+  min-width: 150px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.p-metric-value {
+  display: block;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-heading);
+}
+
+.p-metric-title {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* Cards & Grid */
@@ -169,7 +193,7 @@ a:hover { color: var(--color-accent); }
 }
 
 .p-card {
-  background: white;
+  background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: 6px;
   padding: 2rem;
@@ -178,7 +202,8 @@ a:hover { color: var(--color-accent); }
 
 .p-card:hover {
   border-color: var(--color-accent);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+  transform: translateY(-2px);
 }
 
 .p-card-title {

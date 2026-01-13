@@ -1,13 +1,17 @@
 # Portfolio Content Data
 
 home:
-  headline: "Satyajit Roy — Director of Engineering and SRE"
+  headline: "Satyajit Roy — Engineering Executive and Leader"
   subhead: "I build reliable, cost-efficient cloud platforms and scale engineering teams to deliver mission-critical AI and SaaS systems."
   metrics:
-    - "20+ Years Exp"
-    - "30B Daily Requests"
-    - "99.95%+ Availability"
-    - "55+ Engineers Scaled"
+    - title: "Experience"
+      value: "20+ Years"
+    - title: "Scale"
+      value: "30B Daily Requests"
+    - title: "Reliability"
+      value: "99.95%+"
+    - title: "Leadership"
+      value: "55+ Engineers"
   why_work:
     - "Leadership in hyperscale systems"
     - "SRE operating models"
@@ -83,6 +87,45 @@ case_studies:
         link: "#"
     tags: ["FinOps", "Modernization", "eBPF"]
 
+  - id: macys-platform
+    title: "Enterprise CI/CD & Platform Modernization at Macys.com"
+    outcome: "Near-zero downtime releases"
+    context: "Macys.com required a modernization of its deployment pipeline to support rapid e-commerce innovation."
+    role: "Tech Leader. Led enterprise-wide platform modernization."
+    problem: "Manual, fragile deployment processes caused frequent downtime and slowed feature release cycles."
+    constraints: "High-traffic e-commerce environment, legacy on-prem infrastructure."
+    solution:
+      - "Designed modern deployment platform using Jenkins, Spinnaker, and Kubernetes."
+      - "Implemented blue-green and canary deployment strategies."
+      - "Designed hybrid cloud architecture spanning GCP, AWS, and VMware Tanzu."
+    impact:
+      - "Achieved near-zero downtime releases for revenue-critical workloads."
+      - "Significantly reduced deployment lead time."
+      - "Enabled consistent workload execution across hybrid environments."
+    lessons:
+      - "Standardized pipelines are key to developer velocity in large orgs."
+      - "Canary deployments are essential for risk mitigation in retail."
+    artifacts: []
+    tags: ["CI/CD", "Kubernetes", "Hybrid Cloud"]
+
+  - id: early-career
+    title: "Early Career Leadership & Engineering"
+    outcome: "Foundational Distributed Systems"
+    context: "Engineering roles at Workday, Chegg, RocketFuel, and others."
+    role: "Various Engineering Roles (2004-2016)."
+    problem: "Building and scaling early distributed systems and SaaS products."
+    constraints: "Rapidly evolving technology landscape."
+    solution:
+      - "Contributed to core platform stability and scalability."
+      - "Built foundational expertise in distributed systems."
+    impact:
+      - "Delivered key components for high-growth SaaS products."
+      - "Mentored junior engineers and led technical initiatives."
+    lessons:
+      - "Fundamentals of distributed systems don't change, only the tools do."
+    artifacts: []
+    tags: ["Distributed Systems", "SaaS"]
+
 leadership:
   philosophy:
     mission: "I believe engineering leadership is about removing friction. Whether it's technical friction (legacy code, manual toil) or organizational friction (silos, unclear goals), my role is to clear the path so high-performing teams can deliver value."
@@ -134,6 +177,10 @@ oss:
     problem: "Manual cross-posting is tedious."
     impact: "Automates distribution to 3 platforms."
     repo: "https://github.com/kodelint/blogs-publisher"
+  - title: "Wiper"
+    problem: "Uninstalling macOS apps leaves junk files."
+    impact: "Clean uninstalls for better system hygiene."
+    repo: "https://github.com/kodelint/wiper"
 
 resume:
   summary: "Engineering and Platform leader with 20+ years of experience scaling mission-critical SaaS and AI/ML platforms."
