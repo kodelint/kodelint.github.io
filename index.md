@@ -114,10 +114,10 @@ layout: page
   /* Local Styles for Index (Widescreen) */
   .hero-container-wide {
     display: grid;
-    grid-template-columns: 1.3fr 0.7fr; /* Text takes more space */
-    gap: 15rem; /* Massive gap for expansive feel */
+    grid-template-columns: 1.2fr 0.8fr; /* More balanced columns */
+    gap: 8rem; /* Reduced from 15rem for better alignment */
     align-items: center;
-    padding: 12rem 0; /* More vertical breathing room */
+    padding: 8rem 0; 
     min-height: 80vh;
   }
 
@@ -254,7 +254,8 @@ layout: page
 
   .profile-img-container {
     width: 100%;
-    height: 350px; /* Increased from 250px */
+    height: auto; /* Removed fixed height to prevent cropping */
+    max-height: 450px;
     background: #000;
     margin-bottom: 1.5rem;
     border: 2px solid var(--text-primary);
@@ -263,9 +264,9 @@ layout: page
 
   .profile-img-v3 {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center; /* Focus on face */
+    height: auto;
+    display: block;
+    object-fit: contain; /* Ensure full image is visible */
     filter: grayscale(100%);
     transition: filter 0.3s;
   }
@@ -343,8 +344,8 @@ layout: page
 
   .logs-grid-wide {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr); /* Updated to 4 columns */
+    gap: 1.5rem;
   }
 
   .log-card-wide {

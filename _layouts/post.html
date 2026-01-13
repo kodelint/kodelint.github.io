@@ -64,7 +64,9 @@
       </header>
 
       {% if page.image %}
-      <div class="post-featured-image" style="margin-bottom: 3rem; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; height: 400px; width: 100%; background-image: url('{{ page.image | relative_url }}'); background-size: cover; background-position: center;"></div>
+      <div class="post-featured-image" style="margin-bottom: 3rem; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; background: #000; display: flex; justify-content: center;">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" style="max-width: 100%; max-height: 600px; display: block; object-fit: contain;">
+      </div>
       {% endif %}
 
       {% if page.cross_post_url or page.devto_url or page.hashnode_url %}
