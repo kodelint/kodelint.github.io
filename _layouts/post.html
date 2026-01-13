@@ -105,11 +105,14 @@
           </div>
         </div>
       </div>
+
+      <!-- Global Footer Aligned to Content -->
+      <div class="content-aligned-footer" style="margin-top: 4rem;">
+        {% include footer.html %}
+      </div>
     </div>
 
   </main>
-  
-  {% include footer.html %}
 
   <style>
     /* Widescreen Post Layout */
@@ -319,6 +322,29 @@
       font-family: var(--font-heading);
       font-size: 1.5rem;
       color: var(--text-primary);
+    }
+
+    /* Content Aligned Footer Tweaks */
+    .content-aligned-footer footer {
+      padding-left: 0;
+      padding-right: 0;
+      text-align: left;
+    }
+    
+    .content-aligned-footer .container {
+      max-width: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .content-aligned-footer .status-group {
+      justify-content: flex-start;
+    }
+
+    .content-aligned-footer .git-footer {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: none;
     }
 
     /* Responsive */
