@@ -1,87 +1,82 @@
 /* Syntax Highlighting Colors (Custom Dark) */
-.highlight .hll { background-color: #333333 }
-.highlight { color: #e5e7eb; background-color: transparent; }
-.highlight .c { color: #6b7280; font-style: italic; } /* Comment */
-.highlight .k { color: #ff7b72; font-weight: bold; } /* Keyword */
-.highlight .s { color: #a5d6ff; } /* String */
-.highlight .na { color: #79c0ff; } /* Name Attribute */
-.highlight .nt { color: #7ee787; } /* Name Tag */
-.highlight .nb { color: #c084fc; } /* Name Builtin (Purple) */
-.highlight .nf { color: #38bdf8; } /* Name Function (Cyan) */
-.highlight .no { color: #facc15; } /* Name Constant (Yellow) */
-.highlight .nn { color: #9ca3af; } /* Name Namespace */
-.highlight .mi { color: #f472b6; } /* Literal Number */
+.highlight .hll {
+  background-color: #333333;
+}
+.highlight {
+  color: #e5e7eb;
+  background-color: transparent;
+}
+.highlight .c {
+  color: #6b7280;
+  font-style: italic;
+} /* Comment */
+.highlight .k {
+  color: #ff7b72;
+  font-weight: bold;
+} /* Keyword */
+.highlight .s {
+  color: #a5d6ff;
+} /* String */
+.highlight .na {
+  color: #79c0ff;
+} /* Name Attribute */
+.highlight .nt {
+  color: #7ee787;
+} /* Name Tag */
+.highlight .nb {
+  color: #c084fc;
+} /* Name Builtin (Purple) */
+.highlight .nf {
+  color: #38bdf8;
+} /* Name Function (Cyan) */
+.highlight .no {
+  color: #facc15;
+} /* Name Constant (Yellow) */
+.highlight .nn {
+  color: #9ca3af;
+} /* Name Namespace */
+.highlight .mi {
+  color: #f472b6;
+} /* Literal Number */
 
 /* Professional Terminal Style */
 
 div.highlight {
-
   position: relative;
-
   margin: 2rem 0;
-
   background: #1a1b26 !important; /* Tokyo Night background */
-
   border-radius: 10px;
-
   border: 1px solid #2f3542;
-
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-
   overflow: hidden;
-
-  font-family: 'JetBrains Mono', monospace;
-
+  font-family: "JetBrains Mono", monospace;
 }
-
-
 
 /* Terminal Title Bar & Window Controls */
 
 div.highlight::before {
-
   content: "● ● ●";
-
   display: block;
-
   height: 34px;
-
   line-height: 34px;
-
   padding: 0 15px;
-
   background: #24283b;
-
   border-bottom: 1px solid #2f3542;
-
   font-size: 16px;
-
   color: #ff5f56; /* Red dot */
-
   letter-spacing: 2px;
-
   /* Use text-shadow to create the yellow and green dots */
-
-  text-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f; 
-
+  text-shadow:
+    18px 0 0 #ffbd2e,
+    36px 0 0 #27c93f;
   font-family: sans-serif;
-
 }
 
-
-
 div.highlight pre {
-
   padding: 1.25rem 1.5rem !important;
-
   margin: 0 !important;
-
-  font-size: 1.0rem;
-
+  font-size: 1rem;
   line-height: 1.6;
-
   overflow-x: auto;
-
   color: #cfc9c2;
-
 }
