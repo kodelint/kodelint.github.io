@@ -249,6 +249,16 @@ a:hover { color: var(--color-accent); }
   display: block;
 }
 
+.cs-list {
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.cs-list li {
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
+}
+
 /* Case Study Detail Enhancements */
 .cs-detail {
   max-width: 900px;
