@@ -209,20 +209,19 @@ layout: page
       <li><strong>Save Your Sanity</strong>: If my post about an obscure <span class="tooltip-container">Segfault<span class="tooltip-box"><b>Memory Oops [error]</b>The digital version of forgetting why you walked into a room.</span></span> saves you an hour of debugging at 2 AM, I've won.</li>
       <li><strong>Future-Proofing Me</strong>: Because I know I’ll forget how I fixed that "impossible" networking issue by next quarter.</li>
       <li><strong>Statically-Linked Sanity</strong>: A sanctuary for <span class="tooltip-container">Golang<span class="tooltip-box"><b>Gopher Magic [lang]</b>Simple, fast, and remarkably good at hiding its lack of generics for years.</span></span> and <span class="tooltip-container">Rust<span class="tooltip-box"><b>The Enforcer [lang]</b>A language that treats you like you're irresponsible, and it's usually right.</span></span> lovers. You won't find any loosely-typed nightmares here.</li>
-      <li><strong>Ranting with Purpose</strong>: Sometimes the industry needs a reminder that "Hype" isn't a replacement for "Architecture."</li>
+      <li><strong>Ranting with Purpose</strong>: Sometimes the industry needs a reminder that "<span class="tooltip-container">Hype<span class="tooltip-box"><b>LinkedIn Fuel [noun]</b>A shiny new technology that promises to solve everything but usually just adds another layer of YAML.</span></span>" isn't a replacement for "<span class="tooltip-container">Architecture<span class="tooltip-box"><b>Plan B [noun]</b>Drawing boxes that look good in a slideshow until the first packet drop.</span></span>."</li>
     </ol>
 
   </div>
 </div>
 
-<p>Feel free to explore. If you see me in a data center or a GitHub issue, don't be a stranger—unless you're bringing more YAML.</p>
+<p>Feel free to explore. If you see me in a data center or a GitHub issue, don't be a stranger, unless you're bringing more <strong>YAML</strong>.</p>
 
 <div class="signature-section">
   <div class="signature-visual">
     <img src="/assets/uploads/developer.png" alt="Coding GIF"/>
   </div>
   <blockquote class="signature-quote">
-    "I convert <span class="tooltip-container">Pizza<span class="tooltip-box"><b>Core Fuel [food]</b>The only thing that scales as well as my clusters.</span></span> into <span class="tooltip-container">Resilient Infrastructure<span class="tooltip-box"><b>Job Security [outcome]</b>Systems so stable they make me look like I know what I'm doing.</span></span> and deploy <span class="tooltip-container">Confidence<span class="tooltip-box"><b>Fallback Plan [strategy]</b>What I tell the stakeholders while I'm actually praying to the demo gods.</span></span> to production. My <span class="tooltip-container">Cloud Strategy<span class="tooltip-box"><b>Expensive Art [noun]</b>Modern architecture: Paying Jeff Bezos to host my mistakes.</span></span> is 90% logic and 10% hoping the InfiniBand stays connected." <span style="color: var(--accent-primary);"> — Roy </span>
+    "I convert <span class="tooltip-container">Coffee<span class="tooltip-box"><b>Core Fuel [food]</b>The only thing that scales as well as my clusters.</span></span> into <span class="tooltip-container">Resilient Infrastructure<span class="tooltip-box"><b>Job Security [outcome]</b>Systems so stable they make me look like I know what I'm doing.</span></span> and deploy <span class="tooltip-container">Confidence<span class="tooltip-box"><b>Fallback Plan [strategy]</b>What I tell the stakeholders while I'm actually praying to the demo gods.</span></span> to production. My <span class="tooltip-container">Cloud Strategy<span class="tooltip-box"><b>Expensive Art [noun]</b>Modern architecture: Paying Jeff Bezos to host my mistakes.</span></span> is 90% logic and 10% hoping the InfiniBand stays connected." <span style="color: var(--accent-primary);"> — Roy </span>
   </blockquote>
 </div>
-
