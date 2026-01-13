@@ -19,9 +19,6 @@ tags: [Golang, Basics, Concepts]
 
 **Functions** are the building blocks of `procedural programming`. They help in creating modular code where a big job can be segmented into small pieces of code and might have been written by different people separated by both time and space. In fact, function is one kind of **first-class citizen** types in `Go`. In other words, we can use _functions as values_. Although `Go` is a static language, `Go` functions are very flexible. The feeling of using Go functions is much like using many dynamic languages. _A function is a mapping of zero or more input parameters to zero or more output parameters._
 
----
-
-![Go Functions](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/lm8nrpmiw7wlmo6eqrwy.jpg)
 
 **The advantages of using functions are:**
 

@@ -13,123 +13,129 @@ categories: [Infrastructure]
 tags: [DevOps, SRE, Terraform]
 ---
 
+I have been using Terraform for a long time now, working with versions ranging from `0.11.x` all the way to `1.1.x`. Over the years, I've adopted several patterns that make the code more robust and manageable. 
 
-## [Terraform] Tips and Tricks — Part 1
+Here are some **tips and tricks** I frequently use while writing Terraform code.
 
-![](https://cdn-images-1.medium.com/fit/c/800/283/1*OAuGm2Nc5p5pmbhOEYPQOw.png)✍︎
+### 1. Variable Verification
 
-I have been using `terraform` for long now. I have used **Terraform version**`0.11.x --to-> 1.1.x`**** time to time based on what is available and what we could adopt.
+Starting with Terraform version `0.13`, HashiCorp introduced a way to validate variables before they are used in resources. This is a great way to catch configuration errors early in the `plan` phase.
 
-Here are some **tips and tricks** I have been using while writing terraform code
+**Example: Validating VPC IDs**
+If you want to ensure a provided `vpc_id` starts with the standard `vpc-` prefix:
 
-  * **Variable Verification** with `terraform` version `0.13` onward, **Hashicorp** has introduced a way to validate the variables provided to terraform resources.
+```hcl
+variable "vpc_id" {
+  default = ""
+  type    = string
+  
+  validation {
+    condition     = can(regex("^vpc-", var.vpc_id))
+    error_message = "The vpc_id value must start with \"vpc-\"."
+  }
+}
+```
 
+**Example: Restricting Environments**
+You can restrict an `env` variable to a pre-defined set of allowed values:
 
+```hcl
+variable "env" {
+  default = ""
+  type    = string
+  
+  validation {
+    condition     = contains(["dev", "stage", "perf", "prod"], var.env)
+    error_message = "Possible environments are \"dev\", \"stage\", \"perf\", and \"prod\"."
+  }
+}
+```
 
-**For example:** If you are trying to provide **`vpc_id`** to `terraform resource` and you want to validate that the provided input starts with `vpc-*`
-    
-    
-    variable "vpc_id" {
-      default = ""
-      type    = string
-    **validation {
-        condition     = can(regex("^vpc-", var.vpc_id))
-        error_message = "The vpc_id value must start with \"vpc-\"."
-      }**
+**Example: Validating Lists**
+You can even iterate through a list to validate each element:
+
+```hcl
+variable "security_groups" {
+  type    = list(string)
+  default = []
+  
+  validation {
+    condition = var.security_groups == [] ? true : alltrue([
+      for sg in var.security_groups : can(regex("^sg-", sg))
+    ])
+    error_message = "The security_groups value must be a list of strings starting with \"sg-\"."
+  }
+}
+```
+
+> **Note:** The `validation` block supports ternary and logical operators (`||`, `&&`, `?:`). A constraint is that the block can only validate the variable in which it is declared.
+
+### 2. Dynamic Blocks
+
+The `dynamic` block is used to produce nested blocks within a resource. It acts much like a `for` expression, iterating over a complex value and generating a nested block for each element.
+
+**Example: Generating Inline Policies**
+
+```hcl
+resource "aws_iam_role" "emr_service_role" {
+  count              = var.instance_profile == "" ? 1 : 0
+  name               = var.cluster_name
+  assume_role_policy = join("", data.aws_iam_policy_document.emr_service_assume_role.*.json)
+
+  dynamic "inline_policy" {
+    for_each = local.emr_service_role_policy
+    content {
+      name   = inline_policy.value.name
+      policy = inline_policy.value.policy
     }
+  }
+}
+```
 
-As we can see that we are validating the **input** for **`vpc_id`****to** starts with `vpc-*` with the help of **`validation{}`** block. A **`validation{}`** block provides the ability to validate an input based on some _conditions._
-    
-    
-    variable "env" {
-      default = ""
-      type    = string
-      validation {
-        condition     = contains(["dev", "stage", "perf", "prod"], var.env)
-        error_message = "Possible environments are \"Dev\", \"Stage\", \"Perf\" and \"Prod\"!."
-      }
-    }
+### 3. Conditional Resource Creation
 
-Above example we can see how I was able to restrict the `env` variable values, which has been **declared** proactively.
-    
-    
-    variable "security_groups" {
-      type    = list(any)
-      default = []
-      validation {
-        condition = var.security_groups == [] ? true : alltrue([
-          for sg in var.security_groups : can(regex("^sg-", sg))
-        ])
-        error_message = "The security_groups value must be a list of strings starting with \"sg-\"."
-      }
-    }
+You can control whether a resource is created using the `count` parameter.
 
-In above example I was able to validate if **list of security groups** starts with `sg-*` in a **loop**. I am using a `for` loop to iterate through **List** and validate.
+**Example: Using Boolean Flags**
+If `enable_s3_endpoint` is true, the resource is created; otherwise, it is skipped.
 
-_**Note:**_ The `validation{}` block’s `condition` parameter supports all ternary and logical operators ( `||` , `&&` , `?:` ). One constraint is that `validation{}`_block can only validate the variable where it has been declared!!_
+```hcl
+resource "aws_vpc_endpoint" "s3" {
+  count        = var.enable_s3_endpoint ? 1 : 0
+  vpc_id       = module.vpc.vpc_id
+  service_name = "com.amazonaws.${var.aws_region}.s3"
+  tags         = merge(local.tags, var.custom_tags)
+}
+```
 
-  * **Dynamic** block can be used to produces nested blocks, it acts much like a [`for`](https://www.terraform.io/language/expressions/for)[ expression](https://www.terraform.io/language/expressions/for). It iterates over a given complex value, and generates a nested block for each element of that complex value.
+**Example: Using String Values**
 
+```hcl
+resource "aws_vpc_endpoint" "s3" {
+  count        = var.enable_s3_endpoint == "yes" ? 1 : 0
+  vpc_id       = module.vpc.vpc_id
+  service_name = "com.amazonaws.${var.aws_region}.s3"
+}
+```
 
+### 4. Conditional Module Execution
 
-**For Examples:**
-    
-    
-    resource "aws_iam_role" "emr_service_role" {
-      count              = var.instance_profile == "" ? 1 : 0
-      name               = var.cluster_name
-      assume_role_policy = join("", data.aws_iam_policy_document.emr_service_assume_role.*.json)
-    
-      dynamic "inline_policy" {
-        for_each = local.emr_service_role_policy
-        content {
-          name   = inline_policy.value.name
-          policy = inline_policy.value.policy
-        }
-      }
-    }
+Starting with version `0.13.x`, you can apply the same `count` logic to entire modules.
 
-  * **Conditional Resource creation** can be archived with terraform `count` parameter.
+**Example: Optional DNS Module**
 
+```hcl
+module "emr_spark_dns" {
+  count     = contains(var.applications, "Spark") ? 1 : 0
+  source    = "./route53"
+  zone_name = data.aws_route53_zone.selected.name
+  records   = local.spark_records
+  create    = true
+}
+```
 
+These are some of the fundamental techniques I use to keep my infrastructure code clean and fail-safe. I will compile more advanced techniques in **[Terraform] Tips and Tricks — Part 2.**
 
-**For example:**`enable_s3_endpoint` is **boolean** variable and if it is set to **True** then `count` will be set **`1`****** else `count` will set to **`0`****.** Based on the `count` the resource will execute (if set to **1**) or skip (if set to **0**).
-    
-    
-    resource "aws_vpc_endpoint" "s3" {
-      **count        = var.enable_s3_endpoint ? 1 : 0**
-      vpc_id       = module.vpc.vpc_id
-      service_name = "com.amazonaws.${var.aws_region}.s3"
-      tags         = merge(local.tags, var.custom_tags)
-    }
-
-Not necessary that the deciding variable needs to be **boolean** in type. It could be very well a **string** type.
-
-**For example:** below `enable_s3_endpoint` is a **string** type variable and if it is set to **`yes`****** then the resource will be created otherwise skipped!!
-    
-    
-    resource "aws_vpc_endpoint" "s3" {
-      **count        = var.enable_s3_endpoint == 'yes' ? 1 : 0**
-      vpc_id       = module.vpc.vpc_id
-      service_name = "com.amazonaws.${var.aws_region}.s3"
-      tags         = merge(local.tags, var.custom_tags)
-    }
-
-**Conditional Module Creation** is only possible if you are using terraform version **`0.13.x`** or above. Where we can make a module execution based on some condition.
-
-**For Example:** below the module will only `execute` if `var.applications` has **Spark** as application. If `var.applications` has **Spark** as application it set the `count` to **1** else **0**
-    
-    
-    module "emr_spark_dns" {
-      count     = contains(var.applications, "Spark") ? 1 : 0
-      source    = "./route53"
-      zone_name = data.aws_route53_zone.selected.name
-      records   = local.spark_records
-      create    = contains(var.applications, "Spark") ? true : false
-    }
-
-Above were some of the **tips and tricks** I use pretty much all the time. I will compile more of these **tricks** in **[Terraform] Tips and Tricks — Part 2.**
-
-**……Stay Tuned…..**
+**Stay Tuned!**
 
 ## Happy Terraforming!!

@@ -17,8 +17,6 @@ tags: [Rust, Basics, Concepts]
 
 This blog I will try to concentrate on some of the basic but very important Concepts of Rust . This would be my 2nd blog about Rust , you can find the 1st one [here](https://blog.devgenius.io/rust-basics-and-Concepts-step-by-step-2nd-iteration-5ba45c44f986). I will try to discuss about Ownership, Ownership transfers, Borrowing, Heap, Stack in this blog
 
-![](https://github.com/kodelint/blog-images/raw/main/rust/01-rust-ownership.png)
-
 ### So, What is Ownership in Rust
 
 Rust don’t have a **garbage collector**, you need to explicitly allocate and free memory space. This can quickly become tedious and challenging when it involves large codebases.
@@ -114,9 +112,9 @@ In Rust we can **borrow** the reference of the variable from **stack** and then 
 fn main() {
     let mut value_for_i = String::from("Rust"); // 1. Mutable variable
     println!("print the value of value_for_i={}, before lets_change_the_value_of_string call", value_for_i);
-    
+
     lets_change_the_value_of_string(&mut value_for_i); // 2. Pass mutable reference
-    
+
     println!("print the value of value_for_i={}, after lets_change_the_value_of_string call", value_for_i);
 }
 

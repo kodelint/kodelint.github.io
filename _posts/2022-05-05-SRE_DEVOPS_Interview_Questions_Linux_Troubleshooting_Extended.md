@@ -3,8 +3,7 @@ caffeine: 5
 stress: 2
 ozone: 1
 layout: post
-title:  SRE/DevOps Interview Questions — Linux Troubleshooting — Extended
-title: SRE DEVOPS Interview Questions Linux Extended
+title: SRE/DevOps Interview Questions — Linux Troubleshooting (Extended)
 author: Satyajit Roy
 date: 2022-05-05
 categories: [DevOps, Interview, Linux Troubleshooting]
@@ -15,165 +14,118 @@ devto_url: https://dev.to/deadlock/sre-devops-interview-questions-linux-troubles
 toc: true
 ---
 
-This is an extension of my previous blog about **[SRE/DevOps Interview Questions — Linux Troubleshooting](https://awstip.com/sre-devops-interview-questions-linux-troubleshooting-1b8ffe82c16)**. Sometimes the initial question is vague and then follow-up kind of clears the path, that is what I am going to focus on in this blog. I will try to get more questions and possible explanations here.
+This is an extension of my previous post, [SRE/DevOps Interview Questions — Linux Troubleshooting](https://sroy.tech/devops/interview/linux%20troubleshooting/2022/04/07/SRE_DEVOPS_Interview_Questions_Linux_Troubleshooting.html). 
 
-**Question**: There is a service running on a system and you have been told that the service is not running properly. How would you troubleshoot?
+In technical interviews, questions often start vague and become more specific as the conversation progresses. This "drill-down" approach helps interviewers gauge your depth of knowledge. In this blog, we'll explore more complex troubleshooting scenarios and the Linux internals that power them.
 
-**Answer**: After verifying the DNS and other things, I would try to `SSH` to the system and try to see what is going on
+---
 
-**Follow Question**: You get an error message like the below:
+### Scenario: The Mystery of the Exhausted System
 
-```bash
-ssh: connect to host example.com port 22: Resource temporarily unavailable
-```
+**Interviewer:** "A service on a Linux system is reported as 'not running properly.' How do you start your investigation?"
 
-however you did find out that you have **IPMI** access to the machine, so you can use that to login and you get something like this:
+**Candidate:** "After verifying DNS and basic connectivity, I'd attempt to `SSH` into the system to check its state."
 
-```bash
-root@example.com#
-```
+**Interviewer:** "You try to SSH, but you get this error: `ssh: connect to host example.com port 22: Resource temporarily unavailable`. However, you have **IPMI/OOB** access and manage to log in. What's next?"
 
-**Follow up Answer**: So now I will try to run some basic commands to see what is going on like `top` , `ps` etc
+**Candidate:** "Once inside, I'll run standard tools like `top`, `ps`, or `lsof` to see what's consuming resources."
 
-**Follow Question**: You still get a similar error for any command you run:
+**Interviewer:** "Every command you type—`top`, `ls`, `ps`—returns the same error: `fork: retry: Resource temporarily unavailable`. How do you troubleshoot a machine when you cannot execute any external commands?"
 
-```
-fork: retry: Resource temporarily unavailable
-```
+---
 
-> **Note**: Now you might already know what is the issue, at least have some idea about it. It is related to **Resource being exhausted** may be files, processes etc etc and you figured that you can’t run any command (specifically any external command, which needs forking).
+#### The Solution: Shell Built-ins and `/proc`
 
-**Actual Question**: How would you troubleshoot a linux box, given none of the external commands executes?
+At this point, you've realized the system has exhausted a critical resource (likely processes or file descriptors). Since every external command requires a `fork()` system call, and the system cannot fork, you must rely on **Shell Built-ins**.
 
-**Facts**: What should we do ? Use commands which are **internal** or **built-in** to the shell .
+**1. Identify Built-ins**
+Type `help` in your shell (Bash/Zsh) to see a list of commands that are internal to the shell and do not require forking a new process.
 
-So how to find what commands are built-in and can be useful to you for troubleshooting ? Also if external commands are not available then how to gather information about the system (`top`, `ps`, `lsof`…even `cat` is not available )…..🤔
+**2. Leverage the `/proc` Filesystem**
+Almost all performance data provided by `ps`, `top`, and `vmstat` is actually sourced from the `/proc` virtual filesystem. You can "read" this data using the built-in `read` and `for` loops.
 
-→ `/proc` filesystem and couple of **built-in** like read and for
-
-> Type help in the shell and it will give you all the commands which are **in-build** to the shell
-> Read about /proc filesystem in my previous blog [SRE/DevOps Interview Questions — Linux Troubleshooting](https://awstip.com/sre-devops-interview-questions-linux-troubleshooting-1b8ffe82c16) and also [here](https://www.kernel.org/doc/html/latest/filesystems/proc.html)
-
-Apparently, all the information coming from commands like `ps`, `lsof`, `vmstat` etc etc can be found in `/proc` file system if you look at the right file.
-
-For example `cmdline` file tells you about the last command ran on the system, `fd` directory contains all the file descriptors and all the folder with numbers are the PIDs running on the system.
-
-So assuming system has too many files open and all resources are exhausted, how to see if which pid is using how many file without using external commands
+**Example: Counting File Descriptors per Process**
+If you suspect file descriptor exhaustion, you can iterate through `/proc` without calling `ls`:
 
 ```bash
-for fd in /proc/[0-9]*/fd/*; do echo $fd ; done
-/proc/1/fd/0
-/proc/1/fd/1
-/proc/1/fd/2
-/proc/1/fd/255
-/proc/1/fd/3
+# Using a shell loop to list open FDs for all PIDs
+for fd in /proc/[0-9]*/fd/*; do 
+    echo $fd 
+done
 ```
 
-This way you can see the file descriptors any pid is using. If you want to see what is last command ran on the system without cat or see the content of the file with `cat`
+**Example: Checking Command Lines**
+To see what a specific PID is actually running without using `ps` or `cat`:
 
 ```bash
-read $(</proc/${PID}/cmdline)
+# Read the content of a file into a shell variable
+read -r cmd < /proc/${PID}/cmdline
+echo $cmd
 ```
 
-So using `read`, for and other internal commands you can use to find out what is going on in the system.
+---
 
-**Trick Question**: How do you delete a file named `-f` or `--file` ?
+### Interactive Troubleshooting: Data Interpretation
 
-**Answer**: Well explained [here](https://www.cyberciti.biz/faq/unix-linux-remove-strange-names-files/). Though the interviewer expects you to walk him/her through the **command execution process** on the linux system
+**Question:** Look at the `vmstat` output below. What is happening on this machine?
 
-**Question**: Explain the output below and what command produces this?
+![vmstat analysis](https://github.com/kodelint/blog-assets/raw/main/images/02-interview-02.png)
 
-![](https://github.com/kodelint/blog-assets/raw/main/images/02-interview-02.png)
+**Key areas to focus on:**
+*   **`r` (Run queue)**: Are processes waiting for CPU?
+*   **`b` (Blocked)**: Are processes stuck waiting for I/O?
+*   **`si` / `so` (Swap In/Out)**: Is the system thrashing due to memory pressure?
+*   **`in` (Interrupts) vs `cs` (Context Switches)**: High numbers here often indicate a specific type of workload or a potential bottleneck in kernel scheduling.
 
-**Question**: Name the fields and what they represents ?
+**Question:** Compare these two `vmstat` outputs. What has changed?
 
-**Question**: Looking at the below output, please explain what is going on in the machine ? Please be as detail and descriptive as possible
+![vmstat comparison 1](https://github.com/kodelint/blog-assets/raw/main/images/02-interview-03.png)
+![vmstat comparison 2](https://github.com/kodelint/blog-assets/raw/main/images/02-interview-04.png)
 
-![](https://github.com/kodelint/blog-assets/raw/main/images/02-interview-03.png)
+---
 
-![](https://github.com/kodelint/blog-assets/raw/main/images/02-interview-04.png)
+### Networking & Security Deep Dives
 
-**Question**: Compare above 2 `vmstat` outputs ? and explain the similarities and differences ?
+**Question: TCP vs. IP Datagrams**
+"Given a TCP connection between two machines, what happens if the packets move as raw IP Datagrams? What are the implications for latency and reliability?"
+> [Explore the differences between TCP and UDP](https://www.guru99.com/tcp-vs-udp-understanding-the-difference.html)
 
-**Question**: What do you understand from below `vmstat` output and what is the relationship between `in` and `cs` column ?
+**Question: The `curl` Request Flow**
+"When you execute `curl example.com`, walk me through the entire lifecycle of that request."
+> This is a multi-layered question covering:
+> 1.  **System Calls**: The `fork()` and `exec()` process.
+> 2.  **DNS**: Resolution of the hostname via `/etc/hosts` or `resolv.conf`.
+> 3.  **Transport**: TCP 3-way handshake.
+> 4.  **Security**: SSL/TLS negotiation (Asymmetric vs. Symmetric encryption).
+> 5.  **Application**: HTTP request/response headers.
 
-![](https://github.com/kodelint/blog-assets/raw/main/images/02-interview-05.png)
+**Follow-up:** "The output of your `curl` shows '301 Moved Permanently'. Why did this happen, and how do you fix it?"
+> Discuss response codes and the `-L` (follow redirects) flag.
 
-**Trick Question**: Looking at `vmstat` can you tell how many CPU and Cores the system has ?
+---
 
-**Question**: How to find the config and other related files if only the process is known ?
+### Essential Configuration Files
 
-**Answer**: Check `lsof`
+*   **`nsswitch.conf`**: Controls the order of lookups (e.g., should the system check `/etc/hosts` before DNS?). [Learn more](https://www.techtarget.com/searchitchannel/feature/Using-nsswitchconf-to-find-Linux-system-information).
+*   **`nscd`**: The Name Service Cache Daemon. Why is it used, and what are its pitfalls? [Read here](https://www.thegeekdiary.com/linux-os-service-nscd/).
+*   **`/etc/services`**: Maps friendly service names to port numbers and protocols (TCP/UDP). [Read the history](https://breanneboland.com/blog/2019/02/22/etc-services-is-made-of-ports-and-people/).
 
-**Question**: Given there is a **TCP Connection** between 2 machine? How does packets move if they are **IP Datagram** packets? If Yes, what would be an advantage? Faster? What about latency?
+---
 
-**Explanation**: Good content to read about [TCP and UDP](https://www.guru99.com/tcp-vs-udp-understanding-the-difference.html)
+### Advanced Scenarios
 
-**Question**: When you do `curl example.com` what happens?
+**Simulating Packet Loss**
+"How do you simulate 50% packet drop for testing purposes?"
+> Answer: Use `tc` (Traffic Control) with `netem`. [Details here](https://www.pico.net/kb/how-can-i-simulate-delayed-and-dropped-packets-in-linux/).
 
-**Explanation**: I don’t have to say what happens when you do `curl example.com`, What I am going to suggest is that this is basically a combination of multiple questions
+**Short-Lived Processes**
+"How do you troubleshoot CPU spikes caused by processes that only live for a few milliseconds?"
+> Answer: Standard `top` won't catch them. Use `execsnoop` (perf-tools) to capture short-lived process execution. [Read more](https://www.brendangregg.com/blog/2014-07-28/execsnoop-for-linux.html).
 
->
+---
 
-1.  How does curl executes on the system? Basically, go over the whole process of command execution from **user** space to **kernel** space.
-2.  Explain the `fork()` and `exec()` calls.
-3.  Explain the well known system calls which might be involved
-4.  **DNS Resolution** from `example.com` to an `IP Address`
-5.  Explain the Request transmission from your terminal to the destination machine and then respond back to your terminal
-6.  If possible go into detail about the packet transmission **Network layer 2–3** concepts
+## Conclusion
 
-**Follow Up Question**: The output of `curl example.com` is this? Please explain?
+These questions are designed to move beyond "knowing the command" into "understanding the system." I'll continue to document these scenarios as they evolve.
 
-```bash
->> curl example.com
-<HTML>
-<HEAD>
-<TITLE>Document Has Moved</TITLE>
-</HEAD>
-
-<BODY BGCOLOR="white" FGCOLOR="black">
-<H1>Document Has Moved</H1>
-<HR>
-
-<FONT FACE="Helvetica,Arial"><B>
-Description: The document you requested has moved to a new location.  The new location is "https://www.example.com".
-</B></FONT>
-<HR>
-</BODY>
-```
-
-**Explanation**: Talk about the **Response code** you have received (not visible in output) and why. What can you do to get `200` response code ?
-
-Explain how **HTTPS** works and go into detail in a **3-Way handshake**. Explain the **Asymmetric** and **Symmetric encryption** in terms of **SSL**. Here is a nice [writeup](https://www.digicert.com/faq/ssl-cryptography.htm) about it
-
-**Follow Up Question:** How do you tell your system to not used `/etc/hosts` Does file override for **DNS Resolution**?
-
-**Answer**: `nsswitch.conf` read about it [here](https://www.techtarget.com/searchitchannel/feature/Using-nsswitchconf-to-find-Linux-system-information)
-
-**Question**: What is `nscd` service and why it is used ?
-
-**Answer**: Read about `nscd` [here](https://www.thegeekdiary.com/linux-os-service-nscd/#:~:text=This%20is%20the%20Name%20Service,such%20as%20NIS%20or%20LDAP.)
-
-**Follow Up Question**: How does the Linux system know that your application or any application will use which protocol (`TCP` or `UDP`) to communicate?
-
-**Answer**: `/etc/services` nice write-up [here](https://breanneboland.com/blog/2019/02/22/etc-services-is-made-of-ports-and-people/) on the same.
-
-**Question**: How to simulate `50%` packet drop for Testing purposes?
-
-**Explanation**: [Here](https://www.pico.net/kb/how-can-i-simulate-delayed-and-dropped-packets-in-linux/)
-
-**Question**: Talk about `gRPC` and why would one use it ? Pros and cons ?
-
-**Explanation**: [Good Read](https://blog.dreamfactory.com/grpc-vs-rest-how-does-grpc-compare-with-traditional-rest-apis/#:~:text=%E2%80%9CgRPC%20is%20roughly%207%20times,HTTP%2F2%20by%20gRPC.%E2%80%9D)
-
-**Question:** What are the ways to count total **TCP Connections** on the system ?
-
-**Explanations**: couple of commands can be used like `netstat` , `ss` and not to forget the `/proc` filesystem ( specifically `/proc/net/sockstat` file). Good examples [here](https://sleeplessbeastie.eu/2019/08/07/how-to-count-tcp-connections/#:~:text=Use%20netstat%20%2C%20ss%20or%20files,filesystem%20to%20count%20TCP%20connections.)
-
-**Question:** How to troubleshoot **Short Lived Process** or **Processes** causing CPU Spikes ?
-
-**Explanation:** Good Readings [here](https://www.brendangregg.com/blog/2014-07-28/execsnoop-for-linux.html) and [here](https://tanelpoder.com/posts/high-system-load-low-cpu-utilization-on-linux/)
-
-Hope this helps in your journey and provides more food for the thoughts
-
-## **Happy Troubleshooting and Best of luck!!**
+## **Happy Troubleshooting and Best of luck!**

@@ -598,7 +598,81 @@ button[type="submit"]:hover {
   border-bottom: 1px dashed var(--accent-secondary);
 }
 
-.content-body a:hover {
+/* Holographic Communication Log */
+.holo-communication-log {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 3rem 0;
+  padding: 2rem;
+  background: rgba(17, 24, 39, 0.3);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.holo-communication-log::before {
+  content: "COMM_LOG_SESSION_ACTIVE";
+  position: absolute;
+  top: 8px;
+  left: 15px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
   color: var(--accent-primary);
-  border-bottom-style: solid;
+  opacity: 0.5;
+  letter-spacing: 2px;
+}
+
+.comm-line {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.comm-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  min-width: 80px;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.comm-label.user {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--accent-primary);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.comm-label.git {
+  background: rgba(244, 114, 182, 0.15);
+  color: #f472b6;
+  border: 1px solid rgba(244, 114, 182, 0.3);
+}
+
+.comm-label.tool {
+  background: rgba(168, 85, 247, 0.15);
+  color: var(--accent-tertiary);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+}
+
+.comm-text {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  font-style: italic;
+  flex: 1;
+}
+
+.comm-text em {
+  color: var(--accent-primary);
+  font-style: normal;
+  font-weight: 600;
 }

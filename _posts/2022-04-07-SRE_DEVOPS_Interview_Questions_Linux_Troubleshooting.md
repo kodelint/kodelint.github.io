@@ -13,153 +13,158 @@ categories: [DevOps, Interview, Linux Troubleshooting]
 tags: [DevOps, SRE, Interview, Linux Troubleshooting]
 ---
 
-I have been on both side of the table as interviewer and as interviewee for **DevOps** and **SRE Roles**. This blog I am trying to share some of the questions I have been asked or I have asked.
+I have been on both sides of the table—as an interviewer and an interviewee—for **DevOps** and **SRE roles**. In this post, I am consolidating a comprehensive list of questions I've encountered, ranging from core kernel internals to high-level system architecture.
 
-_**Note: This is just to share knowledge, experience and some fun questions**_
+> **Note:** This is a living document intended to share knowledge, experience, and some of the more "fun" rabbit holes you might encounter during a technical deep dive.
 
-## Linux Troubleshooting
+---
 
-Any **DevOps** and **SRE** interview commonly starts with some troubleshooting questions, where the interviewer tries to nudge your Linux Internal and some basic core concepts. Here are some of them on top of my mind
+## 🛠 Part 1: Linux Internals & Troubleshooting
 
-**1. What happens when a Linux System boots, till you get a login prompt**
+Most SRE interviews begin with the fundamentals. These questions nudge your understanding of how Linux actually manages hardware and processes.
 
-> This type of question usually comes from the companies where bare metals are still in use and they don’t use any public cloud. So let see what happens
+### 1. The Linux Boot Sequence
+**Question:** What happens when a Linux system boots, from the moment you hit the power button until you see a login prompt?
+> This probes knowledge of the hardware/software handoff. It covers BIOS/UEFI, the MBR/GPT, the Bootloader (GRUB), Kernel loading, and the Init system (systemd/SysVinit).
 > [Detailed Answer can be found here](https://opensource.com/article/17/2/linux-boot-and-startup)
 
-**2. What happens when you type ls on terminal**
+### 2. Deep Dive: Executing `ls`
+**Question:** What happens internally when you type `ls` in a terminal and hit Enter?
+> This is a classic question to see if you understand the `fork()` and `exec()` system calls.
+> 
+> 1. **Read & Tokenize:** The shell reads the input using `getline()` and tokenizes it via `strtok()`.
+> 2. **Alias Check:** It checks if `ls` is a shell alias or built-in.
+> 3. **Path Resolution:** If not built-in, the shell searches the `PATH` environment variable for the binary.
+> 4. **Forking:** Once found, the shell calls `fork()` to create a child process. The `fork()` call returns `0` to the child and the child's PID to the parent (the shell).
+> 5. **Execution:** The child executes `execve()`, which provides a new address space and loads the `ls` program.
+> 6. **Inodes:** The `ls` utility reads directory contents by consulting the filesystem’s **inode** entries.
+> 7. **Exit:** Upon completion, the process calls `_exit(0)`, and the kernel frees its resources.
+> 
+> *Pro Tip: Run `strace ls` to watch these system calls in action.*
 
-> These type of questions are used to understand interviewee attention to details and depth of Linux Internals. Basically the interviewer wants to know if you under `forks()` and `exec()` system calls.
-> the shell reads what you typed using the `getline()` function and function called `strtok()` which took the line to tokenize. Shell also check if the 1st token `ls` is a Shell alias or not. If it’s not a built-in function, shell will find the `PATH` variable in the directory. Since it holds the absolute paths for all the executable binary files. Once it finds the binary for `ls`, the program is loaded in memory and a system call `fork()` is made. This creates a child process as `ls` and the shell will be the parent process. The `fork()` returns `0` to the child process so it knows it has to act as a child and returns PID of the child to the parent process(i.e. the shell).
-> Next, the ls process executes the system call `execve()` that will give it a brand new address space with the program that it has to run. Now, the ls can start running its program. The `ls` utility uses a function to read the directories and files from the disk by consulting the underlying filesystem’s inode entries.
-> Once `ls` process is done executing, it will call the `_exit()` system call with an integer `0` that denotes a normal execution and the kernel will free up its resources.
-> _Note: you can use `strace` `ls` to dig deeper into the system calls_
-
-**3. Explain Linux Inodes**
-
-> An Inode number points to an Inode. An Inode is a data structure that stores the information about the file or folder
+### 3. Linux Inodes
+**Question:** Explain what an Inode is and what information it contains.
+> An Inode (index node) is a data structure that stores metadata about a file (size, owner, permissions, disk block pointers) but **not** the filename or the actual data.
 > [Detailed Answer is available here](https://www.thegeekstuff.com/2012/01/linux-inodes)
 
-**4. Crash vs Panic**
+### 4. Crash vs. Panic
+**Question:** What is the difference between an application **Crash** and a **Kernel Panic**?
+> - **Crash:** Usually hardware or OS-initiated. It occurs when a process triggers a `trap` (e.g., trying to access memory incorrectly). Common signals include `SIGSEGV` (segmentation fault), `SIGBUS` (bus error), and `SIGILL` (illegal instruction).
+> - **Panic:** Usually application-initiated (or kernel-initiated) by calling an `abort()` or `panic()` function. It happens when the system encounters an unrecoverable error and decides to shut down abruptly to prevent data corruption.
 
-> Crash usually happens when a `trap` occurs when the application trying to access memory incorrectly. **Panic** usually when the application kill/shutdown itself abruptly. Main difference between **crash** and **panic** is that crash is hardware or OS initiated and panic usually imitated by application by calling `abort()` function. Some applications use a special function called a signal handler to generate information about the trap other can use `gdb` to collection information about the same.
-> Most common bad programming signals are `SIGSEGV`, `SIGBUS` and `SIGILL` usually caused by **bad memory management**, **a bad pointer**, **uninitialized values** or **memory corruption**.
+### 5. The `/proc` Virtual Filesystem
+**Question:** Explain the purpose of the `/proc` directory.
+> `/proc` is a virtual (pseudo) filesystem that acts as a window into the kernel's data structures.
+> 
+> *   **`/proc/[pid]`**: Contains directories for every running process.
+> *   **`/proc/self`**: Links to the process currently accessing the directory.
+> *   **`/proc/maps`**: Shows the memory address space of a process.
+> *   **`/proc/cmdline`**: Displays the arguments passed to the command line.
+> *   **`/proc/environ`**: Shows the environment variables for a process.
+> *   **`/proc/fd`**: Contains symbolic links to every open file descriptor.
+> *   **`/proc/locks`**: Lists all current system-wide file locks.
+> *   **`/proc/sys/fs/file-nr`**: Displays the number of open files and system limits.
+> *   **`/proc/sys/vm`**: Contains files to tune the virtual memory subsystem.
 
-**5. Explain the `/proc` filesystem**
+---
 
->
+## 📈 Part 2: Performance & Troubleshooting
 
-- `/proc` is very special in that it is also a virtual filesystem. It’s sometimes referred to as a process information pseudo-file system. It doesn’t contain ‘real’ files but runtime system information. Lot of system utilities are simply calls to files in this directory
-- `/proc` file system has the pid for the process running. if you do `cd /procs/self` you will see al lot file and there size is `0` however you will see that they do contain information
-- `/maps` provides information about the memory address space of the process
-- `/cmdline` contains the arguments for the commandline
-- `/environ` provides information about the process' current environment
-- `/fd` contains symbolic link pointing to each file for which the process currently has file descriptor
-- `/proc/locks` shows all the locks on currently exist in the system
-- `/proc/sys/fs` contains some useful information like `file-nr` which tells you the number of open files and available on the system
-- `/proc/sys/vm` holds files and information to tune virtual memory
+### 6. The "Invisible" Full Disk
+**Question:** You get a "filesystem is full" error, but `df` shows free space. How do you troubleshoot?
+> There are two primary culprits:
+> 1. **Inode Exhaustion:** Run `df -i`. If you have millions of tiny files, you may run out of inodes even if disk space is available.
+> 2. **Unlinked Open Files:** A large file was deleted, but a process still holds its file descriptor open. The space isn't reclaimed until the process closes the file or restarts. Use `lsof +L1` to find these.
 
-**6. When I get a `filesystem is full` error, but `df` shows there is free space**
+### 7. Performance Toolkit
+**Question:** What are the first tools you use to analyze a slow Linux machine?
+> Use the "First 60 Seconds" approach:
+> *   `uptime` (Check load averages)
+> *   `dmesg | tail` (Look for kernel errors/OOM kills)
+> *   `vmstat 1` (Check memory and process states)
+> *   `mpstat -P ALL 1` (Check CPU balance)
+> *   `pidstat 1` (Identity resource-hungry processes)
+> *   `iostat -xz 1` (Check disk I/O latency)
+> *   `free -m` (Check memory availability)
+> *   `sar -n DEV 1` (Check network throughput)
+> *   `top` (General process overview)
+> [Read more at Netflix Tech Blog](https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55)
 
-> Check check if you see zero `IFree` by using `df -i` . If that is not the case then see if deleted files are still in use using `lsof` and restart those processes
+### 8. Linux Filesystems
+**Question:** Explain the difference between common Linux filesystems.
+> Linux supports nearly 100 filesystem types. Common ones include **EXT4** (standard), **XFS** (high performance for large files), **BTRFS** (copy-on-write, snapshots), and **ZFS**.
+> [Detailed Guide to Filesystems](https://opensource.com/life/16/10/introduction-linux-filesystems)
 
-**7. What are the performance tools you would use on Linux Machine**
+### 9. Kernel Space vs. User Space
+**Question:** What is the difference between Kernel Space and User Space?
+> User Space is where applications run, while Kernel Space is restricted to the core OS. Applications use libraries like `libc` to make **System Calls** to the Kernel to perform protected operations (like writing to disk).
+> [Detailed Answer](https://learnlinuxconcepts.blogspot.com/2014/02/kernel-space-and-user-space.html)
 
->
+### 10. Troubleshooting High I/O
+**Question:** How would you troubleshoot a system with high I/O wait?
+> [Troubleshooting I/O Wait Guide](https://www.howtouselinux.com/post/troubleshoot-high-iowait-issue-on-linux-system)
 
-- `uptime`
-- `dmesg` | `tail`
-- `vmstat 1`
-- `mpstat -P ALL 1`
-- `pidstat 1`
-- `iostat -xz 1`
-- `free -m`
-- `sar -n DEV 1`
-- `sar -n TCP,ETCP 1`
-- `top`
+---
 
-[Detailed Answer is available here](https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55)
+## 🧠 Part 3: Memory, Processes & Concurrency
 
-**8. Explain Linux FileSystem**
+### 11. Processes vs. Threads
+**Question:** What are the fundamental differences between a process and a thread?
+> A process is an isolated program with its own memory space and a **PCB** (Process Control Block). Threads are "lightweight processes" that share the memory space of their parent process, making them faster to create but riskier due to shared state.
+> [Process Management Deep Dive](https://learnlinuxconcepts.blogspot.com/2014/03/process-management.html)
 
-> Interviewer wants to know how much you understand about linux filesystems. A specific type of data storage format, such as `EXT3`, `EXT4`, `BTRFS`, `XFS`, and so on. Linux supports almost 100 types of filesystems.  
->  [Detailed Answer is available here](https://opensource.com/life/16/10/introduction-linux-filesystems)
+### 12. Memory Management & Status
+**Question:** Explain Kernel Memory Management and Task Status.
+> Linux manages memory using complex paging and swapping algorithms. Processes can exist in various states: **Running**, **Interruptible Sleep**, **Uninterruptible Sleep** (waiting for I/O), **Stopped**, or **Zombie**.
+> *   [Memory Management Lecture](https://linux-kernel-labs.github.io/refs/heads/master/lectures/memory-management.html)
+> *   [Task Status & Blocking](https://linux-kernel-labs.github.io/refs/heads/master/lectures/processes.html#blocking-and-waking-up-tasks)
 
-**9. Explain Kernel Space and User Space**
+### 13. Concurrency & Race Conditions
+**Question:** What is a Race Condition in a Linux context?
+> A race condition occurs when multiple processes or threads access shared data simultaneously, and the final result depends on the timing of their execution.
+> [Concurrency and Race Conditions](https://learnlinuxconcepts.blogspot.com/2014/07/concurrency-and-race-conditions.html)
 
-> This can be a rabbit hole question, Interviewer can go as deep as possible to see what are your limits. This is also the most interesting topic about Linux that how the control flows from User Space to Kernel Space and why that is important. Why can’t we directly access the Kernel Space. What are use internal libraries like `libc` and why we need system call  
->  [Detailed Answer is available here](https://learnlinuxconcepts.blogspot.com/2014/02/kernel-space-and-user-space.html)
+### 14. Stack vs. Heap
+**Question:** Explain Stack and Heap memory.
+> - **Stack:** Fast, static memory allocation managed by the CPU. Stores local variables and function calls.
+> - **Heap:** Dynamic memory allocation used for larger data structures. Requires manual management or Garbage Collection.
+> [Stack vs Heap Comparison](https://learnlinuxconcepts.blogspot.com/2014/02/stack-and-heap.html)
 
-**10. How would you troubleshoot a High I/O Issue**
+### 15. Memory Leaks
+**Question:** Define a Memory Leak.
+> - **Naive Definition:** Failure to release *unreachable* memory. Detected by tools like Valgrind or managed by Garbage Collection.
+> - **Subtle Definition:** Failure to release *reachable* memory that is no longer needed. This is much harder to detect and can still occur in garbage-collected languages.
 
-> [Detail Answer is available here](https://www.howtouselinux.com/post/troubleshoot-high-iowait-issue-on-linux-system)
+### 16. Interrupts
+**Question:** How does Linux handle hardware and software interrupts?
+> [Interrupts Deep Dive](https://linux-kernel-labs.github.io/refs/heads/master/lectures/interrupts.html)
 
-**11. What are `processes` and `threads` ?**
+### 17. Load Average
+**Question:** What do the numbers in `uptime` actually mean?
+> Load average is the average number of processes in the **Running** or **Uninterruptible** state.
+> [Read the definitive Load Average guide by Brendan Gregg](https://www.brendangregg.com/blog/2017-08-08/linux-load-averages.html).
 
-> Process are basically the programs which are dispatched from the ready state and are scheduled in the CPU for execution. **PCB** ([Process Control Block](https://www.geeksforgeeks.org/process-table-and-process-control-block-pcb/)) holds the concept of process. A process can create other processes which are known as Child Processes. The process takes more time to terminate and it is isolated means it does not share the memory with any other process.  
->  [Detailed Answer is available here](https://learnlinuxconcepts.blogspot.com/2014/03/process-management.html)
+### 18. What happens when you `curl`?
+**Question:** Explain the flow of data when you execute `curl www.google.com`.
+> This covers DNS resolution, TCP handshakes, TLS negotiation, and HTTP request/response cycles.
+> [What Happens When... (Detailed Flow)](https://github.com/alex/what-happens-when)
 
-**12. Explain Kernel Memory Management**
+---
 
-> This is not a trivial question. It is very deep and convoluted. So I would hope that interviewer will only be trying to see if you understand the basics around the _**Kernel Memory Management**_  
->  [Detailed Answer is available here](https://linux-kernel-labs.github.io/refs/heads/master/lectures/memory-management.html)
+## 🔗 High-Value Resources
 
-**13. Explain `processes` and `threads` ?**
+Here are the best resources I recommend for any technical interview preparation:
 
-> [Detailed Answer is available here](https://labuladong.gitbook.io/algo-en/v.-common-knowledge/linuxprocess)
+1.  **[Facebook Production Engineer prep](https://azalio.wordpress.com/2016/05/29/facebook-production-engineer/)**
+2.  **[LinkedIn Prep Wiki](https://github.com/krishnaramb/FB_Prep/wiki/linkedin)**
+3.  **[SRE Interview Handbook](https://yumminhuang.github.io/note/sreinterview/)**
+4.  **[Engineering Manager Prep](https://docs.google.com/document/d/1ckl5roGhYkZAEBfaJHZT_-80upmhfzBZWAGmXvPJd3U/edit#)**
+5.  **[Google SWE Interview Tips](https://igotanoffer.com/blogs/tech/google-software-engineer-interview)**
+6.  **[Amazon SWE Preparation](https://igotanoffer.com/blogs/tech/amazon-software-development-engineer-interview)**
+7.  **[Troubleshooting BottleNecks & Leaks](https://www.bogotobogo.com/DevOps/DevOps-Sys-Admin-Interview-Questions-Trouble-Shooting-Slow-Application-Performance-BottleNecks-Leaks.php)**
+8.  **[Linux Performance Analysis (Brendan Gregg)](https://www.brendangregg.com/Articles/Netflix_Linux_Perf_Analysis_60s.pdf)**
+9.  **[Awesome Scalability Guide](https://github.com/binhnguyennus/awesome-scalability)**
 
-**14. Explain different type of task status ?**
+I'll keep tracking these and updating this guide. Stay tuned!
 
-> [Detailed Answer is available here](https://linux-kernel-labs.github.io/refs/heads/master/lectures/processes.html#blocking-and-waking-up-tasks)
-
-**15. Explain Linux Concurrency and Race Conditions ?**
-
-> [Detailed Answer is available here](https://learnlinuxconcepts.blogspot.com/2014/07/concurrency-and-race-conditions.html)
-
-**16. Explain `STACK` and `HEAP` in Operating System ?**
-
-> [Detailed Answer is available here](https://learnlinuxconcepts.blogspot.com/2014/02/stack-and-heap.html)
-
-**17. Explain Memory Leak ?**
-
-> **Naive definition:** Failure to release _`unreachable`_ memory, which can no longer be allocated again by any process during execution of the allocating process. This can mostly be cured by using _GC (Garbage Collection)_ techniques or detected by automated tools.
-> **Subtle definition:** Failure to release _`reachable`_ memory which is no longer needed for your program to function correctly. This is nearly impossible to detect with automated tools or by programmers who are not familiar with the code. While technically it is not a leak, it has the same implications as the naive one. This is not my own idea only. You can come across projects that are written in a garbage collected language but still mention fixing memory leaks in their changelogs.
-
-**18. How does Linux handles Interrupts ?**
-
-> [Detailed Answer is available here](https://linux-kernel-labs.github.io/refs/heads/master/lectures/interrupts.html)
-
-**19. Explain Load Average ?**
-
-> The best definition and internals about load average can be is _**[explained here](https://www.brendangregg.com/blog/2017-08-08/linux-load-averages.html)**_. I would encourage everybody to go though this website for more deeper understanding about internals
-
-**20. What happens when you try to `curl` to website ?**
-
-> This is very famous question and comes to life every now and then. However I would think that we all should be aware of the internal process flow when you do curl www.google.com . Once the best detailed explanation _**[I found is, here](https://github.com/alex/what-happens-when)**_. One can certainly argue that this way too much detail but hey no harm in knowing things completely, you may not say this whole thing when asked but one should certainly know about it
-
-Other awesome resources available out there for interview preparations
-
-1.  [Facebook Production Engineer Interview](https://azalio.wordpress.com/2016/05/29/facebook-production-engineer/)
-
-2.  [Facebook Production Engineer Interview](https://github.com/krishnaramb/FB_Prep/wiki/linkedin)
-
-3.  [Site Reliability Interview](https://yumminhuang.github.io/note/sreinterview/)
-
-4.  [Engineering Manager Interview](https://docs.google.com/document/d/1ckl5roGhYkZAEBfaJHZT_-80upmhfzBZWAGmXvPJd3U/edit#)
-
-5.  [Google SWE Interview](https://igotanoffer.com/blogs/tech/google-software-engineer-interview)
-
-6.  [Amazon SWE Interview](https://igotanoffer.com/blogs/tech/amazon-software-development-engineer-interview)
-
-7.  [Good Troubleshooting Tips and Tricks](https://www.bogotobogo.com/DevOps/DevOps-Sys-Admin-Interview-Questions-Trouble-Shooting-Slow-Application-Performance-BottleNecks-Leaks.php)
-
-8.  [Good Refs What is boiling](https://docs.google.com/spreadsheets/d/1O_qwBKEESxXos-4auFjiU56RemuF2Fic--Mm7ABPvHA/edit#gid=0)
-
-9.  [Linux Perf Analysis](https://www.brendangregg.com/Articles/Netflix_Linux_Perf_Analysis_60s.pdf)
-
-10. [Scalability, Reliability and Performance for Large Systems](https://github.com/binhnguyennus/awesome-scalability)
-
-I just made this effort to put all these together in one place. I will keep tracking these and put them together here in part…so stay tune!!
-
-![](https://github.com/kodelint/blog-assets/raw/main/images/interview02.png)
-
-## Happy Troubleshooting and Best of luck!!
+## Happy Troubleshooting and Best of luck!

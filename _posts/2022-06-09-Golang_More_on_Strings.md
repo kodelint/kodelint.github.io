@@ -15,8 +15,6 @@ tags: [Golang, Basics, Concepts]
 
 In `Golang` or for that matter pretty much in all programming language `strings` are **Immutable** data type and also heavily used. This blog let’s see what all operations we can perform on `string` and how efficient they are.
 
-![](https://cdn-images-1.medium.com/fit/c/730/487/0*3asBYZ_J4Ly3No40.png)✍︎
-
 So, let talk about _**string concatenations,**_ there are few ways to to perform _**string concatenations**_
 
 - Using [`Sprintf`](https://pkg.go.dev/fmt#Sprintf) from [`fmt`](https://pkg.go.dev/fmt) package
@@ -28,51 +26,50 @@ When you are doing some small concatenation I guess this wouldn’t matter which
 
 Let check this out with some `code` examples
 
-1. **Using**`+`**Operator**
+1. **Using** `+` **Operator**
 
-```golang
-  package main
+```go
+package main
 
-  import (
-   "testing"
-  )
+import (
+    "testing"
+)
 
-  const (
-     smallString = "StringsInGolang"
-     longString  = "somegarbagestringwithallthecharacterslknvklancerlkwrvcekljrvklrn"
-  )
+const (
+    smallString = "StringsInGolang"
+    longString  = "somegarbagestringwithallthecharacterslknvklancerlkwrvcekljrvklrn"
+)
 
-  func **generateRandomLengthOfStrings**(s string) (data []string, size int) {
+func generateRandomLengthOfStrings(s string) (data []string, size int) {
     // Running the loop for 100 time and each time
     // inserting the same in the List Of String []data
     for i := 0; i < 100; i++ {
-      data = append(data, s)
-      size += len(s)
+        data = append(data, s)
+        size += len(s)
     }
     return data, size
-  }
+}
 
-  func **BenchmarkWithOperatorSmallStringUnknownSize**(b *testing.B) {
-    data, _ := generateRandomLengthOfStrings(**smallString**)
+func BenchmarkWithOperatorSmallStringUnknownSize(b *testing.B) {
+    data, _ := generateRandomLengthOfStrings(smallString)
     var s string
     for n := 0; n < b.N; n++ {
-      for _, d := range data {
-        s += d
-      }
-     _ = s
+        for _, d := range data {
+            s += d
+        }
+        _ = s
     }
-  }
+}
 
-  func **BenchmarkWithOperatorLongerStringUnknownSize**(b *testing.B) {
-    data, _ := generateRandomLengthOfStrings(**longString**)
+func BenchmarkWithOperatorLongerStringUnknownSize(b *testing.B) {
+    data, _ := generateRandomLengthOfStrings(longString)
     var s string
     for n := 0; n < b.N; n++ {
-      for _, d := range data {
-        s += d
-      }
-      _ = s
+        for _, d := range data {
+            s += d
+        }
+        _ = s
     }
-  }
 }
 ```
 
@@ -233,7 +230,7 @@ ok  	github.com/kodelint/golang-string-concatenation-benchmark	9.972s
 
 So now the numbers improved individually.
 
-> For now, for `string` concatenation **`+`\*\***operator** seems to be **winning** the race if the **length** is **unknown,** however if the**length is known** then **`Sprintf`**\*\*** performs way better.
+> For now, for `string` concatenation the `+` operator seems to be **winning** the race if the length is unknown, however if the length is known then `Sprintf` performs way better.
 
 3. **Using** [`Join`](https://pkg.go.dev/strings#Join)
 
@@ -282,7 +279,7 @@ func BenchmarkWithJoinLongerStringKnownSize(b *testing.B) {
 }
 ```
 
-Results are here with `string` **length is known**
+Results are here with `string` length known:
 
 ```bash
 go test -bench=. -benchmem
@@ -306,7 +303,7 @@ As you can see the [`Join`](https://pkg.go.dev/strings#Join) work very well in c
 
 4. **Using** [`Builder`](https://pkg.go.dev/strings#Builder) from [`strings`](https://pkg.go.dev/strings) **package**
 
-From Golang 1.10 onwards **[`strings`](https://pkg.go.dev/strings)** package has a **[`Builder`](https://pkg.go.dev/strings#Builder)** type which can used to build strings. Here is the code changes
+From Golang 1.10 onwards the [`strings`](https://pkg.go.dev/strings) package has a [`Builder`](https://pkg.go.dev/strings#Builder) type which can used to build strings. Here is the code changes:
 
 ```go
 package main
@@ -417,4 +414,3 @@ So, overall looking at the benchmark result looks like [`Join`](https://pkg.go.d
 Hope this provides little more insight about _**strings**_ and how it’s get treated by the language
 
 ## Happy Coding!!
-

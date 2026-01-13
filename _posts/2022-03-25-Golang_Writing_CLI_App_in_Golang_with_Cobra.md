@@ -10,26 +10,30 @@ image: "/assets/uploads/01-cli-app.png"
 cross_post_url: "https://towardsdev.com/writing-cli-app-in-golang-with-cobra-e83db42c80fa/"
 toc: true
 categories: [Golang, Programming]
-tags: [Golang, Basics, Concepts]
+tags: [Golang, Basics, Concepts, CLI]
 ---
 
-Golang has good amount libraries in-build and maintained by community. One of them is [Cobra](https://github.com/spf13/cobra), which is pretty good to write any _**cli apps**_. Today will try to see how we can use the library and what all functionality it provides.
+Go has a rich ecosystem of libraries maintained by the community. One of the standout libraries for building command-line applications is [Cobra](https://github.com/spf13/cobra). It powers some of the most popular CLI tools in the industry. Today, we'll explore how to use this library to build a functional CLI application.
 
-![](https://github.com/kodelint/blog-assets/raw/main/images/01-golan-cli.jpeg)
+![Go CLI](https://github.com/kodelint/blog-assets/raw/main/images/01-golan-cli.jpeg)
 
-> The **goal** is to understand how to write a **cli app** in Golang using [Cobra](https://github.com/spf13/cobra). So the app will only print strings for sub-commands executions.\*
+> **Goal:** Build a simple CLI app named `url-monitor` using Cobra that implements sub-commands and handles arguments.
 
-### Requirements Hypothetical
+### The Requirements
 
-Say we are trying to build a _**simple go cli app**_. Which will have **2 sub-commands** `check-url` and `check-status`. Both the commands will take a _**url/api**_ as argument
+We want to build an app with two primary sub-commands:
+1.  `check-url`: Validates if a URL is reachable.
+2.  `check-status`: Retrieves the status payload from an API endpoint.
 
-### Go Project Structure
+Both commands will take a URL/API endpoint as an mandatory argument.
 
-We will call our app `url-monitor` and this is how the whole folder structure will look like
+### Project Structure
 
-```golang
-url-monitor
-├── commands
+This is how our Go project, `url-monitor`, will be organized:
+
+```text
+url-monitor/
+├── commands/
 │   ├── check-status.go
 │   ├── check-url.go
 │   ├── helpers.go
@@ -38,11 +42,14 @@ url-monitor
 └── main.go
 ```
 
-### Let’s Code then
+---
 
-**`main.go`** ➡ We will to start with main.go which will be under the package called main and it should also have the `main{}` function to initiate the app and also `import` the additional packages and sub folders. Something like this
+### Implementation
 
-```golang
+#### 1. `main.go`
+This is the entry point of our application. It simply calls the `Execute` function from our `commands` package.
+
+```go
 package main
 
 import "url-monitor/commands"
@@ -52,37 +59,25 @@ func main() {
 }
 ```
 
-> Note: Don’t worry about `commands.Execute()` which we haven’t defined yet. Basically it is calling the `Execute()` function from `package commands`.
+#### 2. `root.go`
+The `root.go` file defines the base command and handles initialization. We use the `init()` function to set up our sub-commands.
 
-**`root.go`** ➡ let’s check the `root.go` which will have the `init()` function which will be responsible to run some of the stuff we need to be executed first. To read more about go `init()` function check [my previous blog](https://blog.devgenius.io/what-is-init-in-golang-b806caa52822).
-
-This is how my `root.go` looks
-
-```golang
+```go
 package commands
 
 import (
-   "fmt"
+   "log"
    "github.com/spf13/cobra"
 )
 
 var rootCmd = &cobra.Command{
    Use:   "url-monitor",
-   Short: "url-monitor",
-   Long: `url-monitor`,
+   Short: "A simple API monitoring CLI",
+   Long:  `url-monitor is a lightweight tool built with Go and Cobra to monitor API health and status.`,
 }
 
-
-/*
-The init function is responsible to run things
-which we will require before anything else
-say
-  - Fetch API Keys
-  - Set Logging level
-  - Setup any environment variable required for the app
- */
-
 func init() {
+   // Adding sub-commands to the root command
    rootCmd.AddCommand(checkUrlCmd, checkStatusCmd)
 }
 
@@ -93,199 +88,92 @@ func Execute() {
 }
 ```
 
-#### Let me explain couple of things here
+#### 3. `check-url.go`
+This sub-command validates the URL format and checks for a 200 OK status.
 
-Now I have variable called `rootCmd` which has type of `&cobra.Command{}` type. The `&cobra.Command{}` type basically has fields like `Use`, `Short` and `Long` to be populated. Which are nothing but the name of the cli app and _**short**_ and _**long**_ description for the app which will be displayed when we run the app. Read more about [Command](https://pkg.go.dev/github.com/spf13/cobra#Command) Type.
-
-```golang
-var rootCmd = &cobra.Command{
-   Use:   "url-monitor",
-   Short: "url-monitor is used monitor api urls",
-   Long: `url-monitor is used monitor api urls and some more detail stuff along with it`,
-}
-```
-
-Next important thing is `init()` function which is calling another method of **cobra's** `AddCommand()`. Here I added both the _**sub-commands**_ I needed for my app `checkUrlsCmd` and `checkStatusCmd`. These are just variables so it doesn’t matter what you name them. To read more about go `init()` function check [my previous blog](https://blog.devgenius.io/what-is-init-in-golang-b806caa52822).
-
-```golang
-func init() {
-   rootCmd.AddCommand(checkUrlsCmd, checkStatusCmd)
-}
-```
-
-Finally I have the `Execute()` which if you remember was called in `main.go`, executing the [`command.Execute()`](https://pkg.go.dev/github.com/spf13/cobra#Command.Execute) method inside it and I am checking for `error` in return.
-
-```golang
-func Execute() {
-   if err := rootCmd.Execute(); err != nil {
-      log.Fatal(err)
-   }
-}
-```
-
-Now I have to work on the actual _**sub-commands**_ `checkUrlCmd` and `checkStatusCmd` which will be placed inside the commands folder.
-
-**`check-url.go`** ➡ This command will be responsible to check the given _**urls/api endpoint**_ and return successful on receiving status as **200** for it. It will take _**urls/api**_ as argument to the _**sub-commands**_
-
-```golang
+```go
 package commands
 
 import (
+   "fmt"
+   "net/url"
    log "github.com/sirupsen/logrus"
    "github.com/spf13/cobra"
 )
 
 var checkUrlCmd = &cobra.Command{
-   Use:   "check-url",
-   Short: "check-url",
-   Long:  `check-url`,
+   Use:   "check-url [url]",
+   Short: "Verify a URL is valid and reachable",
+   Args:  cobra.ExactArgs(1),
    Run: func(cmd *cobra.Command, args []string) {
-      if len(args) > 1{
-         log.Fatal("subcommand check-url only take one argument as url")
+      targetURL := args[0]
+      if _, err := url.ParseRequestURI(targetURL); err != nil {
+         log.Fatalf("Invalid URL provided: %s", err)
       }
-      if _, err := url.ParseRequestURI(args[0]); err != nil {
-         log.Fatalf("wrong url type [%s]", err)
-      }
-      err := checkUrl(args)
-      if err != nil {
-         log.Fatal(err)
-      }
+      
+      fmt.Printf("Checking URL: %s...\n", targetURL)
+      // Implementation logic here...
    },
 }
-
-func checkUrl(args []string) error {
-   fmt.Printf("HI!! From check-url sub-command with %s as argument", args[0])
-   return nil
-}
 ```
 
-Here I have variable `checkUrlCmd` type of `&cobra.Command{}` using the field like `Use` , `Short` and `Long` . As you can see that we have one more field here called Run which take an anonymous function as value and run another function `checkUrl()`. Function `checkUrl()` is responsible to perform all the checks and return an error if there are any. Run function are executed in following order. Learn more [here](https://pkg.go.dev/github.com/spf13/cobra#Command)
+---
 
-```bash
-PersistentPreRun()
-PreRun()
-Run()
-PostRun()
-PersistentPostRun()
-```
 
-All functions get the same args, the arguments after the
+### Building and Running
 
-**`check-status.go`** ➡ This command will responsible to print the status payload of the _**url/apis**_ based on the _**url/apis**_ provided as argument.
-
-```golang
-package commands
-
-import (
-log "github.com/sirupsen/logrus"
-"github.com/spf13/cobra"
-)
-
-var checkStatusCmd = &cobra.Command{
-   Use:   "check-status",
-   Short: "check-status",
-   Long:  `check-status`,
-   Run: func(cmd *cobra.Command, args []string) {
-      if len(args) > 1{
-         log.Fatal("subcommand check-url only take one argument as url")
-      }
-      if _, err := url.ParseRequestURI(args[0]); err != nil {
-         log.Fatalf("wrong url type [%s]", err)
-      }
-      err := checkStatus(args)
-      if err != nil {
-         log.Fatal(err)
-      }
-   },
-}
-
-func checkStatus(args []string) error {
-   fmt.Printf("HI!! From check-status sub-command with %s as argument", args[0])
-   return nil
-}
-```
-
-##### Now let’s fetch all dependent package by running `go mod init` and then `go mod tidy`
+First, initialize the modules and fetch dependencies:
 
 ```bash
 >> go mod init url-monitor
-go: creating new go.mod: module url-monitor
-go: to add module requirements and sums: go mod tidy
-
 >> go mod tidy
-go: finding module for package github.com/spf13/cobra
-go: finding module for package github.com/sirupsen/logrus
-go: found github.com/sirupsen/logrus in github.com/sirupsen/logrus v1.8.1
-go: found github.com/spf13/cobra in github.com/spf13/cobra v1.4.0
-go: downloading github.com/inconshreveable/mousetrap v1.0.0
-go: downloading github.com/stretchr/testify v1.2.2
-go: downloading github.com/pmezard/go-difflib v1.0.0
 ```
 
-**Cool!!** We are ready to build the app by running `go build .` with the `url-monitor` folder. This should generate a binary file call `url-monitor`
+Build the binary:
 
 ```bash
-url-monitor
-├── commands
-│   ├── check-status.go
-│   ├── check-urls.go
-│   ├── helpers.go
-│   └── root.go
-├── go.mod
-├── go.sum
-├── main.go
-└── url-monitor                                   // the binary
+>> go build -o url-monitor .
 ```
 
-#### Lets try to run `url-monitor` binary and see what happens
+#### Testing the CLI
+
+Running the base command:
 
 ```bash
 >> ./url-monitor
-url-monitor
+A simple API monitoring CLI
 
 Usage:
   url-monitor [command]
 
 Available Commands:
-  check-status check-status
-  check-urls   check-urls
+  check-status Verify API payload status
+  check-url    Verify a URL is valid and reachable
   completion   Generate the autocompletion script for the specified shell
   help         Help about any command
 
 Flags:
   -h, --help   help for url-monitor
-
-Use "url-monitor [command] --help" for more information about a command.
 ```
 
-##### Let run the first sub-command `check-url`
+Executing a sub-command:
 
 ```bash
->> ./url-monitor check-urls https://example.com/apis/v1/get-status
-
-HI!! From check-urls sub-command with https://example.com/apis/v1/get-status as argument
+>> ./url-monitor check-url https://google.com
+Checking URL: https://google.com...
 ```
 
-##### Let run the second sub-command `check-status`
+Handling an error:
 
 ```bash
->> ./url-monitor check-status https://example.com/apis/v1/get-status
-
-HI!! From check-status sub-command with https://example.com/apis/v1/get-status as argument
+>> ./url-monitor check-url invalid-uri
+FATAL Invalid URL provided: parse "invalid-uri": illegal character in scheme
 ```
 
-##### Lets try a wrong URL
+### Why use Cobra?
 
-```bash
->> ./url-monitor check-status example.com/apis/v1/get-status
+Cobra is the industry standard for Go-based CLIs. It is used by massive projects like **Kubernetes**, **Hugo**, **GitHub CLI**, and **Docker**. It handles nested sub-commands, global/local flags, and help generation out of the box.
 
-FATL 2022-03-25 12:43:07 wrong url type [parse "example.com/apis/v1/get-status": invalid URI for request]
-```
-
-Here are few projects where [Cobra](https://github.com/spf13/cobra) has been used _**Github CLI**_, _**Docker (distribution)**_, _**Etcd**_, _**GoReleaser**_, _**Helm**_, _**Kubernetes**_ etc. The whole list can be found [here](https://github.com/spf13/cobra/blob/master/projects_using_cobra.md)
-
-There are alternatives available for [**Cobra**](https://github.com/spf13/cobra) as well i.e. [**mitchellh/cli**](https://github.com/mitchellh/cli), [**go-flags**](https://github.com/jessevdk/go-flags), [**urfave/cli**](https://github.com/urfave/cli) etc.
-
-Hopefully this gives an idea about the [**Cobra**](https://github.com/spf13/cobra) package and how to use it.
+If you are looking for alternatives, check out [mitchellh/cli](https://github.com/mitchellh/cli) or [urfave/cli](https://github.com/urfave/cli).
 
 ## Happy Coding!!

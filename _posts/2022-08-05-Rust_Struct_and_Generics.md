@@ -19,8 +19,6 @@ tags: [Rust, Basics, Concepts]
 
 Let’s talk about the some custom **data types** in **Rust** like `struct` and `emuns` . We all know why need **custom data type**, like any other language regular data type may not suffice the need and hence we have custom data types.
 
-![](https://github.com/kodelint/blog-assets/raw/main/images/01-rust-struct.jpg)
-
 ### Structs, How to use them in `Rust` ?
 
 **Structure**, `struct` in short, are very similar to `tuple` . **Tuple** are used to store related items with mixed data type in **Order**. Now if the use case is to have large number of elements and the **Order** is not obvious then it could be difficult to identify them out of Tuples

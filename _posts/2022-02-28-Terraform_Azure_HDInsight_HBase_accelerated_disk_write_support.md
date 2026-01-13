@@ -3,116 +3,124 @@ caffeine: 5
 stress: 2
 ozone: 1
 layout: post
-title: Terraform - Build Amazon Redis Cache from SNAPShots not are supported. Wait What!!
+title: Terraform - Azure HDInsight HBase accelerated disk write support
 author: Satyajit Roy
-date: 2022-02-16
+date: 2022-02-28
 image: "/assets/uploads/01-terraform-hdinsight.png"
 cross_post_url: "https://awstip.com/terraform-azure-hdinsight-hbase-accelerated-disk-write-support-bfeed54aba28/"
 toc: true
 categories: [Infrastructure]
-tags: [DevOps, SRE, Terraform]
+tags: [DevOps, SRE, Terraform, Azure]
 ---
 
+There has been a long-standing request in the community to support **HBase Accelerated Disk Write** in the [`terraform-provider-azurerm`](https://github.com/hashicorp/terraform-provider-azurerm).
 
-One more dangling HDInsight request in the community to have support for **HBase Accelerated Disk Write** available in [terraform-provider-azurerm](https://github.com/hashicorp/terraform-provider-azurerm)
+- **GitHub Issue**: [Accelerated disk write #9142](https://github.com/hashicorp/terraform-provider-azurerm/issues/9142)
 
-  1. **Accelerated disk write :****[GitHub Issue](https://github.com/hashicorp/terraform-provider-azurerm/issues/9142)**
+According to Azure APIs, specific flags must be set to enable accelerated writes:
 
+![Azure API Insight](https://cdn-images-1.medium.com/fit/c/800/95/1*K3_srEoFa-CCtXUMkuT-Ww.png)
 
+### The Problem
 
-As per **Azure** APIs following needs to be set to enable **accelerated writes**
+In the Terraform provider's schema (specifically `hdinsight/schema.go`), the `HDInsightNodeDefinition` struct defines whether disks can be specified:
 
-![](https://cdn-images-1.medium.com/fit/c/800/95/1*K3_srEoFa-CCtXUMkuT-Ww.png) ✍︎
+```go
+type HDInsightNodeDefinition struct { 
+  CanSpecifyInstanceCount  bool 
+  MinInstanceCount         int 
+  MaxInstanceCount         *int 
+  CanSpecifyDisks          bool 
+  MaxNumberOfDisksPerNode  *int 
+  FixedMinInstanceCount    *int32 
+  FixedTargetInstanceCount *int32 
+  CanAutoScaleByCapacity   bool 
+  CanAutoScaleOnSchedule   bool
+}
+```
 
-As per [terraform-provider-azurerm/hdinsight/schema.go](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/internal/services/hdinsight/schema.go#L733) below is the `HDInsightNodeDefinition` and `CanSpecifyDisks` needs to be **true** to specify `diskPerNode`
-    
-    
-    type HDInsightNodeDefinition struct { 
-      CanSpecifyInstanceCount  bool 
-      MinInstanceCount         int 
-      MaxInstanceCount         *int 
-      CanSpecifyDisks          bool 
-      MaxNumberOfDisksPerNode  *int 
-      FixedMinInstanceCount    *int32 
-      FixedTargetInstanceCount *int32 
-      CanAutoScaleByCapacity   bool 
-      CanAutoScaleOnSchedule   bool
+However, the plugin code had a hardcoded definition for [`hdInsightHBaseClusterWorkerNodeDefinition`](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/internal/services/hdinsight/hdinsight_hbase_cluster_resource.go#L29) that disabled disk specification:
+
+```go
+var hdInsightHBaseClusterWorkerNodeDefinition = HDInsightNodeDefinition{ 
+  CanSpecifyInstanceCount: true, 
+  MinInstanceCount:        1, 
+  CanSpecifyDisks:         false, // This was the blocker
+  CanAutoScaleOnSchedule:  true,
+}
+```
+
+### The Solution
+
+To enable this feature, I modified the definition to allow disks and set the required parameters:
+
+```go
+var hdInsightHBaseClusterWorkerNodeDefinitionWithAcceleratedWrites = HDInsightNodeDefinition{ 
+  CanSpecifyInstanceCount: true, 
+  MinInstanceCount:        1, 
+  CanSpecifyDisks:         true, // Enabled
+  CanAutoScaleOnSchedule:  true, 
+  MaxNumberOfDisksPerNode: utils.Int(1),
+}
+```
+
+I also added a new configuration parameter `enable_accelerated_writes` to the Terraform plugin schema to give users the choice:
+
+```go
+"enable_accelerated_writes": {    
+  Type:     pluginsdk.TypeBool,    
+  Optional: true,    
+  ForceNew: true,  // The resource will be re-created if this changes
+  Default:  false,   
+},
+```
+
+Then, I implemented logic to decide which node definition to use based on that flag:
+
+```go
+func decideHDInsightNodeDefinition(enableWrites bool) hdInsightRoleDefinition {
+  var hbaseRoles hdInsightRoleDefinition
+  if enableWrites {
+    hbaseRoles = hdInsightRoleDefinition{
+      HeadNodeDef:      hdInsightHBaseClusterHeadNodeDefinition,
+      WorkerNodeDef:    hdInsightHBaseClusterWorkerNodeDefinitionWithAcceleratedWrites,
+      ZookeeperNodeDef: hdInsightHBaseClusterZookeeperNodeDefinition,
     }
-
-However, terraform plugin code seems to have hardcoded definition for the [`hdInsightHadoopClusterWorkerNodeDefinition`](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/internal/services/hdinsight/hdinsight_hbase_cluster_resource.go#L29)
-    
-    
-    var hdInsightHBaseClusterWorkerNodeDefinition =      HDInsightNodeDefinition{ 
-      CanSpecifyInstanceCount: true, 
-      MinInstanceCount:        1, 
-      **CanSpecifyDisks:         false,**
-      CanAutoScaleOnSchedule:  true,
+  } else {
+    hbaseRoles = hdInsightRoleDefinition{
+      HeadNodeDef:      hdInsightHBaseClusterHeadNodeDefinition,
+      WorkerNodeDef:    hdInsightHBaseClusterWorkerNodeDefinition,
+      ZookeeperNodeDef: hdInsightHBaseClusterZookeeperNodeDefinition,
     }
+  }
+  return hbaseRoles
+}
+```
 
-To enable that I had to change the definition to [following](https://github.com/tfproviders/terraform-provider-azurerm/blob/main/internal/services/hdinsight/hdinsight_hbase_cluster_resource.go#L37):
-    
-    
-    var hdInsightHBaseClusterWorkerNodeDefinitionWithAcceleratedWrites = HDInsightNodeDefinition{ 
-      CanSpecifyInstanceCount: true, 
-      MinInstanceCount:        1, 
-      **CanSpecifyDisks:         true,**
-      CanAutoScaleOnSchedule:  true, 
-      MaxNumberOfDisksPerNode: utils.Int(1),
-    }
+### Usage
 
-At the same time I needed the original definition intact to provide a choice for the user. Now added **configuration parameter** [`enable_accelerated_writes`](https://github.com/tfproviders/terraform-provider-azurerm/blob/main/internal/services/hdinsight/hdinsight_hbase_cluster_resource.go#L82)` `to **enable** or **disable** accelerated writes for **terraform** plugin schema:
-    
-    
-    "enable_accelerated_writes": {    
-      Type:     pluginsdk.TypeBool,    
-      Optional: true,    
-      **ForceNew: true,**  **#The resource will be re-created if this changes**
-      Default:  false,   
-    },
+After these changes, I was able to create an HBase Cluster with accelerated disk writes using standard Terraform HCL:
 
-If user provides the `enable_accelerated_writes = true` then `hdInsightHBaseClusterWorkerNodeDefinitionWithAcceleratedWrites` will be used otherwise default is `hdInsightHBaseClusterWorkerNodeDefinition` Checked [`decideHDInsightNodeDefinition`](https://github.com/tfproviders/terraform-provider-azurerm/blob/main/internal/services/hdinsight/hdinsight_hbase_cluster_resource.go#L472)
-    
-    
-    func decideHDInsightNodeDefinition(enableWrites bool) hdInsightRoleDefinition {
-    	
-      var hbaseRoles hdInsightRoleDefinition
-      if enableWrites {
-        hbaseRoles = hdInsightRoleDefinition{
-    		HeadNodeDef:    hdInsightHBaseClusterHeadNodeDefinition,
-    		WorkerNodeDef:    hdInsightHBaseClusterWorkerNodeDefinitionWithAcceleratedWrites,
-    		ZookeeperNodeDef: hdInsightHBaseClusterZookeeperNodeDefinition,
-    		}
-      } else {
-       hbaseRoles = hdInsightRoleDefinition{
-    		HeadNodeDef:      hdInsightHBaseClusterHeadNodeDefinition,
-    		WorkerNodeDef:    hdInsightHBaseClusterWorkerNodeDefinition,
-    		ZookeeperNodeDef: hdInsightHBaseClusterZookeeperNodeDefinition,
-    		}
-    	}
-    	return hbaseRoles
-    }
+```hcl
+resource "azurerm_hdinsight_hbase_cluster" "example" {
+  name                      = "example-hdicluster"
+  resource_group_name       = azurerm_resource_group.example.name
+  location                  = azurerm_resource_group.example.location
+  cluster_version           = "3.6"
+  enable_accelerated_writes = true 
+  tier                      = "Standard"
 
-After all these changes in the plugin I was able to write my **terraform code** something like below, to create **HBase Cluster with accelerated disk writes** enabled.
-    
-    
-    resource "azurerm_hdinsight_hbase_cluster" "example" {
-      name                      = "example-hdicluster"
-      resource_group_name       = azurerm_resource_group.example.name
-      location                  = azurerm_resource_group.example.location
-      cluster_version           = "3.6"
-      **enable_accelerated_writes = true** 
-      tier                      = "Standard"
-    
-      component_version {}
-      gateway {}
-      storage_account {}
-      roles {
-        head_node {}
-        worker_node {}
-        zookeeper_node {}
-      }
-    }
+  component_version {}
+  gateway {}
+  storage_account {}
+  roles {
+    head_node {}
+    worker_node {}
+    zookeeper_node {}
+  }
+}
+```
 
-Here is my forked terraform azure provider [tfproviders/terraform-proivder-azurerm](https://github.com/tfproviders/terraform-provider-azurerm).
+You can find my forked version of the Azure provider here: [tfproviders/terraform-provider-azurerm](https://github.com/tfproviders/terraform-provider-azurerm).
 
 ## Happy Terraforming!!

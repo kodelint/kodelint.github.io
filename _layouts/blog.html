@@ -33,9 +33,9 @@
            data-tags="{{ post.title | downcase }} {{ post.tags | join: ' ' | downcase }}">
         <a href="{{site.url}}{{site.baseurl}}{{post.url}}" class="card-cover-link" aria-label="{{ post.title }}"></a>
         {% if post.image %}
-        <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}{{post.image}})"></div>
+        <div class="thumbnail" style="background-image: url({{site.baseurl}}{{post.image}})"></div>
         {% else %}
-        <div class="thumbnail" style="background-image: url({{site.url}}{{site.baseurl}}/assets/uploads/default.jpg); background: linear-gradient(45deg, #1e293b, #0f172a);"></div>
+        <div class="thumbnail" style="background-image: url({{site.baseurl}}/assets/uploads/default.jpg); background: linear-gradient(45deg, #1e293b, #0f172a);"></div>
         {% endif %}
         
         <div class="card-content">

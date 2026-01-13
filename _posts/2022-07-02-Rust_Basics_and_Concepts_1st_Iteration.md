@@ -18,8 +18,6 @@ tags: [Rust, Basics, Concepts]
 
 For sometime I have been thinking to start coding in Rust however due to never ending things, I couldn’t start. Usually I start learning a language by start writing some utility code in it and learn along the way. However this time, time seems to be not on my side.
 
-![](/assets/uploads/01-rust.png)
-
 So, I decided to start learning small Concepts step by step, one or two things at a time and then take it from there. This blog is all about how I took this challenge and started making progress toward learning `Rust`
 
 ## Variables a immutable by default

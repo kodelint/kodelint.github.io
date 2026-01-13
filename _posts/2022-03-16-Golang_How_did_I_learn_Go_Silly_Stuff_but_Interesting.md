@@ -3,7 +3,7 @@ caffeine: 5
 stress: 2
 ozone: 1
 layout: post
-title: Golang - How did I learn Go!! Silly Stuff but Interesting
+title: Golang - How I learned Go! Silly but interesting stuff
 author: Satyajit Roy
 date: "2022-03-16"
 image: "/assets/uploads/02-Strings.png"
@@ -13,236 +13,150 @@ categories: [Golang, Programming]
 tags: [Golang, Basics, Concepts]
 ---
 
+I'm writing this blog in the hope that the silly mistakes I made—and learned from—while coding in Go can help others avoid them. I learned the hard way how to fix these issues, and the process encouraged me to dive deeper into the language.
 
-Writing this blog in hope that the silly stuff I did and learned from it. while coding in `Golang` can help others to avoid them. I learned the hard way to fix them and also it encouraged me to learn more about the _language._
+![Learning Go](https://cdn-images-1.medium.com/fit/c/400/519/0*tOqkcqTP1whELGRs.png)
 
-![](https://cdn-images-1.medium.com/fit/c/400/519/0*tOqkcqTP1whELGRs.png) ✍︎
+My goal is to keep this short and to the point. Most of these are simple misunderstandings, but every lesson counts!
 
-Intension is to keep it short, concise and to the point. Most of these are actually _silly_ 😉 but hey learning is learning….correct!!
+---
 
-  * **Array vs Slice** in `Golang` `arrays` are **values** and**fixed in length** , not _pointers_ , not _object references._ So when you pass an __`array` _to function_ or assign to another _`array`_ __ all you get is copy of the original __`array` _._ So use _**[Slice](https://go.dev/blog/slices-intro)**_ _****_ instead they are _reference types,_ can be passed to other functions and can use builtin function [append](https://pkg.go.dev/builtin#append) to change them
+### 1. Array vs. Slice
 
+In Go, **arrays** are values with a fixed length. They are not pointers or references. When you pass an array to a function or assign it to another variable, you are creating a full copy of the original array.
 
-    
-    
-    func ChangeArray(arr [5]int) {
-        arr[0] = 21
-    }
-    
-    func main() {
-        v:= [5]int{1, 2, 3, 4, 5}
-        ChangeArray(v) 
-        fmt.Println(v)
-    }
-    
-    
-    Output
-    [1 2 3 4 5] 🤔
-    
-    
-    func ChangeArray(arr []int) {
-        arr[0] = 21
-    }
-    
-    func main() {
-        v:= []int{1, 2, 3, 4, 5}
-        ChangeArray(v) 
-        fmt.Println(v)
-    }
-    
-    
-    Output
-    [21 2 3 4 5] 🤩
+**Use Slices instead:** Slices are reference types. They can be passed to functions efficiently, and you can use the built-in `append` function to modify them.
 
-  * **String are Immutable** in `Golang` string are _immutable byte slices._ we can view a string as an (element-immutable) byte slice. So one can’t change _string_ data. To do so either operate on `byte` or `rune` level. Prefer **`Rune`** so `utf8`**** is also supported.
+**Array behavior (Copy by value):**
 
+```go
+func ChangeArray(arr [5]int) {
+    arr[0] = 21
+}
 
-    
-    
-    str := "modifyString"
-    str[6] = "s"              ❌ Will throw error, Cannot assign to s[0]
-    fmt.Println(str)
-    runeStore := []rune(str)
-    runeStore[6] = "s"
-    fmt.Println(string(runeStore)) ✅ Work fine!!
+func main() {
+    v := [5]int{1, 2, 3, 4, 5}
+    ChangeArray(v) 
+    fmt.Println(v) // Output: [1 2 3 4 5]
+}
+```
 
-  * **Not using multiple assignments with the function returning more than one value.**
+**Slice behavior (Reference type):**
 
+```go
+func ChangeSlice(arr []int) {
+    arr[0] = 21
+}
 
-    
-    
-    func returnValues() (int, int) {
-      a := 1
-      b := 2
-    return a, b
-    }
-    value := returnValues()      ❌ don’t do this, will throw error
-    **_, value := returnValues()**   ✅ do this, if you don’t need both
+func main() {
+    v := []int{1, 2, 3, 4, 5}
+    ChangeSlice(v) 
+    fmt.Println(v) // Output: [21 2 3 4 5]
+}
+```
 
-  * **Go the multiplication, division, and remainder operators have the same precedence** and evaluated left to right**.** To force precedence using `()`
+### 2. Strings are Immutable
 
+In Go, strings are immutable byte slices. You cannot change a string's data directly. To modify a string, you should convert it to a `[]byte` or `[]rune` slice. I recommend `[]rune` to properly support UTF-8 characters.
 
-    
-    
-    package main
-    
-    
-    import (
-      "fmt"
-    )
-    
-    
-    func main() {
-      n := 43210 
-      fmt.Println(n/60*60, "hours and", n%60*60, "seconds")     ❌ Nope
-      fmt.Println(n/(60*60), "hours and", n%(60*60), "seconds") ✅ Yes
-    }
-    
-    
-    43200 hours and 600 seconds
-    12 hours and 10 seconds
+```go
+str := "modifyString"
+// str[6] = "s" // Error: Cannot assign to str[6]
 
-  * **Nil is not always Nil** confusing, check the example out. An _interface_ value is equal to `nil` only if both its value and dynamic type are `nil` . For `interface` we need both `type` and `value` to be `nil` for actually reflecting it. When comparing we compare both **values** and the **types**
+runeStore := []rune(str)
+runeStore[6] = 's'
+fmt.Println(string(runeStore)) // Output: modifystring
+```
 
+### 3. Multiple Returns and Assignments
 
-    
-    
-    package main
-    
-    
-    import (
-      "fmt"
-    )
-    
-    
-    func main(){
-      var a *int = nil
-      var b interface{} = nil     ❌ No Type `Nil` is hardcoded
-      var c interface{} = a       ✅ Yes c is type interface & value nil
-      if a != b {
-        fmt.Println("from [a compared with b] not a nil")
-      } else {
-        fmt.Println("from [a compared with b] is nil")
-      }
-      if a != c {
-        fmt.Println("from [a compared with c] not a nil")
-      } else {
-        fmt.Println("from [a compared with c] is nil")
-      }
-    }
-    
-    
-    Output:
-    from [a compared with b] not a nil
-    from [a compared with c] is nil
+You must use multiple assignments when a function returns more than one value. Use the blank identifier (`_`) if you want to ignore specific return values.
 
-  * **Why empty**`{}` with `json.Marshal`**** because only**exported** fields**** of a Go struct **will be considered.**_Pro-tip: use_`json:tag` for explicitly identifying them. Read more about [Go Struct Tags](https://towardsdev.com/golang-struct-tags-explained-ccb589dcbb98) _in my previous blog._
+```go
+func returnValues() (int, int) {
+    return 1, 2
+}
 
+// value := returnValues() // Error: assignment mismatch
+_, value := returnValues()   // Correct way to ignore the first value
+```
 
-    
-    
-    package main
-    
-    
-    import (
-      "fmt"
-      "encoding/json"
-    )
-    
-    
-    type Food struct {
-        name string       ❌ Will not work
-        item int          ❌ Will not work
-    }
-    
-    
-    type FevFood struct {
-        Name string       ✅ Will work, because **N** in `_Caps_ ` **exported**
-        Item int          ✅ Will work, because **I** in `_Caps_ ` **exported**
-    }
-    
-    
-    func main() {
-      data1 := Food{"Apple Pie", 5}
-      data2 := FevFood{"Apple Pie", 5}
-      jd1, _ := json.Marshal(data1)
-      jd2, _ := json.Marshal(data2)
-      fmt.Println(string(jd1))
-      fmt.Println(string(jd2))
-    }
-    
-    
-    Output
-    {}
-    {"Name":"Apple Pie","Item":5}
+### 4. Operator Precedence
 
-  * **Changing Values in**`range`**loop — Nop not possible** because range loop copies the values from the slice to a **local variable.** So actual value remains intact
+In Go, the multiplication, division, and remainder operators have the same precedence and are evaluated from left to right. Use parentheses `()` to force a specific order.
 
+```go
+func main() {
+    n := 43210 
+    fmt.Println(n/60*60, "hours and", n%60*60, "seconds")     // Incorrect
+    fmt.Println(n/(60*60), "hours and", n%(60*60), "seconds") // Correct
+}
+```
 
-    
-    
-    package main
-    
-    
-    import (
-      "fmt"
-    )
-    
-    
-    func main() {
-      sliceOfInts := []int{1, 2, 3, 4, 5}
-      for _, slice := range sliceOfInts {
-          slice += 1                       ❌ Will not work
-      }
-      fmt.Println(sliceOfInts)
-      sliceOfInts = []int{1, 2, 3, 4, 5}
-      for i := range sliceOfInts {
-          sliceOfInts[i] += 2              ✅ Will work, using Indices
-      }
-      fmt.Println(sliceOfInts)
-    }
-    
-    
-    Output:
-    [1 2 3 4 5]
-    [3 4 5 6 7]
+### 5. Nil is Not Always Nil
 
-  * **Regular expression**`[0-9]*` **matches a string with characters in it** because [`regexp`](https://golang.org/pkg/regexp/) package does **substring** matching. So we have to use `^` and `$` specifically
+An interface value is equal to `nil` only if both its **value** and its **dynamic type** are `nil`. This can be confusing when comparing an interface to a concrete pointer that is `nil`.
 
+```go
+func main() {
+    var a *int = nil
+    var b interface{} = nil
+    var c interface{} = a
+    
+    fmt.Println(a == b) // false
+    fmt.Println(a == c) // true
+}
+```
 
-    
-    
-    package main
-    
-    
-    import (
-      "fmt"
-      "regexp"
-    )
-    
-    
-    func main() {
-      if matched, _ := regexp.MatchString(`[0-9]*`, "12three45"); matched {
-        fmt.Printf("`[0-9]*` == '12three45' RegExp Matched [%v]\n", matched)                 ❌ **Will match because of substring matching**
-      } else {
-        fmt.Printf("`[0-9]*` != '12three45' RegExp didn't Match\n")
-      }
-      if matched, _ := regexp.MatchString(`^[0-9]*$`, "12three45"); matched {
-        fmt.Printf("`^[0-9]*$` == '12three45' RegExp Matched [%v]\n", matched)                  ✅ **Will not match because of ^ and $**
-      } else {
-        fmt.Printf("`^[0-9]*$` != '12three45'  RegExp didn't Match\n")
-      }
-    }
-    
-    
-    Output
-    `[0-9]*` == '12three45' RegExp Matched [true]
-    `^[0-9]*$` != '12three45'  RegExp didn't Match
+### 6. Empty JSON Output
 
-These some of the _**silly but interesting**_ stuff I learned. I will keep it coming as I go along. Idea is to keep the blogs small and smart!!
+If your `json.Marshal` call returns an empty object `{}`, it's likely because your struct fields are not **exported** (they must start with a capital letter).
 
-![](https://cdn-images-1.medium.com/fit/c/400/387/0*Z_nTYT9PxCYmr6ze.jpg)✍︎
+```go
+type Food struct {
+    name string // Unexported, will be ignored by JSON
+}
 
-Hope you guys n’joyed it…..😁
+type FavFood struct {
+    Name string // Exported, will work
+}
+```
+
+### 7. Changing Values in a `range` Loop
+
+A `range` loop creates a **copy** of the elements. Modifying the loop variable does not change the original slice. To modify the slice, use the index.
+
+```go
+sliceOfInts := []int{1, 2, 3, 4, 5}
+for _, v := range sliceOfInts {
+    v += 1 // Only modifies the local copy 'v'
+}
+
+for i := range sliceOfInts {
+    sliceOfInts[i] += 2 // Modifies the original slice via index
+}
+```
+
+### 8. Regular Expression Matching
+
+The `regexp.MatchString` function performs **substring** matching by default. To match the entire string, you must use the start (`^`) and end (`$`) anchors.
+
+```go
+func main() {
+    pattern := `[0-9]*`
+    matched, _ := regexp.MatchString(pattern, "12three45")
+    fmt.Println(matched) // true (matches the "12" or "45")
+
+    strictPattern := `^[0-9]*$`
+    matched, _ = regexp.MatchString(strictPattern, "12three45")
+    fmt.Println(matched) // false
+}
+```
+
+These are some of the silly but interesting things I learned. I'll keep them coming as I discover more!
+
+![Go Gopher](https://cdn-images-1.medium.com/fit/c/400/387/0*Z_nTYT9PxCYmr6ze.jpg)
+
+Hope you enjoyed these tips!
 
 ## Happy Coding!!

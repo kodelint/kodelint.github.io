@@ -21,8 +21,6 @@ toc: true
 
 I’m a decent developer, but a terrible speller. It’s a combination that leads to a specific, low-grade, yet constant form of humiliation: the typo-ridden Git commit message.
 
-![A frustrated developer at a computer](https://raw.githubusercontent.com/kodelint/kodelint.github.io/refs/heads/main/assets/uploads/01-git-spellchecker.png)
-
 You know the ones:
 
 - `git commit -m "Fix spec for user controlelr"`

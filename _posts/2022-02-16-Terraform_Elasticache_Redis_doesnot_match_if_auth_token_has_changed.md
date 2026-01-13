@@ -13,41 +13,42 @@ categories: [Infrastructure]
 tags: [DevOps, SRE, Terraform]
 ---
 
+Recently I [wrote](https://medium.com/@email2sroy/amazon-redis-cache-terraform-build-cluster-from-snapshots-not-supported-wait-what-770c3f94b57f) about how to use the `elasticache_replication_group` Terraform resource to create an ElastiCache Cluster in AWS. Here is something I discovered later.
 
-Recently I [wrote](https://medium.com/@email2sroy/amazon-redis-cache-terraform-build-cluster-from-snapshots-not-supported-wait-what-770c3f94b57f) about how to use `elasticache_replication_group` terraform resource to create Elasticache Cluster in Amazon. Here is something I found out later
+> **Updating anything on an existing ElastiCache cluster keeps indicating that it will re-create the `elasticache_replication_group`... but why?**
 
- _**Updating anything on an existing elasticache cluster keeps saying that it will re-create the**_`elasticache_replication_group` _**….but why ??**_
+Even though I was changing parameters like autoscaling or the number of nodes, Terraform still tried to re-create the entire cluster. After inspecting the **provider code**, nothing looked immediately indicative of this behavior. Then I looked at the provider version—we were using an older version (**3.0.0**) and found the [culprit](https://github.com/hashicorp/terraform-provider-aws/blob/v3.0.0/aws/resource_aws_elasticache_replication_group.go).
 
-Even though I was changing something like autoscaling or number of nodes it still tried to re-create the cluster. After looking at the **provider code,** nothing looked alarming or indicative for the behavior. Then I looked at the provider version, we were using older version **3.0.0** and found the******[culprit](https://github.com/hashicorp/terraform-provider-aws/blob/v3.0.0/aws/resource_aws_elasticache_replication_group.go)** _(my bad, I should have looked at that first)_
+![Provider Code Snippet](https://cdn-images-1.medium.com/fit/c/800/97/1*1sMfAL2L3fQzLnrl5lpV_w.png)
 
-![](https://cdn-images-1.medium.com/fit/c/800/97/1*1sMfAL2L3fQzLnrl5lpV_w.png) ✍︎
+Basically, I had created an **Auth-enabled** Redis Cluster for the default Redis user. Later, whenever I used the same `tfvars` to update any parameter, Terraform assumed the **Auth Token** was being refreshed or updated. This happens because there is no verification of whether the Auth Token has actually changed at the Terraform or AWS ElastiCache API level. It looks something like this in the UI:
 
-Basically I created **Auth** enabled Redis Cluster for default redis user. Later whenever I used the same `tfvars` to update anything terraform assumed that **Auth** is getting refreshed or updated as there is no verification of **Auth** being updated or not at terraform level or even the AWS Elasticache API level. Something like this in UI.
+![Terraform Plan Output](https://cdn-images-1.medium.com/fit/c/800/395/1*vN6CKa8LR4MFg85Soue0HQ.png)
 
-![](https://cdn-images-1.medium.com/fit/c/800/395/1*vN6CKa8LR4MFg85Soue0HQ.png)✍︎
+**Bottom Line:** The AWS ElastiCache API and Terraform Provider (v3.0.0) don't detect if the Auth Token is the same; they always treat it as a new token, triggering a resource replacement.
 
- _**Bottom Line:**_ AWS Elasticache API or Terraform Provider [**3.0.0**] doesn’t care if **Auth Token** has change or not, it always treats it like new _**Auth Token**_
+### The Fix
 
-The **Fix** was easy, I simply made the **Auth** conditional
+The solution was simple: I made the `auth_token` assignment conditional.
 
-**From This:**
-    
-    
-    auth_token = var.transit_encryption_enabled ? var.auth_token : null
+**From this:**
 
-**To This:**
-    
-    
-    auth_token = var.transit_encryption_enabled && var.existing_cluster == false ? var.auth_token : null
+```hcl
+auth_token = var.transit_encryption_enabled ? var.auth_token : null
+```
 
-Now if the variable `var.existing_cluster` is set `True` then `var.auth_token` never gets populated and terraform performs the way it should.
+**To this:**
 
-Other option would be to upgrade the **provider** to latest where `ForcesNew` has been removed:
+```hcl
+auth_token = var.transit_encryption_enabled && var.existing_cluster == false ? var.auth_token : null
+```
 
-![](https://cdn-images-1.medium.com/fit/c/800/92/1*8bIkBXHJInVtdAzRoR4Stw.png)✍︎
+Now, if the variable `var.existing_cluster` is set to `true`, the `var.auth_token` never gets populated for existing clusters, and Terraform performs the update correctly without recreation.
 
-Which was not that straight forward for our **Infrastructure** and other **dependencies**
+Another option would be to upgrade the AWS provider to a version where `ForcesNew` has been removed from this field:
 
-By making that simple change, we saved a lot of headache…feww!!
+![New Provider Version](https://cdn-images-1.medium.com/fit/c/800/92/1*8bIkBXHJInVtdAzRoR4Stw.png)
+
+However, that wasn't straightforward for our infrastructure due to other dependencies. By making this simple conditional change, we saved ourselves a lot of headache!
 
 ## Happy Terraforming!!

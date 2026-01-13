@@ -13,146 +13,100 @@ categories: [Golang, Programming]
 tags: [Golang, Basics, Concepts]
 ---
 
+In Go, error handling is explicit, and we often find ourselves writing the same few lines of code repeatedly.
 
-![](https://cdn-images-1.medium.com/fit/c/800/446/0*j6ZVxSQzFrn6HGJh.jpg)✍︎
+**For Example:** Imagine you have several functions that return a value and an error. Even built-in functions like `os.Getenv` return values that you might need to validate. You frequently end up with code like this:
 
-In `go` we usually have to check for `error` pretty often and we endup writing certain lines of code over and over again.
+```go
+package main
 
-**For Example:** imagine you have multiple function which returns a `value` and `error` . Even built-in functions like `os.Getenv("envName")` also returns the `value` of the **environment variable** and **error.** So you would endup writing your code something like this
-    
-    
-    package main
-    
-    
-    import (
-      fmt,
-      os
-    )
-    
-    
-    func main() {
-      value, err := os.Getenv("PATH")
-      if err != nil {
-          fmt.Errorf(err)
-      }
-    
-    
+import (
+    "fmt"
+    "os"
+)
+
+func main() {
+    value := os.Getenv("PATH")
+    if value == "" {
+        fmt.Println("PATH is not set")
+    }
     // do something with `value`
-    }
+}
+```
 
-Now imagine write that piece of code over and over whenever you have to check of an `error` . Don’t get me wrong I really like that `go` really gives us the ability to check for **errors** and it very cool. However, sometime repeating the below code is quite annoying.
-    
-    
-    if err != nil {
-          fmt.Errorf(err)
-      }
+Repeating the `if err != nil` block can become tedious in large projects. To deal with this more elegantly, I've used patterns like the one below.
 
-To deal with this I have done something like this in my code
-    
-    
-    package main
-    
-    
-    import (
-        "fmt"
-    )
-    
-    
-    func CheckErr(e error) bool {
-        if e == nil {
-         return false
-        } else {
-     return true
-         }
-    }
-    
-    
-    func findlarge(a int, b int) error {
-        if a > b {
-         return nil
-        } else {
-         return fmt.Errorf("Error: a is %v is smaller than b", a)
-        }
-    }
-    
-    
-    func main() {
-        if err := findlarge(5, 6); CheckErr(err) {
-            fmt.Print(err)
-        } else {
-         fmt.Println("no error")
-        }
-    }
-    
-    
-    >> go run main.go
-    no error
+### Custom Error Check Function
 
-I declared a function `CheckErr` which takes `error` as input and return a `bool` depending on if the `error` is `nil` or not. Now whenever I need to check for `error` I just simply call function `CheckErr` with the `error` and based on return value `true` or `false` **print** or **return** it
-    
-    
-    package main
-    
-    
-    import (
-        "fmt"
-    )
-    
-    
-    func CheckErr(e error) bool {
-        if e == nil {
-         return false
-        } else {
-     return true
-         }
+I declared a helper function `CheckErr` that takes an error as input and returns a boolean depending on whether the error is `nil`.
+
+```go
+package main
+
+import (
+    "fmt"
+)
+
+func CheckErr(e error) bool {
+    return e != nil
+}
+
+func findlarge(a int, b int) error {
+    if a > b {
+        return nil
     }
-    
-    
-    func findlarge(a int, b int) error {
-        if a > b {
-         return nil
-        } else {
-         return fmt.Errorf("Error: a is %v is smaller than b", a)
-        }
-    }
-    
-    
-    func main() {
-        if err := findlarge(8, 6); CheckErr(err) {
-            fmt.Print(err)
-        } else {
-         fmt.Println("no error")
-        }
-    }
-    
-    
-    >> go run main.go
-    Error: a is 5 is smaller than b
+    return fmt.Errorf("Error: a (%v) is smaller than b (%v)", a, b)
+}
 
-and Voila!!! I don’t have to write the `error` block over and over.
-
-![](https://cdn-images-1.medium.com/fit/c/798/442/0*0UXyJWTaFcNwaxog.png)✍︎
-
-Another small thing I always do is that to make `error` as part of assignment itself, which save me the hassle of write the `error` check block.
-
-So instead of doing something like this
-    
-    
-    returnedValue, err := someFunction(someVar)
-    if err != nil {
-      return err
-    }
-    //do something with `returnedValue`
-
-I prefer to doing something like this:
-    
-    
-    if returnedValue, err := someFunction(someVar); err != nil {
-      return err
+func main() {
+    // Scenario 1: No error
+    if err := findlarge(10, 6); CheckErr(err) {
+        fmt.Println(err)
     } else {
-     // do something with `returnedValue`
+        fmt.Println("Success: no error")
     }
 
-Hope this helps and reduces some key strokes in your large projects…
+    // Scenario 2: Error occurs
+    if err := findlarge(5, 6); CheckErr(err) {
+        fmt.Println(err)
+    } else {
+        fmt.Println("Success: no error")
+    }
+}
+```
+
+**Running the code:**
+
+```text
+>> go run main.go
+Success: no error
+Error: a (5) is smaller than b (6)
+```
+
+Voila! This pattern reduces the visual noise of repeated error checks.
+
+### Inline Assignment
+
+Another technique I use is to make the error check part of the assignment itself. Instead of this:
+
+```go
+returnedValue, err := someFunction(someVar)
+if err != nil {
+    return err
+}
+// do something with `returnedValue`
+```
+
+I prefer this more compact form:
+
+```go
+if returnedValue, err := someFunction(someVar); err != nil {
+    return err
+} else {
+    // do something with `returnedValue`
+}
+```
+
+These small changes can save many keystrokes and keep your large Go projects looking much cleaner.
 
 ## Happy Coding!!

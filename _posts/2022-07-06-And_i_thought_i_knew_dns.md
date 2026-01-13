@@ -19,8 +19,6 @@ Yeah, I know. We all know, use **DNS** and know how they work. There are numerou
 
 > **I know that there are so many excellent blogs and articles about DNS. However, I encourage you to give this a try, hopefully you might find something new in it.**
 
-## ![DNS](https://cdn-images-1.medium.com/max/2000/0*1Flo-h00vPt3tyXL.png)
-
 ### History
 
 Why **DNS** was created ? Believe it or not before **DNS** the mapping were use to copy over network from computer to computer for the name based communication. So, each site maintained a **HOSTS.TXT** file that provided a mapping between host names and network addresses in a set of simple text records that could be easily read by a person or program. It wasn’t long before people realized that keeping multiple copies of the hosts file was inefficient and error-prone. So it was decided on [RFC 623](http://www.rfc-editor.org/rfc/rfc623.txt) and [RFC 625](http://www.rfc-editor.org/rfc/rfc625.txt), [Stanford Research Institute](http://www.sri.com/) Network Information Center (NIC) would serve as the official source of the master hosts file.

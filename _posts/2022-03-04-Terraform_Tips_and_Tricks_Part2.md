@@ -13,104 +13,102 @@ categories: [Infrastructure]
 tags: [DevOps, SRE, Terraform]
 ---
 
+This is the continuation of my previous post [Terraform Tips and Tricks — Part 1](https://sroy.tech/infrastructure/2022/03/02/Terraform_Tips_and_Tricks_Part1.html). Here are some more advanced patterns and logic I use to keep Terraform projects efficient.
 
-## **[Terraform] Tips and Tricks — Part 2**
+![Terraform Logic](https://cdn-images-1.medium.com/fit/c/800/283/0*cDfxqylUSHWYJNGW.png)
 
-This is the continuation of my previous post [[Terraform] Tips and Tricks — Part 1](https://medium.com/@email2sroy/terraform-tips-and-tricks-part-1-6e0489c80c10). Here are some more **tips and tricks**
+### 1. Dynamic Region Short Names
 
-![](https://cdn-images-1.medium.com/fit/c/800/283/0*cDfxqylUSHWYJNGW.png) ✍︎
+We often use region short names (like `uw2` for `us-west-2`) in our resource names or tags. Instead of hardcoding them, I declare a map variable:
 
-**AWS/Azure Region Short Names** are something we always used while creating our clusters/instance etc. Either they are part of the **name** or **tag**. So, I declared a variable with pre-defined short name as **map(any)**
+```hcl
+variable "aws_region_shortname" {
+  default = {
+    "us-west-1"      = "uw1",
+    "us-west-2"      = "uw2",
+    "us-east-1"      = "ue1",
+    "us-east-2"      = "ue2",
+    "ap-northeast-1" = "apne1",
+    "ap-southeast-1" = "apse1",
+  }
+  type = map(string)
+}
+```
+
+You can then access the short name dynamically based on the current region:
+
+```hcl
+master_instance_group {
+    instance_type  = var.master_instance_type
+    instance_count = var.master_instance_count
+    name           = "${var.cluster_name}-${var.env}-${var.aws_region_shortname[var.aws_region]}-master"
     
-    
-    variable "aws_region_shortname" {
-      default = {
-        "us-west-1"      = "uw1",
-        "us-west-2"      = "uw2",
-        "us-east-1"      = "ue1",
-        "us-east-2"      = "ue2",
-        "ap-northeast-1" = "apne1",
-        "ap-southeast-1" = "apse1",
-      }
-      type = map(any)
+    ebs_config {
+      size                 = var.master_instance_group_ebs_size
+      type                 = var.master_instance_group_ebs_type
+      volumes_per_instance = var.master_instance_group_ebs_volumes_per_instance
     }
+}
+```
 
-and then access the **shortname** using **region** variable
-    
-    
-    master_instance_group {
-        instance_type  = var.master_instance_type
-        instance_count = var.master_instance_count
-        **name           = "${var.cluster_name}-${var.env}-${var.aws_region_shortname[var.aws_region]}-master"**
-        ebs_config {
-          size                 = var.master_instance_group_ebs_size
-          type                 = var.master_instance_group_ebs_type
-          volumes_per_instance = var.master_instance_group_ebs_volumes_per_instance
-        }
-      }
+### 2. Conditional Resource Adoption
 
-**Create Resource if not provided** is quite obvious, for example when you want to use an existing **security group** and **skip** the creation of **security group**. However if **security group** is not provided then you want to create a new one.
-    
-    
-    ec2_attributes {
-    **emr_managed_master_security_group = var.emr_managed_master_security_group == "" ? join("", aws_security_group.emr_managed_master_security_group.*.id) : var.emr_managed_master_security_group**    emr_managed_slave_security_group  = var.emr_managed_slave_security_group == "" ? join("", aws_security_group.emr_managed_slave_security_group.*.id) : var.emr_managed_slave_security_group
-        service_access_security_group     = var.service_access_security_group == "" ? join("", aws_security_group.service_access_security_group.*.id) : var.service_access_security_group
-    }
+A common use case is using an existing resource (like a security group) if provided, or creating a new one if not. I use ternary operators to handle this logic:
 
-Above using **ternary operators** I am checking if **`var.emr_managed_master_security_group`****and** making a decision if need to create a new**security group.**
+```hcl
+ec2_attributes {
+    emr_managed_master_security_group = var.emr_managed_master_security_group == "" ? join("", aws_security_group.emr_managed_master_security_group.*.id) : var.emr_managed_master_security_group
+    emr_managed_slave_security_group  = var.emr_managed_slave_security_group == "" ? join("", aws_security_group.emr_managed_slave_security_group.*.id) : var.emr_managed_slave_security_group
+    service_access_security_group     = var.service_access_security_group == "" ? join("", aws_security_group.service_access_security_group.*.id) : var.service_access_security_group
+}
+```
 
-**Fail Fast** **is important** , as we know `terraform plan` only validates the `terraform` code not the facts about the **resource** or **resources.** Imagine waiting for a `emr` to come up for **15 mins** and it fails because the **custom** script which you install as part of **bootstrap** doesn’t exist.
+### 3. Fail Fast: Validation with Data Blocks
 
-To over come this I always perform **checks** and try to **fail in plan phase** itself. I always to **synthetic variable checks** for **typos** and then use the `data resource {}` to validate the values
-    
-    
-    **## From tfvars**
-    security_group_id = 'sg-abcdeftr1' 
-    
-    
-    **## Validate Variable for Typo**
-    variable "emr_managed_master_security_group" {
-      default = ""
-      type    = string
-      validation {
-        condition     = var.emr_managed_master_security_group == "" ? true : can(regex("^sg-", var.emr_managed_master_security_group))
-        error_message = "The emr_managed_master_security_group value must start with \"sg-\"."
-      }
-    }
-    
-    
-    **## Use Data block to validate the input** data "aws_security_group" "additional_slave_security_group" {
-      id    = var.additional_slave_security_group
-    }
-    
-    
-    **## Then use data block output as input for resource parameter** resource "aws_emr_cluster" "cluster" {
-      ...
-      ...
-      ...
-    **additional_master_security_groups =   data.aws_security_group.additional_slave_security_group.id**
-    }
+Terraform `plan` only validates HCL syntax, not the existence of external resources. Imagine waiting 15 minutes for an EMR cluster to boot, only for it to fail because a bootstrap script path was mistyped.
 
-This way I am able to validate if there are any **typos** and also if the provided **security group** exist in the `terraform plan` phase itself….neat right!!
+To overcome this, I use `data` blocks to validate inputs during the `plan` phase:
 
-**Using**`templatefile`**function** with **ternary** operator has been quite a savior for us. Look at the example below:
-    
-    
-    resource "aws_emr_cluster" "cluster" {
-      name                              = "${var.cluster_name}-${var.env}"
-      ....
-      ....
-    
-    
-      **configurations_json = var.cluster_type == "HBase" ? templatefile("${path.module}/templates/emr_hbase_configuration.json.tmpl", { region_heap_size = var.region_server_heap_size }) : templatefile("${path.module}/templates/emr_spark_configuration.json.tmpl", { region_heap_size = var.region_server_heap_size })**
-      ....
-      ....
-    
-    
-    }
+```hcl
+# 1. Validate Variable for Typos using regex
+variable "security_group_id" {
+  type    = string
+  validation {
+    condition     = can(regex("^sg-", var.security_group_id))
+    error_message = "The security_group_id must start with \"sg-\"."
+  }
+}
 
-We used the `templatefile` function to render a template based on the `var.cluster_type` variable.
+# 2. Use a Data block to validate existence
+data "aws_security_group" "selected" {
+  id = var.security_group_id
+}
 
-Thats it for now, I will keep writing about these **Tips and Tricks** as I figure them…till than
+# 3. Use the data block's ID in the resource
+resource "aws_emr_cluster" "cluster" {
+  # ...
+  additional_master_security_groups = [data.aws_security_group.selected.id]
+}
+```
+
+If the Security Group doesn't exist, Terraform will fail immediately during `terraform plan`.
+
+### 4. Dynamic Template Selection
+
+Using the `templatefile` function with a ternary operator allows you to switch configurations based on high-level logic:
+
+```hcl
+resource "aws_emr_cluster" "cluster" {
+  name = "${var.cluster_name}-${var.env}"
+  
+  configurations_json = var.cluster_type == "HBase" ? 
+    templatefile("${path.module}/templates/emr_hbase_configuration.json.tmpl", { heap_size = var.heap_size }) : 
+    templatefile("${path.module}/templates/emr_spark_configuration.json.tmpl", { heap_size = var.heap_size })
+}
+```
+
+This keeps the resource definition clean while handling complex environment-specific configurations.
+
+That's it for Part 2! I'll keep sharing these tips as I refine our internal infrastructure patterns.
 
 ## Happy Terraforming!!
