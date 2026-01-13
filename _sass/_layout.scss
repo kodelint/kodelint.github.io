@@ -1,45 +1,16 @@
 /* Layout Container */
 .container {
+  width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-/* Header / Hero Section Structure */
-header {
-  padding-top: 8rem;
-  padding-bottom: 0;
-  text-align: center;
-}
-
-.about-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  max-width: 1000px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.about-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 80%;
-}
-
-.about-visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* ... */
 
 /* Page Structure */
 .page {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   padding-top: 2rem;
 }

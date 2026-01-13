@@ -502,6 +502,24 @@ layout: page
     gap: 1.5rem;
   }
 
+  @media (max-width: 1200px) {
+    .logs-grid-wide {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .logs-grid-wide {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .logs-grid-wide {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .log-card-wide {
     background: var(--bg-surface);
     border: 1px solid var(--border-subtle);

@@ -118,11 +118,12 @@
     /* Widescreen Post Layout */
     .wide-layout {
       display: flex;
-      justify-content: space-between; /* Maximum separation - align to edges */
+      justify-content: space-between; 
       align-items: flex-start;
-      gap: 10rem; /* Massive gap to push content to the right */
+      gap: clamp(2rem, 5vw, 10rem); /* Responsive gap */
       position: relative;
       width: 100%;
+      flex-wrap: wrap; /* Allow wrapping on small screens */
     }
 
     .post-sidebar-left {
@@ -134,7 +135,8 @@
     }
 
     .post-content-wrapper {
-      flex: 1; /* Take up all remaining space */
+      flex: 1;
+      min-width: 0; /* CRITICAL for responsive code blocks in flexbox */
       margin: 0;
       text-align: left;
     }
