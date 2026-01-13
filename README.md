@@ -1,74 +1,117 @@
-# 🌐 [My Personal Blog](https://sroy.tech)
+# 🌐 Satyajit Roy's Blog - Engineering Therapy
 
 <div align="center">
   <img src="/assets/png/pic2.png" alt="Satyajit Roy" width="200" style="border-radius: 50%; border: 4px solid #111827; box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);">
   <br />
-  <b>"I turn coffee and Red Bull into code, and existential anxiety into distributed architecture."</b>
+  <h3><i>"I turn coffee and Red Bull into code, and existential anxiety into distributed architecture."</i></h3>
+  <br />
+  <a href="https://sroy.tech"><strong>Explore the Live Site »</strong></a>
+  <br />
+  <br />
+  <a href="https://github.com/kodelint/kodelint.github.io/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/kodelint/kodelint.github.io?style=flat-square" alt="License">
+  </a>
 </div>
 
-Welcome to my personal corner of the internet. This is my **Engineering Therapy**—a place where I document my battles with distributed systems, HPC magic, and the occasional struggle with the Rust borrow checker.
-
-📍 **Live Site**: [sroy.tech](https://sroy.tech)
-
 ---
 
-## ✨ Design & Features
+## 📖 About
 
-This blog utilizes a **Modern Glassmorphism Plus** aesthetic, focusing on visual depth and technical precision.
+Welcome to my personal corner of the internet. This blog, **Engineering Therapy**, is where I document my journey through the chaotic landscape of software engineering. From the depths of **Distributed Systems** and **HPC** to the nuances of **Rust** and **Golang**, this is my digital garden.
 
-- 🌌 **Deep Space UI**: A premium dark theme featuring ambient background glows and multi-layered depth.
-- 🧊 **Glassmorphism Architecture**: HUD-style navigation and frosted glass cards with integrated reflections.
-- 🧠 **Technical Narrative**: An integrated professional journey spanning 20+ years, from Solaris Zones to AI Infrastructure.
-- ⚡ **Optimized Performance**: Built with Jekyll for high-speed static delivery, fully responsive for desktop and mobile.
-- 🎢 **Dynamic Interactions**: Features reading progress indicators, custom stylized scrollbars, and fluid GSAP animations.
+### ✨ Key Features
 
----
+*   **Glassmorphism UI**: A modern, deep-space aesthetic with frosted glass elements and ambient glows.
+*   **Technical Deep Dives**: Articles covering complex topics like Overlay Networking, Terraform, and language internals.
+*   **Responsive Design**: Optimized for reading on any device.
+*   **Dark Mode Native**: Because light attracts bugs.
 
 ## 🛠️ Tech Stack
 
-- **Engine**: [Jekyll](https://jekyllrb.com/) (Ruby-based static site generator)
-- **Styling**: Modern CSS3 (Custom properties, Grid, Flexbox, Backdrop-filters)
-- **Animations**: [GSAP](https://greensock.com/gsap/) (GreenSock Animation Platform)
-- **Environment**: [Docker](https://www.docker.com/) & Docker Compose
-- **Hosting**: GitHub Pages
+*   **Core**: [Jekyll](https://jekyllrb.com/) (Ruby Static Site Generator)
+*   **Styling**: SCSS, CSS3 Variables, Backdrop-filters
+*   **Animations**: [GSAP](https://greensock.com/gsap/)
+*   **Infrastructure**: Docker, GitHub Pages
 
----
+## 🚀 Getting Started
 
-## 🚀 Local Development
+You can run this site locally using either Docker (recommended) or a native Ruby environment.
 
-The development environment is fully containerized for consistency and ease of use.
+### Option 1: Docker (Recommended)
 
-### 1. Clone and Build
+This method ensures you have the exact environment without polluting your local machine.
 
-```bash
-git clone https://github.com/kodelint/kodelint.github.io.git
-cd kodelint.github.io
-docker-compose build
-```
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/kodelint/kodelint.github.io.git
+    cd kodelint.github.io
+    ```
 
-### 2. Launch the Engine
+2.  **Build the container**
+    ```bash
+    docker-compose build
+    ```
 
-```bash
-docker-compose up
-```
+3.  **Run the site**
+    ```bash
+    docker-compose up
+    ```
 
-Visit: **`http://localhost:4000`**
+    The site will be available at **`http://localhost:4000`**. Changes to files will automatically trigger a rebuild.
 
-- **LiveReload**: Changes to markdown or CSS refresh the browser automatically.
-- **Drafts**: View `_drafts` content during development.
+### Option 2: Native Ruby
 
----
+If you prefer running it directly on your machine:
+
+1.  **Prerequisites**: Ensure you have Ruby (v3.2+) and Bundler installed.
+
+2.  **Install Dependencies**
+    ```bash
+    bundle install
+    ```
+
+3.  **Serve the Site**
+    ```bash
+    bundle exec jekyll serve --livereload
+    ```
 
 ## 📂 Project Structure
 
-- `_posts/`: Technical deep dives and articles.
-- `_data/`: Structured data for navigation, projects, and bio.
-- `_includes/`: Modular HTML components.
-- `_layouts/`: Page templates and architectural structures.
-- `assets/`: Styling (CSS), scripts (JS), and media assets.
+```text
+/
+├── _posts/        # Blog entries (markdown)
+├── _layouts/      # HTML templates for pages/posts
+├── _includes/     # Reusable HTML components (header, footer)
+├── _sass/         # SCSS partials for styling
+├── assets/        # Images, compiled CSS, and JS
+├── _config.yml    # Jekyll configuration
+├── Dockerfile     # Container definition
+└── docker-compose.yml # Container orchestration
+```
+
+## 🤝 Contributing
+
+While this is a personal blog, corrections and improvements are welcome!
+
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
+
+## 📄 License
+
+Distributed under the **GPL v2** License. See `LICENSE` for more information.
+
+## 📬 Contact
+
+**Satyajit Roy**
+
+*   Twitter: [@__initialized__](https://twitter.com/__initialized__)
+*   GitHub: [kodelint](https://github.com/kodelint)
+*   Email: [email2sroy@gmail.com](mailto:email2sroy@gmail.com)
 
 ---
-
 <div align="center">
-  <i>Maintained with ❤️ and plenty of caffeine by Satyajit Roy.</i>
+  <i>Built with ❤️, ☕, and 🦀 (Rust).</i>
 </div>
