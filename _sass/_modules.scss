@@ -822,7 +822,7 @@
 .tech-graph {
   position: relative;
   max-width: 100%;
-  margin: 1rem 0 3rem;
+  margin: 0rem 0 3rem;
   font-family: var(--font-mono);
   line-height: 1.2;
   overflow: visible;
@@ -833,7 +833,7 @@
   font-family: var(--font-mono);
   font-size: 1rem;
   color: var(--text-secondary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
   opacity: 0.8;
 }
 
