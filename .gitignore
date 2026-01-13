@@ -6,3 +6,7 @@ _site/
 .idea/
 .DS_Store
 Gemfile.lock
+*resume*
+*Resume*
+*.pdf
+*.docx

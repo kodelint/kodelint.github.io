@@ -1,0 +1,222 @@
+/* Professional Portfolio - Simple, Soothing, Director Level */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root {
+  --p-bg: #ffffff;
+  --p-bg-secondary: #f8f9fa;
+  --p-text-primary: #1a1a1a;
+  --p-text-secondary: #555555;
+  --p-text-light: #888888;
+  --p-accent: #2c3e50; /* Deep, professional slate */
+  --p-accent-light: #e9ecef;
+  --p-link: #0066cc;
+  --p-border: #eaeaea;
+  
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Lora', serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--p-bg);
+  color: var(--p-text-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; transition: color 0.2s; }
+a:hover { color: var(--p-link); }
+
+/* Layout */
+.portfolio-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* Header */
+.p-header {
+  margin-bottom: 5rem;
+  border-bottom: 1px solid var(--p-border);
+  padding-bottom: 3rem;
+  text-align: center;
+}
+
+.p-name {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--p-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.p-role {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--p-text-secondary);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+}
+
+.p-contact {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--p-text-secondary);
+}
+
+.p-contact a {
+  border-bottom: 1px solid transparent;
+}
+.p-contact a:hover {
+  border-color: var(--p-link);
+  color: var(--p-link);
+}
+
+/* Section Common */
+.p-section {
+  margin-bottom: 5rem;
+}
+
+.p-section-title {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--p-text-light);
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--p-border);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* About / Summary */
+.p-summary {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: var(--p-text-primary);
+  font-weight: 400;
+}
+
+.p-summary strong {
+  font-weight: 600;
+  color: var(--p-accent);
+}
+
+/* Experience List */
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2rem;
+}
+
+.exp-date {
+  font-size: 0.85rem;
+  color: var(--p-text-light);
+  font-weight: 500;
+  text-align: right;
+  padding-top: 0.3rem;
+}
+
+.exp-details h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: var(--p-text-primary);
+}
+
+.exp-company {
+  font-size: 0.95rem;
+  color: var(--p-text-secondary);
+  margin-bottom: 1rem;
+  font-weight: 500;
+  display: block;
+}
+
+.exp-desc {
+  font-size: 0.95rem;
+  color: var(--p-text-secondary);
+}
+
+.exp-desc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.exp-desc li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.exp-desc li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--p-border); /* Subtle bullet */
+}
+
+/* Skills Grid */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: var(--p-text-primary);
+}
+
+.skill-list {
+  list-style: none;
+}
+
+.skill-list li {
+  font-size: 0.9rem;
+  color: var(--p-text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+/* Footer */
+.p-footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--p-text-light);
+  padding-top: 4rem;
+  border-top: 1px solid var(--p-border);
+}
+
+@media (max-width: 768px) {
+  .exp-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .exp-date {
+    text-align: left;
+    margin-bottom: 0.5rem;
+  }
+  .portfolio-wrapper {
+    padding: 3rem 1.5rem;
+  }
+  .p-name { font-size: 2rem; }
+  .p-summary { font-size: 1.2rem; }
+}
