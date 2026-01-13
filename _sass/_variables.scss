@@ -31,5 +31,17 @@
   
   --radius-sm: 4px;
   --radius-md: 8px;
-  --container-width: 1200px;
+  --container-width: 1400px;
+  
+  --bg-grid-color: rgba(255, 255, 255, 0.03);
+  --bg-grid-size: 40px;
+}
+
+body {
+  background-color: var(--bg-depth);
+  background-image: 
+    linear-gradient(var(--bg-grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-grid-color) 1px, transparent 1px);
+  background-size: var(--bg-grid-size) var(--bg-grid-size);
+  background-position: center top;
 }
