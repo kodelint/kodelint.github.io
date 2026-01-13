@@ -194,10 +194,11 @@ layout: page
     </div>
   </div>
 
-  <div class="graph-stats">
-    <span class="highlight-cyan" style="font-style: normal;">20 Years</span> of PagerDuty Trauma, 
-    <span class="highlight-indigo" style="font-style: normal;">1,048,576 Lines of YAML</span> (Indentation Errors included), 
-    and <span style="color: #ff007a; font-weight: 800; text-shadow: 0 0 10px rgba(255, 0, 122, 0.3); font-style: normal;">0 Regrets</span> (and 1 Executive Ego).
+  <div class="graph-stats" style="font-style: normal; display: flex; flex-direction: column; gap: 0.25rem;">
+    <span style="color: #00ff9d; font-weight: 700;">+++ 20 Years of PagerDuty Trauma (and counting)</span>
+    <span style="color: #00ff9d; font-weight: 700;">+++ 1,048,576 Lines of YAML (Indentation Errors included)</span>
+    <span style="color: #ff4757; font-weight: 700;">--- 0 Regrets (Memory leaks not shown)</span>
+    <span style="color: #facc15; font-weight: 700;">!!! 1 Executive Ego (Critical dependency)</span>
   </div>
 
 </div>
