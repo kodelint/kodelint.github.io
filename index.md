@@ -62,7 +62,7 @@ layout: page
 <div class="hero-section">
   <h3>🌲 Career Git Graph</h3>
   <div class="terminal-prompt">
-    <span class="symbol">$</span> git log --all --graph --oneline --color
+    <span class="symbol">$</span> career log --all --graph --oneline --color
   </div>
 </div>
 
@@ -195,7 +195,9 @@ layout: page
   </div>
 
   <div class="graph-stats">
-    20 Years, 1M+ Lines of YAML, 0 Regrets.
+    <span class="highlight-cyan" style="font-style: normal;">20 Years</span> of PagerDuty Trauma, 
+    <span class="highlight-indigo" style="font-style: normal;">1,048,576 Lines of YAML</span> (Indentation Errors included), 
+    and <span style="color: #ff007a; font-weight: 800; text-shadow: 0 0 10px rgba(255, 0, 122, 0.3); font-style: normal;">0 Regrets</span> (and 1 Executive Ego).
   </div>
 
 </div>
