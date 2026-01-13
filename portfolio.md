@@ -103,6 +103,26 @@ permalink: /portfolio/
       </ul>
     </div>
   </div>
+
+  <div class="exp-card" style="background: transparent; border: 1px dashed var(--p-border); box-shadow: none;">
+    <div class="exp-header" style="margin-bottom: 0.5rem;">
+      <div class="exp-role">
+        <h3 style="font-size: 1.1rem; color: var(--p-text-secondary);">Earlier Engineering Leadership</h3>
+        <span class="exp-company" style="font-size: 0.9rem; font-weight: 500;">2004 — 2016</span>
+      </div>
+    </div>
+    <div class="exp-body" style="font-size: 0.9rem;">
+      <p style="margin-bottom: 0.5rem;">Held progressively senior engineering roles at high-growth technology companies, building foundational expertise in distributed systems and platform engineering.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+        <span class="skill-tag" style="background: #fff; border: 1px solid var(--p-border);">Workday</span>
+        <span class="skill-tag" style="background: #fff; border: 1px solid var(--p-border);">Chegg</span>
+        <span class="skill-tag" style="background: #fff; border: 1px solid var(--p-border);">RocketFuel</span>
+        <span class="skill-tag" style="background: #fff; border: 1px solid var(--p-border);">Adobe</span>
+        <span class="skill-tag" style="background: #fff; border: 1px solid var(--p-border);">Saba Software</span>
+        <span class="skill-tag" style="background: #fff; border: 1px solid var(--p-border);">Autonomy</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="p-section">
