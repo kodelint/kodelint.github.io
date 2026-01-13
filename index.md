@@ -84,7 +84,7 @@ layout: page
   </div>
   <div class="graph-commit hotfix">
     <div class="graph-lane">
-      <div class="branch-fork"></div>
+      <div class="branch-merge"></div>
       <div class="graph-dot l0"></div>
     </div>
     <div class="graph-content">
@@ -119,7 +119,7 @@ layout: page
 
   <div class="graph-commit merge">
     <div class="graph-lane">
-      <div class="branch-merge"></div>
+      <div class="branch-fork"></div>
       <div class="graph-dot l0"></div>
     </div>
     <div class="graph-content">
