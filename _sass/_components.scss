@@ -363,80 +363,46 @@ nav .nav-container {
     gap: 0.5rem;
   }
   
-    .post-date-retro { width: auto; }
-  
-    .post-arrow { display: none; }
-  
-  }
-  
-  
-  
-  /* Inline code styling */
-  
-  code {
-  
-    font-family: var(--font-mono);
-  
-    font-size: 0.9em;
-  
-    background-color: var(--code-bg);
-  
-    color: var(--accent-tertiary);
-  
-    padding: 0.2rem 0.4rem;
-  
-    border-radius: var(--radius-sm);
-  
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  
-  }
-  
-  
-  
-  /* Ensure block code doesn't inherit inline styles incorrectly */
-  
-  pre code {
-  
-    background: transparent !important;
-  
-    padding: 0 !important;
-  
-    border: none !important;
-  
-    display: block;
-  
-    width: 100%;
-  
-    overflow-x: auto;
-  
-  }
-  
-  
-  
-  /* Global mono elements */
-  
-  pre, kbd, samp, .stat-row, .sidebar-label, .status-log, .nav-brand, .nav-link {
-  
-    font-family: var(--font-mono);
-  
-  }
-  
-  
-  
-  .status-log {
-  
-    font-size: 0.85rem;
-  
-    line-height: 1.4;
-  
-    overflow: visible;
-  
-  }
-  
-  
-  
-  @keyframes blink { 50% { opacity: 0; } }
-  
-  @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+  .post-date-retro { width: auto; }
+  .post-arrow { display: none; }
+}
+
+/* Inline code styling - Subtle and integrated */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background-color: rgba(255, 255, 255, 0.04);
+  color: #7dd3fc; /* Muted Sky Blue */
+  padding: 0.1rem 0.2rem;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Ensure block code doesn't inherit inline styles incorrectly */
+pre code {
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  display: block;
+  width: 100%;
+  font-size: 0.95rem; /* Match syntax.scss */
+  overflow-x: auto;
+  color: inherit;
+  vertical-align: baseline;
+}
+
+/* Global mono elements */
+pre, kbd, samp, .stat-row, .sidebar-label, .status-log, .nav-brand, .nav-link {
+  font-family: var(--font-mono);
+}
+
+.status-log {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  overflow: visible;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
   
   
