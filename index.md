@@ -106,9 +106,9 @@ layout: page
   .hero-container-wide {
     display: grid;
     grid-template-columns: 1.3fr 0.7fr; /* Text takes more space */
-    gap: 6rem; /* Increased gap */
+    gap: 10rem; /* Broader gap for wider screens */
     align-items: center;
-    padding: 8rem 0; /* More vertical breathing room */
+    padding: 10rem 0; /* More vertical breathing room */
     min-height: 80vh;
   }
 
