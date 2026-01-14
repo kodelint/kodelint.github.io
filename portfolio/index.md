@@ -81,23 +81,23 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
   </div>
 </section>
 
-<section class="p-section" style="background-color: var(--color-bg-alt);">
+<section class="p-section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white;">
   <div class="p-container">
     <div class="p-grid-2" style="align-items: center;">
       <div>
-        <h3>Why Work With Me</h3>
-        <ul style="list-style: none; padding: 0; font-size: 1.1rem; line-height: 1.8;">
+        <h3 style="color: #38bdf8; margin-bottom: 2rem;">Why Work With Me</h3>
+        <ul style="list-style: none; padding: 0; font-size: 1.15rem; line-height: 2;">
           {% for point in site.data.portfolio.home.why_work %}
-          <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
-            <span style="position: absolute; left: 0; color: var(--color-accent); font-weight: bold;">✓</span>
+          <li style="margin-bottom: 1.5rem; position: relative; padding-left: 2rem;">
+            <span style="position: absolute; left: 0; color: #38bdf8; font-weight: bold; font-size: 1.2rem;">✓</span>
             {{ point }}
           </li>
           {% endfor %}
         </ul>
       </div>
       <div>
-        <blockquote style="font-size: 1.2rem; font-style: italic; border-left: 4px solid var(--color-accent); padding-left: 1.5rem;">
-          "Reliability is a feature, not an afterthought."
+        <blockquote style="font-size: 1.5rem; font-family: var(--font-serif); font-style: italic; border-left: 4px solid #38bdf8; padding-left: 2rem; line-height: 1.4; opacity: 0.9;">
+          "I specialize in turning technical risk into business value by building resilient, high-scale engineering organizations."
         </blockquote>
       </div>
     </div>

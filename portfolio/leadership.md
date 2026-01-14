@@ -20,21 +20,32 @@ description: Building high-performance engineering cultures.
   </div>
 
   <div class="p-section">
-    <div class="p-grid-2">
-      <div class="lead-philosophy">
-        <h3 style="border-left: 4px solid var(--color-accent); padding-left: 1rem;">Hiring & Growth</h3>
-        <p>{{ site.data.portfolio.leadership.philosophy.hiring }}</p>
+    <div class="p-grid-2" style="align-items: stretch; gap: 4rem;">
+      <div class="lead-philosophy" style="background: white; border: 1px solid var(--color-border); padding: 2.5rem; border-radius: 12px; height: 100%;">
+        <h3 style="border-left: 4px solid var(--color-accent); padding-left: 1rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2rem;">Philosophy & Approach</h3>
         
-        <h3 style="border-left: 4px solid var(--color-accent); padding-left: 1rem; margin-top: 3rem;">Velocity vs Reliability</h3>
-        <p>{{ site.data.portfolio.leadership.philosophy.balance }}</p>
+        <h4 style="font-weight: 700; color: var(--color-heading); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+          <i class="fas fa-users" style="color: #10b981; font-size: 0.9rem;"></i>
+          Hiring & Growth
+        </h4>
+        <p style="margin-bottom: 2rem;">{{ site.data.portfolio.leadership.philosophy.hiring }}</p>
+        
+        <h4 style="font-weight: 700; color: var(--color-heading); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+          <i class="fas fa-bolt" style="color: #3b82f6; font-size: 0.9rem;"></i>
+          Velocity vs Reliability
+        </h4>
+        <p style="margin-bottom: 2rem;">{{ site.data.portfolio.leadership.philosophy.balance }}</p>
 
-        <h3 style="border-left: 4px solid var(--color-accent); padding-left: 1rem; margin-top: 3rem;">Operational Excellence</h3>
-        <p>{{ site.data.portfolio.leadership.philosophy.excellence }}</p>
+        <h4 style="font-weight: 700; color: var(--color-heading); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+          <i class="fas fa-check-circle" style="color: #f59e0b; font-size: 0.9rem;"></i>
+          Operational Excellence
+        </h4>
+        <p style="margin-bottom: 0;">{{ site.data.portfolio.leadership.philosophy.excellence }}</p>
       </div>
       
-      <div>
-        <div style="background: #f8fafc; border: 1px solid var(--color-border); padding: 2.5rem; border-radius: 12px;">
-          <h3 style="margin-bottom: 2rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em;">Org Health Snapshots</h3>
+      <div class="p-sticky">
+        <div style="background: #f8fafc; border: 1px solid var(--color-border); padding: 2.5rem; border-radius: 12px; height: 100%; box-shadow: inset 0 0 20px rgba(0,0,0,0.02);">
+          <h3 style="margin-bottom: 2rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-accent);">Org Health Snapshots</h3>
           {% for metric in site.data.portfolio.leadership.metrics %}
           <div class="lead-stat-card">
             <div class="lead-stat-val">{{ metric.value }}</div>

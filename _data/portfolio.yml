@@ -141,6 +141,8 @@ leadership:
       value: "<10% attrition"
     - label: "Promotion"
       value: "30%+ promoted"
+    - label: "Leadership Scope"
+      value: "Manager of Managers (3+ Directors)"
   programs:
     - title: "Platform Architecture & HPC Modernization"
       desc: "Engineered next‑generation hybrid HPC and multi‑cloud platforms at Adobe and F5, integrating GPU‑accelerated AI/ML infrastructure, RDMA‑powered HPC clusters, and unified Kubernetes architectures to support 30B+ daily requests, hyperscale search, and global networking systems."

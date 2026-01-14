@@ -66,17 +66,6 @@ description: Deep dives into SRE transformation, hyperscale ML infra, and cost o
         </div>
       </div>
       
-      {% if case.artifacts %}
-      <div class="cs-block" style="margin-bottom: 0; padding-top: 2rem; border-top: 1px dashed var(--color-border);">
-        <span class="cs-label">Technical Artifacts</span>
-        <div style="display: flex; gap: 1rem;">
-          {% for art in case.artifacts %}
-          <a href="{{ art.link }}" class="p-btn p-btn-outline" style="font-size: 0.8rem; background: white;">{{ art.text }} ↗</a>
-          {% endfor %}
-        </div>
-      </div>
-      {% endif %}
-
     </div>
     {% endfor %}
   </div>
