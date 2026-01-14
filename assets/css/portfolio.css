@@ -93,9 +93,10 @@ a:hover {
 
 .p-logo {
   font-family: var(--font-serif);
-  font-weight: 700;
+  font-weight: 800; /* Bolder */
   color: var(--color-heading);
-  font-size: 1.1rem;
+  font-size: 1.5rem; /* Increased from 1.1rem */
+  letter-spacing: -0.02em;
 }
 
 .p-links {
