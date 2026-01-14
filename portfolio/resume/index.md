@@ -17,7 +17,7 @@ description: Professional Resume of Satyajit Roy Choudhury.
       <!-- Header -->
       <header style="text-align: center; margin-bottom: 3rem; border-bottom: 2px solid var(--color-heading); padding-bottom: 2rem;">
         <h1 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 0.5rem; letter-spacing: -0.01em;">SATYAJIT ROY CHOUDHURY</h1>
-        <p class="resume-header-tagline" style="font-weight: 700; color: var(--color-accent); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 1rem;">Engineering Executive | 20+ years in US & India | Leader in Cloud, AI/ML Infra, and SRE Engineering</p>
+        <p class="resume-header-tagline" style="font-weight: 700; color: var(--color-accent); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.25rem;">Engineering Executive | 20+ years in US & India | Leader in Cloud, AI/ML Infra, and SRE Engineering</p>
         <div style="font-size: 0.85rem; color: var(--color-text); line-height: 1.6; font-weight: 500;">
           San Mateo, 94404 &bull; (561) 866-3499 &bull; <a href="mailto:talk2sroy.ch@gmail.com" style="color: var(--color-accent);">talk2sroy.ch@gmail.com</a> &bull;
           <a href="https://linkedin.com/in/satyajitroychoudhury" target="_blank" style="color: #0077b5;">LinkedIn</a> &bull; 
