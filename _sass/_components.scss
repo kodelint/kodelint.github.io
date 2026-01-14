@@ -71,29 +71,31 @@ nav a.active {
 .profile-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
+  justify-content: center;
+  gap: 4rem;
   width: 100%;
   text-align: left;
+  margin: 0 auto 3rem;
 }
 
 .profile-header .owner-name {
   text-align: left;
   margin: 0;
   font-family: var(--font-heading);
+  flex: 1;
 }
 
 .header-motto {
   display: block;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-family: var(--font-mono);
   color: var(--accent-tertiary);
-  margin-top: 0.7rem;
+  margin-top: 1rem;
   font-style: italic;
-  opacity: 0.8;
+  opacity: 0.9;
   font-weight: 400;
-  max-width: 400px;
-  line-height: 1.4;
+  max-width: 500px;
+  line-height: 1.5;
 }
 
 @media (max-width: 900px) {
@@ -186,17 +188,18 @@ header h1.owner-name .name {
 }
 
 header .desc {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  max-width: 700px;
+  margin: 3rem auto;
+  max-width: 1000px; /* Aligned with terminal width */
 }
 
 header .social {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 3rem; /* Increased gap */
   flex-wrap: wrap;
+  margin-top: 4rem;
 }
 
 header .social .icon {
