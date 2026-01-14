@@ -13,17 +13,25 @@ categories: [Infrastructure]
 tags: [DevOps, SRE, Terraform]
 ---
 
+### Introduction
+
 Let me start saying that terraform is an amazing tool for infrastructure automation and gives you the ability to be Truly Cloud Agnostic and manage a state for your infrastructure I have been working with terraform for quite sometime and have used pretty most of the plugins and providers.
+
+### The Problem: Restoring ElastiCache from Snapshots
 
 Probably a year back I was working on module for **Amazon ElastiCache** and stumbled upon a issue: If you want to create a elasticache cluster from backups to the mentioned slots using `terraform` then `terraform` gives up!!
 
 As the plugin doesn't support that.
+
+### Limitations of the Terraform AWS Provider
 
 Though it is pretty much possible from Amazon UI, means APIs are there however the terraform resource `elasticache_replication_group` doesn't support that.
 
 The variable `snapshot_arns` can be used to provide the location of the backups, which is usually S3, however there is not way to assign Slots for the them I decided to check the `elasticache_replication_group` code and see if it is possible to introduce the same.
 
 I looked at the code As you can see that snapshot_arns are there but no way to provide Slots information. There is [Github Issue](https://github.com/hashicorp/terraform-provider-aws/issues/5510) for this as well
+
+### The Solution: Custom Fork and Enhancement
 
 As a result I forked the repo as [tfproviders/aws-terraform-provider](https://github.com/tfproviders/aws-terraform-provider) and introduced following changes: Add `node_group_configuration {}` block `node_group_configuration` takes slots as `list(string)` So now my terraform code for `aws_elasticache_replication_group` looks like this
 
@@ -46,9 +54,13 @@ resource "aws_elasticache_replication_group" "restore" {
 }
 ```
 
+### Result
+
 Each element of Slots maps to `snaphot_arns` and Voila!!
 
 I was able to create **Amazon ElastiCache** using terraform resource elasticache_replication_group from backups with slots information.
+
+### Usage
 
 To use my forked version of **Terraform AWS Provider** add following to your terraform code and here is the published provider [tfproviders/aws](https://github.com/tfproviders/aws).
 
@@ -65,5 +77,7 @@ provider "aws" {
   # Configuration options
 }
 ```
+
+### Conclusion
 
 Happy Terraforming!!

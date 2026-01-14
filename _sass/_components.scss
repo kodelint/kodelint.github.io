@@ -485,7 +485,7 @@ button[type="submit"]:hover {
 
 .sidebar-title {
   font-family: var(--font-mono);
-  font-size: 0.6rem; /* Further reduced from 0.65rem */
+  font-size: 0.9rem;
   color: var(--accent-primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -513,7 +513,9 @@ button[type="submit"]:hover {
   font-size: 0.85rem;
 }
 
-.meta-indicator:last-child { margin-bottom: 0; }
+.meta-indicator:last-child {
+  margin-bottom: 0;
+}
 
 .meta-icon {
   width: 32px;
@@ -536,8 +538,13 @@ button[type="submit"]:hover {
 }
 
 @keyframes blinkDanger {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
 
 /* TOC Customization for Sidebar */
@@ -547,7 +554,7 @@ button[type="submit"]:hover {
   font-size: 0.85rem;
 }
 
-.sidebar-toc h1, 
+.sidebar-toc h1,
 .sidebar-toc .toc-title {
   display: none;
 }
@@ -563,7 +570,6 @@ button[type="submit"]:hover {
   margin: 0;
   padding: 0;
 }
-
 
 .sidebar-toc li {
   margin-bottom: 0.6rem;
@@ -582,14 +588,14 @@ button[type="submit"]:hover {
   .post-layout {
     flex-direction: column;
   }
-  
+
   .post-sidebar {
     width: 100%;
     position: static;
     flex-direction: row;
     flex-wrap: wrap;
   }
-  
+
   .sidebar-block {
     flex: 1;
     min-width: 300px;

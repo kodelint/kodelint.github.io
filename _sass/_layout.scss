@@ -54,8 +54,8 @@ header {
 .post-list,
 .project-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for 1200px width */
+  gap: 2.5rem;
   margin-bottom: 4rem;
 }
 

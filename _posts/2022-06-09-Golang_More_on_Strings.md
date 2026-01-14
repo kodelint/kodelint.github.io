@@ -13,7 +13,11 @@ categories: [Golang, Programming]
 tags: [Golang, Basics, Concepts]
 ---
 
+### Introduction
+
 In `Golang` or for that matter pretty much in all programming language `strings` are **Immutable** data type and also heavily used. This blog let’s see what all operations we can perform on `string` and how efficient they are.
+
+### String Concatenation Methods
 
 So, let talk about _**string concatenations,**_ there are few ways to to perform _**string concatenations**_
 
@@ -23,6 +27,8 @@ So, let talk about _**string concatenations,**_ there are few ways to to perform
 - From `Golang 1.10` onwards using [`Builder`](https://pkg.go.dev/strings#Builder) from [`strings`](https://pkg.go.dev/strings) package
 
 When you are doing some small concatenation I guess this wouldn’t matter which method you use. However as the use cases grows and becomes bigger than one needs to pay attention to these as well.
+
+### 1. Using the `+` Operator
 
 Let check this out with some `code` examples
 
@@ -87,6 +93,8 @@ PASS
 ok  	github.com/kodelint/golang-string-concatenation-benchmark	3.746s
 ```
 
+### Performance with Compiler Optimization
+
 It is clearly visible that **smallerString** benchmarking took `18744501 ns/op` and **longerString** took `18892603 ns/op`.
 
 So, we ran the benchmark disabling **Golang Optimization** `-gcflags=-N`
@@ -104,6 +112,8 @@ ok  	github.com/kodelint/golang-string-concatenation-benchmark	3.746s
 ```
 
 The number change slightly based on runtime optimization performed by complier.
+
+### 2. Using `fmt.Sprintf`
 
 2. **Using** `fmt.Sprintf`
 
@@ -232,6 +242,8 @@ So now the numbers improved individually.
 
 > For now, for `string` concatenation the `+` operator seems to be **winning** the race if the length is unknown, however if the length is known then `Sprintf` performs way better.
 
+### 3. Using `strings.Join`
+
 3. **Using** [`Join`](https://pkg.go.dev/strings#Join)
 
 Now let’s use [`Join`](https://pkg.go.dev/strings#Join) and see what is the differences. Code changes below
@@ -300,6 +312,8 @@ ok  	github.com/kodelint/golang-string-concatenation-benchmark	12.787s
 ```
 
 As you can see the [`Join`](https://pkg.go.dev/strings#Join) work very well in comparison to any other method when the length of string is known.
+
+### 4. Using `strings.Builder`
 
 4. **Using** [`Builder`](https://pkg.go.dev/strings#Builder) from [`strings`](https://pkg.go.dev/strings) **package**
 
@@ -406,6 +420,8 @@ BenchmarkWithStringBuilderLongerStringKnownSize-12    	     372	   3179267 ns/op
 PASS
 ok  	github.com/kodelint/golang-string-concatenation-benchmark	17.567s
 ```
+
+### Conclusion
 
 Once again it performed pretty good when the length is known and also the performance was significantly better the `+` operator when the length is unknown
 

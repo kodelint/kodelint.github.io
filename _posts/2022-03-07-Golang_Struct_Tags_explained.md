@@ -13,9 +13,11 @@ categories: [Golang, Programming]
 tags: [Golang, Basics, Concepts]
 ---
 
-## [Golang] Struct Tags explained
+### Introduction
 
 Today will try to explore `Golang's` structure `tags` . **Structure** or **struct** is the way to define custom `types` in `Golang` . In simple terms `struct` can be explained as
+
+### What is a Struct?
 
 _When collection of information are organized in way that they can represented as a unit of information. The defined unit will be able to hold data with similar attributes._
 
@@ -43,6 +45,8 @@ If we define a variable say `emp` of type `Employee` then they will have similar
     fmt.Println(emp.EmployeeID)
     fmt.Println(emp.Salary)
 
+### Understanding Struct Tags
+
 Now **Struct** `tags` are small pieces of metadata attached to fields of a `struct` that provide instructions to other Go code that works with the struct.
 
 **For Example:** Here is custom type called `Employee` can be annotated as
@@ -55,6 +59,8 @@ Now **Struct** `tags` are small pieces of metadata attached to fields of a `stru
     }
 
 Go code is then capable of examining these structs and extracting the values assigned to specific keys it requests. Struct tags have no effect on the operation of your code without some other code that examines them.
+
+### Struct Tags for JSON and YAML
 
 If we are reading the `YAML` or `JSON` file then we can annotate the `struct` something like this
 
@@ -85,7 +91,7 @@ Below piece of code with read the `YAML` file and assign the values from `YAML` 
       if err != nil {
 
 
-    }
+    } 
      }(f)
 
 
@@ -97,6 +103,8 @@ Below piece of code with read the `YAML` file and assign the values from `YAML` 
     fmt.Println("%s %s employ_id is %s", mgr.FirstName, mgr.LastName, mgr.EmployeeID)
 
 The **JSON encoder** in the standard library makes use of struct tags as annotations indicating to the encoder how you would like to name your fields in the **JSON** output. These **JSON encoding** and **decoding** mechanisms can be found in the `encoding/json` [package](https://godoc.org/encoding/json).
+
+### The `omitempty` and `ignore` Tags
 
 Now say you have **empty JSON field** which you want to eliminate then you can use `omitempty` and if the **JSON** object doesn’t have the value for that key the it will not be populated and skipped
 
@@ -115,6 +123,8 @@ If you want to ignore some field then you can use `-` in `tags` and it will be i
       ManagerEmployeeID  string  `json: "manager_employee_id"`
       ManagerSalary      float64 `json: "-"`
     }
+
+### Advanced Usage: Reflection and Validation
 
 If you want to go deeper and access the `tags` then you can use _**reflect**_ package which allows run-time [reflection](<https://en.wikipedia.org/wiki/Reflection_(computer_programming)>)
 
@@ -140,6 +150,8 @@ In above example I was able to `validate` following
 - `ManagerEmployeeID` is `required` field and it can’t be less than `1000`
 
 |So in-stead of writing code for data validations for some of the fundamental and conditional validation, we can use [go-playground/validator](https://github.com/go-playground/validator) as they come with built-in logic for the same, completely based on **`tags`**
+
+### Conclusion
 
 Hope this give a little more understanding about the `Golang` **Structures** and **Tags**
 
