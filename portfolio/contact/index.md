@@ -1,7 +1,6 @@
 ---
 layout: portfolio
 title: Contact
-permalink: /portfolio/contact/
 description: Get in touch.
 ---
 

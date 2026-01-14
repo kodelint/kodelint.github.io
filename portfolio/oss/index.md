@@ -1,7 +1,6 @@
 ---
 layout: portfolio
 title: Open Source
-permalink: /portfolio/oss/
 description: Open source contributions and projects.
 ---
 

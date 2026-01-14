@@ -12,9 +12,12 @@ home:
     - title: "Leadership"
       value: "55+ Engineers"
   why_work:
-    - "Leadership at hyperscale and under pressure"
-    - "Modern SRE operating models that actually work"
-    - "Cloud efficiency without compromising velocity"
+    - "Leadership of global engineering organizations"
+    - "Architecting hyperscale systems"
+    - "Turning reactive engineering into proactive, high‑velocity excellence"
+    - "Delivering 20-65% cloud cost reductions via FinOps"
+    - "Scaling AI/ML and High-Performance infrastructure"
+    - "Bridging technical risk with strategic business value"
 
 case_studies:
   - id: adobe-hyperscale
@@ -160,7 +163,6 @@ leadership:
       desc: "Established an Incident Command Academy that standardized calm, structured, high‑stakes response—dramatically reducing MTTR and improving cross‑team coordination during critical events."
     - title: "Mentoring Framework"
       desc: "Launched a 'Tour of Duty' leadership pipeline that rotates engineers through platform, SRE, and product teams—building cross‑functional empathy, accelerating senior‑level readiness, and strengthening organizational resilience."
-
 
 writing:
   - title: "Overlay Networking Deep Dive"

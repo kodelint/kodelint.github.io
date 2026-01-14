@@ -1,7 +1,6 @@
 ---
 layout: portfolio
 title: Case Studies
-permalink: /portfolio/case-studies/
 description: Deep dives into SRE transformation, hyperscale ML infra, and cost optimization.
 ---
 

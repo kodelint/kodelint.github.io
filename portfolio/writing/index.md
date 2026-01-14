@@ -1,7 +1,6 @@
 ---
 layout: portfolio
 title: Writing & Thoughts
-permalink: /portfolio/writing/
 description: Curated selection of technical writing on distributed systems, SRE, and architecture.
 ---
 

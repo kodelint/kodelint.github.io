@@ -28,15 +28,15 @@
 
   <nav class="p-nav">
     <div class="p-container p-nav-inner">
-      <a href="/portfolio/" class="p-logo">Satyajit Roy</a>
+      <a href="{{ "/portfolio/" | relative_url }}" class="p-logo">Satyajit Roy</a>
       <div class="p-links">
-        <a href="/portfolio/" class="p-link {% if page.url == '/portfolio/' %}active{% endif %}">Home</a>
-        <a href="/portfolio/case-studies/" class="p-link {% if page.url contains 'case-studies' %}active{% endif %}">Case Studies</a>
-        <a href="/portfolio/leadership/" class="p-link {% if page.url contains 'leadership' %}active{% endif %}">Leadership</a>
-        <a href="/portfolio/writing/" class="p-link {% if page.url contains 'writing' %}active{% endif %}">Writing</a>
-        <a href="/portfolio/oss/" class="p-link {% if page.url contains 'oss' %}active{% endif %}">OSS</a>
-        <a href="/portfolio/resume/" class="p-link {% if page.url contains 'resume' %}active{% endif %}">Resume</a>
-        <a href="/portfolio/contact/" class="p-link {% if page.url contains 'contact' %}active{% endif %}">Contact</a>
+        <a href="{{ "/portfolio/" | relative_url }}" class="p-link {% if page.url == '/portfolio/' %}active{% endif %}">Home</a>
+        <a href="{{ "/portfolio/case-studies/" | relative_url }}" class="p-link {% if page.url contains 'case-studies' %}active{% endif %}">Case Studies</a>
+        <a href="{{ "/portfolio/leadership/" | relative_url }}" class="p-link {% if page.url contains 'leadership' %}active{% endif %}">Leadership</a>
+        <a href="{{ "/portfolio/writing/" | relative_url }}" class="p-link {% if page.url contains 'writing' %}active{% endif %}">Writing</a>
+        <a href="{{ "/portfolio/oss/" | relative_url }}" class="p-link {% if page.url contains 'oss' %}active{% endif %}">OSS</a>
+        <a href="{{ "/portfolio/resume/" | relative_url }}" class="p-link {% if page.url contains 'resume' %}active{% endif %}">Resume</a>
+        <a href="{{ "/portfolio/contact/" | relative_url }}" class="p-link {% if page.url contains 'contact' %}active{% endif %}">Contact</a>
       </div>
     </div>
   </nav>

@@ -1,7 +1,6 @@
 ---
 layout: portfolio
 title: Leadership
-permalink: /portfolio/leadership/
 description: Building high-performance engineering cultures.
 ---
 
