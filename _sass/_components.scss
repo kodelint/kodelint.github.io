@@ -94,7 +94,7 @@ nav a.active {
   font-style: italic;
   opacity: 0.9;
   font-weight: 400;
-  max-width: 500px;
+  max-width: none; /* Removed fixed width to prevent wrapping */
   line-height: 1.5;
 }
 
