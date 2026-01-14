@@ -81,6 +81,30 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
   </div>
 </section>
 
+<section class="p-section">
+  <div class="p-container">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem;">
+      <h3>Featured Writing</h3>
+      <a href="/portfolio/writing/" style="font-size: 0.9rem; font-weight: 500;">View All &rarr;</a>
+    </div>
+    
+    <div class="p-grid-2">
+      {% for post in site.data.portfolio.writing limit:4 %}
+      <div class="p-card" style="display: flex; flex-direction: column;">
+        <span class="cs-badge" style="width: fit-content; margin-bottom: 1rem; background: var(--color-accent); color: white;">{{ post.type }}</span>
+        <h4 class="p-card-title">{{ post.title }}</h4>
+        <p style="margin-bottom: 1.5rem; flex-grow: 1; font-size: 0.95rem; color: var(--color-text);">{{ post.summary }}</p>
+        <a href="{{ post.link }}" class="p-btn p-btn-outline" style="text-align: center; font-size: 0.85rem;">Read Article &rarr;</a>
+      </div>
+      {% endfor %}
+    </div>
+    
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="/portfolio/writing/" class="p-btn p-btn-primary">View Full Writing Archive</a>
+    </div>
+  </div>
+</section>
+
 <section class="p-section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white;">
   <div class="p-container">
     <div class="p-grid-2" style="align-items: center;">
