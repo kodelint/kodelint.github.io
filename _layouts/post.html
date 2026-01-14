@@ -6,110 +6,169 @@
   {% include nav.html %}
   
   <main class="page">
-    <div class="page-header">
-      <div style="font-family: var(--font-mono); color: var(--accent-primary); margin-bottom: 0.5rem;">{{page.date | date_to_string}}</div>
-      <h1 class="page-title">{{page.title}}</h1>
-    </div>
-    
-    <div class="content-body">
-      {% if page.cross_post_url or page.devto_url or page.hashnode_url %}
-      {% assign link_count = 0 %}
-      {% if page.cross_post_url %}{% assign link_count = link_count | plus: 1 %}{% endif %}
-      {% if page.devto_url %}{% assign link_count = link_count | plus: 1 %}{% endif %}
-      {% if page.hashnode_url %}{% assign link_count = link_count | plus: 1 %}{% endif %}
-      <div class="cross-post-notice" style="
-          background: rgba(56, 189, 248, 0.05); 
-          border: 1px solid var(--accent-primary); 
-          padding: 2rem; 
-          border-radius: var(--radius-md); 
-          margin-bottom: 2rem; 
-          text-align: center;
-          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-          backdrop-filter: blur(10px);
-        ">
-        <p style="margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--text-primary);">
-          <i class="fas fa-bullhorn" style="color: var(--accent-secondary); margin-right: 0.5rem;"></i>
-          This article was originally published on {% if link_count > 1 %}multiple external platforms{% else %}an external platform{% endif %}.
-        </p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          {% if page.cross_post_url %}
-          <a href="{{ page.cross_post_url }}" class="button" target="_blank" style="
-              display: inline-flex; 
-              align-items: center;
-              background: var(--accent-gradient); 
-              color: white; 
-              padding: 0.75rem 1.5rem; 
-              border-radius: 9999px; 
-              font-weight: 600; 
-              text-decoration: none; 
-              border: none;
-              transition: transform 0.2s, box-shadow 0.2s;
-              box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);
-            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,118,255,0.23)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px 0 rgba(0,118,255,0.39)';">
-            <i class="fab fa-medium" style="margin-right: 0.5rem; font-size: 1.1rem;"></i> Read on Medium
-          </a>
-          {% endif %}
+    <div class="post-layout">
+      <!-- Left Sidebar -->
+      <aside class="post-sidebar">
+        <div class="sidebar-block">
+          <span class="sidebar-title">Metadata</span>
           
-          {% if page.devto_url %}
-          <a href="{{ page.devto_url }}" class="button" target="_blank" style="
-              display: inline-flex; 
-              align-items: center;
-              background: var(--accent-gradient); 
-              color: white; 
-              padding: 0.75rem 1.5rem; 
-              border-radius: 9999px; 
-              font-weight: 600; 
-              text-decoration: none; 
-              border: none;
-              transition: transform 0.2s, box-shadow 0.2s;
-              box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);
-            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,118,255,0.23)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px 0 rgba(0,118,255,0.39)';">
-            <i class="fab fa-dev" style="margin-right: 0.5rem; font-size: 1.1rem;"></i> Read on Dev.to
-          </a>
+          <div class="meta-indicator">
+            <div class="meta-icon"><i class="fas fa-calendar"></i></div>
+            <div class="indicator-details">
+              <div class="indicator-label" style="font-size: 0.65rem; color: var(--text-tertiary); text-transform: uppercase;">Published</div>
+              <div class="indicator-val">{{page.date | date: "%b %d, %Y"}}</div>
+            </div>
+          </div>
+
+          {% assign words = content | number_of_words %}
+          {% assign read_time = words | divided_by: 180 | plus: 1 %}
+          <div class="meta-indicator">
+            <div class="meta-icon"><i class="fas fa-clock"></i></div>
+            <div class="indicator-details">
+              <div class="indicator-label" style="font-size: 0.65rem; color: var(--text-tertiary); text-transform: uppercase;">Reading Time</div>
+              <div class="indicator-val">{{read_time}} min</div>
+            </div>
+          </div>
+
+          {% if page.caffeine %}
+          <div class="meta-indicator">
+            <div class="meta-icon"><i class="fas fa-coffee" style="color: #6F4E37;"></i></div>
+            <div class="indicator-details">
+              <div class="indicator-label" style="font-size: 0.65rem; color: var(--text-tertiary); text-transform: uppercase;">Caffeine</div>
+              <div class="indicator-val {% if page.caffeine > 5 %}blink-warning{% endif %}">
+                {{page.caffeine}} shots
+              </div>
+            </div>
+          </div>
           {% endif %}
-          
-          {% if page.hashnode_url %}
-          <a href="{{ page.hashnode_url }}" class="button" target="_blank" style="
-              display: inline-flex; 
-              align-items: center;
-              background: var(--accent-gradient); 
-              color: white; 
-              padding: 0.75rem 1.5rem; 
-              border-radius: 9999px; 
-              font-weight: 600; 
-              text-decoration: none; 
-              border: none;
-              transition: transform 0.2s, box-shadow 0.2s;
-              box-shadow: 0 4px 14px 0 rgba(0,118,255,0.39);
-            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,118,255,0.23)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px 0 rgba(0,118,255,0.39)';">
-            <i class="fab fa-hashnode" style="margin-right: 0.5rem; font-size: 1.1rem;"></i> Read on Hashnode
-          </a>
+
+          {% if page.stress %}
+          <div class="meta-indicator">
+            <div class="meta-icon"><i class="fas fa-bolt" style="color: #FFD700;"></i></div>
+            <div class="indicator-details">
+              <div class="indicator-label" style="font-size: 0.65rem; color: var(--text-tertiary); text-transform: uppercase;">Stress Level</div>
+              <div class="indicator-val {% if page.stress > 7 %}blink-warning{% endif %}">
+                {{page.stress}}/10
+              </div>
+            </div>
+          </div>
           {% endif %}
         </div>
-      </div>
-      {% endif %}
 
-      {% if page.image %}
-      <div class="featured-image-container" style="
-          margin: 0 auto 3rem; 
-          max-width: 800px;
-          border-radius: var(--radius-md); 
-          overflow: hidden; 
-          border: 1px solid var(--border-subtle); 
-          box-shadow: var(--glow-shadow); 
-          position: relative;
-          background: rgba(0,0,0,0.2);
-        ">
-        <img src="{{site.baseurl}}{{page.image}}" alt="{{page.title}}" style="
-            width: 100%; 
-            max-height: 450px; 
-            display: block; 
-            object-fit: contain;
-          ">
-      </div>
-      {% endif %}
+        <div class="sidebar-block">
+          <span class="sidebar-title">Table of Contents</span>
+          <div class="sidebar-toc">
+            {% include toc.html html=content h_min=2 h_max=3 %}
+          </div>
+        </div>
+      </aside>
 
-      {{content}}
+      <!-- Main Content -->
+      <div class="post-main-content">
+        <div class="page-header" style="text-align: left; padding-top: 0;">
+          <h1 class="page-title" style="margin-top: 0;">{{page.title}}</h1>
+        </div>
+        
+        <div class="content-body">
+          {% if page.cross_post_url or page.devto_url or page.hashnode_url %}
+          {% assign link_count = 0 %}
+          {% if page.cross_post_url %}{% assign link_count = link_count | plus: 1 %}{% endif %}
+          {% if page.devto_url %}{% assign link_count = link_count | plus: 1 %}{% endif %}
+          {% if page.hashnode_url %}{% assign link_count = link_count | plus: 1 %}{% endif %}
+          <div class="cross-post-notice" style="
+              background: rgba(56, 189, 248, 0.05); 
+              border: 1px solid var(--border-subtle); 
+              padding: 1.5rem; 
+              border-radius: var(--radius-md); 
+              margin-bottom: 2.5rem; 
+              text-align: center;
+              backdrop-filter: blur(10px);
+            ">
+            <p style="margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-secondary);">
+              <i class="fas fa-bullhorn" style="color: var(--accent-primary); margin-right: 0.5rem;"></i>
+              Originally published on {% if link_count > 1 %}multiple external platforms{% else %}an external platform{% endif %}.
+            </p>
+            <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+              {% if page.cross_post_url %}
+              <a href="{{ page.cross_post_url }}" class="button" target="_blank" style="
+                  display: inline-flex; 
+                  align-items: center;
+                  background: rgba(255,255,255,0.05); 
+                  color: white; 
+                  padding: 0.5rem 1rem; 
+                  border-radius: 100px; 
+                  font-weight: 600; 
+                  font-size: 0.85rem;
+                  text-decoration: none; 
+                  border: 1px solid var(--border-subtle);
+                  transition: all 0.2s;
+                " onmouseover="this.style.background='var(--accent-primary)'; this.style.color='#000';" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='white';">
+                <i class="fab fa-medium" style="margin-right: 0.5rem;"></i> Medium
+              </a>
+              {% endif %}
+              
+              {% if page.devto_url %}
+              <a href="{{ page.devto_url }}" class="button" target="_blank" style="
+                  display: inline-flex; 
+                  align-items: center;
+                  background: rgba(255,255,255,0.05); 
+                  color: white; 
+                  padding: 0.5rem 1rem; 
+                  border-radius: 100px; 
+                  font-weight: 600; 
+                  font-size: 0.85rem;
+                  text-decoration: none; 
+                  border: 1px solid var(--border-subtle);
+                  transition: all 0.2s;
+                " onmouseover="this.style.background='var(--accent-primary)'; this.style.color='#000';" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='white';">
+                <i class="fab fa-dev" style="margin-right: 0.5rem;"></i> Dev.to
+              </a>
+              {% endif %}
+              
+              {% if page.hashnode_url %}
+              <a href="{{ page.hashnode_url }}" class="button" target="_blank" style="
+                  display: inline-flex; 
+                  align-items: center;
+                  background: rgba(255,255,255,0.05); 
+                  color: white; 
+                  padding: 0.5rem 1rem; 
+                  border-radius: 100px; 
+                  font-weight: 600; 
+                  font-size: 0.85rem;
+                  text-decoration: none; 
+                  border: 1px solid var(--border-subtle);
+                  transition: all 0.2s;
+                " onmouseover="this.style.background='var(--accent-primary)'; this.style.color='#000';" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='white';">
+                <i class="fab fa-hashnode" style="margin-right: 0.5rem;"></i> Hashnode
+              </a>
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+
+          {% if page.image %}
+          <div class="featured-image-container" style="
+              margin: 0 0 3rem; 
+              max-width: 100%;
+              border-radius: var(--radius-md); 
+              overflow: hidden; 
+              border: 1px solid var(--border-subtle); 
+              box-shadow: var(--glow-shadow); 
+              position: relative;
+              background: rgba(0,0,0,0.2);
+            ">
+            <img src="{{site.baseurl}}{{page.image}}" alt="{{page.title}}" style="
+                width: 100%; 
+                max-height: 500px; 
+                display: block; 
+                object-fit: contain;
+              ">
+          </div>
+          {% endif %}
+
+          {{content}}
+        </div>
+      </div>
     </div>
   </main>
   

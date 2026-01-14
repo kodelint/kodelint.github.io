@@ -457,6 +457,130 @@ button[type="submit"]:hover {
   color: #2962ff;
 }
 
+/* Blog Post Sidebar & Layout */
+.post-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  position: relative;
+}
+
+.post-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sidebar-block {
+  background: rgba(17, 24, 39, 0.4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.sidebar-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.2rem;
+  display: block;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.5rem;
+}
+
+.post-main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Metadata Indicators */
+.meta-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.meta-indicator:last-child { margin-bottom: 0; }
+
+.meta-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--accent-secondary);
+}
+
+.indicator-val {
+  color: var(--text-secondary);
+}
+
+.blink-warning {
+  animation: blinkDanger 1s infinite;
+  color: #ff4757 !important;
+}
+
+@keyframes blinkDanger {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* TOC Customization for Sidebar */
+.sidebar-toc {
+  max-height: 50vh;
+  overflow-y: auto;
+  font-size: 0.9rem;
+}
+
+.sidebar-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-toc li {
+  margin-bottom: 0.6rem;
+}
+
+.sidebar-toc a {
+  color: var(--text-tertiary);
+  border: none;
+}
+
+.sidebar-toc a:hover {
+  color: var(--accent-primary);
+}
+
+@media (max-width: 1024px) {
+  .post-layout {
+    flex-direction: column;
+  }
+  
+  .post-sidebar {
+    width: 100%;
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .sidebar-block {
+    flex: 1;
+    min-width: 300px;
+  }
+}
+
 /* Page Content Styling */
 .page-title {
   font-size: 2.5rem;
