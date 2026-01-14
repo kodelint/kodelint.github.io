@@ -485,14 +485,17 @@ button[type="submit"]:hover {
 
 .sidebar-title {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.6rem; /* Further reduced from 0.65rem */
   color: var(--accent-primary);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   margin-bottom: 1.2rem;
   display: block;
   border-bottom: 1px solid var(--border-subtle);
   padding-bottom: 0.5rem;
+  white-space: nowrap; /* Prevent wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .post-main-content {
@@ -541,7 +544,18 @@ button[type="submit"]:hover {
 .sidebar-toc {
   max-height: 50vh;
   overflow-y: auto;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+}
+
+.sidebar-toc h1, 
+.sidebar-toc .toc-title {
+  display: none;
+}
+
+.sidebar-toc #table_of_c {
+  margin: 0 !important;
+  border: none !important;
+  padding: 0 !important;
 }
 
 .sidebar-toc ul {
@@ -549,6 +563,7 @@ button[type="submit"]:hover {
   margin: 0;
   padding: 0;
 }
+
 
 .sidebar-toc li {
   margin-bottom: 0.6rem;
