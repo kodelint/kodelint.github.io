@@ -14,7 +14,7 @@ description: Get in touch with Satyajit Roy Choudhury regarding engineering lead
   <div class="p-grid-2" style="gap: 2rem; margin-bottom: 4rem;">
     <div class="p-card" style="border-left: 4px solid #10b981;">
       <h3 style="font-size: 1.1rem; margin-bottom: 1rem;"><i class="fas fa-briefcase" style="margin-right: 0.5rem; color: #10b981;"></i> Executive Leadership</h3>
-      <p style="font-size: 0.95rem; color: var(--color-text);">Interested in Director/VP roles focusing on SRE, Platform Engineering, or Infrastructure scaling at high-growth organizations.</p>
+      <p style="font-size: 0.95rem; color: var(--color-text);">Interested in Director/VP roles focusing on Pure Engineering, SRE, Platform Engineering, or Infrastructure scaling at high-growth organizations.</p>
     </div>
     <div class="p-card" style="border-left: 4px solid #3b82f6;">
       <h3 style="font-size: 1.1rem; margin-bottom: 1rem;"><i class="fas fa-microphone" style="margin-right: 0.5rem; color: #3b82f6;"></i> Speaking & Workshops</h3>
