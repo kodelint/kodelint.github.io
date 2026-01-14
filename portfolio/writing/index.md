@@ -34,8 +34,8 @@ description: Curated selection of technical writing on distributed systems, SRE,
     
     <div style="margin-top: 5rem; text-align: center; background: var(--color-bg-alt); padding: 3rem; border-radius: 12px;">
       <h3 style="margin-bottom: 1rem;">Looking for more?</h3>
-      <p style="margin-bottom: 2rem; color: var(--color-text);">I've written dozens of technical articles over the years. You can browse the full history in the main blog archive.</p>
-      <a href="/blogs" class="p-btn p-btn-primary">Explore Full Blog Archive</a>
+      <p style="margin-bottom: 2rem; color: var(--color-text);">I've written dozens of technical articles over the years. You can browse the full history in the main writing archive.</p>
+      <a href="/blogs" class="p-btn p-btn-primary">Explore Full Writing Archive</a>
     </div>
   </div>
 </div>

@@ -16,15 +16,13 @@ description: Professional Resume of Satyajit Roy Choudhury.
       
       <!-- Header -->
       <header style="text-align: center; margin-bottom: 3rem; border-bottom: 2px solid var(--color-heading); padding-bottom: 2rem;">
-        <h1 style="font-size: 3rem; font-weight: 900; margin-bottom: 0.5rem; letter-spacing: -0.02em;">SATYAJIT ROY CHOUDHURY</h1>
-        <p style="font-weight: 700; color: var(--color-accent); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em;">Engineering Executive | 20+ years in US & India | Leader in Cloud, AI/ML Infra, and SRE Engineering</p>
-        <div style="margin-top: 1rem; font-size: 0.95rem; color: var(--color-text);">
-          San Mateo, 94404 &bull; (561) 866-3499 &bull; <a href="mailto:talk2sroy.ch@gmail.com" style="color: var(--color-accent);">talk2sroy.ch@gmail.com</a>
-        </div>
-        <div style="margin-top: 0.5rem; font-size: 0.95rem;">
+        <h1 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 0.5rem; letter-spacing: -0.01em;">SATYAJIT ROY CHOUDHURY</h1>
+        <p class="resume-header-tagline" style="font-weight: 700; color: var(--color-accent); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 1rem;">Engineering Executive | 20+ years in US & India | Leader in Cloud, AI/ML Infra, and SRE Engineering</p>
+        <div style="font-size: 0.85rem; color: var(--color-text); line-height: 1.6; font-weight: 500;">
+          San Mateo, 94404 &bull; (561) 866-3499 &bull; <a href="mailto:talk2sroy.ch@gmail.com" style="color: var(--color-accent);">talk2sroy.ch@gmail.com</a> &bull;
           <a href="https://linkedin.com/in/satyajitroychoudhury" target="_blank" style="color: #0077b5;">LinkedIn</a> &bull; 
           <a href="/portfolio/" style="color: var(--color-accent);">Portfolio</a> &bull; 
-          <a href="/blogs" style="color: var(--color-accent);">Blogs</a>
+          <a href="/blogs" style="color: var(--color-accent);">Personal Site</a>
         </div>
       </header>
 
@@ -179,6 +177,9 @@ description: Professional Resume of Satyajit Roy Choudhury.
 </div>
 
 <style>
+  @media screen and (max-width: 800px) {
+    .resume-header-tagline { white-space: normal !important; font-size: 0.85rem !important; }
+  }
   @media print {
     .p-nav, .p-footer, .p-btn { display: none !important; }
     .resume-container { border: none !important; box-shadow: none !important; padding: 0 !important; }

@@ -1,4 +1,4 @@
 ---
-title: Blogs
+title: Personal Site
 layout: blog
 ---
