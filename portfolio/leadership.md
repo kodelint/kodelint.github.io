@@ -27,6 +27,9 @@ description: Building high-performance engineering cultures.
         
         <h3 style="border-left: 4px solid var(--color-accent); padding-left: 1rem; margin-top: 3rem;">Velocity vs Reliability</h3>
         <p>{{ site.data.portfolio.leadership.philosophy.balance }}</p>
+
+        <h3 style="border-left: 4px solid var(--color-accent); padding-left: 1rem; margin-top: 3rem;">Operational Excellence</h3>
+        <p>{{ site.data.portfolio.leadership.philosophy.excellence }}</p>
       </div>
       
       <div>
