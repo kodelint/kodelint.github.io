@@ -571,8 +571,15 @@ button[type="submit"]:hover {
   padding: 0;
 }
 
+.sidebar-toc ul ul {
+  padding-left: 1.2rem;
+  margin-top: 0.4rem;
+  border-left: 1px solid var(--border-subtle);
+}
+
 .sidebar-toc li {
   margin-bottom: 0.6rem;
+  position: relative;
 }
 
 .sidebar-toc a {
