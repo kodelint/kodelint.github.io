@@ -624,6 +624,14 @@ a {
   justify-content: center;
   font-size: 1.2rem;
   flex-shrink: 0;
+  background-color: var(--color-bg-alt);
+  color: var(--color-heading);
+  transition: all 0.2s ease;
+}
+
+.c-socials a:hover .c-social-icon-box {
+  background-color: var(--color-accent);
+  color: white;
 }
 
 .c-social-label {
