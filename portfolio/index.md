@@ -7,20 +7,35 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
 <!-- Hero Section -->
 <section class="p-hero">
   <div class="p-container">
-    <h1 class="p-name">{{ site.data.portfolio.home.name }}</h1>
-    <div class="p-role">{{ site.data.portfolio.home.role }}</div>
-    <p class="p-subhead">{{ site.data.portfolio.home.subhead }}</p>
-    
-    <div class="p-cta-group">
-      <a href="{{ "/portfolio/case-studies/" | relative_url }}" class="p-btn p-btn-primary">View Case Studies</a>
-      <a href="{{ "/portfolio/resume/" | relative_url }}" class="p-btn p-btn-outline">Download Resume</a>
-    </div>
+    <div class="hero-grid">
+      <!-- Left Column: Primary Content -->
+      <div class="hero-content">
+        <h1 class="p-name">Satyajit Roy</h1>
+        <h2 class="p-role-subtitle">Engineering Executive | Platform, SRE & AI Infrastructure</h2>
+        <p class="p-subhead">I design, scale, and lead hyperscale platforms delivering reliability, efficiency, and clarity at internet scale.</p>
+        
+        <div class="p-cta-group">
+          <a href="{{ "/portfolio/case-studies/" | relative_url }}" class="p-btn p-btn-primary">View Case Studies</a>
+          <a href="{{ "/portfolio/resume/" | relative_url }}" class="p-btn p-btn-outline">Download Resume</a>
+        </div>
+      </div>
 
-    <div class="p-metrics-strip">
+      <!-- Right Column: Visual -->
+      <div class="hero-visual">
+        <div class="hero-placeholder-graphic"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Impact Snapshot Section -->
+<section class="p-section-impact">
+  <div class="p-container">
+    <div class="impact-grid">
       {% for metric in site.data.portfolio.home.metrics %}
-      <div class="p-metric-item">
-        <span class="p-metric-value">{{ metric.value }}</span>
-        <span class="p-metric-label">{{ metric.title }}</span>
+      <div class="impact-card">
+        <span class="impact-value">{{ metric.value }}</span>
+        <span class="impact-caption">{{ metric.title }}</span>
       </div>
       {% endfor %}
     </div>
@@ -28,32 +43,45 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
 </section>
 
 <!-- Case Studies Section -->
-<section class="p-section">
+<section class="p-section" style="padding-top: 6rem; padding-bottom: 6rem;">
   <div class="p-container">
     <div class="section-header">
-      <h2 class="section-title">Selected Case Studies</h2>
+      <h2 class="section-title">Featured Case Studies</h2>
       <a href="{{ "/portfolio/case-studies/" | relative_url }}" class="section-link">View All Work &rarr;</a>
     </div>
     
-    <div class="p-grid-2">
+    <div class="cs-stack">
       {% for case in site.data.portfolio.case_studies limit:4 %}
-      <div class="p-card">
-        <div class="p-card-role">{{ case.role | truncate: 40 }}</div>
-        <h3 class="p-card-title">{{ case.title }}</h3>
-        
-        <div class="p-card-outcome">
-          <span class="p-card-outcome-value">{{ case.outcome }}</span>
+      <div class="cs-card">
+        <!-- Top Row -->
+        <div class="cs-card-header">
+          <h3 class="cs-card-title">{{ case.title }}</h3>
+          <span class="cs-card-org">{{ case.role | truncate: 40 }}</span>
         </div>
-        
-        <p class="p-card-summary">{{ case.problem }}</p>
-        
-        <div class="p-card-footer">
+
+        <!-- Middle Row -->
+        <div class="cs-card-body">
+          <div class="cs-card-summary">
+            <p>{{ case.problem }}</p>
+          </div>
+          <div class="cs-card-outcomes">
+            <ul>
+              <li><strong style="color: var(--color-accent);">{{ case.outcome }}</strong></li>
+              {% for point in case.impact limit:2 %}
+              <li>{{ point }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Row -->
+        <div class="cs-card-footer">
           <div class="p-tags">
-            {% for tag in case.tags limit:2 %}
+            {% for tag in case.tags limit:3 %}
             <span class="p-tag">{{ tag }}</span>
             {% endfor %}
           </div>
-          <a href="{{ "/portfolio/case-studies/" | relative_url }}#{{ case.id }}" style="color: var(--color-accent); font-weight: 600; font-size: 0.9rem;">Read Case Study &rarr;</a>
+          <a href="{{ "/portfolio/case-studies/" | relative_url }}#{{ case.id }}" class="cs-card-cta">Read Full Case Study &rarr;</a>
         </div>
       </div>
       {% endfor %}
@@ -61,69 +89,150 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
   </div>
 </section>
 
-<!-- Why Work With Me Section -->
-<section class="p-why-section">
+<!-- How I Work Section -->
+<section class="p-section-values">
   <div class="p-container">
-    <div class="p-why-grid">
-      <div>
-        <h2 style="color: white; margin-bottom: 2rem;">Why Work With Me</h2>
-        <ul class="p-why-list">
-          {% for point in site.data.portfolio.home.why_work %}
-          <li class="p-why-item">
-            <i class="fas fa-check p-why-icon"></i>
-            <span>{{ point }}</span>
-          </li>
-          {% endfor %}
-        </ul>
-        <div style="margin-top: 3rem;">
-          <a href="{{ "/portfolio/contact/" | relative_url }}" class="p-btn p-btn-primary" style="background: white; color: var(--color-bg-dark); border-color: white;">Let's Connect</a>
-        </div>
+    <div class="section-header" style="border-bottom: none; margin-bottom: 3rem;">
+      <h2 class="section-title" style="color: var(--color-heading);">How I Work</h2>
+      <span style="color: var(--color-text-light); font-weight: 500;">Leadership & Philosophy</span>
+    </div>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <i class="fas fa-network-wired value-icon"></i>
+        <h3 class="value-title">Systems Thinking</h3>
+        <p class="value-desc">I approach engineering organizations as distributed systems—optimizing for flow, feedback loops, and resilience at scale.</p>
       </div>
       
-      <div class="text-center">
-         <blockquote class="p-why-quote">
-          "I specialize in turning technical risk into business value by building resilient, high-scale engineering organizations."
-        </blockquote>
+      <div class="value-card">
+        <i class="fas fa-users-cog value-icon"></i>
+        <h3 class="value-title">Empowered Teams</h3>
+        <p class="value-desc">I build high-trust cultures where engineers own their outcomes, with clear paths for growth and autonomy.</p>
+      </div>
+
+      <div class="value-card">
+        <i class="fas fa-shield-alt value-icon"></i>
+        <h3 class="value-title">Operational Excellence</h3>
+        <p class="value-desc">Reliability is a feature. I champion SRE principles to shift from reactive firefighting to proactive stability.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Featured Writing & OSS -->
+<!-- Open Source & Writing Section -->
+
 <section class="p-section p-section-alt">
-  <div class="p-container">
-    <div class="section-header">
-      <h2 class="section-title">Writing & Open Source</h2>
-      <a href="{{ "/portfolio/writing/" | relative_url }}" class="section-link">View All Writing &rarr;</a>
-    </div>
-    
-    <div class="p-grid-3">
-      <!-- Featured Writing -->
-      {% for post in site.data.portfolio.writing limit:2 %}
-      <div class="p-card" style="border-top: 4px solid var(--color-accent);">
-        <div class="p-card-role" style="color: var(--color-accent);">{{ post.type }}</div>
-        <h4 class="p-card-title" style="font-size: 1.25rem;">{{ post.title }}</h4>
-        <p class="p-card-summary" style="font-size: 0.95rem;">{{ post.summary }}</p>
-        <div class="p-card-footer">
-          <a href="{{ post.link | relative_url }}" style="font-weight: 600; font-size: 0.9rem;">Read Article &rarr;</a>
-        </div>
-      </div>
-      {% endfor %}
 
-      <!-- Featured OSS -->
-       {% for project in site.data.portfolio.oss limit:1 %}
-      <div class="p-card" style="border-top: 4px solid #10b981;">
-        <div class="p-card-role" style="color: #10b981;">Open Source</div>
-        <h4 class="p-card-title" style="font-size: 1.25rem;">{{ project.title }}</h4>
-        <p class="p-card-summary" style="font-size: 0.95rem;">{{ project.problem }}</p>
-         <div class="p-card-outcome" style="margin-top: 1rem; margin-bottom: 0;">
-          <span class="p-card-outcome-value" style="font-size: 1rem; color: #10b981;">{{ project.impact }}</span>
+  <div class="p-container">
+
+    <div class="p-grid-2">
+
+      <!-- Column A: Open Source -->
+
+      <div class="oss-column">
+
+        <div class="section-header" style="border-bottom: none; margin-bottom: 2rem;">
+
+          <h2 class="section-title"><i class="fab fa-github" style="margin-right: 0.5rem;"></i> Open Source</h2>
+
+          <a href="{{ "/portfolio/oss/" | relative_url }}" class="section-link">View All &rarr;</a>
+
         </div>
-        <div class="p-card-footer">
-          <a href="{{ project.repo }}" target="_blank" style="font-weight: 600; font-size: 0.9rem;">View Repo &rarr;</a>
+
+        
+
+        <div class="oss-stack">
+
+          {% for project in site.data.portfolio.oss limit:3 %}
+
+          <div class="content-card">
+
+            <h4 class="content-title">{{ project.title }}</h4>
+
+            <p class="content-desc">{{ project.problem }}</p>
+
+            <a href="{{ project.repo }}" target="_blank" class="content-link"><i class="fab fa-github"></i> View Repo</a>
+
+          </div>
+
+          {% endfor %}
+
         </div>
+
       </div>
-      {% endfor %}
+
+
+
+      <!-- Column B: Writing -->
+
+      <div class="writing-column">
+
+        <div class="section-header" style="border-bottom: none; margin-bottom: 2rem;">
+
+          <h2 class="section-title"><i class="fas fa-pen-nib" style="margin-right: 0.5rem;"></i> Writing</h2>
+
+          <a href="{{ "/portfolio/writing/" | relative_url }}" class="section-link">View All &rarr;</a>
+
+        </div>
+
+        
+
+        <div class="writing-stack">
+
+          {% for post in site.data.portfolio.writing limit:3 %}
+
+          <div class="content-card">
+
+            <h4 class="content-title">{{ post.title }}</h4>
+
+            <p class="content-desc">{{ post.summary }}</p>
+
+            <div class="content-footer">
+
+              <span class="content-tag">{{ post.type }}</span>
+
+              <a href="{{ post.link | relative_url }}" class="content-link">Read Article &rarr;</a>
+
+            </div>
+
+          </div>
+
+          {% endfor %}
+
+        </div>
+
+      </div>
+
     </div>
+
   </div>
+
 </section>
+
+
+
+<!-- Final CTA Section -->
+
+<section class="p-section-cta">
+
+  <div class="p-container">
+
+    <div class="cta-content">
+
+      <h2 class="cta-headline">Interested in platform leadership, architecture reviews, or collaboration?</h2>
+
+      <div class="cta-buttons">
+
+        <a href="{{ "/portfolio/contact/" | relative_url }}" class="p-btn p-btn-primary">Contact Me</a>
+
+        <a href="https://www.linkedin.com/in/satyajitroychoudhury/" target="_blank" class="p-btn p-btn-outline">LinkedIn</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
