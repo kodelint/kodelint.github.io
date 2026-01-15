@@ -34,30 +34,30 @@ description: Get in touch with Satyajit Roy Choudhury regarding engineering lead
     <h2 style="margin-bottom: 1rem;">Uplink Channels</h2>
     <p style="margin-bottom: 3rem; color: var(--color-text);">Preferred method of contact is via LinkedIn or Email.</p>
     
-    <div class="c-socials" style="margin-top: 0; gap: 3rem;">
-      <a href="mailto:talk2sroy.ch@gmail.com" title="Email" style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; border: none;">
-        <div style="width: 60px; height: 60px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); color: #ea4335;">
+    <div class="c-socials">
+      <a href="mailto:talk2sroy.ch@gmail.com" title="Email">
+        <div class="c-social-icon-box" style="background: #fef2f2; color: #ea4335;">
           <i class="fas fa-envelope"></i>
         </div>
-        <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-heading);">EMAIL</span>
+        <span class="c-social-label">Email</span>
       </a>
-      <a href="https://www.linkedin.com/in/satyajitroychoudhury/" target="_blank" title="LinkedIn" style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; border: none;">
-        <div style="width: 60px; height: 60px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); color: #0077b5;">
+      <a href="https://www.linkedin.com/in/satyajitroychoudhury/" target="_blank" title="LinkedIn">
+        <div class="c-social-icon-box" style="background: #eff6ff; color: #0077b5;">
           <i class="fab fa-linkedin"></i>
         </div>
-        <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-heading);">LINKEDIN</span>
+        <span class="c-social-label">LinkedIn</span>
       </a>
-      <a href="https://github.com/kodelint" target="_blank" title="GitHub" style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; border: none;">
-        <div style="width: 60px; height: 60px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); color: #333;">
+      <a href="https://github.com/kodelint" target="_blank" title="GitHub">
+        <div class="c-social-icon-box" style="background: #f3f4f6; color: #333;">
           <i class="fab fa-github"></i>
         </div>
-        <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-heading);">GITHUB</span>
+        <span class="c-social-label">GitHub</span>
       </a>
-      <a href="https://twitter.com/__initialized__" target="_blank" title="Twitter/X" style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; border: none;">
-        <div style="width: 60px; height: 60px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); color: #000;">
+      <a href="https://twitter.com/__initialized__" target="_blank" title="Twitter/X">
+        <div class="c-social-icon-box" style="background: #f3f4f6; color: #000;">
           <i class="fab fa-x-twitter"></i>
         </div>
-        <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-heading);">TWITTER</span>
+        <span class="c-social-label">Twitter</span>
       </a>
     </div>
   </div>
