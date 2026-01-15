@@ -56,7 +56,7 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
         <!-- Top Row -->
         <div class="cs-card-header">
           <h3 class="cs-card-title">{{ case.title }}</h3>
-          <span class="cs-card-org">{{ case.role | truncate: 40 }}</span>
+          <span class="cs-card-org">{{ case.role }}</span>
         </div>
 
         <!-- Middle Row -->
