@@ -22,7 +22,7 @@ home:
 case_studies:
   - id: adobe-hyperscale
     title: "Hyperscale ML/Search Platform at Adobe"
-    outcome: "30B requests, GPU utilization +38%"
+    outcome: "Multi Billion requests, GPU utilization +38%"
     context: "Adobe's Core Search and Sensei platform serves as the intelligence layer behind flagship products, processing 30B+ daily requests."
     role: "Architect & Technical Leader. Led a senior platform team."
     problem: "AI/ML workloads were outgrowing the existing infrastructure, creating scaling, latency, and cost challenges."
