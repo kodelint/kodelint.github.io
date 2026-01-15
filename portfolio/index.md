@@ -22,7 +22,7 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
 
       <!-- Right Column: Visual -->
       <div class="hero-visual">
-        <div class="hero-placeholder-graphic"></div>
+        <img src="{{ "/assets/uploads/Portfolio.png" | relative_url }}" alt="Satyajit Roy" class="hero-image">
       </div>
     </div>
   </div>
