@@ -24,7 +24,7 @@ case_studies:
     title: "Hyperscale ML/Search Platform at Adobe"
     outcome: "Multi Billion requests, GPU utilization +38%"
     context: "Adobe's Core Search and Sensei platform serves as the intelligence layer behind flagship products, processing 30B+ daily requests."
-    role: "Architect & Technical Leader. Led a senior platform team."
+    role: "Architect & Technical Leader."
     problem: "AI/ML workloads were outgrowing the existing infrastructure, creating scaling, latency, and cost challenges."
     constraints: "Sub‑5ms P95 latency, strict data governance, and legacy systems that couldn’t be disrupted."
     solution:
@@ -93,7 +93,7 @@ case_studies:
     title: "Enterprise CI/CD & Platform Modernization at Macys.com"
     outcome: "Near-zero downtime releases"
     context: "Macy’s needed a modern deployment platform to support rapid retail innovation and peak‑season reliability."
-    role: "Tech Leader. Led enterprise-wide platform modernization."
+    role: "Architect & Technical Leader."
     problem: "Deployments were slow, manual, and risky — causing downtime during revenue‑critical periods."
     constraints: "High‑traffic retail workloads, legacy on‑prem systems, and multi‑cloud fragmentation."
     solution:
