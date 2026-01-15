@@ -62,11 +62,13 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
         <!-- Middle Row -->
         <div class="cs-card-body">
           <div class="cs-card-summary">
+            <p style="font-size: 1.05rem; font-weight: 600; color: var(--color-text-light); margin-bottom: 1rem; font-family: var(--font-sans);">{{ case.context }}</p>
             <p>{{ case.problem }}</p>
           </div>
           <div class="cs-card-outcomes">
+            <span class="cs-label">Impact & Metrics</span>
             <ul>
-              <li><strong style="color: var(--color-accent);">{{ case.outcome }}</strong></li>
+              <li><strong style="color: var(--color-accent); font-size: 1.1rem;">{{ case.outcome }}</strong></li>
               {% for point in case.impact limit:2 %}
               <li>{{ point }}</li>
               {% endfor %}
