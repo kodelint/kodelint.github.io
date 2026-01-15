@@ -16,109 +16,251 @@ description: Deep dives into SRE transformation, hyperscale ML infra, and cost o
 
 
 
-  <div class="cs-stack" style="padding-bottom: 5rem;">
-
-    {% for case in site.data.portfolio.case_studies %}
-
-    <div id="{{ case.id }}" class="cs-card">
-
-      
-
-      <!-- Header: Title & Context -->
-
-      <div class="cs-card-header" style="border-bottom: 1px solid var(--color-border); padding-bottom: 1.5rem; margin-bottom: 2rem;">
-
-        <div style="flex: 1;">
-
-          <span class="cs-badge" style="margin-bottom: 0.5rem;">Case Study</span>
-
-          <h2 class="cs-card-title">{{ case.title }}</h2>
-
-          <p class="cs-context" style="margin-top: 0.5rem;">{{ case.context }}</p>
-
-        </div>
-
-      </div>
+    <div class="cs-stack" style="padding-bottom: 5rem;">
 
 
 
-      <!-- Body: 2-Column Executive Layout -->
+      {% for case in site.data.portfolio.case_studies %}
 
-      <div class="p-grid-2" style="gap: 4rem; margin-bottom: 2rem;">
+
+
+      <div id="{{ case.id }}" class="cs-card">
+
+
 
         
 
-        <!-- Left Column: Challenge & Solution -->
 
-        <div>
 
-          <div class="cs-block">
-
-            <span class="cs-label">The Challenge</span>
-
-            <p>{{ case.problem }}</p>
-
-            <p style="font-size: 0.9rem; color: var(--color-text-light); margin-top: 0.5rem;"><strong>Constraints:</strong> {{ case.constraints }}</p>
-
-          </div>
+        <!-- Top Row: Match Home Page exactly -->
 
 
 
-          <div class="cs-block">
+        <div class="cs-card-header">
 
-            <span class="cs-label" style="color: var(--color-accent);">Strategic Solution</span>
 
-            <ul class="cs-list">
 
-              {% for step in case.solution %}
+          <h2 class="cs-card-title">{{ case.title }}</h2>
 
-              <li style="font-weight: 500;">{{ step }}</li>
 
-              {% endfor %}
 
-            </ul>
+          <span class="cs-card-org">{{ case.role }}</span>
 
-          </div>
+
 
         </div>
 
 
 
-        <!-- Right Column: Impact & Stats -->
+  
 
-        <div>
 
-          <div class="cs-block">
 
-            <span class="cs-label">Measurable Outcomes</span>
+        <!-- Middle Row: 8/4 split layout matching Home Page -->
 
-            <div class="cs-impact-grid" style="grid-template-columns: 1fr; gap: 1rem;">
 
-              {% for result in case.impact %}
 
-              <div class="cs-impact-card" style="padding: 1rem; min-height: auto; text-align: left; justify-content: flex-start;">
+        <div class="cs-card-body">
 
-                <span>{{ result }}</span>
 
-              </div>
 
-              {% endfor %}
+          <!-- Left: Deep Dive -->
+
+
+
+          <div class="cs-card-summary">
+
+
+
+            <p class="cs-context" style="margin-bottom: 1.5rem; font-weight: 600; font-family: var(--font-sans); color: var(--color-text-light);">{{ case.context }}</p>
+
+
+
+            
+
+
+
+            <div class="cs-block">
+
+
+
+              <span class="cs-label">The Challenge</span>
+
+
+
+              <p>{{ case.problem }}</p>
+
+
+
+              <p style="font-size: 0.9rem; color: var(--color-text-light); margin-top: 0.5rem;"><strong>Constraints:</strong> {{ case.constraints }}</p>
+
+
 
             </div>
 
+
+
+  
+
+
+
+            <div class="cs-block">
+
+
+
+              <span class="cs-label" style="color: var(--color-accent);">Strategic Solution</span>
+
+
+
+              <ul class="cs-list">
+
+
+
+                {% for step in case.solution %}
+
+
+
+                <li style="font-weight: 500;">{{ step }}</li>
+
+
+
+                {% endfor %}
+
+
+
+              </ul>
+
+
+
+            </div>
+
+
+
           </div>
 
 
 
-          <div class="cs-block">
+  
 
-            <span class="cs-label">Role & Scope</span>
 
-            <p style="font-size: 0.95rem;">{{ case.role }}</p>
+
+          <!-- Right: Outcomes & Lessons -->
+
+
+
+          <div class="cs-card-outcomes">
+
+
+
+            <span class="cs-label">Impact & Metrics</span>
+
+
+
+            <ul>
+
+
+
+              <li><strong style="color: var(--color-accent); font-size: 1.1rem;">{{ case.outcome }}</strong></li>
+
+
+
+              {% for point in case.impact %}
+
+
+
+              <li>{{ point }}</li>
+
+
+
+              {% endfor %}
+
+
+
+            </ul>
+
+
+
+  
+
+
+
+            <div class="cs-block" style="margin-top: 2.5rem;">
+
+
+
+              <span class="cs-label">Key Lessons</span>
+
+
+
+              <ul class="cs-list" style="font-size: 0.95rem; color: var(--color-text);">
+
+
+
+                {% for lesson in case.lessons %}
+
+
+
+                <li>{{ lesson }}</li>
+
+
+
+                {% endfor %}
+
+
+
+              </ul>
+
+
+
+            </div>
+
+
 
           </div>
+
+
 
         </div>
+
+
+
+  
+
+
+
+        <!-- Bottom Row: Tags -->
+
+
+
+        <div class="cs-card-footer">
+
+
+
+          <div class="p-tags">
+
+
+
+            {% for tag in case.tags %}
+
+
+
+            <span class="p-tag">{{ tag }}</span>
+
+
+
+            {% endfor %}
+
+
+
+          </div>
+
+
+
+        </div>
+
+
+
+  
 
 
 
@@ -126,40 +268,14 @@ description: Deep dives into SRE transformation, hyperscale ML infra, and cost o
 
 
 
-      <!-- Footer: Lessons & Tags -->
-
-      <div class="cs-card-footer" style="background: var(--color-bg-alt); margin: 0 -2rem -2rem -2rem; padding: 2rem; border-top: 1px solid var(--color-border); align-items: flex-start; flex-direction: column;">
-
-        <span class="cs-label" style="margin-bottom: 1rem;">Key Lessons Learned</span>
-
-        <ul class="cs-list" style="margin-bottom: 1.5rem; color: var(--color-text);">
-
-          {% for lesson in case.lessons %}
-
-          <li>{{ lesson }}</li>
-
-          {% endfor %}
-
-        </ul>
-
-        <div class="p-tags">
-
-          {% for tag in case.tags %}
-
-          <span class="p-tag">{{ tag }}</span>
-
-          {% endfor %}
-
-        </div>
-
-      </div>
+      {% endfor %}
 
 
 
     </div>
 
-    {% endfor %}
 
-  </div>
+
+  
 
 </div>
