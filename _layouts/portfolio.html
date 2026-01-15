@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} | Satyajit Roy</title>
+  <title>{{ page.title }} | Satyajit Roy - Engineering Executive</title>
   
   {% seo %}
   
@@ -26,6 +26,7 @@
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav class="p-nav">
     <div class="p-container p-nav-inner">
       <a href="{{ "/portfolio/" | relative_url }}" class="p-logo">Satyajit Roy</a>
@@ -36,7 +37,7 @@
         <a href="{{ "/portfolio/writing/" | relative_url }}" class="p-link {% if page.url contains 'writing' %}active{% endif %}">Writing</a>
         <a href="{{ "/portfolio/oss/" | relative_url }}" class="p-link {% if page.url contains 'oss' %}active{% endif %}">OSS</a>
         <a href="{{ "/portfolio/resume/" | relative_url }}" class="p-link {% if page.url contains 'resume' %}active{% endif %}">Resume</a>
-        <a href="{{ "/portfolio/contact/" | relative_url }}" class="p-link {% if page.url contains 'contact' %}active{% endif %}">Contact</a>
+        <a href="{{ "/portfolio/contact/" | relative_url }}" class="p-btn p-btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Contact</a>
       </div>
     </div>
   </nav>
@@ -47,13 +48,17 @@
 
   <footer class="p-footer">
     <div class="p-container">
-      <p>&copy; {{ site.time | date: '%Y' }} Satyajit Roy. All rights reserved.</p>
-      <div style="margin-top: 1rem;">
-        <a href="https://www.linkedin.com/in/satyajitroychoudhury/" target="_blank" style="margin: 0 0.5rem;"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/kodelint" target="_blank" style="margin: 0 0.5rem;"><i class="fab fa-github"></i></a>
-        <a href="https://twitter.com/__initialized__" target="_blank" style="margin: 0 0.5rem;"><i class="fab fa-x-twitter"></i></a>
-        <a href="mailto:talk2sroy.ch@gmail.com" style="margin: 0 0.5rem;" title="Personal Site"><i class="fas fa-envelope"></i></a>
+      <h3 style="font-size: 1.5rem; margin-bottom: 1rem; font-family: var(--font-serif); color: var(--color-heading);">Satyajit Roy</h3>
+      <p style="margin-bottom: 2rem; color: var(--color-text-light);">Building the platforms that power the future.</p>
+      
+      <div class="p-social-links">
+        <a href="https://www.linkedin.com/in/satyajitroychoudhury/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/kodelint" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/__initialized__" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="mailto:talk2sroy.ch@gmail.com"><i class="fas fa-envelope"></i></a>
       </div>
+      
+      <p style="margin-top: 3rem; font-size: 0.85rem; color: var(--color-text-light);">&copy; {{ site.time | date: '%Y' }} Satyajit Roy. All rights reserved.</p>
     </div>
   </footer>
 
