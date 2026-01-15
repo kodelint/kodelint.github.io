@@ -138,6 +138,11 @@ a {
   background-color: var(--color-accent);
 }
 
+.p-link-primary {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
 /* Hero Section - The "Director" Look */
 .p-hero {
   padding: 8rem 0 6rem;
@@ -431,11 +436,11 @@ a {
 
 /* Contact Page Socials */
 .c-socials {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  align-items: center;
-  margin-top: 2rem;
+  max-width: 600px;
+  margin: 2rem auto 0;
 }
 
 .c-socials a {
@@ -443,10 +448,8 @@ a {
   align-items: center;
   gap: 1rem;
   text-decoration: none;
-  width: 100%;
-  max-width: 300px;
   background: white;
-  padding: 1rem;
+  padding: 1.25rem;
   border-radius: 8px;
   border: 1px solid var(--color-border);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -478,23 +481,15 @@ a {
 }
 
 @media (max-width: 768px) {
-
   .p-name { font-size: 3rem; }
-
   .p-grid-2 { grid-template-columns: 1fr; }
-
   .p-cta-group { flex-direction: column; }
-
   .p-metrics-strip { flex-wrap: wrap; gap: 1rem; }
-
   .p-metric-item { min-width: 45%; }
-
   .p-why-grid { grid-template-columns: 1fr; }
-
   .p-nav-inner { flex-direction: column; gap: 1rem; }
-
   .p-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
-
+  .c-socials { grid-template-columns: 1fr; }
 }
 
 
