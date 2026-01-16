@@ -692,6 +692,18 @@ a {
   margin-bottom: 2rem;
 }
 
+.cs-card-context {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  margin-bottom: 1rem;
+  font-family: var(--font-sans);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .cs-card-summary p {
   font-size: 1.1rem;
   line-height: 1.6;
@@ -1094,6 +1106,7 @@ a {
 
   
 
+  
   .p-sticky {
 
     position: sticky;
@@ -1101,5 +1114,89 @@ a {
     top: 100px;
 
   }
+
+/* --- Added for Redesign Feedback --- */
+
+/* Abstract Hero Visual */
+.hero-visual-abstract {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: radial-gradient(circle at 50% 50%, rgba(84, 110, 122, 0.05) 0%, transparent 70%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.abstract-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  background: var(--color-accent);
+  opacity: 0.1;
+  top: 10%;
+  right: 10%;
+}
+
+.shape-2 {
+  width: 200px;
+  height: 200px;
+  background: var(--color-primary);
+  opacity: 0.08;
+  bottom: 10%;
+  left: 20%;
+}
+
+.shape-3 {
+  width: 100px;
+  height: 100px;
+  background: #38bdf8;
+  opacity: 0.15;
+  top: 40%;
+  right: 40%;
+}
+
+/* Tablet Layout for Metrics */
+@media (max-width: 1024px) {
+  .impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile Sticky CTA */
+.p-mobile-sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+  z-index: 2000;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.p-mobile-sticky-cta .p-btn {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .p-mobile-sticky-cta {
+    display: block;
+  }
+  
+  /* Add padding to body so content isn't hidden behind sticky CTA */
+  body {
+    padding-bottom: 80px; 
+  }
+}
+
 
   

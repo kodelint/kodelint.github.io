@@ -21,7 +21,12 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
 
       <!-- Right Column: Visual -->
       <div class="hero-visual">
-        <img src="{{ "/assets/uploads/Portfolio.png" | relative_url }}" alt="Satyajit Roy" class="hero-image">
+        <div class="hero-visual-abstract">
+          <!-- Abstract System Illustration / Pattern -->
+          <div class="abstract-shape shape-1"></div>
+          <div class="abstract-shape shape-2"></div>
+          <div class="abstract-shape shape-3"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -60,7 +65,7 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
         <!-- Middle Row -->
         <div class="cs-card-body">
           <div class="cs-card-summary">
-            <p style="font-size: 1.05rem; font-weight: 600; color: var(--color-text-light); margin-bottom: 1rem; font-family: var(--font-sans);">{{ case.context }}</p>
+            <p class="cs-card-context">{{ case.context }}</p>
             <p>{{ case.problem }}</p>
           </div>
           <div class="cs-card-outcomes">
@@ -112,6 +117,9 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
         <h3 class="value-title">Operational Excellence</h3>
         <p class="value-desc">Reliability is a feature. I champion SRE principles to shift from reactive firefighting to proactive stability.</p>
       </div>
+    </div>
+    <div class="text-center" style="margin-top: 3rem;">
+        <a href="{{ "/portfolio/contact/" | relative_url }}" class="p-btn p-btn-primary">Work With Me</a>
     </div>
   </div>
 </section>
