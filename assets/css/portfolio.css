@@ -175,7 +175,10 @@ a {
 
 /* Hero Section - The "Director" Look */
 .p-hero {
-  padding: 8rem 0 4rem;
+  min-height: 80vh; /* Ensure dominant above-the-fold presence */
+  display: flex;
+  align-items: center;
+  padding: 6rem 0; /* Reduced top padding since flex centers it */
   background: var(--color-bg);
 }
 
@@ -208,7 +211,7 @@ a {
   font-size: 1.25rem; /* 18-20px */
   font-weight: 400;
   color: var(--color-text);
-  max-width: 600px;
+  max-width: 65ch;
   margin-bottom: 2.5rem;
   line-height: 1.6;
 }
@@ -790,6 +793,7 @@ a {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--color-text);
+  max-width: 60ch;
 }
 
 /* Final CTA Section */

@@ -105,17 +105,17 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
       <div class="value-card">
         <i class="fas fa-network-wired value-icon"></i>
         <h3 class="value-title">Systems Thinking</h3>
-        <p class="value-desc">I approach engineering organizations as distributed systems—optimizing for flow, feedback loops, and resilience at scale.</p>
+        <p class="value-desc">I approach engineering organizations as <strong>distributed systems</strong>—optimizing for <strong>flow</strong>, <strong>feedback loops</strong>, and <strong>resilience</strong> at scale.</p>
       </div>
       <div class="value-card">
         <i class="fas fa-users-cog value-icon"></i>
         <h3 class="value-title">Empowered Teams</h3>
-        <p class="value-desc">I build high-trust cultures where engineers own their outcomes, with clear paths for growth and autonomy.</p>
+        <p class="value-desc">I build <strong>high-trust cultures</strong> where engineers <strong>own their outcomes</strong>, with clear paths for <strong>growth</strong> and <strong>autonomy</strong>.</p>
       </div>
       <div class="value-card">
         <i class="fas fa-shield-alt value-icon"></i>
         <h3 class="value-title">Operational Excellence</h3>
-        <p class="value-desc">Reliability is a feature. I champion SRE principles to shift from reactive firefighting to proactive stability.</p>
+        <p class="value-desc"><strong>Reliability is a feature</strong>. I champion <strong>SRE principles</strong> to shift from reactive firefighting to <strong>proactive stability</strong>.</p>
       </div>
     </div>
     <div class="text-center" style="margin-top: 3rem;">
