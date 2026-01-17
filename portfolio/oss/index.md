@@ -5,18 +5,28 @@ description: Open source contributions and projects.
 ---
 
 <div class="p-container">
-  <div class="p-section">
+  <div class="p-section" style="padding-bottom: 1rem;">
     <h1>Open Source</h1>
     <p class="p-subhead">Tools and libraries contributing to the developer ecosystem.</p>
   </div>
 
-  <div class="p-section">
+  <div class="p-section" style="padding-top: 1rem;">
     <div class="p-grid-2">
       {% for project in site.data.portfolio.oss limit:4 %}
       <div class="p-card">
         <h3 class="p-card-title">{{ project.title }}</h3>
         <p style="margin-bottom: 1rem;">{{ project.problem }}</p>
         <p style="font-weight: 600; color: var(--color-accent); margin-bottom: 1.5rem;">Impact: {{ project.impact }}</p>
+        
+        <!-- Tags Section -->
+        {% if project.tags %}
+        <div class="p-tags" style="margin-bottom: 1.5rem;">
+          {% for tag in project.tags %}
+          <span class="p-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
         <a href="{{ project.repo }}" target="_blank" class="p-btn p-btn-outline">View Repository</a>
       </div>
       {% endfor %}

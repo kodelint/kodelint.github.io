@@ -18,7 +18,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  max-width: 1200px; /* Aligned with .page max-width */
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
 }
@@ -28,7 +28,7 @@ header {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 100%; /* Increased from 80% to use more space */
+  width: 100%;
 }
 
 .about-visual {
@@ -51,16 +51,14 @@ header {
 }
 
 /* Post/Project Grid Structure */
-.post-list,
-.project-list {
+.post-list, .project-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns for 1200px width */
+  grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
   margin-bottom: 4rem;
 }
 
-.post,
-.project {
+.post, .project {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -102,16 +100,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  header {
-    padding-top: 8rem;
-  }
-
-  .post-list,
-  .project-list {
-    grid-template-columns: 1fr;
-  }
-
-  .page {
-    padding-top: 4rem;
-  }
+  header { padding-top: 8rem; }
+  .post-list, .project-list { grid-template-columns: 1fr; }
+  .page { padding-top: 4rem; }
 }

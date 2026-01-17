@@ -32,8 +32,8 @@
       <a href="{{ "/portfolio/" | relative_url }}" class="p-logo">Satyajit Roy</a>
       <div class="p-links">
         <a href="{{ "/portfolio/" | relative_url }}" class="p-link {% if page.url == '/portfolio/' %}active{% endif %}">Home</a>
-        <a href="{{ "/portfolio/case-studies/" | relative_url }}" class="p-link {% if page.url contains 'case-studies' %}active{% endif %}">Case Studies</a>
         <a href="{{ "/portfolio/leadership/" | relative_url }}" class="p-link {% if page.url contains 'leadership' %}active{% endif %}">Leadership</a>
+        <a href="{{ "/portfolio/case-studies/" | relative_url }}" class="p-link {% if page.url contains 'case-studies' %}active{% endif %}">Case Studies</a>
         <a href="{{ "/portfolio/writing/" | relative_url }}" class="p-link {% if page.url contains 'writing' %}active{% endif %}">Writing</a>
         <a href="{{ "/portfolio/oss/" | relative_url }}" class="p-link {% if page.url contains 'oss' %}active{% endif %}">OSS</a>
         <a href="{{ "/portfolio/resume/" | relative_url }}" class="p-nav-btn-outline">Resume</a>
@@ -66,5 +66,27 @@
     <a href="{{ "/portfolio/contact/" | relative_url }}" class="p-btn p-btn-primary">Contact Me</a>
   </div>
 
+  <script>
+    // Scroll Reveal Animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal');
+
+      const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        const elementVisible = 150;
+
+        reveals.forEach((reveal) => {
+          const elementTop = reveal.getBoundingClientRect().top;
+          if (elementTop < windowHeight - elementVisible) {
+            reveal.classList.add('active');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', revealOnScroll);
+      // Trigger once on load
+      revealOnScroll();
+    });
+  </script>
 </body>
 </html>

@@ -5,12 +5,12 @@ description: Curated selection of technical writing on distributed systems, SRE,
 ---
 
 <div class="p-container">
-  <div class="p-section" style="border-bottom: none; padding-bottom: 2rem;">
-    <h1>Writing & Thoughts</h1>
+  <div class="p-section" style="border-bottom: none; padding-bottom: 1rem;">
+    <h1 style="font-family: var(--font-serif);">Writing & Thoughts</h1>
     <p class="p-subhead">Deep dives into distributed systems, SRE culture, and architectural patterns.</p>
   </div>
 
-  <div class="p-section">
+  <div class="p-section" style="padding-top: 1rem;">
     <div class="p-grid-2">
       {% for post in site.data.portfolio.writing %}
       <div class="p-card" style="display: flex; flex-direction: column;">
@@ -18,7 +18,7 @@ description: Curated selection of technical writing on distributed systems, SRE,
           <span class="cs-badge" style="margin-bottom: 0; background: var(--color-accent); color: white;">{{ post.type }}</span>
         </div>
         <h3 class="p-card-title" style="margin-bottom: 1rem; line-height: 1.4;">
-          <a href="{{ post.link }}" style="color: var(--color-heading); font-weight: 800;">{{ post.title }}</a>
+          <a href="{{ post.link | relative_url }}" style="color: var(--color-heading); font-weight: 800;">{{ post.title }}</a>
         </h3>
         <p style="margin-bottom: 1.5rem; flex-grow: 1; font-size: 0.95rem; color: var(--color-text);">{{ post.summary }}</p>
         
@@ -26,7 +26,7 @@ description: Curated selection of technical writing on distributed systems, SRE,
           <div style="font-size: 0.85rem; color: var(--color-text); margin-bottom: 1rem;">
             <strong style="color: var(--color-heading);">Why it matters:</strong> {{ post.why }}
           </div>
-          <a href="{{ post.link }}" class="p-btn p-btn-outline" style="width: 100%; text-align: center; font-size: 0.85rem;">Read Article &rarr;</a>
+          <a href="{{ post.link | relative_url }}" class="p-btn p-btn-outline" style="width: 100%; text-align: center; font-size: 0.85rem;">Read Article &rarr;</a>
         </div>
       </div>
       {% endfor %}

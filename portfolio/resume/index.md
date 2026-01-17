@@ -12,11 +12,11 @@ description: Professional Resume of Satyajit Roy Choudhury.
   </div>
 
   <div class="p-section">
-    <div class="resume-container" style="max-width: 900px; margin: 0 auto; background: white; padding: 4rem; border-radius: 12px; border: 1px solid var(--color-border); box-shadow: 0 10px 30px rgba(0,0,0,0.05); font-family: 'Lora', serif;">
+    <div class="resume-container" style="max-width: 900px; margin: 0 auto; background: white; padding: 4rem; border-radius: 12px; border: 1px solid var(--color-border); box-shadow: 0 10px 30px rgba(0,0,0,0.05); font-family: var(--font-sans);">
       
       <!-- Header -->
       <header style="text-align: center; margin-bottom: 3rem; border-bottom: 2px solid var(--color-heading); padding-bottom: 2rem;">
-        <h1 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.01em; font-family: var(--font-sans);">SATYAJIT ROY CHOUDHURY</h1>
+        <h1 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.01em; font-family: var(--font-serif);">SATYAJIT ROY CHOUDHURY</h1>
         <p class="resume-header-tagline" style="font-weight: 700; color: var(--color-accent); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.25rem; white-space: nowrap;">Engineering Executive | 20+ years in US & India | Leader in Cloud, AI/ML Infra, and SRE Engineering</p>
         <div style="font-size: 0.85rem; color: var(--color-text); line-height: 1.6; font-weight: 500;">
           San Mateo, 94404 &bull; (561) 866-3499 &bull; <a href="mailto:talk2sroy.ch@gmail.com" style="color: var(--color-accent);">talk2sroy.ch@gmail.com</a> &bull;
@@ -82,7 +82,7 @@ description: Professional Resume of Satyajit Roy Choudhury.
             <h3 style="font-family: var(--font-sans); font-size: 1.3rem; font-weight: 700; margin: 0; color: var(--color-heading);">Director of Engineering and SRE</h3>
             <span style="font-family: var(--font-sans); font-weight: 600; color: var(--color-text-light); font-size: 0.95rem;">Aug 2024 — Present</span>
           </div>
-          <div style="font-family: 'Lora', serif; font-style: italic; font-weight: 500; color: var(--color-accent); margin-bottom: 1rem;">Arkose Labs – San Mateo, CA</div>
+          <div style="font-family: var(--font-sans); font-style: italic; font-weight: 500; color: var(--color-accent); margin-bottom: 1rem;">Arkose Labs – San Mateo, CA</div>
           <p style="margin-bottom: 1.25rem; font-size: 0.95rem; line-height: 1.6;">Owned platform engineering and SRE strategy for a high-growth fraud detection SaaS, accountable for reliability, security posture, cost efficiency, and scalability as the platform absorbed rapid enterprise-driven traffic growth.</p>
           <ul class="cs-list" style="font-size: 0.95rem; line-height: 1.6;">
             <li>Amplified platform modernization supporting <strong>7x transaction growth</strong>, re-architecting to EKS-based microservices with <strong>eBPF service mesh</strong> while sustaining <strong>99.9% SLA</strong> under attack traffic.</li>
@@ -99,7 +99,7 @@ description: Professional Resume of Satyajit Roy Choudhury.
             <h3 style="font-family: var(--font-sans); font-size: 1.3rem; font-weight: 700; margin: 0; color: var(--color-heading);">Sr. Director of Product Engineering & Head of SRE</h3>
             <span style="font-family: var(--font-sans); font-weight: 600; color: var(--color-text-light); font-size: 0.95rem;">Oct 2022 — April 2024</span>
           </div>
-          <div style="font-family: 'Lora', serif; font-style: italic; font-weight: 500; color: var(--color-accent); margin-bottom: 1rem;">F5 Inc – San Jose, CA</div>
+          <div style="font-family: var(--font-sans); font-style: italic; font-weight: 500; color: var(--color-accent); margin-bottom: 1rem;">F5 Inc – San Jose, CA</div>
           <p style="margin-bottom: 1.25rem; font-size: 0.95rem; line-height: 1.6;">Executive leader with full P&L accountability for Platform Engineering and Global SRE for F5’s Distributed Cloud SaaS platform, overseeing reliability, security, and cost efficiency for a globally distributed, security-critical platform.</p>
           <ul class="cs-list" style="font-size: 0.95rem; line-height: 1.6;">
             <li>Headed engineering and SRE organizations of <strong>55+ engineers</strong> as a manager of managers (3 Directors, 1 Senior Manager), owning hiring plans, headcount allocation, and operating budget.</li>
@@ -117,7 +117,7 @@ description: Professional Resume of Satyajit Roy Choudhury.
             <h3 style="font-family: var(--font-sans); font-size: 1.3rem; font-weight: 700; margin: 0; color: var(--color-heading);">Architect/Technical Leader</h3>
             <span style="font-family: var(--font-sans); font-weight: 600; color: var(--color-text-light); font-size: 0.95rem;">Aug 2018 — Oct 2022</span>
           </div>
-          <div style="font-family: 'Lora', serif; font-style: italic; font-weight: 500; color: var(--color-accent); margin-bottom: 1rem;">Adobe Inc – San Jose, CA</div>
+          <div style="font-family: var(--font-sans); font-style: italic; font-weight: 500; color: var(--color-accent); margin-bottom: 1rem;">Adobe Inc – San Jose, CA</div>
           <p style="margin-bottom: 1.25rem; font-size: 0.95rem; line-height: 1.6;">Technical leader for Adobe’s Core Search and Sensei Machine Learning platform, owning architecture and infrastructure for hyperscale ML/AI and search workloads.</p>
           <ul class="cs-list" style="font-size: 0.95rem; line-height: 1.6;">
             <li>Led a team of 12 senior platform and infrastructure engineers, setting architectural direction for Adobe’s Core Search and ML platforms used across the Search and Sensei ecosystem.</li>
@@ -135,7 +135,7 @@ description: Professional Resume of Satyajit Roy Choudhury.
             <h3 style="font-family: var(--font-sans); font-size: 1.3rem; font-weight: 700; margin: 0; color: var(--color-heading);">Tech Leader</h3>
             <span style="font-family: var(--font-sans); font-weight: 600; color: var(--color-text-light); font-size: 0.95rem;">Nov 2016 — Aug 2018</span>
           </div>
-          <div style="font-family: 'Lora', serif; font-style: italic; font-weight: 500; color: var(--color-accent); margin-bottom: 1rem;">Macys.com – San Francisco, CA</div>
+          <div style="font-family: var(--font-sans); font-style: italic; font-weight: 500; color: var(--color-accent); margin-bottom: 1rem;">Macys.com – San Francisco, CA</div>
           <p style="margin-bottom: 1.25rem; font-size: 0.95rem; line-height: 1.6;">Technical leader for enterprise-wide CI/CD and platform modernization supporting Macy’s and Bloomingdale’s e-commerce platforms.</p>
           <ul class="cs-list" style="font-size: 0.95rem; line-height: 1.6;">
             <li>Led a team of 15 engineers to design and deliver a <strong>company-wide CI/CD</strong> platform adopted across Macy’s and Bloomingdale’s engineering organizations.</li>
