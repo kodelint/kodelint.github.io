@@ -21,8 +21,8 @@ description: Professional Resume of Satyajit Roy Choudhury.
         <div style="font-size: 0.85rem; color: var(--color-text); line-height: 1.6; font-weight: 500;">
           San Mateo, 94404 &bull; (561) 866-3499 &bull; <a href="mailto:talk2sroy.ch@gmail.com" style="color: var(--color-accent);">talk2sroy.ch@gmail.com</a> &bull;
           <a href="https://linkedin.com/in/satyajitroychoudhury" target="_blank" style="color: #0077b5;">LinkedIn</a> &bull; 
-          <a href="/portfolio/" style="color: var(--color-accent);">Portfolio</a> &bull; 
-          <a href="/blogs" style="color: var(--color-accent);">Personal Site</a>
+          <a href="https://sroy.tech/portfolio" style="color: var(--color-accent);">Portfolio</a> &bull; 
+          <a href="https://sroy.tech" style="color: var(--color-accent);">Personal Site</a>
         </div>
       </header>
 
