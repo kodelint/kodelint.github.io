@@ -43,6 +43,29 @@ case_studies:
         link: "#"
     tags: ["AI/ML", "HPC", "Kubernetes"]
 
+  - id: adobe-elasticsearch-consolidation
+    title: "Enterprise Elasticsearch Consolidation at Adobe"
+    outcome: "Millions in annual savings, 30% cost reduction"
+    context: "Adobe’s search infrastructure was fragmented across 18+ managed clusters with varying versions, driving high licensing costs and operational complexity."
+    role: "Architect & Technical Leader"
+    problem: "Managed service lock-in and version fragmentation were creating a multi-million dollar licensing burden without the necessary operational control."
+    constraints: "10B+ documents, 6K/sec ingestion, zero-downtime migration requirement."
+    solution:
+      - "Migrated 18 managed AWS Elasticsearch clusters to a standardized, self-managed hybrid architecture."
+      - "Transitioned the entire stack from proprietary managed versions to a unified Open Source version."
+      - "Engineered automated data lifecycle and tiering policies for 10B+ documents."
+    impact:
+      - "Reduced annual Elasticsearch licensing costs by millions of dollars (30% net savings)."
+      - "Achieved full operational control over search performance and security posture."
+      - "Maintained sub-5ms P95 search latency while sustaining 6K/sec ingestion throughput."
+    lessons:
+      - "Standardization is the prerequisite for cost optimization at scale."
+      - "Moving to Open Source provides financial leverage and eliminates vendor lock-in."
+    artifacts:
+      - text: "Migration Strategy"
+        link: "#"
+    tags: ["Elasticsearch", "Open Source", "Cost Optimization"]
+
   - id: f5-sre-transformation
     title: "Global SRE Operating Model at F5"
     outcome: "55+ engineers, MTTR −73%"
@@ -59,12 +82,35 @@ case_studies:
       - "Lowered attrition by 10% by eliminating hero culture."
       - "Absorbed 400% growth in attack traffic without degradation."
     lessons:
-      - "Culture eats tools for breakfast — fix trust and clarity first."
+      - "Culture eats tools for breakfast, fix trust and clarity first."
       - "Compliance-as-code is the only sustainable path at enterprise velocity."
     artifacts:
       - text: "SRE Handbook"
         link: "#"
     tags: ["SRE", "Transformation", "Compliance"]
+
+  - id: f5-security-compliance
+    title: "FedRAMP High & Zero-Trust Architecture at F5"
+    outcome: "FedRAMP High, PCI-DSS, SOC 2"
+    context: "F5's Distributed Cloud platform required the highest levels of security to serve federal and highly regulated enterprise customers."
+    role: "Sr. Director of Product Engineering & Head of SRE"
+    problem: "Achieving and sustaining high-bar compliance (FedRAMP High) while maintaining rapid feature velocity in a multi-cloud environment."
+    constraints: "Global footprint (25+ PoPs), complex multi-tenant networking, and zero-trust requirements."
+    solution:
+      - "Architected a zero-trust platform using mutual TLS (mTLS), identity-based policy, and runtime eBPF monitoring."
+      - "Implemented 'Compliance-as-Code' to automate security guardrails across the entire CI/CD lifecycle."
+      - "Collaborated with the CISO to deliver FedRAMP High, PCI-DSS, and SOC 2 compliance through automated evidence collection."
+    impact:
+      - "Successfully achieved FedRAMP High, PCI-DSS, and SOC 2 certifications."
+      - "Accelerated feature velocity by 40% by shifting security and compliance left."
+      - "Delivered a unified security posture across 25+ global points of presence."
+    lessons:
+      - "Security is not a checkbox; it's a foundational architectural property."
+      - "Automated compliance is the only way to scale security in a distributed system."
+    artifacts:
+      - text: "Compliance Framework"
+        link: "#"
+    tags: ["Security", "FedRAMP", "Zero-Trust"]
 
   - id: arkose-finops
     title: "Platform Modernization & FinOps at Arkose Labs"
@@ -94,7 +140,7 @@ case_studies:
     outcome: "Near-zero downtime releases"
     context: "Macy’s needed a modern deployment platform to support rapid retail innovation and peak‑season reliability."
     role: "Architect & Technical Leader"
-    problem: "Deployments were slow, manual, and risky — causing downtime during revenue‑critical periods."
+    problem: "Deployments were slow, manual, and risky, causing downtime during revenue‑critical periods."
     constraints: "High‑traffic retail workloads, legacy on‑prem systems, and multi‑cloud fragmentation."
     solution:
       - "Built a modern CI/CD platform using Jenkins, Spinnaker, and Kubernetes."
@@ -125,7 +171,7 @@ case_studies:
       - "Maintained and evolved cloud‑native systems across multiple companies."
       - "Mentored engineers and led technical initiatives."
     lessons:
-      - "Distributed systems fundamentals stay constant — the ecosystem around them evolves."
+      - "Distributed systems fundamentals stay constant, the ecosystem around them evolves."
     artifacts:
       - text: "Confidence"
         link: "#"
@@ -136,7 +182,7 @@ leadership:
     mission: "Leadership is about removing friction technical, organizational, and cultural. So teams can move fast with clarity and confidence."
     hiring: "Ownership creates growth. I build teams where engineers own their services end‑to‑end, operate with autonomy, and have transparent paths to become senior leaders, architects, and managers. I invest heavily in mentorship, psychological safety, and clear expectations."
     balance: "Reliability is a first‑class feature. Embedding SRE principles early prevents firefighting later and creates a culture of sustainable delivery."
-    excellence: "Operational excellence is a mindset, not a checklist. I foster cultures where 'blameless' is more than a buzzword—it's how we learn. By treating every incident as a data point and every failure as an opportunity to harden our systems, we build resilience that is baked into our DNA."
+    excellence: "Operational excellence is a mindset, not a checklist. I foster cultures where 'blameless' is more than a buzzword, it's how we learn. By treating every incident as a data point and every failure as an opportunity to harden our systems, we build resilience that is baked into our DNA."
   metrics:
     - label: "Team Scaling"
       value: "7 to 55+ engineers"
@@ -150,19 +196,27 @@ leadership:
     - title: "Platform Architecture & HPC Modernization"
       desc: "Engineered next‑generation hybrid HPC and multi‑cloud platforms at Adobe and F5, integrating GPU‑accelerated AI/ML infrastructure, RDMA‑powered HPC clusters, and unified Kubernetes architectures to support 30B+ daily requests, hyperscale search, and global networking systems."
     - title: "Global SRE Operating Model"
-      desc: "Redesigned SRE into a follow‑the‑sun global organization with unified tooling, consistent incident response, and cross‑regional ownership—reducing burnout, improving reliability, and enabling 24/7 operational excellence across 25+ global PoPs."
+      desc: "Redesigned SRE into a follow‑the‑sun global organization with unified tooling, consistent incident response, and cross‑regional ownership, reducing burnout, improving reliability, and enabling 24/7 operational excellence across 25+ global PoPs."
     - title: "FinOps & Cloud Efficiency Governance"
       desc: "Built a cost‑aware engineering culture by implementing FinOps governance, real‑time cost visibility, and architectural optimization strategies that delivered 22–65% cloud savings across organizations without slowing product velocity."
     - title: "Security & Compliance Automation"
-      desc: "Delivered FedRAMP High, PCI‑DSS, and SOC 2 compliance by embedding zero‑trust, policy‑as‑code, mutual TLS, and runtime eBPF monitoring directly into platform architecture—turning compliance from a bottleneck into a competitive advantage."
+      desc: "Delivered FedRAMP High, PCI‑DSS, and SOC 2 compliance by embedding zero‑trust, policy‑as‑code, mutual TLS, and runtime eBPF monitoring directly into platform architecture, turning compliance from a bottleneck into a competitive advantage."
     - title: "Observability Modernization"
       desc: "Re‑architected observability stacks using ELK, Jaeger, OpenTelemetry, and ML‑based anomaly detection to create a unified, signal‑rich platform that reduced MTTR by up to 73% and enabled proactive detection of reliability risks."
     - title: "SRE On-Call Model"
       desc: "Transformed on‑call from reactive firefighting into a sustainable, data‑driven operating model with clear ownership, predictable escalation paths, and SLO‑aligned decision frameworks."
     - title: "Incident Command"
-      desc: "Established an Incident Command Academy that standardized calm, structured, high‑stakes response—dramatically reducing MTTR and improving cross‑team coordination during critical events."
+      desc: "Established an Incident Command Academy that standardized calm, structured, high‑stakes response, dramatically reducing MTTR and improving cross‑team coordination during critical events."
     - title: "Mentoring Framework"
-      desc: "Launched a 'Tour of Duty' leadership pipeline that rotates engineers through platform, SRE, and product teams—building cross‑functional empathy, accelerating senior‑level readiness, and strengthening organizational resilience."
+      desc: "Launched a 'Tour of Duty' leadership pipeline that rotates engineers through platform, SRE, and product teams, building cross‑functional empathy, accelerating senior‑level readiness, and strengthening organizational resilience."
+    - title: "Technical Roadmapping & OKRs"
+      desc: "Translated Board and C-suite priorities into multi-quarter engineering roadmaps and OKRs, aligning Cloud, SRE, and core product teams to deliver unified releases across complex portfolios."
+    - title: "Build vs Buy Strategy"
+      desc: "Led complex evaluations and vendor POCs across cloud, edge, and observability platforms, balancing in-house IP development with best-of-breed vendor solutions to optimize TCO."
+    - title: "Hybrid Cloud Architecture"
+      desc: "Designed and implemented robust hybrid cloud strategies spanning AWS, Azure, GCP, and on-prem environments—enabling consistent workload execution and financial elasticity at scale."
+    - title: "SLO-Based Release Governance"
+      desc: "Introduced data-driven release gates based on Service Level Objectives (SLOs), balancing the need for rapid feature delivery with the absolute requirement for system stability."
 
 writing:
   - title: "The Matryoshka Dolls of Modern Networking: A Technical Evolution"

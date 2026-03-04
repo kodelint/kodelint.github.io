@@ -76,7 +76,7 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
       <a href="{{ "/portfolio/case-studies/" | relative_url }}" class="section-link">View All Work &rarr;</a>
     </div>
     <div class="cs-stack">
-      {% for case in site.data.portfolio.case_studies limit:4 %}
+      {% for case in site.data.portfolio.case_studies limit:6 %}
       <div class="cs-card">
         <!-- Top Row -->
         <div class="cs-card-header">
