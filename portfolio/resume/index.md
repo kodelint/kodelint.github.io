@@ -254,7 +254,7 @@ description: Professional Resume of Satyajit Roy Choudhury.
         Engineering Executive | 20+ years in US &amp; India | Leader in Cloud, AI/ML Infra, and SRE Engineering
       </div>
       <div class="resume-contact">
-        San Mateo, 94404 &nbsp;|&nbsp; (561) 866-3499 &nbsp;|&nbsp; <a href="mailto:talk2sroy.ch@gmail.com">talk2sroy.ch@gmail.com</a> &nbsp;|&nbsp;
+        San Mateo, 94404 &nbsp;|&nbsp; (561) 866-3499 &nbsp;|&nbsp; <a href="mailto:emailme@sroy.tech">emailme@sroy.tech</a> &nbsp;|&nbsp;
         <a href="https://linkedin.com/in/satyajitroychoudhury/">LinkedIn</a> &nbsp;|&nbsp;
         <a href="https://sroy.tech/portfolio">Portfolio</a> &nbsp;|&nbsp;
         <a href="https://sroy.tech">Personal Site</a>
@@ -339,6 +339,22 @@ description: Professional Resume of Satyajit Roy Choudhury.
     </div>
 
     <div class="section-title">TECHNICAL EXPERIENCE</div>
+
+    <div class="experience-item">
+      <div class="experience-header">
+        <div class="job-title">Engineering Leader <span class="company-name">at Mandolin – San Francisco, CA</span></div>
+        <div class="job-date">March 2026 — Present</div>
+      </div>
+      <div class="job-summary">High-impact, hands-on leadership role driving the infrastructure and reliability function, focused on modernizing and scaling the core platform at a healthcare AI startup ($40M Series A, Greylock) automating specialty drug access for hundreds of clinics and health systems.</div>
+      <ul class="bullet-list">
+        <li>Directed the SRE function, rapidly accelerating platform modernization. Integrated AI-driven tooling (<strong>Resolve.ai</strong>) to automate incident triage, achieving a <strong>40% reduction in MTTR</strong> and streamlining operations.</li>
+        <li>Architected a zero-downtime migration to a multi-cluster GKE environment, significantly increasing fault tolerance and system resilience. Engineered scalable Kubernetes networking via Cilium/eBPF, deploying Robusta for rapid cluster troubleshooting. Led strategic database migration from MongoDB to Cloud SQL.</li>
+        <li>Standardized end-to-end delivery using ArgoCD and Pulumi. Explored <strong>Pulumi Neo</strong> for AI-assisted IaC and enforced strict compliance guardrails with OPA/Kyverno to meet GDPR and HIPAA requirements.</li>
+        <li>Established a FinOps framework via Kubecost and BigQuery, successfully driving a <strong>53% reduction in infrastructure costs</strong> while simultaneously supporting an expanding resource footprint.</li>
+        <li>Hardened platform security with continuous vulnerability scanning (Wiz, Snyk) and robust secrets management. Designed scalable, secure access to internal cluster UIs via GCP IAP.</li>
+        <li>Built the infrastructure team from inception. Accelerated developer velocity by launching internal portals (Cortex/Backstage) powered by <strong>Glean's AI enterprise search</strong>, reducing onboarding and knowledge discovery time by <strong>over 50%</strong>.</li>
+      </ul>
+    </div>
 
     <div class="experience-item">
       <div class="experience-header">
