@@ -251,51 +251,47 @@ description: Professional Resume of Satyajit Roy Choudhury.
     <header class="resume-header">
       <h1>SATYAJIT ROY CHOUDHURY</h1>
       <div class="resume-tagline">
-        Engineering Executive | 20+ years in US &amp; India | Leader in Cloud, AI/ML Infra, and SRE Engineering
+        AI &amp; Cloud Infrastructure Executive | GPU Platforms, Kubernetes at Scale, SRE
       </div>
       <div class="resume-contact">
-        San Mateo, 94404 &nbsp;|&nbsp; (561) 866-3499 &nbsp;|&nbsp; <a href="mailto:emailme@sroy.tech">emailme@sroy.tech</a> &nbsp;|&nbsp;
+        San Mateo, CA 94404 &nbsp;|&nbsp; (561) 866-3499 &nbsp;|&nbsp; <a href="mailto:emailme@sroy.tech">emailme@sroy.tech</a> &nbsp;|&nbsp;
         <a href="https://linkedin.com/in/satyajitroychoudhury/">LinkedIn</a> &nbsp;|&nbsp;
         <a href="https://sroy.tech/portfolio">Portfolio</a> &nbsp;|&nbsp;
         <a href="https://sroy.tech">Personal Site</a>
       </div>
     </header>
 
-    <div class="section-title">EXECUTIVE SUMMARY</div>
+    <div class="section-title">SUMMARY</div>
     <div style="text-align: justify; font-size: 12pt;">
-      I build and scale engineering organizations that turn infrastructure investment into business outcomes. Over 20 years, I have run global platform and SRE teams through rapid growth, built reliability into products that couldn't afford to fail, and stayed close enough to the architecture to make the hard calls myself. I lead by developing the people around me, staying hands-on where it matters, and keeping complex systems honest with clear metrics and accountability.
+      I build the infrastructure that AI and search products run on. Over 20 years I have designed GPU clusters sitting behind roughly 30 billion requests a day, cleaned up Kubernetes estates spread across three clouds, and owned global SRE with full P&amp;L for security-critical SaaS. Right now I am hands-on again: a multi-cluster GKE build, GitOps, model training pipelines, and agentic workflows inside a HIPAA environment. I have run a 55-person org and built a 20-person one from nothing, and I stay close enough to the architecture to make the hard calls myself.
     </div>
 
-    <div class="section-title">KEY EXECUTIVE ACHIEVEMENTS</div>
-    <ul class="achievement-list">
-      <li><strong style="color: var(--resume-accent-color);">Hyperscale Platform Leadership:</strong> Architected and operated search and AI platforms handling 30B+ daily requests at 99.98%+ availability across hybrid multi-cloud infrastructure, while increasing GPU cluster utilization by 38–40% through workload-aware scheduling.</li>
-      <li><strong style="color: var(--resume-accent-color);">Growth &amp; Reliability Enablement:</strong> Led platform and SRE strategy that absorbed 400% attack traffic growth and supported 200%+ SaaS customer expansion at F5 without proportional infrastructure cost increases while improving release velocity and incident response.</li>
-      <li><strong style="color: var(--resume-accent-color);">Financial &amp; Cost Optimization:</strong> Delivered 22–65% cloud cost reductions across three organizations through hybrid architectures, FinOps governance, and storage tiering including a 30% annual TCO reduction at F5 while accelerating feature delivery by 40%.</li>
-      <li><strong style="color: var(--resume-accent-color);">Organizational &amp; Talent Leadership:</strong> Built and led global engineering organizations up to 55+ engineers; maintained sub-10% attrition and advanced 30%+ of team members into senior or leadership roles through structured development and promotion planning.</li>
-    </ul>
-
-    <div class="section-title">AREAS OF EXPERTISE</div>
+    <div class="section-title">CORE STRENGTHS</div>
     <div class="expertise-grid">
       <div class="expertise-column">
-        <h3>Leadership &amp; Strategy</h3>
+        <h3>AI/ML Infrastructure</h3>
         <ul class="expertise-list">
-          <li>P&amp;L &amp; Budget Accountability</li>
-          <li>Org Design &amp; Headcount Planning</li>
-          <li>Manager-of-Managers</li>
-          <li>Build vs Buy Strategy</li>
-          <li>Technical Roadmapping &amp; OKRs</li>
-          <li>FinOps / Cloud TCO Optimization</li>
-          <li>Executive &amp; Board Stakeholder Mgmt</li>
+          <li>NVIDIA V100, A100, T4</li>
+          <li>MIG &amp; GPU-aware Scheduling</li>
+          <li>RDMA, InfiniBand, RoCE</li>
+          <li>Kubeflow, Volcano, MLflow</li>
+          <li>QLoRA Fine-tuning</li>
+          <li>LangGraph Agentic Workflows</li>
+          <li>Vertex AI</li>
+          <li>LiteLLM Multi-model Routing</li>
+          <li>TensorFlow Detection Models</li>
+          <li>Inference Optimization</li>
         </ul>
       </div>
       <div class="expertise-column">
-        <h3>Cloud &amp; Platform Engineering</h3>
+        <h3>Cloud &amp; Platform</h3>
         <ul class="expertise-list">
-          <li>Multi-Cloud (AWS, Azure, GCP)</li>
-          <li>Kubernetes (EKS, AKS, GKE)</li>
-          <li>GitOps (ArgoCD, Flux CD)</li>
-          <li>IaC (Terraform, Crossplane)</li>
-          <li>eBPF / Service Mesh (Cilium)</li>
+          <li>GCP, AWS, Azure</li>
+          <li>GKE, EKS, AKS</li>
+          <li>ArgoCD, Flux CD</li>
+          <li>Pulumi, Terraform, Crossplane</li>
+          <li>Cilium / eBPF</li>
+          <li>Temporal</li>
           <li>Microservices &amp; API Platforms</li>
           <li>CI/CD &amp; Release Engineering</li>
         </ul>
@@ -303,56 +299,65 @@ description: Professional Resume of Satyajit Roy Choudhury.
       <div class="expertise-column">
         <h3>Reliability &amp; Operations</h3>
         <ul class="expertise-list">
-          <li>SLO/SLI Design &amp; Incident Command</li>
-          <li>MTTR Reduction (60–73%)</li>
-          <li>Observability (OTel, Prometheus, ELK, Grafana, Jaeger)</li>
-          <li>Chaos Engineering &amp; Global On-call</li>
-          <li>WAAP / WAF &amp; Zero-Trust</li>
-          <li>FedRAMP High &bull; SOC 2 &bull; PCI-DSS</li>
-          <li>Mutual TLS &amp; Policy-as-Code</li>
-          <li>Runtime eBPF Monitoring</li>
+          <li>SLO/SLI Design</li>
+          <li>Incident Command</li>
+          <li>OpenTelemetry, Prometheus, Grafana, Jaeger, ELK</li>
+          <li>Chaos Engineering</li>
+          <li>Blameless Postmortems</li>
+          <li>Follow-the-sun On-call</li>
         </ul>
       </div>
     </div>
-    <div class="expertise-grid-2col">
+    <div class="expertise-grid">
       <div class="expertise-column">
-        <h3>AI/ML &amp; HPC Infrastructure</h3>
+        <h3>Security &amp; Compliance</h3>
         <ul class="expertise-list">
-          <li>NVIDIA GPU (V100, A100, T4)</li>
-          <li>HPC Networking (RDMA, InfiniBand, RoCE)</li>
-          <li>MLOps (Kubeflow, MLflow)</li>
-          <li>Job Scheduling (Volcano)</li>
-          <li>Inference Optimization MIG &amp; GPU-aware Scheduling</li>
+          <li>HIPAA, GDPR, FedRAMP High, SOC 2, PCI-DSS</li>
+          <li>OPA/Kyverno Policy-as-Code</li>
+          <li>Zero Trust &amp; Mutual TLS</li>
+          <li>Runtime eBPF Monitoring</li>
+          <li>PHI Redaction</li>
+          <li>Secrets Management</li>
         </ul>
       </div>
       <div class="expertise-column">
-        <h3>Data &amp; Storage Engineering</h3>
+        <h3>Data &amp; Storage</h3>
         <ul class="expertise-list">
-          <li>Elasticsearch</li>
-          <li>Object Storage Lifecycle</li>
-          <li>High Ingestion Pipelines</li>
+          <li>Elasticsearch at 10B+ Documents</li>
+          <li>High-ingestion Pipelines</li>
           <li>Multi-tenant Search Architecture</li>
-          <li>Data Sovereignty &amp; Compliance</li>
-          <li>Sub-5ms P95 Latency Optimization</li>
+          <li>Object Storage Lifecycle &amp; Tiering</li>
+          <li>Sub-5ms P95 Latency</li>
+        </ul>
+      </div>
+      <div class="expertise-column">
+        <h3>Leadership</h3>
+        <ul class="expertise-list">
+          <li>Org Design &amp; Headcount Planning</li>
+          <li>Manager of Managers</li>
+          <li>P&amp;L &amp; Budget Ownership</li>
+          <li>Build vs Buy</li>
+          <li>FinOps</li>
+          <li>Executive &amp; Board Stakeholder Mgmt</li>
         </ul>
       </div>
     </div>
 
-    <div class="section-title">TECHNICAL EXPERIENCE</div>
+    <div class="section-title">EXPERIENCE</div>
 
     <div class="experience-item">
       <div class="experience-header">
-        <div class="job-title">Engineering Leader <span class="company-name">at Mandolin – San Francisco, CA</span></div>
+        <div class="job-title">Head of Engineering and Infrastructure <span class="company-name">at Mandolin – San Francisco, CA</span></div>
         <div class="job-date">March 2026 — Present</div>
       </div>
-      <div class="job-summary">High-impact, hands-on leadership role driving the infrastructure and reliability function, focused on modernizing and scaling the core platform at a healthcare AI startup ($40M Series A, Greylock) automating specialty drug access for hundreds of clinics and health systems.</div>
+      <div class="job-summary">Founding infrastructure hire at a HIPAA-regulated healthcare company. I own the entire platform: PHI and EHR data systems, containerized services, OCR pipelines, model training, evals, and agentic workflows.</div>
       <ul class="bullet-list">
-        <li>Directed the SRE function, rapidly accelerating platform modernization. Integrated AI-driven tooling (<strong>Resolve.ai</strong>) to automate incident triage, achieving a <strong>40% reduction in MTTR</strong> and streamlining operations.</li>
-        <li>Architected a zero-downtime migration to a multi-cluster GKE environment, significantly increasing fault tolerance and system resilience. Engineered scalable Kubernetes networking via Cilium/eBPF, deploying Robusta for rapid cluster troubleshooting. Led strategic database migration from MongoDB to Cloud SQL.</li>
-        <li>Standardized end-to-end delivery using ArgoCD and Pulumi. Explored <strong>Pulumi Neo</strong> for AI-assisted IaC and enforced strict compliance guardrails with OPA/Kyverno to meet GDPR and HIPAA requirements.</li>
-        <li>Established a FinOps framework via Kubecost and BigQuery, successfully driving a <strong>53% reduction in infrastructure costs</strong> while simultaneously supporting an expanding resource footprint.</li>
-        <li>Hardened platform security with continuous vulnerability scanning (Wiz, Snyk) and robust secrets management. Designed scalable, secure access to internal cluster UIs via GCP IAP.</li>
-        <li>Built the infrastructure team from inception. Accelerated developer velocity by launching internal portals (Cortex/Backstage) powered by <strong>Glean's AI enterprise search</strong>, reducing onboarding and knowledge discovery time by <strong>over 50%</strong>.</li>
+        <li><strong style="color: var(--resume-accent-color);">Platform rebuild:</strong> Running Coral, a rebuild of the whole platform off managed Cloud Run and hosted ArgoCD onto self-hosted multi-cluster GKE across four GCP projects, with a MongoDB Atlas to Cloud SQL PostgreSQL migration going in parallel. No downtime, roughly 280 tracked work items.</li>
+        <li><strong style="color: var(--resume-accent-color);">ML platform:</strong> Building the ML side on the same infrastructure: training pipelines, QLoRA fine-tuning of Qwen2.5-Coder on our own codebase, eval harnesses, and LangGraph workflows that take a ticket and open a pull request.</li>
+        <li><strong style="color: var(--resume-accent-color);">LLM gateway:</strong> Designed the company gateway, LiteLLM on GKE with Vertex AI behind it, using Presidio for PHI redaction and OpenTelemetry for tracing, so every model call gets routed, logged, and checked against our PHI rules in one place.</li>
+        <li><strong style="color: var(--resume-accent-color);">Cost:</strong> Took monthly infrastructure spend from $250K down to $57K while the footprint kept growing, using Kubecost and BigQuery for FinOps reporting.</li>
+        <li><strong style="color: var(--resume-accent-color);">Reliability and security:</strong> Took MTTR down 40% by automating incident triage. Tightened the platform with OPA/Kyverno policy gates, continuous scanning through Wiz and Snyk, Cilium/eBPF networking, and GCP IAP in front of internal cluster UIs.</li>
+        <li><strong style="color: var(--resume-accent-color);">Team:</strong> Built the engineering and infrastructure team from nothing to 20 engineers, and stood up an internal developer portal that cut onboarding and knowledge lookup time by more than half.</li>
       </ul>
     </div>
 
@@ -361,48 +366,44 @@ description: Professional Resume of Satyajit Roy Choudhury.
         <div class="job-title">Director of Engineering and SRE <span class="company-name">at Arkose Labs – San Mateo, CA</span></div>
         <div class="job-date">Aug 2024 — June 2025</div>
       </div>
-      <div class="job-summary">High-growth fraud detection SaaS. Owned platform engineering and SRE across reliability, cloud cost, and security posture while the platform absorbed sharp enterprise-driven traffic growth.</div>
+      <div class="job-summary">Fraud detection SaaS. Owned platform engineering and SRE across reliability, cost, and security posture. Role eliminated in a company restructuring.</div>
       <ul class="bullet-list">
-        <li>Re-architected the platform to EKS-based microservices with an eBPF service mesh, supporting <strong>7x transaction growth</strong> over 10 months while holding <strong>99.9% SLA</strong> under sustained attack traffic.</li>
-        <li>Cut P1 incident resolution time by <strong>58%</strong> by rebuilding observability and SOC signal quality, then leading high-severity incident command directly until the on-call team had the tools and process to own it.</li>
-        <li>Drove migration from Cloudflare to CloudFront with Lambda@Edge, cutting edge latency by <strong>35%</strong> for enterprise customers.</li>
-        <li>Built and executed FinOps governance program, reducing cloud spend by <strong>22%</strong> without limiting infrastructure capacity lowering effective cost-per-million transactions quarter over quarter.</li>
-        <li>Established SLO-based release gates with Product, giving engineering and product a shared framework for trading feature velocity against reliability risk measurably reducing customer-impacting incidents.</li>
-        <li>Ran build-vs-buy evaluations and vendor POCs across cloud, edge, and observability platforms selecting best-fit solutions that cut evaluation cycles and avoided long-term lock-in.</li>
-        <li>Scaled the engineering organization from <strong>4 to 16 engineers</strong> across two teams; managed 2 engineering managers and owned the hiring plan and team structure.</li>
+        <li><strong>Platform re-architecture:</strong> Rebuilt the platform on EKS microservices with an eBPF service mesh. It took <strong>7x transaction growth</strong> in 10 months and held <strong>99.9% SLA</strong> under constant attack traffic.</li>
+        <li><strong>ML detection:</strong> Built TensorFlow-based detection for credential stuffing and bot activity that cut false positives <strong>65%</strong> while holding a <strong>99.8% mitigation rate</strong>, which showed up directly in renewals.</li>
+        <li><strong>Incident response:</strong> Cut P1 resolution time <strong>58%</strong> by fixing observability and SOC signal quality. I ran high-severity incident command myself until the on-call team had the tools and process to take it over.</li>
+        <li><strong>Cost and edge:</strong> Brought cloud spend down <strong>22%</strong> without capping capacity. Moved from Cloudflare to CloudFront with Lambda@Edge and took <strong>35%</strong> off edge latency.</li>
+        <li><strong>Team:</strong> Grew the group from 4 to 16 engineers across two teams, managed 2 engineering managers, and owned the hiring plan.</li>
       </ul>
     </div>
 
     <div class="experience-item">
       <div class="experience-header">
-        <div class="job-title">Sr. Director of Product Engineering &amp; Head of SRE <span class="company-name">at F5 Inc – San Jose, CA</span></div>
+        <div class="job-title">Sr. Director, Product Engineering &amp; Head of SRE <span class="company-name">at F5 Inc – San Jose, CA</span></div>
         <div class="job-date">Oct 2022 — April 2024</div>
       </div>
-      <div class="job-summary">Full P&amp;L accountability for Platform Engineering and Global SRE for F5's <strong>Distributed Cloud SaaS</strong>, a globally distributed, security-critical platform spanning 25+ PoPs across multiple cloud providers.</div>
+      <div class="job-summary">Full P&amp;L for Platform Engineering and Global SRE across F5 Distributed Cloud: 21+ PoPs, multi-cloud, security-critical.</div>
       <ul class="bullet-list">
-        <li>Oversaw architecture strategy for a <strong>25+ global PoP</strong> platform delivering multi-cloud networking, WAAP/WAF, and edge services enabling the platform to absorb <strong>400% growth in attack traffic</strong> while supporting 200%+ customer expansion.</li>
-        <li>Reduced annual <strong>TCO by 30%</strong> and accelerated feature delivery by <strong>40%</strong> through a disciplined build-vs-buy governance process that balanced internal IP development with the right vendor solutions.</li>
-        <li>Partnered with the CISO to achieve FedRAMP High, PCI-DSS, and SOC 2 compliance — implementing policy-as-code, zero-trust architecture, mutual TLS, and runtime eBPF monitoring — unlocking regulated telecom and financial services markets.</li>
-        <li>Cut MTTR by <strong>73%</strong> and sustained <strong>99.92%+</strong> platform availability by re-architecting observability with ELK, Jaeger, and ML-based anomaly detection.</li>
-        <li>Rebuilt the global SRE model into a follow-the-sun structure, reducing on-call burnout, cutting attrition by 10 percentage points, and improving incident response consistency across time zones.</li>
-        <li>Translated Board and C-suite priorities into multi-quarter engineering roadmaps and OKRs, aligning Cloud, SRE, and product teams across the full F5 Distributed Cloud portfolio.</li>
-        <li>Led an organization of <strong>55+ engineers</strong> as manager of managers: 3 Directors and 1 Senior Manager, owning hiring plans, headcount allocation, and operating budget.</li>
+        <li><strong>Org:</strong> Ran an organization of <strong>55+ engineers</strong> as a manager of managers, 3 Directors and 1 Senior Manager, and owned the hiring plan, headcount, and operating budget.</li>
+        <li><strong>Scale and cost:</strong> The platform took <strong>400% growth</strong> in attack traffic and <strong>200%+ customer growth</strong> without infrastructure spend growing to match. Annual TCO came down <strong>30%</strong> and feature delivery went up <strong>40%</strong>, mostly from being strict about what we built versus what we bought.</li>
+        <li><strong>Reliability:</strong> Cut MTTR <strong>73%</strong> and held <strong>99.92%+</strong> availability after rebuilding observability on ELK, Jaeger, and ML-based anomaly detection, with blameless retrospectives behind it.</li>
+        <li><strong>Compliance:</strong> Worked with the CISO to get FedRAMP High, PCI-DSS, and SOC 2 done through policy-as-code, zero-trust architecture, mutual TLS, and runtime eBPF monitoring. That opened up regulated telecom and financial services customers.</li>
+        <li><strong>Multi-tenancy:</strong> Led the architecture for secure multi-tenant and private-island deployments to meet data residency rules for global telecom and financial services clients.</li>
       </ul>
     </div>
 
     <div class="experience-item">
       <div class="experience-header">
-        <div class="job-title">Architect/Technical Leader <span class="company-name">at Adobe Inc – San Jose, CA</span></div>
+        <div class="job-title">Architect / Technical Leader <span class="company-name">at Adobe Inc – San Jose, CA</span></div>
         <div class="job-date">Aug 2018 — Oct 2022</div>
       </div>
-      <div class="job-summary">Technical leader for Adobe's Core Search and Sensei Machine Learning platform hyperscale infrastructure serving billions of daily requests across the full Search and Sensei product ecosystem.</div>
+      <div class="job-summary">Technical lead for the hyperscale infrastructure behind Adobe Core Search and the Sensei ML platform.</div>
       <ul class="bullet-list">
-        <li>Built and operated a hybrid <strong>GPU/CPU infrastructure</strong> across AWS, Azure, and on-prem that handled <strong>~30B daily API requests at 99.98%+ availability</strong>.</li>
-        <li>Designed and optimized NVIDIA V100/A100 HPC clusters with RDMA InfiniBand, MIG, and GPU-aware scheduling (Kubeflow, Volcano), increasing cluster utilization by <strong>38%</strong> measurably reducing compute cost for equivalent workload volume.</li>
-        <li>Migrated from managed AWS Elasticsearch to a self-managed hybrid architecture across 18 clusters handling 10B+ documents at 6,000 writes/sec, delivering <strong>30% licensing savings</strong> while improving operational control.</li>
-        <li>Consolidated fragmented Kubernetes environments into 15 multi-tenant clusters using Cilium (eBPF), eliminating 90% of cluster sprawl the reference architecture was later adopted across Adobe's broader engineering organization.</li>
-        <li>Cut cloud storage costs by <strong>65%</strong> through data lifecycle and tiering policies across search and ML pipelines while maintaining <strong>sub-5ms P95 latency</strong>.</li>
-        <li>Led 12 senior platform and infrastructure engineers, setting the architectural direction for search and ML infrastructure used across Adobe's product portfolio.</li>
+        <li><strong>Hyperscale infrastructure:</strong> Built and ran hybrid GPU/CPU infrastructure across AWS, Azure, and on-prem serving roughly <strong>30 billion API requests a day</strong> at <strong>99.98%+ availability</strong>.</li>
+        <li><strong>GPU and HPC:</strong> Designed the NVIDIA V100 and A100 HPC clusters: RDMA InfiniBand, MIG partitioning, and GPU-aware scheduling through Kubeflow and Volcano. Cluster utilization went up <strong>38%</strong>.</li>
+        <li><strong>Search architecture:</strong> Moved managed AWS Elasticsearch to a self-managed hybrid setup, 18 clusters and <strong>10B+ documents</strong> at 6,000 writes/sec, holding sub-5ms P95 and taking <strong>30%</strong> off licensing.</li>
+        <li><strong>Kubernetes consolidation:</strong> Pulled scattered Kubernetes environments into 15 multi-tenant Cilium/eBPF clusters and got rid of <strong>90%</strong> of the cluster sprawl. Adobe engineering picked up the reference architecture more widely afterward.</li>
+        <li><strong>Storage economics:</strong> Cut cloud storage cost <strong>65%</strong> through lifecycle and tiering policies across search and ML pipelines, without giving up sub-5ms P95 latency.</li>
+        <li><strong>Team:</strong> Led 12 senior platform engineers and set the architecture direction for search and ML infrastructure used across Adobe's product portfolio.</li>
       </ul>
     </div>
 
@@ -411,33 +412,31 @@ description: Professional Resume of Satyajit Roy Choudhury.
         <div class="job-title">Tech Leader <span class="company-name">at Macys.com – San Francisco, CA</span></div>
         <div class="job-date">Nov 2016 — Aug 2018</div>
       </div>
-      <div class="job-summary">Technical leader for enterprise-wide CI/CD and platform modernization supporting Macy's and Bloomingdale's e-commerce engineering organizations.</div>
       <ul class="bullet-list">
-        <li>Designed and delivered a company-wide CI/CD platform using Jenkins pipelines, Spinnaker, and Kubernetes reducing deployment time from 2–3 days to <strong>under 1 hour</strong> and enabling 100+ tested deployments per week.</li>
-        <li>Implemented blue-green and canary deployment strategies, enabling near-zero-downtime releases for revenue-critical e-commerce workloads during peak retail periods.</li>
-        <li>Designed a hybrid cloud architecture across GCP (GKE), AWS (ECS/EKS), and on-prem VMware Tanzu, enabling consistent workload execution across environments.</li>
-        <li>Introduced early GitOps workflows using Flux CD, improving deployment consistency and reducing infrastructure provisioning errors during peak retail traffic.</li>
-        <li>Led a team of 15 engineers across platform modernization and delivery tooling for both the Macy's and Bloomingdale's engineering organizations.</li>
+        <li><strong>CI/CD platform:</strong> Built the company-wide CI/CD platform on Jenkins, Spinnaker, and Kubernetes. Deployments went from 2-3 days to under an hour, and we got to <strong>100+ tested deploys a week</strong>.</li>
+        <li><strong>Safe releases:</strong> Put blue-green and canary deployments in place so revenue-critical e-commerce workloads could ship during peak retail without downtime.</li>
+        <li><strong>Hybrid cloud:</strong> Built hybrid cloud across GKE, AWS ECS/EKS, and on-prem VMware Tanzu with early Flux CD GitOps, which cut provisioning errors during peak traffic.</li>
+        <li><strong>Team:</strong> Led 15 engineers across platform modernization and delivery tooling for Macy's and Bloomingdale's.</li>
       </ul>
     </div>
 
     <div class="section-title">EARLIER EXPERIENCE</div>
     <ul class="bullet-list">
-      <li><strong>Prior Engineering Roles (2009 – 2016):</strong> Workday, Chegg, RocketFuel, Adobe, Saba Software, CMC</li>
-      <li><strong>International Engineering Roles (2004 – 2009):</strong> Autonomy, SDG Group, HCL Tech, vCustomer (India)</li>
+      <li><strong>2009 – 2016:</strong> Workday, Chegg, RocketFuel, Adobe, Saba Software, Campus Management Corp</li>
+      <li><strong>2004 – 2009 (India):</strong> Autonomy Interwoven, SDG Corporation, HCL Technologies, vCustomer</li>
     </ul>
 
     <div class="section-title">EDUCATION</div>
     <div class="education-item">
       <div class="experience-header">
-        <div class="education-degree">Bachelor of Science <span style="font-weight: 400; color: #555;">| Mahatma Gandhi Kashi Vidyapith | Varanasi, UP, India</span></div>
-        <div class="job-date">June 2002</div>
+        <div class="education-degree">B.S., Computer Science <span style="font-weight: 400; color: #555;">| Mahatma Gandhi Kashi Vidyapith | Varanasi, India</span></div>
+        <div class="job-date">2002</div>
       </div>
     </div>
     <div class="education-item">
       <div class="experience-header">
         <div class="education-degree">Leading Effective Decision-Making <span style="font-weight: 400; color: #555;">(certification) | Yale School of Management | Online</span></div>
-        <div class="job-date">October 2021</div>
+        <div class="job-date">2021</div>
       </div>
     </div>
   </div>

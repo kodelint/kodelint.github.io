@@ -11,8 +11,8 @@ description: Engineering leader specializing in hyperscale AI/ML infrastructure,
       <!-- Left Column: Primary Content -->
       <div class="hero-content">
         <h1 class="p-name" style="margin-top: 0; margin-bottom: 0.5rem;">Satyajit Roy</h1>
-        <h2 class="p-role-subtitle" style="margin-bottom: 1rem;">Engineering Executive | Platform, SRE & AI Infrastructure</h2>
-        <p class="p-subhead" style="margin-bottom: 1.5rem;">I design, scale, and lead hyperscale platforms delivering reliability, efficiency, and clarity at internet scale.</p>
+        <h2 class="p-role-subtitle" style="margin-bottom: 1rem;">AI &amp; Cloud Infrastructure Executive | GPU Platforms, Kubernetes at Scale, SRE</h2>
+        <p class="p-subhead" style="margin-bottom: 1.5rem;">I build the infrastructure that AI and search products run on delivering reliability, efficiency, and clarity at internet scale.</p>
         <div class="p-cta-group">
           <a href="{{ "/portfolio/case-studies/" | relative_url }}" class="p-btn p-btn-primary">View Case Studies</a>
           <a href="{{ "/portfolio/resume/" | relative_url }}" class="p-btn p-btn-outline">View Resume</a>

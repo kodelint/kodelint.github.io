@@ -1,7 +1,7 @@
 home:
   name: "Satyajit Roy"
-  role: "Engineering Executive and Leader"
-  subhead: "I design and scale the platforms that power modern AI, secure global traffic, and keep mission‑critical systems fast, reliable, and cost‑efficient."
+  role: "AI & Cloud Infrastructure Executive"
+  subhead: "I build the infrastructure that AI and search products run on GPU platforms, Kubernetes at scale, and SRE for security-critical, HIPAA-regulated systems."
   metrics:
     - title: "Experience"
       value: "20+ Years"
@@ -15,31 +15,31 @@ home:
     - "Leadership of global engineering organizations"
     - "Architecting hyperscale systems"
     - "Turning reactive engineering into proactive, high‑velocity excellence"
-    - "Delivering 20-65% cloud cost reductions via FinOps"
+    - "Delivering 20-77% cloud cost reductions via FinOps"
     - "Scaling AI/ML and High-Performance infrastructure"
     - "Bridging technical risk with strategic business value"
 
 case_studies:
   - id: platform-modernization-gitops
     title: "Zero to Production-Grade: Rebuilding Mandolin's Entire Cloud Platform from Scratch"
-    outcome: "53% infra cost reduction, 67% MTTR reduction, 53 days, solo execution (while building a team from scratch)"
+    outcome: "77% infra cost reduction, 40% MTTR reduction, 53 days, solo execution (while building a team from scratch)"
     context: "Mandolin is a healthcare AI startup ($40M Series A, Greylock), operating in hyper-growth with HIPAA/GDPR compliance requirements and enterprise healthcare tenants."
-    role: "Engineering Leader — Mandolin"
+    role: "Head of Engineering and Infrastructure — Mandolin"
     problem: "Four deployment systems, no source of truth, every service on a public endpoint no segmentation, no mTLS, static credentials scattered across codebases. No DR, no defined RTO. Huge operating cost with 45 to 1 hour per build and zero developer self-service."
     constraints: "Zero production downtime, solo execution, live healthcare enterprise tenants throughout, HIPAA and GDPR compliance from day one."
     solution:
-      - "5 GKE clusters across 4 GCP projects self-hosted ArgoCD, Argo Workflows + BuildKit CI, ARC runners. Replaced all managed SaaS."
-      - "Private-by-default networking internal LBs, per-tenant mTLS, ESO + Secret Manager, Workload Identity. Zero static credentials. MongoDB → Cloud SQL migration."
-      - "Resolve.ai for AI-driven incident triage (67% MTTR reduction); Pulumi Neo for AI-assisted IaC two tools that multiplied solo engineering leverage."
+      - "Multi-cluster GKE across 4 GCP projects self-hosted ArgoCD, Argo Workflows + BuildKit CI, ARC runners. Replaced all managed SaaS."
+      - "Private-by-default networking internal LBs, per-tenant mTLS, ESO + Secret Manager, Workload Identity. Zero static credentials. MongoDB Atlas → Cloud SQL PostgreSQL migration."
+      - "Resolve.ai for AI-driven incident triage (40% MTTR reduction); Pulumi Neo for AI-assisted IaC two tools that multiplied solo engineering leverage."
       - "AI-driven OCR pipeline for automated data extraction from prior auth forms and insurance documents eliminated manual entry across the specialty drug intake workflow."
-      - "Designing and implementing in-house model training infrastructure HIPAA-compliant GPU workloads, training and model registry to support proprietary healthcare AI."
-      - "Self-service Build & Deploy portal one-click deployments, RC tracking, and per-branch TTL preview environments."
+      - "Designing and implementing in-house model training infrastructure QLoRA fine-tuning, eval harnesses, and LangGraph agentic workflows to support proprietary healthcare AI."
+      - "LiteLLM gateway on GKE fronting Vertex AI, with Presidio PHI redaction and OpenTelemetry tracing on every model call."
       - "Developer portal + Glean AI search onboarding and knowledge discovery time cut 50%."
-      - "Reinvented the developer production workflow using AI-assisted IaC and AI-driven incident triage."
+      - "Reinvented the developer production workflow using AI-assisted IaC and automated incident triage."
       - "OPA/Kyverno compliance guardrails, Wiz + Snyk vulnerability scanning, Kubecost + BigQuery FinOps."
     impact:
-      - "53% reduction in infrastructure costs while simultaneously growing the resource footprint."
-      - "67% reduction in MTTR via Resolve.ai-automated incident triage."
+      - "77% reduction in monthly infrastructure spend ($250K → $57K) while simultaneously growing the resource footprint."
+      - "40% reduction in MTTR via Resolve.ai-automated incident triage."
       - "CI builds: 45 minutes → 23 minutes (49% faster). Tenant onboarding: 2–3 days → 30 minutes."
       - "DR RTO: undefined → <10 min. Zero public endpoints. HIPAA/GDPR-compliant from day one."
       - "Developer onboarding and knowledge discovery time cut by 50% via Glean AI search"
@@ -126,7 +126,7 @@ case_studies:
     context: "F5's Distributed Cloud platform required the highest levels of security to serve federal and highly regulated enterprise customers."
     role: "Sr. Director of Product Engineering & Head of SRE"
     problem: "Achieving and sustaining high-bar compliance (FedRAMP High) while maintaining rapid feature velocity in a multi-cloud environment."
-    constraints: "Global footprint (25+ PoPs), complex multi-tenant networking, and zero-trust requirements."
+    constraints: "Global footprint (21+ PoPs), complex multi-tenant networking, and zero-trust requirements."
     solution:
       - "Architected a zero-trust platform using mutual TLS (mTLS), identity-based policy, and runtime eBPF monitoring."
       - "Implemented 'Compliance-as-Code' to automate security guardrails across the entire CI/CD lifecycle."
@@ -134,7 +134,7 @@ case_studies:
     impact:
       - "Successfully achieved FedRAMP High, PCI-DSS, and SOC 2 certifications."
       - "Accelerated feature velocity by 40% by shifting security and compliance left."
-      - "Delivered a unified security posture across 25+ global points of presence."
+      - "Delivered a unified security posture across 21+ global points of presence."
     lessons:
       - "Security is not a checkbox; it's a foundational architectural property."
       - "Automated compliance is the only way to scale security in a distributed system."
@@ -227,7 +227,7 @@ leadership:
     - title: "Platform Architecture & HPC Modernization"
       desc: "Engineered next‑generation hybrid HPC and multi‑cloud platforms at Adobe and F5, integrating GPU‑accelerated AI/ML infrastructure, RDMA‑powered HPC clusters, and unified Kubernetes architectures to support 30B+ daily requests, hyperscale search, and global networking systems."
     - title: "Global SRE Operating Model"
-      desc: "Redesigned SRE into a follow‑the‑sun global organization with unified tooling, consistent incident response, and cross‑regional ownership, reducing burnout, improving reliability, and enabling 24/7 operational excellence across 25+ global PoPs."
+      desc: "Redesigned SRE into a follow‑the‑sun global organization with unified tooling, consistent incident response, and cross‑regional ownership, reducing burnout, improving reliability, and enabling 24/7 operational excellence across 21+ global PoPs."
     - title: "FinOps & Cloud Efficiency Governance"
       desc: "Built a cost‑aware engineering culture by implementing FinOps governance, real‑time cost visibility, and architectural optimization strategies that delivered 22–65% cloud savings across organizations without slowing product velocity."
     - title: "Security & Compliance Automation"
@@ -329,17 +329,17 @@ oss:
     tags: ["Rust", "Git", "CLI"]
 
 resume:
-  summary: "Engineering and Platform leader with 20+ years of experience building and scaling mission‑critical SaaS, AI/ML, and cloud platforms."
+  summary: "I build the infrastructure that AI and search products run on GPU platforms, Kubernetes at scale, and global SRE with full P&L for security-critical SaaS."
   experience:
     - company: "Mandolin"
-      role: "Engineering Leader"
+      role: "Head of Engineering and Infrastructure"
       date: "March 2026 — Present"
       points:
-        - "Built infrastructure team from scratch; 53% infra cost reduction via FinOps (Kubecost + BigQuery)."
-        - "40% MTTR reduction using Resolve.ai AI incident triage; zero-downtime GKE multi-cluster migration."
+        - "Built infrastructure team from scratch to 20 engineers; 77% reduction in monthly infra spend ($250K → $57K) via FinOps (Kubecost + BigQuery)."
+        - "40% MTTR reduction using Resolve.ai AI incident triage; zero-downtime multi-cluster GKE migration off Cloud Run."
     - company: "Arkose Labs"
       role: "Director of Engineering & SRE"
-      date: "Aug 2024 — Present"
+      date: "Aug 2024 — June 2025"
       points:
         - "Modernized the platform to support 7x transaction growth."
         - "Established FinOps governance reducing cloud spend by 22%."
@@ -348,7 +348,7 @@ resume:
       date: "Oct 2022 — Apr 2024"
       points:
         - "Led 55+ engineers and reduced MTTR by 73%."
-        - "Owned strategy for a 25+ PoP global networking platform."
+        - "Owned strategy for a 21+ PoP global networking platform."
     - company: "Adobe Inc"
       role: "Architect / Technical Leader"
       date: "Aug 2018 — Oct 2022"
